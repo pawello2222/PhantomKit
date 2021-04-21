@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
     'SWIFT_VERSION' => '5.3',
     'SWIFT_INSTALL_OBJC_HEADER' => 'NO'
   }
-  s.dependency 'Xcore'
+#  s.dependency 'Xcore'
 end
