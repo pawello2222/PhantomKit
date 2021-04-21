@@ -1,0 +1,6 @@
+use_frameworks!
+target 'PhantomKit_Tests' do
+  pod 'PhantomKit', :path => '../'
+  
+  
+end
