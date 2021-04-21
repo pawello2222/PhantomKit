@@ -1,0 +1,16 @@
+PODS:
+  - PhantomKit (0.1.0)
+
+DEPENDENCIES:
+  - PhantomKit (from `../`)
+
+EXTERNAL SOURCES:
+  PhantomKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  PhantomKit: 6b69ed5584ba7361d5306cc4586eff41fe050acc
+
+PODFILE CHECKSUM: 8ed05d7f0b1479f4af2952c03e27c26d2fdc899d
+
+COCOAPODS: 1.10.1
