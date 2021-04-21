@@ -11,6 +11,9 @@
 		75B5BC437565B7DC4485B6AA /* Pods_PhantomKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7318C57AC9C359D1170CA3F /* Pods_PhantomKit_Tests.framework */; };
 		E54631F92630B244007E7F6A /* PhantomKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54631F82630B244007E7F6A /* PhantomKit.swift */; };
 		E54631FE2630B24B007E7F6A /* NavigationView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54631FD2630B24B007E7F6A /* NavigationView+Ext.swift */; };
+		E54632292630C2C2007E7F6A /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54632282630C2C1007E7F6A /* Array+Ext.swift */; };
+		E54632312630C5AF007E7F6A /* Set+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54632302630C5AF007E7F6A /* Set+Ext.swift */; };
+		E54632382630CB12007E7F6A /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54632372630CB12007E7F6A /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		D7318C57AC9C359D1170CA3F /* Pods_PhantomKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhantomKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E54631F82630B244007E7F6A /* PhantomKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhantomKit.swift; sourceTree = "<group>"; };
 		E54631FD2630B24B007E7F6A /* NavigationView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NavigationView+Ext.swift"; sourceTree = "<group>"; };
+		E54632282630C2C1007E7F6A /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
+		E54632302630C5AF007E7F6A /* Set+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+Ext.swift"; sourceTree = "<group>"; };
+		E54632372630CB12007E7F6A /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,7 @@
 		E54631F52630B1BD007E7F6A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				E54632272630C284007E7F6A /* Swift */,
 				E54631FC2630B24B007E7F6A /* SwiftUI */,
 				E54631F72630B244007E7F6A /* Supporting Files */,
 			);
@@ -110,8 +117,18 @@
 			isa = PBXGroup;
 			children = (
 				E54631FD2630B24B007E7F6A /* NavigationView+Ext.swift */,
+				E54632372630CB12007E7F6A /* WebView.swift */,
 			);
 			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		E54632272630C284007E7F6A /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				E54632282630C2C1007E7F6A /* Array+Ext.swift */,
+				E54632302630C5AF007E7F6A /* Set+Ext.swift */,
+			);
+			path = Swift;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +251,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E54631FE2630B24B007E7F6A /* NavigationView+Ext.swift in Sources */,
+				E54632292630C2C2007E7F6A /* Array+Ext.swift in Sources */,
+				E54632312630C5AF007E7F6A /* Set+Ext.swift in Sources */,
+				E54632382630CB12007E7F6A /* WebView.swift in Sources */,
 				E54631F92630B244007E7F6A /* PhantomKit.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 			);

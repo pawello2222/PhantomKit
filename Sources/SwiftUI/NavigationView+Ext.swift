@@ -10,8 +10,7 @@ import SwiftUI
 
 extension View {
     public func embedInNavigation(_ title: String) -> some View {
-        self
-            .navigationTitle(title)
+        navigationTitle(title)
             .embedInNavigation()
     }
 }
