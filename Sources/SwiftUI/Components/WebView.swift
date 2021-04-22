@@ -10,6 +10,7 @@ import SwiftUI
 import WebKit
 
 public struct WebView: View {
+    @Environment(\.presentationMode) private var presentationMode
     @ObservedObject private var viewModel: ViewModel
 
     public init(viewModel: ViewModel) {
@@ -24,7 +25,10 @@ public struct WebView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Done", action: viewModel.dismissAction)
+                        Button("Done") {
+                            presentationMode.wrappedValue.dismiss()
+                            viewModel.dismissAction()
+                        }
                     }
                 }
         }
@@ -48,7 +52,7 @@ extension WebView {
             url: String,
             isNavigationAllowed: Bool = false,
             edgesIgnoringSafeArea: Edge.Set = .none,
-            dismissAction: @escaping () -> Void
+            dismissAction: @escaping () -> Void = {}
         ) {
             self.title = title
             self.url = url

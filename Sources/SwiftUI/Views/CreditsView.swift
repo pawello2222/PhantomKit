@@ -139,3 +139,15 @@ extension CreditsView.Section.Item {
         title: "© \(Calendar.current.year) Paweł Wiszenko"
     )
 }
+
+extension CreditsView.Section.Item {
+    static func link(title: String, url: String) -> Self {
+        .init(
+            title: title,
+            webView: .init(
+                title: title,
+                url: url
+            )
+        )
+    }
+}
