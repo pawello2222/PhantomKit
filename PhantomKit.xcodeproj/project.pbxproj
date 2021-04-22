@@ -17,6 +17,7 @@
 		E546324F2631CA06007E7F6A /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E546324E2631CA06007E7F6A /* CreditsView.swift */; };
 		E54632582631CC51007E7F6A /* Calendar+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54632572631CC51007E7F6A /* Calendar+Ext.swift */; };
 		E54632672631DF87007E7F6A /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54632662631DF87007E7F6A /* String+Ext.swift */; };
+		E5463295263209B4007E7F6A /* Router+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5463294263209B4007E7F6A /* Router+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E546324E2631CA06007E7F6A /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		E54632572631CC51007E7F6A /* Calendar+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Ext.swift"; sourceTree = "<group>"; };
 		E54632662631DF87007E7F6A /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		E5463294263209B4007E7F6A /* Router+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 		E54632492631C987007E7F6A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E5463294263209B4007E7F6A /* Router+Ext.swift */,
 				E54631FD2630B24B007E7F6A /* View+Ext.swift */,
 			);
 			path = Extensions;
@@ -291,6 +294,7 @@
 			files = (
 				E54632672631DF87007E7F6A /* String+Ext.swift in Sources */,
 				E54631FE2630B24B007E7F6A /* View+Ext.swift in Sources */,
+				E5463295263209B4007E7F6A /* Router+Ext.swift in Sources */,
 				E546324F2631CA06007E7F6A /* CreditsView.swift in Sources */,
 				E54632292630C2C2007E7F6A /* Array+Ext.swift in Sources */,
 				E54632582631CC51007E7F6A /* Calendar+Ext.swift in Sources */,

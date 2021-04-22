@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct CreditsView: View {
+public struct CreditsView: View {
     @Environment(\.theme) private var theme
     private let imageName: String
     private let sections: [Section]
@@ -128,20 +128,20 @@ extension CreditsView.Section.Item {
 // MARK: - Data
 
 extension CreditsView.Section {
-    static let appDesign = Self(
+    public static let appDesign = Self(
         title: "APP DESIGN",
         items: [.copyright]
     )
 }
 
 extension CreditsView.Section.Item {
-    static let copyright = Self(
+    public static let copyright = Self(
         title: "© \(Calendar.current.year) Paweł Wiszenko"
     )
 }
 
 extension CreditsView.Section.Item {
-    static func link(title: String, url: String) -> Self {
+    public static func link(title: String, url: String) -> Self {
         .init(
             title: title,
             webView: .init(

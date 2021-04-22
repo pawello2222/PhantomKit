@@ -13,7 +13,7 @@ public struct WebView: View {
     @Environment(\.presentationMode) private var presentationMode
     @ObservedObject private var viewModel: ViewModel
 
-    public init(viewModel: ViewModel) {
+    public init(_ viewModel: ViewModel) {
         self.viewModel = viewModel
     }
 
@@ -24,10 +24,10 @@ public struct WebView: View {
                 .navigationTitle(viewModel.title)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarItem(placement: .navigationBarLeading) {
                         Button("Done") {
-                            presentationMode.wrappedValue.dismiss()
                             viewModel.dismissAction()
+                            presentationMode.wrappedValue.dismiss()
                         }
                     }
                 }
@@ -50,7 +50,7 @@ extension WebView {
         public init(
             title: String,
             url: String,
-            isNavigationAllowed: Bool = false,
+            isNavigationAllowed: Bool = true,
             edgesIgnoringSafeArea: Edge.Set = .none,
             dismissAction: @escaping () -> Void = {}
         ) {
@@ -141,7 +141,7 @@ public struct SheetWebViewModifier: ViewModifier {
                 isLinkActive = true
             }
             .sheet(isPresented: $isLinkActive) {
-                WebView(viewModel: viewModel)
+                WebView(viewModel)
             }
     }
 }
