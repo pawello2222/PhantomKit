@@ -15,6 +15,8 @@
 		E54632312630C5AF007E7F6A /* Set+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54632302630C5AF007E7F6A /* Set+Ext.swift */; };
 		E54632382630CB12007E7F6A /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54632372630CB12007E7F6A /* WebView.swift */; };
 		E546324F2631CA06007E7F6A /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E546324E2631CA06007E7F6A /* CreditsView.swift */; };
+		E54632582631CC51007E7F6A /* Calendar+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54632572631CC51007E7F6A /* Calendar+Ext.swift */; };
+		E54632672631DF87007E7F6A /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54632662631DF87007E7F6A /* String+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		E54632302630C5AF007E7F6A /* Set+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+Ext.swift"; sourceTree = "<group>"; };
 		E54632372630CB12007E7F6A /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		E546324E2631CA06007E7F6A /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
+		E54632572631CC51007E7F6A /* Calendar+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Ext.swift"; sourceTree = "<group>"; };
+		E54632662631DF87007E7F6A /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +141,9 @@
 			isa = PBXGroup;
 			children = (
 				E54632282630C2C1007E7F6A /* Array+Ext.swift */,
+				E54632572631CC51007E7F6A /* Calendar+Ext.swift */,
 				E54632302630C5AF007E7F6A /* Set+Ext.swift */,
+				E54632662631DF87007E7F6A /* String+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -285,9 +291,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E54632672631DF87007E7F6A /* String+Ext.swift in Sources */,
 				E54631FE2630B24B007E7F6A /* View+Ext.swift in Sources */,
 				E546324F2631CA06007E7F6A /* CreditsView.swift in Sources */,
 				E54632292630C2C2007E7F6A /* Array+Ext.swift in Sources */,
+				E54632582631CC51007E7F6A /* Calendar+Ext.swift in Sources */,
 				E54632312630C5AF007E7F6A /* Set+Ext.swift in Sources */,
 				E54632382630CB12007E7F6A /* WebView.swift in Sources */,
 				E54631F92630B244007E7F6A /* PhantomKit.swift in Sources */,

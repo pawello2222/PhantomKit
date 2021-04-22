@@ -9,37 +9,89 @@
 import SwiftUI
 import WebKit
 
-public struct WebView: UIViewRepresentable {
+public struct WebView: View {
     @ObservedObject private var viewModel: ViewModel
+
+    public init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+    }
+
+    public var body: some View {
+        NavigationView {
+            WebViewRepresentable(viewModel: viewModel)
+                .edgesIgnoringSafeArea(viewModel.edgesIgnoringSafeArea)
+                .navigationTitle(viewModel.title)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button("Done", action: viewModel.dismissAction)
+                    }
+                }
+        }
+    }
+}
+
+// MARK: - ViewModel
+
+extension WebView {
+    public class ViewModel: ObservableObject {
+        public let title: String
+        @Published public var url: String
+        @Published public var isNavigationAllowed: Bool
+        public let edgesIgnoringSafeArea: Edge.Set
+        public let dismissAction: () -> Void
+
+        @Published public var didFinishLoading = false
+
+        public init(
+            title: String,
+            url: String,
+            isNavigationAllowed: Bool = false,
+            edgesIgnoringSafeArea: Edge.Set = .none,
+            dismissAction: @escaping () -> Void
+        ) {
+            self.title = title
+            self.url = url
+            self.isNavigationAllowed = isNavigationAllowed
+            self.edgesIgnoringSafeArea = edgesIgnoringSafeArea
+            self.dismissAction = dismissAction
+        }
+    }
+}
+
+// MARK: - Representable
+
+public struct WebViewRepresentable: UIViewRepresentable {
+    @ObservedObject private var viewModel: WebView.ViewModel
 
     private let webView = WKWebView()
 
-    public init(link: String, blockOutgoingRequests: Bool = false) {
-        viewModel = ViewModel(link: link, blockOutgoingRequests: blockOutgoingRequests)
+    public init(viewModel: WebView.ViewModel) {
+        self.viewModel = viewModel
     }
 
-    public func makeUIView(context: UIViewRepresentableContext<WebView>) -> WKWebView {
+    public func makeUIView(context: UIViewRepresentableContext<Self>) -> WKWebView {
         webView.navigationDelegate = context.coordinator
-        if let url = URL(string: viewModel.link) {
+        if let url = URL(string: viewModel.url) {
             webView.load(URLRequest(url: url))
         }
         return webView
     }
 
-    public func updateUIView(_: WKWebView, context _: UIViewRepresentableContext<WebView>) {
+    public func updateUIView(_: WKWebView, context _: UIViewRepresentableContext<Self>) {
         return
     }
 
-    public func makeCoordinator() -> WebView.Coordinator {
+    public func makeCoordinator() -> Self.Coordinator {
         .init(viewModel)
     }
 }
 
-extension WebView {
+extension WebViewRepresentable {
     public class Coordinator: NSObject, WKNavigationDelegate {
-        private var viewModel: ViewModel
+        private var viewModel: WebView.ViewModel
 
-        public init(_ viewModel: ViewModel) {
+        public init(_ viewModel: WebView.ViewModel) {
             self.viewModel = viewModel
         }
 
@@ -52,12 +104,13 @@ extension WebView {
             decidePolicyFor navigationAction: WKNavigationAction,
             decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
         ) {
-            guard viewModel.blockOutgoingRequests else {
+            guard !viewModel.isNavigationAllowed else {
                 decisionHandler(.allow)
                 return
             }
+
             if let url = navigationAction.request.url {
-                if url.absoluteString.contains(viewModel.link) {
+                if url.absoluteString.contains(viewModel.url) {
                     decisionHandler(.allow)
                     return
                 }
@@ -67,15 +120,30 @@ extension WebView {
     }
 }
 
-extension WebView {
-    public class ViewModel: ObservableObject {
-        @Published public var link: String
-        @Published public var blockOutgoingRequests: Bool
-        @Published public var didFinishLoading = false
+// MARK: - Modifier
 
-        public init(link: String, blockOutgoingRequests: Bool = false) {
-            self.link = link
-            self.blockOutgoingRequests = blockOutgoingRequests
-        }
+public struct SheetWebViewModifier: ViewModifier {
+    @ObservedObject private var viewModel: WebView.ViewModel
+
+    @State private var isLinkActive = false
+
+    public init(viewModel: WebView.ViewModel) {
+        self.viewModel = viewModel
+    }
+
+    public func body(content: Content) -> some View {
+        content
+            .onTap {
+                isLinkActive = true
+            }
+            .sheet(isPresented: $isLinkActive) {
+                WebView(viewModel: viewModel)
+            }
+    }
+}
+
+extension View {
+    public func sheetWebView(_ viewModel: WebView.ViewModel) -> some View {
+        modifier(SheetWebViewModifier(viewModel: viewModel))
     }
 }

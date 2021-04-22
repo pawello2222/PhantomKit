@@ -14,3 +14,17 @@ extension View {
             .embedInNavigation()
     }
 }
+
+extension View {
+    public func maxFrame() -> some View {
+        frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+}
+
+extension View {
+    public func frameAction(_ action: @escaping () -> Void) -> some View {
+        frame(maxWidth: .infinity, maxHeight: .infinity)
+            .contentShape(Rectangle())
+            .onTapGesture(perform: action)
+    }
+}
