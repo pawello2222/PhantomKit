@@ -1,5 +1,5 @@
 //
-//  NavigationView+Ext.swift
+//  View+Ext.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 21/04/2021.
