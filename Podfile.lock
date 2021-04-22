@@ -1,6 +1,4 @@
 PODS:
-  - PhantomKit (1.0.0):
-    - Xcore
   - SDWebImage (5.11.0):
     - SDWebImage/Core (= 5.11.0)
   - SDWebImage/Core (5.11.0)
@@ -8,7 +6,6 @@ PODS:
     - SDWebImage
 
 DEPENDENCIES:
-  - PhantomKit (from `./`)
   - Xcore (from `https://github.com/zmian/xcore`)
 
 SPEC REPOS:
@@ -16,8 +13,6 @@ SPEC REPOS:
     - SDWebImage
 
 EXTERNAL SOURCES:
-  PhantomKit:
-    :path: "./"
   Xcore:
     :git: https://github.com/zmian/xcore
 
@@ -27,10 +22,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/zmian/xcore
 
 SPEC CHECKSUMS:
-  PhantomKit: cf30505157614bbbc68a3190c4601ff3828d450c
   SDWebImage: 7acbb57630ac7db4a495547fb73916ff3e432f6b
   Xcore: 632eae194fdb5ecdce6891e37a0cb4e0733314d2
 
-PODFILE CHECKSUM: 891f081e2dcae11061ed45514c419a7c653ea10f
+PODFILE CHECKSUM: a1c285ab83738d46d430d6baa6b73f4c5e4c236e
 
 COCOAPODS: 1.10.1

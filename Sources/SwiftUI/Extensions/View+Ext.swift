@@ -23,7 +23,7 @@ extension View {
 
 extension View {
     public func frameAction(_ action: @escaping () -> Void) -> some View {
-        frame(maxWidth: .infinity, maxHeight: .infinity)
+        maxFrame()
             .contentShape(Rectangle())
             .onTapGesture(perform: action)
     }

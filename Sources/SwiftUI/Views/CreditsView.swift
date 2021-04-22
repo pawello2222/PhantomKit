@@ -26,19 +26,17 @@ struct CreditsView: View {
 
     public var body: some View {
         VStack(spacing: .maximumPadding) {
-            ForEach(sections, id: \.title) {
-                CreditsView.Section.SectionView(section: $0)
-            }
+            imageView
+            sectionsView
         }
-        .maxFrame()
-//        .unwrap(onDismiss) { content, action in
-//            content.frameAction(action)
-//        }
+        .unwrap(onDismiss) {
+            $0.frameAction($1)
+        }
     }
 }
 
 extension CreditsView {
-    private var image: some View {
+    private var imageView: some View {
         Image(imageName)
             .resizable()
             .scaledToFit()
@@ -46,14 +44,14 @@ extension CreditsView {
             .padding()
     }
 
-    private var copyright: some View {
-        Image(imageName)
-            .resizable()
-            .scaledToFit()
-            .padding()
-            .padding()
+    private var sectionsView: some View {
+        ForEach(sections, id: \.title) {
+            CreditsView.Section.SectionView(section: $0)
+        }
     }
 }
+
+// MARK: - Section
 
 extension CreditsView {
     public struct Section {
@@ -80,6 +78,8 @@ extension CreditsView.Section {
         }
     }
 }
+
+// MARK: - Item
 
 extension CreditsView.Section {
     public struct Item {
@@ -124,6 +124,8 @@ extension CreditsView.Section.Item {
         }
     }
 }
+
+// MARK: - Data
 
 extension CreditsView.Section {
     static let appDesign = Self(

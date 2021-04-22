@@ -4,5 +4,5 @@ platform :ios, '14.0'
 pod 'Xcore', :git => 'https://github.com/zmian/xcore'
 
 target 'PhantomKit_Tests' do
-  pod 'PhantomKit', :path => './'
+#  pod 'PhantomKit', :path => './'
 end
