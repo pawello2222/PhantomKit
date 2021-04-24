@@ -46,4 +46,8 @@ extension RouteHandler {
     public func fullScreen<Content>(to view: Content) where Content: View {
         navigate(to: view, method: .fullScreen)
     }
+    
+    public func dismiss() {
+        dismiss(.push)
+    }
 }

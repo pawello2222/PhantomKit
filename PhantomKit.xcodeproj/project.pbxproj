@@ -20,8 +20,8 @@
 		E5463295263209B4007E7F6A /* Router+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5463294263209B4007E7F6A /* Router+Ext.swift */; };
 		E5A0388C2634014200488F6C /* Router+Route+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0388B2634014200488F6C /* Router+Route+Method.swift */; };
 		E5A0389F263428E900488F6C /* BaseHostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0389E263428E900488F6C /* BaseHostingView.swift */; };
-		E5A038A22634292900488F6C /* View+Dismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038A12634292900488F6C /* View+Dismiss.swift */; };
 		E5A038A62634296F00488F6C /* BaseHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038A52634296F00488F6C /* BaseHostingController.swift */; };
+		E5A038AF26342BCC00488F6C /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038AE26342BCC00488F6C /* View+Navigation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +42,8 @@
 		E5463294263209B4007E7F6A /* Router+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+Ext.swift"; sourceTree = "<group>"; };
 		E5A0388B2634014200488F6C /* Router+Route+Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+Route+Method.swift"; sourceTree = "<group>"; };
 		E5A0389E263428E900488F6C /* BaseHostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHostingView.swift; sourceTree = "<group>"; };
-		E5A038A12634292900488F6C /* View+Dismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Dismiss.swift"; sourceTree = "<group>"; };
 		E5A038A52634296F00488F6C /* BaseHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHostingController.swift; sourceTree = "<group>"; };
+		E5A038AE26342BCC00488F6C /* View+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +174,7 @@
 				E5463294263209B4007E7F6A /* Router+Ext.swift */,
 				E5A0388B2634014200488F6C /* Router+Route+Method.swift */,
 				E54631FD2630B24B007E7F6A /* View+Ext.swift */,
-				E5A038A12634292900488F6C /* View+Dismiss.swift */,
+				E5A038AE26342BCC00488F6C /* View+Navigation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -315,8 +315,8 @@
 				E54632312630C5AF007E7F6A /* Set+Ext.swift in Sources */,
 				E54632382630CB12007E7F6A /* WebView.swift in Sources */,
 				E5A0388C2634014200488F6C /* Router+Route+Method.swift in Sources */,
+				E5A038AF26342BCC00488F6C /* View+Navigation.swift in Sources */,
 				E54631F92630B244007E7F6A /* PhantomKit.swift in Sources */,
-				E5A038A22634292900488F6C /* View+Dismiss.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

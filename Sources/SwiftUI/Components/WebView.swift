@@ -21,13 +21,6 @@ public struct WebView: View {
             .navigationTitle(viewModel.title)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Done") {
-                        Router.current?.main.dismiss(.sheet)
-                    }
-                }
-            }
             .onDismiss { _ in
                 print("onDismiss")
             }
@@ -41,11 +34,10 @@ public struct WebView: View {
 
 extension WebView {
     public class ViewModel: ObservableObject {
-        public let title: String
-        @Published public var url: String
-        @Published public var isNavigationAllowed: Bool
-        public let edgesIgnoringSafeArea: Edge.Set
-        public let dismissAction: () -> Void
+        let title: String
+        @Published var url: String
+        @Published var isNavigationAllowed: Bool
+        let dismissAction: (() -> Void)?
 
         @Published public var didFinishLoading = false
 
@@ -53,13 +45,11 @@ extension WebView {
             title: String,
             url: String,
             isNavigationAllowed: Bool = true,
-            edgesIgnoringSafeArea: Edge.Set = .none,
-            dismissAction: @escaping () -> Void = {}
+            dismissAction: (() -> Void)? = nil
         ) {
             self.title = title
             self.url = url
             self.isNavigationAllowed = isNavigationAllowed
-            self.edgesIgnoringSafeArea = edgesIgnoringSafeArea
             self.dismissAction = dismissAction
         }
     }
@@ -126,30 +116,18 @@ extension WebViewRepresentable {
     }
 }
 
-// MARK: - Modifier
+// MARK: - Route
 
-public struct SheetWebViewModifier: ViewModifier {
-    @ObservedObject private var viewModel: WebView.ViewModel
-
-    @State private var isLinkActive = false
-
-    public init(viewModel: WebView.ViewModel) {
-        self.viewModel = viewModel
-    }
-
-    public func body(content: Content) -> some View {
-        content
-            .onTap {
-                isLinkActive = true
+extension RouteHandler {
+    public func webView<Content>(to view: Content, method: Method = .push) where Content: View {
+        let destination = view
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Done") { [weak self] in
+                        self?.dismiss(method)
+                    }
+                }
             }
-            .sheet(isPresented: $isLinkActive) {
-                WebView(viewModel)
-            }
-    }
-}
-
-extension View {
-    public func sheetWebView(_ viewModel: WebView.ViewModel) -> some View {
-        modifier(SheetWebViewModifier(viewModel: viewModel))
+        navigate(to: destination, method: method)
     }
 }

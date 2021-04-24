@@ -117,9 +117,9 @@ extension CreditsView.Section.Item {
                 .unwrap(item.action) {
                     $0.onTap(action: $1)
                 }
-                .unwrap(item.webView) {
-                    $0.sheetWebView($1)
-                }
+//                .unwrap(item.webView) {
+//                    $0.sheetWebView($1)
+//                }
         }
     }
 }
