@@ -10,7 +10,6 @@ import SwiftUI
 import WebKit
 
 public struct WebView: View {
-    @Environment(\.presentationMode) private var presentationMode
     @ObservedObject private var viewModel: ViewModel
 
     public init(_ viewModel: ViewModel) {
@@ -18,20 +17,23 @@ public struct WebView: View {
     }
 
     public var body: some View {
-        NavigationView {
-            WebViewRepresentable(viewModel: viewModel)
-                .edgesIgnoringSafeArea(viewModel.edgesIgnoringSafeArea)
-                .navigationTitle(viewModel.title)
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button("Done") {
-                            viewModel.dismissAction()
-                            presentationMode.wrappedValue.dismiss()
-                        }
+        WebViewRepresentable(viewModel: viewModel)
+            .navigationTitle(viewModel.title)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Done") {
+                        Router.current?.main.dismiss(.sheet)
                     }
                 }
-        }
+            }
+            .onDismiss { _ in
+                print("onDismiss")
+            }
+            .onDisappear {
+                print("onDisappear")
+            }
     }
 }
 

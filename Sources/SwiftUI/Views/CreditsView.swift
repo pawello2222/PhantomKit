@@ -12,16 +12,13 @@ public struct CreditsView: View {
     @Environment(\.theme) private var theme
     private let imageName: String
     private let sections: [Section]
-    private let onDismiss: (() -> Void)?
 
     public init(
         imageName: String = "screen-author",
-        sections: [Section] = [],
-        onDismiss: (() -> Void)? = nil
+        sections: [Section] = []
     ) {
         self.imageName = imageName
         self.sections = sections
-        self.onDismiss = onDismiss
     }
 
     public var body: some View {
@@ -29,9 +26,7 @@ public struct CreditsView: View {
             imageView
             sectionsView
         }
-        .unwrap(onDismiss) {
-            $0.frameAction($1)
-        }
+        .navigationBarHidden(true)
     }
 }
 
@@ -71,6 +66,9 @@ extension CreditsView.Section {
 
         var body: some View {
             VStack(spacing: .defaultPadding) {
+                Text(section.title)
+                    .font(.app(.subheadline, weight: .semibold))
+                    .foregroundColor(.secondary)
                 ForEach(section.items, id: \.title) {
                     CreditsView.Section.Item.ItemView(item: $0)
                 }
@@ -115,6 +113,7 @@ extension CreditsView.Section.Item {
 
         var body: some View {
             Text(item.title)
+                .font(.app(.body, weight: .medium))
                 .unwrap(item.action) {
                     $0.onTap(action: $1)
                 }

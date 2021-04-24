@@ -16,16 +16,34 @@ extension Router {
     }
 }
 
-extension Router.Route {
-    public init<V: View>(_ configure: @autoclosure @escaping () -> V) {
-        self.init { _ -> Router.RouteType in
-            .viewController(UIHostingController(rootView: configure()))
+extension RouteHandler {
+    public typealias Method = Router.Route<Self>.Method
+
+    public func navigate<Content>(to view: Content, method: Method = .push) where Content: View {
+        guard let navigationController = navigationController else {
+            return
+        }
+        method.show(view, navigationController: navigationController)
+    }
+
+    public func dismiss(_ method: Method = .push) {
+        guard let navigationController = navigationController else {
+            return
+        }
+        if method.isModal {
+            navigationController.dismiss(animated: method.isAnimated, completion: nil)
+        } else {
+            navigationController.popViewController(animated: method.isAnimated)
         }
     }
 }
 
 extension RouteHandler {
-    public func route<V: View>(to view: V, options: Options = .modal) {
-        route(to: .init(view), options: options)
+    public func sheet<Content>(to view: Content) where Content: View {
+        navigate(to: view, method: .sheet)
+    }
+
+    public func fullScreen<Content>(to view: Content) where Content: View {
+        navigate(to: view, method: .fullScreen)
     }
 }
