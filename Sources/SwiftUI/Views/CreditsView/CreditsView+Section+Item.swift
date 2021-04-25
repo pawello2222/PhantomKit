@@ -23,7 +23,7 @@ extension CreditsView.Section {
             action: @escaping () -> Void
         ) {
             self.title = title
-            self.action = .simple(action)
+            self.action = .tap(action)
         }
 
         public init(
@@ -40,7 +40,7 @@ extension CreditsView.Section {
 
 extension CreditsView.Section.Item {
     enum Action {
-        case simple(() -> Void)
+        case tap(() -> Void)
         case webView(WebView.ViewModel)
     }
 }
@@ -65,11 +65,10 @@ extension View {
     @ViewBuilder
     func action(_ action: CreditsView.Section.Item.Action) -> some View {
         switch action {
-        case .simple(let action):
+        case .tap(let action):
             onTapGesture(perform: action)
         case .webView(let viewModel):
             sheet(triggeredBy: .button, content: WebView(viewModel))
-                .foregroundColor(.systemBlue)
         }
     }
 }
