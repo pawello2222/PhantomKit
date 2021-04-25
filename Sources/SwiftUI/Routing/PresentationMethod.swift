@@ -1,5 +1,5 @@
 //
-//  View+Route.swift
+//  PresentationMethod.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 25/04/2021.
@@ -7,36 +7,6 @@
 //
 
 import SwiftUI
-
-extension View {
-    public func route<Content, Style>(
-        to view: Content,
-        method: Router.Route<MainRouter>.Method = .push,
-        style: Style
-    ) -> some View where Content: View, Style: PrimitiveButtonStyle {
-        Button {
-            Router.current?.main.route(to: view, method: method)
-        } label: {
-            self
-        }
-        .buttonStyle(style)
-    }
-}
-
-extension View {
-    public func route<Content>(
-        to view: Content,
-        method: Router.Route<MainRouter>.Method = .push
-    ) -> some View where Content: View {
-        route(to: view, method: method, style: PlainButtonStyle())
-    }
-}
-
-public struct AnyButtonStyle: PrimitiveButtonStyle {
-    public func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-    }
-}
 
 public struct PresentationMethod {
     public enum Transition {
@@ -58,6 +28,8 @@ public struct PresentationMethod {
         self.trigger = trigger
     }
 }
+
+// MARK: - Convenience
 
 extension PresentationMethod {
     public static var push: Self {
@@ -84,6 +56,8 @@ extension PresentationMethod {
         .init(transition: .fullScreen, trigger: trigger)
     }
 }
+
+// MARK: - Modifier
 
 public struct PresentationModifier<DestinationContent>: ViewModifier where DestinationContent: View {
     private let method: PresentationMethod
@@ -133,50 +107,8 @@ public struct PresentationModifier<DestinationContent>: ViewModifier where Desti
     }
 }
 
-extension View {
-    public func present<Content>(
-        triggeredBy trigger: PresentationMethod.Trigger = .button,
-        @ViewBuilder content: @escaping () -> Content
-    ) -> some View where Content: View {
-        modifier(PresentationModifier(method: .push(trigger: trigger), content: content))
-    }
-
-    public func present<Content>(
-        triggeredBy trigger: PresentationMethod.Trigger = .button,
-        content: @autoclosure @escaping () -> Content
-    ) -> some View where Content: View {
-        present(triggeredBy: trigger, content: content)
-    }
-}
-
-extension View {
-    public func sheet<Content>(
-        triggeredBy trigger: PresentationMethod.Trigger = .button,
-        @ViewBuilder content: @escaping () -> Content
-    ) -> some View where Content: View {
-        modifier(PresentationModifier(method: .sheet(trigger: trigger), content: content))
-    }
-
-    public func sheet<Content>(
-        triggeredBy trigger: PresentationMethod.Trigger = .button,
-        content: @autoclosure @escaping () -> Content
-    ) -> some View where Content: View {
-        sheet(triggeredBy: trigger, content: content)
-    }
-}
-
-extension View {
-    public func fullScreen<Content>(
-        triggeredBy trigger: PresentationMethod.Trigger = .button,
-        @ViewBuilder content: @escaping () -> Content
-    ) -> some View where Content: View {
-        modifier(PresentationModifier(method: .fullScreen(trigger: trigger), content: content))
-    }
-
-    public func fullScreen<Content>(
-        triggeredBy trigger: PresentationMethod.Trigger = .button,
-        content: @autoclosure @escaping () -> Content
-    ) -> some View where Content: View {
-        fullScreen(triggeredBy: trigger, content: content)
+public struct AnyButtonStyle: PrimitiveButtonStyle {
+    public func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
     }
 }

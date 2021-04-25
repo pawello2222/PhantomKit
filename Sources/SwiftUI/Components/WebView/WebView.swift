@@ -32,31 +32,6 @@ public struct WebView: View {
     }
 }
 
-// MARK: - ViewModel
-
-extension WebView {
-    public class ViewModel: ObservableObject {
-        let title: String
-        @Published var url: String
-        @Published var isNavigationAllowed: Bool
-        let dismissAction: (() -> Void)?
-
-        @Published public var didFinishLoading = false
-
-        public init(
-            title: String,
-            url: String,
-            isNavigationAllowed: Bool = true,
-            dismissAction: (() -> Void)? = nil
-        ) {
-            self.title = title
-            self.url = url
-            self.isNavigationAllowed = isNavigationAllowed
-            self.dismissAction = dismissAction
-        }
-    }
-}
-
 // MARK: - Representable
 
 public struct WebViewRepresentable: UIViewRepresentable {

@@ -23,9 +23,11 @@
 		E5A038A62634296F00488F6C /* BaseHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038A52634296F00488F6C /* BaseHostingController.swift */; };
 		E5A038AF26342BCC00488F6C /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038AE26342BCC00488F6C /* View+Navigation.swift */; };
 		E5A038D92635A69500488F6C /* View+Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038D82635A69500488F6C /* View+Route.swift */; };
-		E5A038DC2635A7AB00488F6C /* WebView+Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038DB2635A7AB00488F6C /* WebView+Route.swift */; };
 		E5A038DF2635E97300488F6C /* CreditsView+Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038DE2635E97300488F6C /* CreditsView+Section.swift */; };
 		E5A038E22635E9B300488F6C /* CreditsView+Section+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038E12635E9B300488F6C /* CreditsView+Section+Item.swift */; };
+		E5A038FC26360E3100488F6C /* View+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038FB26360E3100488F6C /* View+Presentation.swift */; };
+		E5A0390026360E4E00488F6C /* PresentationMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038FF26360E4E00488F6C /* PresentationMethod.swift */; };
+		E5A0390926360F4900488F6C /* WebView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0390826360F4900488F6C /* WebView+ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,9 +51,11 @@
 		E5A038A52634296F00488F6C /* BaseHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHostingController.swift; sourceTree = "<group>"; };
 		E5A038AE26342BCC00488F6C /* View+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
 		E5A038D82635A69500488F6C /* View+Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Route.swift"; sourceTree = "<group>"; };
-		E5A038DB2635A7AB00488F6C /* WebView+Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebView+Route.swift"; sourceTree = "<group>"; };
 		E5A038DE2635E97300488F6C /* CreditsView+Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreditsView+Section.swift"; sourceTree = "<group>"; };
 		E5A038E12635E9B300488F6C /* CreditsView+Section+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreditsView+Section+Item.swift"; sourceTree = "<group>"; };
+		E5A038FB26360E3100488F6C /* View+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Presentation.swift"; sourceTree = "<group>"; };
+		E5A038FF26360E4E00488F6C /* PresentationMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationMethod.swift; sourceTree = "<group>"; };
+		E5A0390826360F4900488F6C /* WebView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebView+ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				E54632482631C955007E7F6A /* Components */,
+				E5A038FA26360DFA00488F6C /* Routing */,
 				E54632492631C987007E7F6A /* Extensions */,
 				E546324D2631C9AF007E7F6A /* Views */,
 			);
@@ -169,10 +174,9 @@
 		E54632482631C955007E7F6A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E5A0390726360F3500488F6C /* WebView */,
 				E5A038A52634296F00488F6C /* BaseHostingController.swift */,
 				E5A0389E263428E900488F6C /* BaseHostingView.swift */,
-				E54632372630CB12007E7F6A /* WebView.swift */,
-				E5A038DB2635A7AB00488F6C /* WebView+Route.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -180,11 +184,8 @@
 		E54632492631C987007E7F6A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E5463294263209B4007E7F6A /* Router+Ext.swift */,
-				E5A0388B2634014200488F6C /* Router+Route+Method.swift */,
 				E54631FD2630B24B007E7F6A /* View+Ext.swift */,
 				E5A038AE26342BCC00488F6C /* View+Navigation.swift */,
-				E5A038D82635A69500488F6C /* View+Route.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -192,11 +193,48 @@
 		E546324D2631C9AF007E7F6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E5A0390626360F2600488F6C /* CreditsView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E5A038FA26360DFA00488F6C /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				E5A0390326360EB500488F6C /* UIKit */,
+				E5A038FF26360E4E00488F6C /* PresentationMethod.swift */,
+				E5A038FB26360E3100488F6C /* View+Presentation.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		E5A0390326360EB500488F6C /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				E5463294263209B4007E7F6A /* Router+Ext.swift */,
+				E5A0388B2634014200488F6C /* Router+Route+Method.swift */,
+				E5A038D82635A69500488F6C /* View+Route.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		E5A0390626360F2600488F6C /* CreditsView */ = {
+			isa = PBXGroup;
+			children = (
 				E546324E2631CA06007E7F6A /* CreditsView.swift */,
 				E5A038DE2635E97300488F6C /* CreditsView+Section.swift */,
 				E5A038E12635E9B300488F6C /* CreditsView+Section+Item.swift */,
 			);
-			path = Views;
+			path = CreditsView;
+			sourceTree = "<group>";
+		};
+		E5A0390726360F3500488F6C /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				E54632372630CB12007E7F6A /* WebView.swift */,
+				E5A0390826360F4900488F6C /* WebView+ViewModel.swift */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,11 +354,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5A0390026360E4E00488F6C /* PresentationMethod.swift in Sources */,
+				E5A038FC26360E3100488F6C /* View+Presentation.swift in Sources */,
 				E54632672631DF87007E7F6A /* String+Ext.swift in Sources */,
-				E5A038DC2635A7AB00488F6C /* WebView+Route.swift in Sources */,
 				E54631FE2630B24B007E7F6A /* View+Ext.swift in Sources */,
 				E5463295263209B4007E7F6A /* Router+Ext.swift in Sources */,
 				E5A038A62634296F00488F6C /* BaseHostingController.swift in Sources */,
+				E5A0390926360F4900488F6C /* WebView+ViewModel.swift in Sources */,
 				E546324F2631CA06007E7F6A /* CreditsView.swift in Sources */,
 				E54632292630C2C2007E7F6A /* Array+Ext.swift in Sources */,
 				E54632582631CC51007E7F6A /* Calendar+Ext.swift in Sources */,
