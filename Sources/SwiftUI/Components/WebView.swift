@@ -21,12 +21,6 @@ public struct WebView: View {
             .navigationTitle(viewModel.title)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-            .onDismiss { _ in
-                print("onDismiss")
-            }
-            .onDisappear {
-                print("onDisappear")
-            }
     }
 }
 
@@ -113,21 +107,5 @@ extension WebViewRepresentable {
             }
             decisionHandler(.cancel)
         }
-    }
-}
-
-// MARK: - Route
-
-extension RouteHandler {
-    public func webView<Content>(to view: Content, method: Method = .push) where Content: View {
-        let destination = view
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Done") { [weak self] in
-                        self?.dismiss(method)
-                    }
-                }
-            }
-        navigate(to: destination, method: method)
     }
 }

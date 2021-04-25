@@ -16,19 +16,8 @@ extension View {
 }
 
 extension View {
-    public func embedInNavigationIfNeeded() -> some View {
-        when(canBeEmbeddedInNavigation) { content in
-            NavigationView {
-                content
-            }
+    public func embedInStackNavigation() -> some View {
+        embedInNavigation()
             .navigationViewStyle(StackNavigationViewStyle())
-        }
-    }
-
-    private var canBeEmbeddedInNavigation: Bool {
-        print(String(describing: Self.self))
-        print(String(describing: type(of: self)))
-        print(String(describing: type(of: Self.self)))
-        return true
     }
 }

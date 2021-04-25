@@ -19,7 +19,7 @@ extension Router {
 extension RouteHandler {
     public typealias Method = Router.Route<Self>.Method
 
-    public func navigate<Content>(to view: Content, method: Method = .push) where Content: View {
+    public func route<Content>(to view: Content, method: Method = .push) where Content: View {
         guard let navigationController = navigationController else {
             return
         }
@@ -39,14 +39,14 @@ extension RouteHandler {
 }
 
 extension RouteHandler {
-    public func sheet<Content>(to view: Content) where Content: View {
-        navigate(to: view, method: .sheet)
+    public func sheet<Content>(_ view: Content) where Content: View {
+        route(to: view, method: .sheet)
     }
 
-    public func fullScreen<Content>(to view: Content) where Content: View {
-        navigate(to: view, method: .fullScreen)
+    public func fullScreen<Content>(_ view: Content) where Content: View {
+        route(to: view, method: .fullScreen)
     }
-    
+
     public func dismiss() {
         dismiss(.push)
     }

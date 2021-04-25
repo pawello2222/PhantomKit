@@ -79,7 +79,7 @@ extension Router.Route.Method {
             return
         }
 
-        let modalVC = BaseHostingController(rootView: view.embedInNavigationIfNeeded())
+        let modalVC = BaseHostingController(rootView: view.embedInStackNavigation())
         if transition == .fullScreen {
             modalVC.apply {
                 $0.modalPresentationStyle = .fullScreen

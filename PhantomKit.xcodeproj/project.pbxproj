@@ -22,6 +22,8 @@
 		E5A0389F263428E900488F6C /* BaseHostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0389E263428E900488F6C /* BaseHostingView.swift */; };
 		E5A038A62634296F00488F6C /* BaseHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038A52634296F00488F6C /* BaseHostingController.swift */; };
 		E5A038AF26342BCC00488F6C /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038AE26342BCC00488F6C /* View+Navigation.swift */; };
+		E5A038D92635A69500488F6C /* View+Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038D82635A69500488F6C /* View+Route.swift */; };
+		E5A038DC2635A7AB00488F6C /* WebView+Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038DB2635A7AB00488F6C /* WebView+Route.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		E5A0389E263428E900488F6C /* BaseHostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHostingView.swift; sourceTree = "<group>"; };
 		E5A038A52634296F00488F6C /* BaseHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHostingController.swift; sourceTree = "<group>"; };
 		E5A038AE26342BCC00488F6C /* View+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
+		E5A038D82635A69500488F6C /* View+Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Route.swift"; sourceTree = "<group>"; };
+		E5A038DB2635A7AB00488F6C /* WebView+Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebView+Route.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,7 @@
 				E5A038A52634296F00488F6C /* BaseHostingController.swift */,
 				E5A0389E263428E900488F6C /* BaseHostingView.swift */,
 				E54632372630CB12007E7F6A /* WebView.swift */,
+				E5A038DB2635A7AB00488F6C /* WebView+Route.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 				E5A0388B2634014200488F6C /* Router+Route+Method.swift */,
 				E54631FD2630B24B007E7F6A /* View+Ext.swift */,
 				E5A038AE26342BCC00488F6C /* View+Navigation.swift */,
+				E5A038D82635A69500488F6C /* View+Route.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -305,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E54632672631DF87007E7F6A /* String+Ext.swift in Sources */,
+				E5A038DC2635A7AB00488F6C /* WebView+Route.swift in Sources */,
 				E54631FE2630B24B007E7F6A /* View+Ext.swift in Sources */,
 				E5463295263209B4007E7F6A /* Router+Ext.swift in Sources */,
 				E5A038A62634296F00488F6C /* BaseHostingController.swift in Sources */,
@@ -314,6 +321,7 @@
 				E5A0389F263428E900488F6C /* BaseHostingView.swift in Sources */,
 				E54632312630C5AF007E7F6A /* Set+Ext.swift in Sources */,
 				E54632382630CB12007E7F6A /* WebView.swift in Sources */,
+				E5A038D92635A69500488F6C /* View+Route.swift in Sources */,
 				E5A0388C2634014200488F6C /* Router+Route+Method.swift in Sources */,
 				E5A038AF26342BCC00488F6C /* View+Navigation.swift in Sources */,
 				E54631F92630B244007E7F6A /* PhantomKit.swift in Sources */,

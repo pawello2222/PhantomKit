@@ -35,13 +35,12 @@ extension CreditsView {
         Image(imageName)
             .resizable()
             .scaledToFit()
-            .padding()
-            .padding()
+            .padding(.maximumPadding)
     }
 
     private var sectionsView: some View {
         ForEach(sections, id: \.title) {
-            CreditsView.Section.SectionView(section: $0)
+            Section.SectionView(section: $0)
         }
     }
 }
@@ -50,8 +49,8 @@ extension CreditsView {
 
 extension CreditsView {
     public struct Section {
-        public let title: String
-        public let items: [Item]
+        let title: String
+        let items: [Item]
 
         public init(title: String, items: [Item]) {
             self.title = title
@@ -68,7 +67,7 @@ extension CreditsView.Section {
             VStack(spacing: .defaultPadding) {
                 Text(section.title)
                     .font(.app(.subheadline, weight: .semibold))
-                    .foregroundColor(.secondary)
+                    .fgColor(.secondary)
                 ForEach(section.items, id: \.title) {
                     CreditsView.Section.Item.ItemView(item: $0)
                 }
@@ -81,45 +80,56 @@ extension CreditsView.Section {
 
 extension CreditsView.Section {
     public struct Item {
-        public let title: String
-        public let action: (() -> Void)?
-        public let webView: WebView.ViewModel?
+        let title: String
+        let action: Action?
 
-        public init(
-            title: String,
-            action: (() -> Void)? = nil
-        ) {
+        public init(title: String) {
             self.title = title
-            self.action = action
-            webView = nil
+            action = nil
         }
 
         public init(
             title: String,
-            webView: WebView.ViewModel?
+            action: @escaping () -> Void
         ) {
             self.title = title
-            action = nil
-            self.webView = webView
+            self.action = .simple(action)
+        }
+
+        public init(
+            title: String,
+            webView: WebView.ViewModel
+        ) {
+            self.title = title
+            action = .webView(webView)
         }
     }
 }
 
 extension CreditsView.Section.Item {
-    struct ItemView: View {
-        @State private var linkURL: String?
+    enum Action {
+        case simple(() -> Void)
+        case webView(WebView.ViewModel)
+    }
+}
 
+extension CreditsView.Section.Item {
+    struct ItemView: View {
         let item: CreditsView.Section.Item
 
         var body: some View {
             Text(item.title)
                 .font(.app(.body, weight: .medium))
-                .unwrap(item.action) {
-                    $0.onTap(action: $1)
-                }
-//                .unwrap(item.webView) {
-//                    $0.sheetWebView($1)
-//                }
+        }
+
+        @ViewBuilder
+        func actionView<Content>(content: Content) -> some View where Content: View {
+            switch item.action! {
+            case .simple(let action):
+                content.onTapGesture(perform: action)
+            case .webView(let viewModel):
+                content.sheet(WebView(viewModel))
+            }
         }
     }
 }
@@ -127,16 +137,20 @@ extension CreditsView.Section.Item {
 // MARK: - Data
 
 extension CreditsView.Section {
-    public static let appDesign = Self(
-        title: "APP DESIGN",
-        items: [.copyright]
-    )
+    public static func appDesign(author: String) -> Self {
+        .init(
+            title: "APP DESIGN",
+            items: [.copyright(author: author)]
+        )
+    }
 }
 
 extension CreditsView.Section.Item {
-    public static let copyright = Self(
-        title: "© \(Calendar.current.year) Paweł Wiszenko"
-    )
+    public static func copyright(author _: String) -> Self {
+        .init(
+            title: "© \(Calendar.current.year) Paweł Wiszenko"
+        )
+    }
 }
 
 extension CreditsView.Section.Item {

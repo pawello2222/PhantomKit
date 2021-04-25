@@ -12,8 +12,6 @@ open class BaseHostingController<Content>: UIHostingController<AnyView> where Co
     private let theme: Theme
     private let base: BaseHostingView<Content>
 
-    var navigationBarBackground: Chrome.Style?
-
     public init(rootView: Content, theme: Theme = .default) {
         self.theme = theme
         base = BaseHostingView(theme: theme, content: rootView)
@@ -30,26 +28,22 @@ open class BaseHostingController<Content>: UIHostingController<AnyView> where Co
         fatalError()
     }
 
-    override open func viewWillDismiss(using method: DismissMethod) {
-        base.willDismiss(using: method)
+    override open var preferredNavigationBarTintColor: UIColor {
+        theme.accentColor
     }
 
-//    override open var preferredNavigationBarTintColor: UIColor {
-//        theme.accentColor
-//    }
-//
-//    override open var preferredNavigationBarBackground: Chrome.Style {
-//        navigationBarBackground ?? theme.chrome
-//    }
-//
-//    override open var preferredStatusBarBackground: Chrome.Style {
-//        guard preferredNavigationBarBackground.isTransparent else {
-//            return .transparent
-//        }
-//        return theme.chrome
-//    }
-//
-//    override open var preferredStatusBarStyle: UIStatusBarStyle {
-//        theme.statusBarStyle
-//    }
+    override open var preferredNavigationBarBackground: Chrome.Style {
+        theme.chrome
+    }
+
+    override open var preferredStatusBarBackground: Chrome.Style {
+        guard preferredNavigationBarBackground.isTransparent else {
+            return .transparent
+        }
+        return theme.chrome
+    }
+
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
+        theme.statusBarStyle
+    }
 }
