@@ -26,6 +26,7 @@ public struct CreditsView: View {
             imageView
             sectionsView
         }
+        .backgroundColor(theme.backgroundColor)
         .navigationBarHidden(true)
     }
 }

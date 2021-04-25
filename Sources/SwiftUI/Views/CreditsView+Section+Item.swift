@@ -69,6 +69,7 @@ extension View {
             onTapGesture(perform: action)
         case .webView(let viewModel):
             sheet(WebView(viewModel))
+                .foregroundColor(.systemBlue)
         }
     }
 }
