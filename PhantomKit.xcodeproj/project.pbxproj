@@ -24,6 +24,8 @@
 		E5A038AF26342BCC00488F6C /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038AE26342BCC00488F6C /* View+Navigation.swift */; };
 		E5A038D92635A69500488F6C /* View+Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038D82635A69500488F6C /* View+Route.swift */; };
 		E5A038DC2635A7AB00488F6C /* WebView+Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038DB2635A7AB00488F6C /* WebView+Route.swift */; };
+		E5A038DF2635E97300488F6C /* CreditsView+Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038DE2635E97300488F6C /* CreditsView+Section.swift */; };
+		E5A038E22635E9B300488F6C /* CreditsView+Section+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038E12635E9B300488F6C /* CreditsView+Section+Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		E5A038AE26342BCC00488F6C /* View+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
 		E5A038D82635A69500488F6C /* View+Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Route.swift"; sourceTree = "<group>"; };
 		E5A038DB2635A7AB00488F6C /* WebView+Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebView+Route.swift"; sourceTree = "<group>"; };
+		E5A038DE2635E97300488F6C /* CreditsView+Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreditsView+Section.swift"; sourceTree = "<group>"; };
+		E5A038E12635E9B300488F6C /* CreditsView+Section+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreditsView+Section+Item.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +193,8 @@
 			isa = PBXGroup;
 			children = (
 				E546324E2631CA06007E7F6A /* CreditsView.swift */,
+				E5A038DE2635E97300488F6C /* CreditsView+Section.swift */,
+				E5A038E12635E9B300488F6C /* CreditsView+Section+Item.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,7 +324,9 @@
 				E546324F2631CA06007E7F6A /* CreditsView.swift in Sources */,
 				E54632292630C2C2007E7F6A /* Array+Ext.swift in Sources */,
 				E54632582631CC51007E7F6A /* Calendar+Ext.swift in Sources */,
+				E5A038E22635E9B300488F6C /* CreditsView+Section+Item.swift in Sources */,
 				E5A0389F263428E900488F6C /* BaseHostingView.swift in Sources */,
+				E5A038DF2635E97300488F6C /* CreditsView+Section.swift in Sources */,
 				E54632312630C5AF007E7F6A /* Set+Ext.swift in Sources */,
 				E54632382630CB12007E7F6A /* WebView.swift in Sources */,
 				E5A038D92635A69500488F6C /* View+Route.swift in Sources */,
