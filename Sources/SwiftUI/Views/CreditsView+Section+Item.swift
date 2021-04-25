@@ -68,7 +68,7 @@ extension View {
         case .simple(let action):
             onTapGesture(perform: action)
         case .webView(let viewModel):
-            sheet(WebView(viewModel))
+            sheet(triggeredBy: .button, content: WebView(viewModel))
                 .foregroundColor(.systemBlue)
         }
     }

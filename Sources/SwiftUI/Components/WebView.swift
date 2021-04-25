@@ -10,6 +10,7 @@ import SwiftUI
 import WebKit
 
 public struct WebView: View {
+    @Environment(\.presentationMode) private var presentationMode
     @ObservedObject private var viewModel: ViewModel
 
     public init(_ viewModel: ViewModel) {
@@ -21,6 +22,13 @@ public struct WebView: View {
             .navigationTitle(viewModel.title)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Done") {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }
+            }
     }
 }
 

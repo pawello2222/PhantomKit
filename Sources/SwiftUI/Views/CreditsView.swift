@@ -9,16 +9,17 @@
 import SwiftUI
 
 public struct CreditsView: View {
+    @Environment(\.presentationMode) private var presentationMode
     @Environment(\.theme) private var theme
-    private let imageName: String
     private let sections: [Section]
+    private let image: () -> Image
 
     public init(
-        imageName: String,
-        sections: [Section] = []
+        sections: [Section] = [],
+        @ViewBuilder image: @escaping () -> Image
     ) {
-        self.imageName = imageName
         self.sections = sections
+        self.image = image
     }
 
     public var body: some View {
@@ -27,13 +28,17 @@ public struct CreditsView: View {
             sectionsView
         }
         .backgroundColor(theme.backgroundColor)
+        .padding(.maximumPadding)
         .navigationBarHidden(true)
+        .frameAction {
+            presentationMode.wrappedValue.dismiss()
+        }
     }
 }
 
 extension CreditsView {
     private var imageView: some View {
-        Image(imageName)
+        image()
             .resizable()
             .scaledToFit()
             .padding(.maximumPadding)
@@ -43,6 +48,26 @@ extension CreditsView {
         ForEach(sections, id: \.title) {
             Section.SectionView(section: $0)
         }
+    }
+}
+
+extension CreditsView {
+    public init(
+        assetIdentifier: ImageAssetIdentifier,
+        sections: [Section] = []
+    ) {
+        self.sections = sections
+        image = { Image(assetIdentifier: assetIdentifier) }
+    }
+}
+
+extension CreditsView {
+    public init(
+        imageName: String,
+        sections: [Section] = []
+    ) {
+        self.sections = sections
+        image = { Image(imageName) }
     }
 }
 
