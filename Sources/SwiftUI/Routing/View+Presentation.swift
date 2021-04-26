@@ -13,16 +13,18 @@ import SwiftUI
 extension View {
     public func present<Content>(
         triggeredBy trigger: PresentationMethod.Trigger = .default,
+        onDismiss: (() -> Void)? = nil,
         @ViewBuilder content: @escaping () -> Content
     ) -> some View where Content: View {
-        modifier(PresentationModifier(method: .push(trigger: trigger), content: content))
+        modifier(PresentationModifier(method: .push(trigger: trigger), onDismiss: onDismiss, content: content))
     }
 
     public func present<Content>(
         triggeredBy trigger: PresentationMethod.Trigger = .default,
+        onDismiss: (() -> Void)? = nil,
         content: @autoclosure @escaping () -> Content
     ) -> some View where Content: View {
-        present(triggeredBy: trigger, content: content)
+        present(triggeredBy: trigger, onDismiss: onDismiss, content: content)
     }
 }
 
@@ -31,16 +33,18 @@ extension View {
 extension View {
     public func sheet<Content>(
         triggeredBy trigger: PresentationMethod.Trigger = .default,
+        onDismiss: (() -> Void)? = nil,
         @ViewBuilder content: @escaping () -> Content
     ) -> some View where Content: View {
-        modifier(PresentationModifier(method: .sheet(trigger: trigger), content: content))
+        modifier(PresentationModifier(method: .sheet(trigger: trigger), onDismiss: onDismiss, content: content))
     }
 
     public func sheet<Content>(
         triggeredBy trigger: PresentationMethod.Trigger = .default,
+        onDismiss: (() -> Void)? = nil,
         content: @autoclosure @escaping () -> Content
     ) -> some View where Content: View {
-        sheet(triggeredBy: trigger, content: content)
+        sheet(triggeredBy: trigger, onDismiss: onDismiss, content: content)
     }
 }
 
@@ -49,15 +53,17 @@ extension View {
 extension View {
     public func fullScreen<Content>(
         triggeredBy trigger: PresentationMethod.Trigger = .default,
+        onDismiss: (() -> Void)? = nil,
         @ViewBuilder content: @escaping () -> Content
     ) -> some View where Content: View {
-        modifier(PresentationModifier(method: .fullScreen(trigger: trigger), content: content))
+        modifier(PresentationModifier(method: .fullScreen(trigger: trigger), onDismiss: onDismiss, content: content))
     }
 
     public func fullScreen<Content>(
         triggeredBy trigger: PresentationMethod.Trigger = .default,
+        onDismiss: (() -> Void)? = nil,
         content: @autoclosure @escaping () -> Content
     ) -> some View where Content: View {
-        fullScreen(triggeredBy: trigger, content: content)
+        fullScreen(triggeredBy: trigger, onDismiss: onDismiss, content: content)
     }
 }

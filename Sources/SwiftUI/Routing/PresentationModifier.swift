@@ -10,12 +10,18 @@ import SwiftUI
 
 public struct PresentationModifier<DestinationContent>: ViewModifier where DestinationContent: View {
     private let method: PresentationMethod
+    private let onDismiss: (() -> Void)?
     private let content: () -> DestinationContent
 
     @State private var isActive = false
 
-    public init(method: PresentationMethod = .push, @ViewBuilder content: @escaping () -> DestinationContent) {
+    public init(
+        method: PresentationMethod = .push,
+        onDismiss: (() -> Void)? = nil,
+        @ViewBuilder content: @escaping () -> DestinationContent
+    ) {
         self.method = method
+        self.onDismiss = onDismiss
         self.content = content
     }
 
@@ -36,10 +42,10 @@ extension PresentationModifier {
                 .background(NavigationLink("", destination: self.content(), isActive: $isActive))
         case .sheet:
             content
-                .sheet(isPresented: $isActive, content: self.content)
+                .sheet(isPresented: $isActive, onDismiss: onDismiss, content: self.content)
         case .fullScreen:
             content
-                .fullScreenCover(isPresented: $isActive, content: self.content)
+                .fullScreenCover(isPresented: $isActive, onDismiss: onDismiss, content: self.content)
         }
     }
 }
