@@ -25,6 +25,7 @@ public struct WebView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Done") {
+                        viewModel.onDismiss?()
                         presentationMode.wrappedValue.dismiss()
                     }
                 }

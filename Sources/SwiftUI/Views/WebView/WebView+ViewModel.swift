@@ -13,7 +13,7 @@ extension WebView {
         let title: String
         @Published var url: String
         @Published var isNavigationAllowed: Bool
-        let dismissAction: (() -> Void)?
+        let onDismiss: (() -> Void)?
 
         @Published public var didFinishLoading = false
 
@@ -21,12 +21,12 @@ extension WebView {
             title: String,
             url: String,
             isNavigationAllowed: Bool = true,
-            dismissAction: (() -> Void)? = nil
+            onDismiss: (() -> Void)? = nil
         ) {
             self.title = title
             self.url = url
             self.isNavigationAllowed = isNavigationAllowed
-            self.dismissAction = dismissAction
+            self.onDismiss = onDismiss
         }
     }
 }
