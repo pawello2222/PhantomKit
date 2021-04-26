@@ -1,12 +1,12 @@
 PODS:
-  - SDWebImage (5.11.0):
-    - SDWebImage/Core (= 5.11.0)
-  - SDWebImage/Core (5.11.0)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
   - Xcore (1.0.0):
     - SDWebImage
 
 DEPENDENCIES:
-  - Xcore (from `https://github.com/zmian/xcore`)
+  - Xcore (from `https://github.com/pawello2222/xcore`, branch `pw/adaptation`)
 
 SPEC REPOS:
   trunk:
@@ -14,17 +14,18 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Xcore:
-    :git: https://github.com/zmian/xcore
+    :branch: pw/adaptation
+    :git: https://github.com/pawello2222/xcore
 
 CHECKOUT OPTIONS:
   Xcore:
-    :commit: a8489259c491368656e56930adb83a91007e1eb8
-    :git: https://github.com/zmian/xcore
+    :commit: 900293bc03893740b0ac8d6b2c15428309716aee
+    :git: https://github.com/pawello2222/xcore
 
 SPEC CHECKSUMS:
-  SDWebImage: 7acbb57630ac7db4a495547fb73916ff3e432f6b
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   Xcore: 632eae194fdb5ecdce6891e37a0cb4e0733314d2
 
-PODFILE CHECKSUM: 646adf64fabca441d95001e1da3775a477a8d539
+PODFILE CHECKSUM: ab256826c424ae1dfb87704efc9166eddf4e4550
 
 COCOAPODS: 1.10.1
