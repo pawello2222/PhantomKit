@@ -17,13 +17,14 @@ public struct PresentationMethod {
 
     public enum Trigger {
         case tap
-        case button
+        case button(style: AnyButtonStyle)
+        case primitiveButton(style: AnyPrimitiveButtonStyle)
     }
 
     public let transition: Transition
     public let trigger: Trigger
 
-    public init(transition: Transition = .push, trigger: Trigger = .button) {
+    public init(transition: Transition = .push, trigger: Trigger = .default) {
         self.transition = transition
         self.trigger = trigger
     }
@@ -33,7 +34,7 @@ public struct PresentationMethod {
 
 extension PresentationMethod {
     public static var push: Self {
-        .push(trigger: .button)
+        .push(trigger: .default)
     }
 
     public static func push(trigger: Trigger) -> Self {
@@ -41,7 +42,7 @@ extension PresentationMethod {
     }
 
     public static var sheet: Self {
-        .sheet(trigger: .button)
+        .sheet(trigger: .default)
     }
 
     public static func sheet(trigger: Trigger) -> Self {
@@ -49,7 +50,7 @@ extension PresentationMethod {
     }
 
     public static var fullScreen: Self {
-        .fullScreen(trigger: .button)
+        .fullScreen(trigger: .default)
     }
 
     public static func fullScreen(trigger: Trigger) -> Self {
@@ -57,58 +58,40 @@ extension PresentationMethod {
     }
 }
 
-// MARK: - Modifier
+// MARK: - Convenience + Trigger
 
-public struct PresentationModifier<DestinationContent>: ViewModifier where DestinationContent: View {
-    private let method: PresentationMethod
-    private let content: () -> DestinationContent
+extension PresentationMethod.Trigger {
+    public static var `default`: Self = .defaultButton
 
-    @State private var isActive = false
+    // ButtonStyle
 
-    public init(method: PresentationMethod = .push, @ViewBuilder content: @escaping () -> DestinationContent) {
-        self.method = method
-        self.content = content
+    public static var scaleButton: Self {
+        .button(style: AnyButtonStyle(style: ScaleEffectButtonStyle()))
     }
 
-    @ViewBuilder
-    public func body(content: Content) -> some View {
-        transitionBody(triggerBody(content))
+    public static var fillButton: Self {
+        .button(style: AnyButtonStyle(style: FillButtonStyle()))
     }
 
-    @ViewBuilder
-    private func transitionBody<Content>(_ content: Content) -> some View where Content: View {
-        switch method.transition {
-        case .push:
-            content
-                .background(NavigationLink("", destination: self.content(), isActive: $isActive))
-        case .sheet:
-            content.sheet(isPresented: $isActive, content: self.content)
-        case .fullScreen:
-            content.fullScreenCover(isPresented: $isActive, content: self.content)
-        }
+    public static var pillButton: Self {
+        .button(style: AnyButtonStyle(style: PillButtonStyle()))
     }
 
-    @ViewBuilder
-    private func triggerBody(_ content: Content) -> some View {
-        switch method.trigger {
-        case .tap:
-            content
-                .onTapGesture {
-                    isActive = true
-                }
-        case .button:
-            Button {
-                isActive = true
-            } label: {
-                content
-                    .contentShape(Rectangle())
-            }
-        }
+    public static var outlineButton: Self {
+        .button(style: AnyButtonStyle(style: OutlineButtonStyle()))
     }
-}
 
-public struct AnyButtonStyle: PrimitiveButtonStyle {
-    public func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
+    // PrimitiveButtonStyle
+
+    public static var defaultButton: Self {
+        .primitiveButton(style: AnyPrimitiveButtonStyle(style: DefaultButtonStyle()))
+    }
+
+    public static var plainButton: Self {
+        .primitiveButton(style: AnyPrimitiveButtonStyle(style: PlainButtonStyle()))
+    }
+
+    public static var borderlessButton: Self {
+        .primitiveButton(style: AnyPrimitiveButtonStyle(style: BorderlessButtonStyle()))
     }
 }
