@@ -30,6 +30,7 @@
 		E5A0390926360F4900488F6C /* WebView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0390826360F4900488F6C /* WebView+ViewModel.swift */; };
 		E5A0391E263703FB00488F6C /* PresentationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0391D263703FB00488F6C /* PresentationModifier.swift */; };
 		E5A039222637042E00488F6C /* AnyButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039212637042E00488F6C /* AnyButtonStyle.swift */; };
+		E5A0392726370DBA00488F6C /* GradientButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0392626370DBA00488F6C /* GradientButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		E5A0390826360F4900488F6C /* WebView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebView+ViewModel.swift"; sourceTree = "<group>"; };
 		E5A0391D263703FB00488F6C /* PresentationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModifier.swift; sourceTree = "<group>"; };
 		E5A039212637042E00488F6C /* AnyButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyButtonStyle.swift; sourceTree = "<group>"; };
+		E5A0392626370DBA00488F6C /* GradientButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				E5A039212637042E00488F6C /* AnyButtonStyle.swift */,
+				E5A0392626370DBA00488F6C /* GradientButtonStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				E5A0388C2634014200488F6C /* Router+Route+Method.swift in Sources */,
 				E5A038AF26342BCC00488F6C /* View+Navigation.swift in Sources */,
 				E54631F92630B244007E7F6A /* PhantomKit.swift in Sources */,
+				E5A0392726370DBA00488F6C /* GradientButtonStyle.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

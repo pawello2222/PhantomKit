@@ -10,10 +10,10 @@ import Foundation
 
 @_exported import Xcore
 
-private class PhantomMarker {}
+private class PhantomKitMarker {}
 
 extension Bundle {
     public static var phantomKit: Bundle {
-        .init(for: PhantomMarker.self)
+        .init(for: PhantomKitMarker.self)
     }
 }

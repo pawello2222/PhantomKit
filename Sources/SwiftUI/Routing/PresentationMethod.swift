@@ -81,6 +81,10 @@ extension PresentationMethod.Trigger {
         .button(style: AnyButtonStyle(style: OutlineButtonStyle()))
     }
 
+    public static var gradientButton: Self {
+        .button(style: AnyButtonStyle(style: GradientButtonStyle()))
+    }
+
     // PrimitiveButtonStyle
 
     public static var defaultButton: Self {

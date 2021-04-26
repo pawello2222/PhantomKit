@@ -51,9 +51,7 @@ public struct WebViewRepresentable: UIViewRepresentable {
         return webView
     }
 
-    public func updateUIView(_: WKWebView, context _: UIViewRepresentableContext<Self>) {
-        return
-    }
+    public func updateUIView(_ uiView: WKWebView, context: UIViewRepresentableContext<Self>) {}
 
     public func makeCoordinator() -> Self.Coordinator {
         .init(viewModel)
@@ -68,12 +66,12 @@ extension WebViewRepresentable {
             self.viewModel = viewModel
         }
 
-        public func webView(_: WKWebView, didFinish _: WKNavigation!) {
+        public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
             viewModel.didFinishLoading = true
         }
 
         public func webView(
-            _: WKWebView,
+            _ webView: WKWebView,
             decidePolicyFor navigationAction: WKNavigationAction,
             decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
         ) {
