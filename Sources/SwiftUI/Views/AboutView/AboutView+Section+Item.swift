@@ -1,5 +1,5 @@
 //
-//  CreditsView+Section+Item.swift
+//  AboutView+Section+Item.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 25/04/2021.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-extension CreditsView.Section {
+extension AboutView.Section {
     public struct Item {
         let title: String
         let action: Action?
@@ -38,7 +38,7 @@ extension CreditsView.Section {
 
 // MARK: - Action
 
-extension CreditsView.Section.Item {
+extension AboutView.Section.Item {
     enum Action {
         case tap(() -> Void)
         case webView(WebView.ViewModel)
@@ -47,9 +47,9 @@ extension CreditsView.Section.Item {
 
 // MARK: - View
 
-extension CreditsView.Section.Item {
+extension AboutView.Section.Item {
     struct ItemView: View {
-        let item: CreditsView.Section.Item
+        let item: AboutView.Section.Item
 
         var body: some View {
             Text(item.title)
@@ -63,7 +63,7 @@ extension CreditsView.Section.Item {
 
 extension View {
     @ViewBuilder
-    fileprivate func action(_ action: CreditsView.Section.Item.Action) -> some View {
+    fileprivate func action(_ action: AboutView.Section.Item.Action) -> some View {
         switch action {
         case .tap(let action):
             onTapGesture(perform: action)

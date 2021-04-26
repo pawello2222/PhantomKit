@@ -1,5 +1,5 @@
 //
-//  CreditsView+Section.swift
+//  AboutView+Section.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 25/04/2021.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-extension CreditsView {
+extension AboutView {
     public struct Section {
         let title: String
         let items: [Item]
@@ -22,9 +22,9 @@ extension CreditsView {
 
 // MARK: - View
 
-extension CreditsView.Section {
+extension AboutView.Section {
     struct SectionView: View {
-        let section: CreditsView.Section
+        let section: AboutView.Section
 
         var body: some View {
             VStack(spacing: .defaultPadding) {
@@ -32,7 +32,7 @@ extension CreditsView.Section {
                     .font(.app(.subheadline, weight: .semibold))
                     .foregroundColor(.secondary)
                 ForEach(section.items, id: \.title) {
-                    CreditsView.Section.Item.ItemView(item: $0)
+                    AboutView.Section.Item.ItemView(item: $0)
                 }
             }
         }

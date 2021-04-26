@@ -1,5 +1,5 @@
 //
-//  CreditsView.swift
+//  AboutView.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 22/04/2021.
@@ -8,9 +8,8 @@
 
 import SwiftUI
 
-public struct CreditsView: View {
+public struct AboutView: View {
     @Environment(\.presentationMode) private var presentationMode
-    @Environment(\.theme) private var theme
     private let sections: [Section]
     private let image: () -> Image
 
@@ -27,7 +26,6 @@ public struct CreditsView: View {
             imageView
             sectionsView
         }
-        .backgroundColor(theme.backgroundColor)
         .padding(.maximumPadding)
         .navigationBarHidden(true)
         .frameAction {
@@ -36,7 +34,7 @@ public struct CreditsView: View {
     }
 }
 
-extension CreditsView {
+extension AboutView {
     private var imageView: some View {
         image()
             .resizable()
@@ -51,7 +49,7 @@ extension CreditsView {
     }
 }
 
-extension CreditsView {
+extension AboutView {
     public init(
         assetIdentifier: ImageAssetIdentifier,
         sections: [Section] = []
@@ -61,7 +59,7 @@ extension CreditsView {
     }
 }
 
-extension CreditsView {
+extension AboutView {
     public init(
         imageName: String,
         sections: [Section] = []
@@ -73,7 +71,7 @@ extension CreditsView {
 
 // MARK: - Data
 
-extension CreditsView.Section {
+extension AboutView.Section {
     public static func appDesign(author: String) -> Self {
         .init(
             title: "APP DESIGN",
@@ -82,7 +80,7 @@ extension CreditsView.Section {
     }
 }
 
-extension CreditsView.Section {
+extension AboutView.Section {
     public static func graphics(title: String, url: String) -> Self {
         .init(
             title: "GRAPHICS",
@@ -91,7 +89,7 @@ extension CreditsView.Section {
     }
 }
 
-extension CreditsView.Section.Item {
+extension AboutView.Section.Item {
     public static func copyright(author: String) -> Self {
         .init(
             title: "© \(Calendar.current.year) \(author)"
@@ -99,7 +97,7 @@ extension CreditsView.Section.Item {
     }
 }
 
-extension CreditsView.Section.Item {
+extension AboutView.Section.Item {
     public static func link(title: String, url: String) -> Self {
         .init(
             title: title,
