@@ -6,7 +6,7 @@ PODS:
     - SDWebImage
 
 DEPENDENCIES:
-  - Xcore (from `https://github.com/pawello2222/xcore`, branch `pw/adaptation`)
+  - Xcore (from `https://github.com/pawello2222/xcore`, branch `phantomKit`)
 
 SPEC REPOS:
   trunk:
@@ -14,7 +14,7 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Xcore:
-    :branch: pw/adaptation
+    :branch: phantomKit
     :git: https://github.com/pawello2222/xcore
 
 CHECKOUT OPTIONS:
@@ -26,6 +26,6 @@ SPEC CHECKSUMS:
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   Xcore: 632eae194fdb5ecdce6891e37a0cb4e0733314d2
 
-PODFILE CHECKSUM: ab256826c424ae1dfb87704efc9166eddf4e4550
+PODFILE CHECKSUM: e103ca6ac48d8ccf300c79306b50f9aaf65b245e
 
 COCOAPODS: 1.10.1
