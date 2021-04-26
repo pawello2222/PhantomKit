@@ -63,12 +63,12 @@ extension CreditsView.Section.Item {
 
 extension View {
     @ViewBuilder
-    func action(_ action: CreditsView.Section.Item.Action) -> some View {
+    fileprivate func action(_ action: CreditsView.Section.Item.Action) -> some View {
         switch action {
         case .tap(let action):
             onTapGesture(perform: action)
         case .webView(let viewModel):
-            sheet(triggeredBy: .defaultButton, content: WebView(viewModel))
+            sheet(content: WebView(viewModel))
         }
     }
 }

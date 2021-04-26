@@ -67,3 +67,28 @@ extension View {
         fullScreen(triggeredBy: trigger, onDismiss: onDismiss, content: content)
     }
 }
+
+// MARK: - Action
+
+extension View {
+    @ViewBuilder
+    public func action(
+        triggeredBy trigger: PresentationMethod.Trigger = .tap,
+        _ action: @escaping () -> Void
+    ) -> some View {
+        switch trigger {
+        case .tap:
+            onTapGesture(perform: action)
+        case .button(let style):
+            Button(action: action) {
+                self.contentShape(Rectangle())
+            }
+            .buttonStyle(style)
+        case .primitiveButton(let style):
+            Button(action: action) {
+                self.contentShape(Rectangle())
+            }
+            .buttonStyle(style)
+        }
+    }
+}
