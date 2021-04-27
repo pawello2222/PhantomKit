@@ -73,7 +73,7 @@ extension View {
 extension View {
     @ViewBuilder
     public func action(
-        triggeredBy trigger: PresentationMethod.Trigger = .tap,
+        triggeredBy trigger: PresentationMethod.Trigger = .default,
         _ action: @escaping () -> Void
     ) -> some View {
         switch trigger {
@@ -89,6 +89,16 @@ extension View {
                 self.contentShape(Rectangle())
             }
             .buttonStyle(style)
+        }
+    }
+
+    @ViewBuilder
+    public func action(
+        triggeredBy trigger: PresentationMethod.Trigger = .default,
+        _ action: (() -> Void)?
+    ) -> some View {
+        if let action = action {
+            self.action(triggeredBy: trigger, action)
         }
     }
 }

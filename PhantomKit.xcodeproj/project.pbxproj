@@ -34,6 +34,7 @@
 		E5A0393D26373AE100488F6C /* SKStoreReviewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0393C26373AE100488F6C /* SKStoreReviewController+Ext.swift */; };
 		E5A0394E26374E1200488F6C /* ExtendedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0394D26374E1200488F6C /* ExtendedLabel.swift */; };
 		E5A03951263750C300488F6C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A03950263750C300488F6C /* Constants.swift */; };
+		E5A0398A2638A01300488F6C /* Color+Colorful.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039892638A01300488F6C /* Color+Colorful.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		E5A0393C26373AE100488F6C /* SKStoreReviewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKStoreReviewController+Ext.swift"; sourceTree = "<group>"; };
 		E5A0394D26374E1200488F6C /* ExtendedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedLabel.swift; sourceTree = "<group>"; };
 		E5A03950263750C300488F6C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E5A039892638A01300488F6C /* Color+Colorful.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Colorful.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 		E54632492631C987007E7F6A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E5A039892638A01300488F6C /* Color+Colorful.swift */,
 				E54631FD2630B24B007E7F6A /* View+Ext.swift */,
 				E5A038AE26342BCC00488F6C /* View+Navigation.swift */,
 				E5A0393C26373AE100488F6C /* SKStoreReviewController+Ext.swift */,
@@ -402,6 +405,7 @@
 				E54632382630CB12007E7F6A /* WebView.swift in Sources */,
 				E5A038D92635A69500488F6C /* View+Route.swift in Sources */,
 				E5A0388C2634014200488F6C /* Router+Route+Method.swift in Sources */,
+				E5A0398A2638A01300488F6C /* Color+Colorful.swift in Sources */,
 				E5A038AF26342BCC00488F6C /* View+Navigation.swift in Sources */,
 				E54631F92630B244007E7F6A /* PhantomKit.swift in Sources */,
 				E5A0392726370DBA00488F6C /* GradientButtonStyle.swift in Sources */,

@@ -36,6 +36,13 @@ extension RouteHandler {
             navigationController.popViewController(animated: method.isAnimated)
         }
     }
+
+    public func dismissToRoot(isAnimated: Bool) {
+        guard let navigationController = navigationController else {
+            return
+        }
+        navigationController.popToRootViewController(animated: isAnimated)
+    }
 }
 
 extension RouteHandler {
@@ -49,5 +56,9 @@ extension RouteHandler {
 
     public func dismiss() {
         dismiss(.push)
+    }
+
+    public func dismissToRoot() {
+        dismissToRoot(isAnimated: true)
     }
 }
