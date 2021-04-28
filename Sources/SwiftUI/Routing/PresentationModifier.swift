@@ -32,6 +32,16 @@ public struct PresentationModifier<DestinationContent>: ViewModifier where Desti
     }
 }
 
+// MARK: - Destination
+
+extension PresentationModifier {
+    @ViewBuilder
+    private func destinationContent() -> some View {
+        content()
+            .themed(theme)
+    }
+}
+
 // MARK: - Transition
 
 extension PresentationModifier {
@@ -40,13 +50,13 @@ extension PresentationModifier {
         switch method.transition {
         case .push:
             content
-                .background(NavigationLink("", destination: self.content(), isActive: $isActive))
+                .background(NavigationLink("", destination: destinationContent(), isActive: $isActive))
         case .sheet:
             content
-                .sheet(isPresented: $isActive, onDismiss: onDismiss, content: self.content)
+                .sheet(isPresented: $isActive, onDismiss: onDismiss, content: destinationContent)
         case .fullScreen:
             content
-                .fullScreenCover(isPresented: $isActive, onDismiss: onDismiss, content: self.content)
+                .fullScreenCover(isPresented: $isActive, onDismiss: onDismiss, content: destinationContent)
         }
     }
 }
@@ -65,11 +75,9 @@ extension PresentationModifier {
         case .button(let style):
             buttonBody(content)
                 .buttonStyle(style)
-                .foregroundUIColor(theme.accentColor)
         case .primitiveButton(let style):
             buttonBody(content)
                 .buttonStyle(style)
-                .foregroundUIColor(theme.accentColor)
         }
     }
 

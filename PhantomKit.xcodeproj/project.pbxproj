@@ -36,6 +36,8 @@
 		E5A03951263750C300488F6C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A03950263750C300488F6C /* Constants.swift */; };
 		E5A0398A2638A01300488F6C /* Color+Colorful.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039892638A01300488F6C /* Color+Colorful.swift */; };
 		E5A0399F26394F7100488F6C /* Theme+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0399E26394F7000488F6C /* Theme+Ext.swift */; };
+		E5A039B72639591200488F6C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039B62639591200488F6C /* RootView.swift */; };
+		E5A039CB2639C3EA00488F6C /* SimpleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039CA2639C3EA00488F6C /* SimpleLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		E5A03950263750C300488F6C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E5A039892638A01300488F6C /* Color+Colorful.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Colorful.swift"; sourceTree = "<group>"; };
 		E5A0399E26394F7000488F6C /* Theme+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Ext.swift"; sourceTree = "<group>"; };
+		E5A039B62639591200488F6C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		E5A039CA2639C3EA00488F6C /* SimpleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +194,7 @@
 		E54632482631C955007E7F6A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E5A039CA2639C3EA00488F6C /* SimpleLabel.swift */,
 				E5A0394D26374E1200488F6C /* ExtendedLabel.swift */,
 				E5A039202637042500488F6C /* Styles */,
 			);
@@ -212,6 +217,7 @@
 		E546324D2631C9AF007E7F6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E5A039B5263958FF00488F6C /* RootView */,
 				E5A0390626360F2600488F6C /* AboutView */,
 				E5A0390726360F3500488F6C /* WebView */,
 			);
@@ -267,6 +273,14 @@
 				E5A0392626370DBA00488F6C /* GradientButtonStyle.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		E5A039B5263958FF00488F6C /* RootView */ = {
+			isa = PBXGroup;
+			children = (
+				E5A039B62639591200488F6C /* RootView.swift */,
+			);
+			path = RootView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,9 +406,11 @@
 				E54632672631DF87007E7F6A /* String+Ext.swift in Sources */,
 				E54631FE2630B24B007E7F6A /* View+Ext.swift in Sources */,
 				E5463295263209B4007E7F6A /* Router+Ext.swift in Sources */,
+				E5A039B72639591200488F6C /* RootView.swift in Sources */,
 				E5A038A62634296F00488F6C /* BaseHostingController.swift in Sources */,
 				E5A03951263750C300488F6C /* Constants.swift in Sources */,
 				E5A0390926360F4900488F6C /* WebView+ViewModel.swift in Sources */,
+				E5A039CB2639C3EA00488F6C /* SimpleLabel.swift in Sources */,
 				E5A0394E26374E1200488F6C /* ExtendedLabel.swift in Sources */,
 				E546324F2631CA06007E7F6A /* AboutView.swift in Sources */,
 				E5A0391E263703FB00488F6C /* PresentationModifier.swift in Sources */,

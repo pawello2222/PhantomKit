@@ -11,12 +11,14 @@ import SwiftUI
 // MARK: - Color
 
 extension View {
+    public func accentUIColor(_ uiColor: UIColor) -> some View {
+        accentColor(Color(uiColor))
+    }
+
     public func bgColor(_ color: Color) -> some View {
         background(color)
     }
-}
 
-extension View {
     public func fgColor(_ color: Color) -> some View {
         foregroundColor(color)
     }
@@ -93,5 +95,15 @@ extension View {
                 .frame(maxWidth: .infinity)
                 .padding()
         }
+    }
+}
+
+// MARK: - Theme
+
+extension View {
+    public func themed(_ theme: Theme) -> some View {
+        self
+            .accentUIColor(theme.accentColor)
+            .theme(theme)
     }
 }

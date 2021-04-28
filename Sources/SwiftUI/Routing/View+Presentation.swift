@@ -92,6 +92,13 @@ extension View {
         }
     }
 
+    public func action(
+        triggeredBy trigger: PresentationMethod.Trigger = .default,
+        _ action: @autoclosure @escaping () -> Void
+    ) -> some View {
+        self.action(triggeredBy: trigger, action)
+    }
+
     @ViewBuilder
     public func action(
         triggeredBy trigger: PresentationMethod.Trigger = .default,

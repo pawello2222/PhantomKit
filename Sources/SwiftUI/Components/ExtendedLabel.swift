@@ -26,7 +26,7 @@ public struct ExtendedLabel<Label>: View where Label: View {
     }
 
     public var body: some View {
-        HStack(spacing: .minimumPadding) {
+        HStack {
             imageView
             label()
             Spacer()
@@ -74,12 +74,20 @@ extension EnvironmentValues {
 extension ExtendedLabel {
     public init(
         text: String,
-        imageName: String,
+        systemImage: SystemAssetIdentifier,
         color: Color = .clear
     ) where Label == Text {
-        self.init(image: Image(systemName: imageName), color: color) {
+        self.init(image: Image(system: systemImage), color: color) {
             Text(text)
         }
+    }
+
+    public init(
+        text: String,
+        systemImage: SystemAssetIdentifier,
+        uiColor: UIColor = .clear
+    ) where Label == Text {
+        self.init(text: text, systemImage: systemImage, color: .init(uiColor))
     }
 
     public init(
