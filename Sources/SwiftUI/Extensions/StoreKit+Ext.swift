@@ -1,5 +1,5 @@
 //
-//  SKStoreReviewController+Ext.swift
+//  StoreKit+Ext.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 26/04/2021.

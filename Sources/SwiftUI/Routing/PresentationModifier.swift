@@ -9,6 +9,7 @@
 import SwiftUI
 
 public struct PresentationModifier<DestinationContent>: ViewModifier where DestinationContent: View {
+    @Environment(\.theme) private var theme
     private let method: PresentationMethod
     private let onDismiss: (() -> Void)?
     private let content: () -> DestinationContent
@@ -64,9 +65,11 @@ extension PresentationModifier {
         case .button(let style):
             buttonBody(content)
                 .buttonStyle(style)
+                .foregroundUIColor(theme.accentColor)
         case .primitiveButton(let style):
             buttonBody(content)
                 .buttonStyle(style)
+                .foregroundUIColor(theme.accentColor)
         }
     }
 

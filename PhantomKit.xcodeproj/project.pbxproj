@@ -31,10 +31,11 @@
 		E5A0391E263703FB00488F6C /* PresentationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0391D263703FB00488F6C /* PresentationModifier.swift */; };
 		E5A039222637042E00488F6C /* AnyButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039212637042E00488F6C /* AnyButtonStyle.swift */; };
 		E5A0392726370DBA00488F6C /* GradientButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0392626370DBA00488F6C /* GradientButtonStyle.swift */; };
-		E5A0393D26373AE100488F6C /* SKStoreReviewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0393C26373AE100488F6C /* SKStoreReviewController+Ext.swift */; };
+		E5A0393D26373AE100488F6C /* StoreKit+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0393C26373AE100488F6C /* StoreKit+Ext.swift */; };
 		E5A0394E26374E1200488F6C /* ExtendedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0394D26374E1200488F6C /* ExtendedLabel.swift */; };
 		E5A03951263750C300488F6C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A03950263750C300488F6C /* Constants.swift */; };
 		E5A0398A2638A01300488F6C /* Color+Colorful.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039892638A01300488F6C /* Color+Colorful.swift */; };
+		E5A0399F26394F7100488F6C /* Theme+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0399E26394F7000488F6C /* Theme+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,10 +67,11 @@
 		E5A0391D263703FB00488F6C /* PresentationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModifier.swift; sourceTree = "<group>"; };
 		E5A039212637042E00488F6C /* AnyButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyButtonStyle.swift; sourceTree = "<group>"; };
 		E5A0392626370DBA00488F6C /* GradientButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonStyle.swift; sourceTree = "<group>"; };
-		E5A0393C26373AE100488F6C /* SKStoreReviewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKStoreReviewController+Ext.swift"; sourceTree = "<group>"; };
+		E5A0393C26373AE100488F6C /* StoreKit+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoreKit+Ext.swift"; sourceTree = "<group>"; };
 		E5A0394D26374E1200488F6C /* ExtendedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedLabel.swift; sourceTree = "<group>"; };
 		E5A03950263750C300488F6C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E5A039892638A01300488F6C /* Color+Colorful.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Colorful.swift"; sourceTree = "<group>"; };
+		E5A0399E26394F7000488F6C /* Theme+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,11 +199,12 @@
 		E54632492631C987007E7F6A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E5A03950263750C300488F6C /* Constants.swift */,
 				E5A039892638A01300488F6C /* Color+Colorful.swift */,
 				E54631FD2630B24B007E7F6A /* View+Ext.swift */,
 				E5A038AE26342BCC00488F6C /* View+Navigation.swift */,
-				E5A0393C26373AE100488F6C /* SKStoreReviewController+Ext.swift */,
-				E5A03950263750C300488F6C /* Constants.swift */,
+				E5A0393C26373AE100488F6C /* StoreKit+Ext.swift */,
+				E5A0399E26394F7000488F6C /* Theme+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -396,7 +399,7 @@
 				E546324F2631CA06007E7F6A /* AboutView.swift in Sources */,
 				E5A0391E263703FB00488F6C /* PresentationModifier.swift in Sources */,
 				E54632292630C2C2007E7F6A /* Array+Ext.swift in Sources */,
-				E5A0393D26373AE100488F6C /* SKStoreReviewController+Ext.swift in Sources */,
+				E5A0393D26373AE100488F6C /* StoreKit+Ext.swift in Sources */,
 				E54632582631CC51007E7F6A /* Calendar+Ext.swift in Sources */,
 				E5A038E22635E9B300488F6C /* AboutView+Section+Item.swift in Sources */,
 				E5A0389F263428E900488F6C /* BaseHostingView.swift in Sources */,
@@ -404,6 +407,7 @@
 				E54632312630C5AF007E7F6A /* Set+Ext.swift in Sources */,
 				E54632382630CB12007E7F6A /* WebView.swift in Sources */,
 				E5A038D92635A69500488F6C /* View+Route.swift in Sources */,
+				E5A0399F26394F7100488F6C /* Theme+Ext.swift in Sources */,
 				E5A0388C2634014200488F6C /* Router+Route+Method.swift in Sources */,
 				E5A0398A2638A01300488F6C /* Color+Colorful.swift in Sources */,
 				E5A038AF26342BCC00488F6C /* View+Navigation.swift in Sources */,

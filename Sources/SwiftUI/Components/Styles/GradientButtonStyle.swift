@@ -8,30 +8,6 @@
 
 import SwiftUI
 
-extension ButtonIdentifier {
-    public static var gradientFill: Self { #function }
-    public static var gradientPill: Self { #function }
-}
-
-extension UserInfoKey where Type == Theme {
-    public static var gradientColors: Self { #function }
-    public static var gradientDisabledColors: Self { #function }
-}
-
-extension Theme {
-    public var gradientColors: [UIColor] {
-        userInfo[.gradientColors] as? [UIColor] ?? [.systemTint]
-    }
-
-    public var gradientDisabledColors: [UIColor] {
-        userInfo[.gradientDisabledColors] as? [UIColor] ?? [.secondarySystemBackground]
-    }
-}
-
-extension Theme {
-    public static var `default`: Theme = .default
-}
-
 // MARK: - Fill
 
 public struct GradientFillButtonStyle: ButtonStyle {
@@ -106,4 +82,11 @@ private struct GradientFillStyleBody<S: Shape>: View {
             theme.gradientColors.map(Color.init) :
             theme.gradientDisabledColors.map(Color.init)
     }
+}
+
+// MARK: - ButtonIdentifier
+
+extension ButtonIdentifier {
+    public static var gradientFill: Self { #function }
+    public static var gradientPill: Self { #function }
 }
