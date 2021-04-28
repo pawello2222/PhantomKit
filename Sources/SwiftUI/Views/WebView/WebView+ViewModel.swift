@@ -11,7 +11,7 @@ import Foundation
 extension WebView {
     public class ViewModel: ObservableObject {
         let title: String
-        @Published var url: String
+        @Published var url: URL?
         @Published var isNavigationAllowed: Bool
         let onDismiss: (() -> Void)?
 
@@ -19,7 +19,7 @@ extension WebView {
 
         public init(
             title: String,
-            url: String,
+            url: URL?,
             isNavigationAllowed: Bool = true,
             onDismiss: (() -> Void)? = nil
         ) {

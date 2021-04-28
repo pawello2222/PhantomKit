@@ -46,7 +46,7 @@ public struct WebViewRepresentable: UIViewRepresentable {
 
     public func makeUIView(context: UIViewRepresentableContext<Self>) -> WKWebView {
         webView.navigationDelegate = context.coordinator
-        if let url = URL(string: viewModel.url) {
+        if let url = viewModel.url {
             webView.load(URLRequest(url: url))
         }
         return webView
@@ -81,13 +81,15 @@ extension WebViewRepresentable {
                 return
             }
 
-            if let url = navigationAction.request.url {
-                if url.absoluteString.contains(viewModel.url) {
-                    decisionHandler(.allow)
-                    return
-                }
+            guard
+                let originalURL = viewModel.url?.absoluteString,
+                let destinationURL = navigationAction.request.url?.absoluteString,
+                destinationURL.contains(originalURL)
+            else {
+                decisionHandler(.cancel)
+                return
             }
-            decisionHandler(.cancel)
+            decisionHandler(.allow)
         }
     }
 }

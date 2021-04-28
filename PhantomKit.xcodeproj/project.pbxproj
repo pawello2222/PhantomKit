@@ -38,6 +38,8 @@
 		E5A0399F26394F7100488F6C /* Theme+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0399E26394F7000488F6C /* Theme+Ext.swift */; };
 		E5A039B72639591200488F6C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039B62639591200488F6C /* RootView.swift */; };
 		E5A039CB2639C3EA00488F6C /* SimpleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039CA2639C3EA00488F6C /* SimpleLabel.swift */; };
+		E5A039D62639CF7B00488F6C /* WebResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039D52639CF7B00488F6C /* WebResource.swift */; };
+		E5A039E42639DF8C00488F6C /* AnimatableFrameHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039E32639DF8C00488F6C /* AnimatableFrameHeight.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,8 @@
 		E5A0399E26394F7000488F6C /* Theme+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Ext.swift"; sourceTree = "<group>"; };
 		E5A039B62639591200488F6C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		E5A039CA2639C3EA00488F6C /* SimpleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLabel.swift; sourceTree = "<group>"; };
+		E5A039D52639CF7B00488F6C /* WebResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebResource.swift; sourceTree = "<group>"; };
+		E5A039E32639DF8C00488F6C /* AnimatableFrameHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableFrameHeight.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +179,7 @@
 		E54632272630C284007E7F6A /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				E5A039D42639CF6C00488F6C /* Network */,
 				E54632452631C8D1007E7F6A /* Extensions */,
 			);
 			path = Swift;
@@ -194,6 +199,7 @@
 		E54632482631C955007E7F6A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E5A039E32639DF8C00488F6C /* AnimatableFrameHeight.swift */,
 				E5A039CA2639C3EA00488F6C /* SimpleLabel.swift */,
 				E5A0394D26374E1200488F6C /* ExtendedLabel.swift */,
 				E5A039202637042500488F6C /* Styles */,
@@ -281,6 +287,14 @@
 				E5A039B62639591200488F6C /* RootView.swift */,
 			);
 			path = RootView;
+			sourceTree = "<group>";
+		};
+		E5A039D42639CF6C00488F6C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E5A039D52639CF7B00488F6C /* WebResource.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,6 +431,7 @@
 				E54632292630C2C2007E7F6A /* Array+Ext.swift in Sources */,
 				E5A0393D26373AE100488F6C /* StoreKit+Ext.swift in Sources */,
 				E54632582631CC51007E7F6A /* Calendar+Ext.swift in Sources */,
+				E5A039E42639DF8C00488F6C /* AnimatableFrameHeight.swift in Sources */,
 				E5A038E22635E9B300488F6C /* AboutView+Section+Item.swift in Sources */,
 				E5A0389F263428E900488F6C /* BaseHostingView.swift in Sources */,
 				E5A038DF2635E97300488F6C /* AboutView+Section.swift in Sources */,
@@ -426,6 +441,7 @@
 				E5A0399F26394F7100488F6C /* Theme+Ext.swift in Sources */,
 				E5A0388C2634014200488F6C /* Router+Route+Method.swift in Sources */,
 				E5A0398A2638A01300488F6C /* Color+Colorful.swift in Sources */,
+				E5A039D62639CF7B00488F6C /* WebResource.swift in Sources */,
 				E5A038AF26342BCC00488F6C /* View+Navigation.swift in Sources */,
 				E54631F92630B244007E7F6A /* PhantomKit.swift in Sources */,
 				E5A0392726370DBA00488F6C /* GradientButtonStyle.swift in Sources */,
