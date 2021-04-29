@@ -9,7 +9,15 @@
 import Foundation
 
 extension Calendar {
-    public var year: Int {
-        dateComponents([.year], from: Date()).year ?? 2021
+    public var year: Int? {
+        dateComponents([.year], from: Date()).year
+    }
+
+    public var month: Int? {
+        dateComponents([.month], from: Date()).month
+    }
+
+    public var day: Int? {
+        dateComponents([.day], from: Date()).day
     }
 }

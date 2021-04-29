@@ -91,9 +91,12 @@ extension AboutView.Section {
 
 extension AboutView.Section.Item {
     public static func copyright(author: String) -> Self {
-        .init(
-            title: "© \(Calendar.current.year) \(author)"
-        )
+        var components = ["©"]
+        if let year = Calendar.current.year {
+            components.append(String(describing: year))
+        }
+        components.append(author)
+        return .init(title: components.joined(separator: " "))
     }
 }
 

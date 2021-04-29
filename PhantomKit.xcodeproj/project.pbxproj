@@ -16,12 +16,10 @@
 		E54632382630CB12007E7F6A /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54632372630CB12007E7F6A /* WebView.swift */; };
 		E546324F2631CA06007E7F6A /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E546324E2631CA06007E7F6A /* AboutView.swift */; };
 		E54632582631CC51007E7F6A /* Calendar+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54632572631CC51007E7F6A /* Calendar+Ext.swift */; };
-		E54632672631DF87007E7F6A /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54632662631DF87007E7F6A /* String+Ext.swift */; };
 		E5463295263209B4007E7F6A /* Router+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5463294263209B4007E7F6A /* Router+Ext.swift */; };
 		E5A0388C2634014200488F6C /* Router+Route+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0388B2634014200488F6C /* Router+Route+Method.swift */; };
 		E5A0389F263428E900488F6C /* BaseHostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0389E263428E900488F6C /* BaseHostingView.swift */; };
 		E5A038A62634296F00488F6C /* BaseHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038A52634296F00488F6C /* BaseHostingController.swift */; };
-		E5A038AF26342BCC00488F6C /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038AE26342BCC00488F6C /* View+Navigation.swift */; };
 		E5A038D92635A69500488F6C /* View+Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038D82635A69500488F6C /* View+Route.swift */; };
 		E5A038DF2635E97300488F6C /* AboutView+Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038DE2635E97300488F6C /* AboutView+Section.swift */; };
 		E5A038E22635E9B300488F6C /* AboutView+Section+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038E12635E9B300488F6C /* AboutView+Section+Item.swift */; };
@@ -36,11 +34,11 @@
 		E5A03951263750C300488F6C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A03950263750C300488F6C /* Constants.swift */; };
 		E5A0398A2638A01300488F6C /* Color+Colorful.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039892638A01300488F6C /* Color+Colorful.swift */; };
 		E5A0399F26394F7100488F6C /* Theme+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0399E26394F7000488F6C /* Theme+Ext.swift */; };
-		E5A039B72639591200488F6C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039B62639591200488F6C /* RootView.swift */; };
 		E5A039CB2639C3EA00488F6C /* SimpleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039CA2639C3EA00488F6C /* SimpleLabel.swift */; };
 		E5A039D62639CF7B00488F6C /* WebResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039D52639CF7B00488F6C /* WebResource.swift */; };
 		E5A039E42639DF8C00488F6C /* AnimatableFrameHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039E32639DF8C00488F6C /* AnimatableFrameHeight.swift */; };
 		E5A03A19263B5E8900488F6C /* View+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A03A18263B5E8800488F6C /* View+Helpers.swift */; };
+		E5A03A23263B60E500488F6C /* View+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A03A22263B60E500488F6C /* View+Action.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,12 +55,10 @@
 		E54632372630CB12007E7F6A /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		E546324E2631CA06007E7F6A /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		E54632572631CC51007E7F6A /* Calendar+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Ext.swift"; sourceTree = "<group>"; };
-		E54632662631DF87007E7F6A /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		E5463294263209B4007E7F6A /* Router+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+Ext.swift"; sourceTree = "<group>"; };
 		E5A0388B2634014200488F6C /* Router+Route+Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+Route+Method.swift"; sourceTree = "<group>"; };
 		E5A0389E263428E900488F6C /* BaseHostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHostingView.swift; sourceTree = "<group>"; };
 		E5A038A52634296F00488F6C /* BaseHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHostingController.swift; sourceTree = "<group>"; };
-		E5A038AE26342BCC00488F6C /* View+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
 		E5A038D82635A69500488F6C /* View+Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Route.swift"; sourceTree = "<group>"; };
 		E5A038DE2635E97300488F6C /* AboutView+Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AboutView+Section.swift"; sourceTree = "<group>"; };
 		E5A038E12635E9B300488F6C /* AboutView+Section+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AboutView+Section+Item.swift"; sourceTree = "<group>"; };
@@ -77,11 +73,11 @@
 		E5A03950263750C300488F6C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E5A039892638A01300488F6C /* Color+Colorful.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Colorful.swift"; sourceTree = "<group>"; };
 		E5A0399E26394F7000488F6C /* Theme+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Ext.swift"; sourceTree = "<group>"; };
-		E5A039B62639591200488F6C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		E5A039CA2639C3EA00488F6C /* SimpleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLabel.swift; sourceTree = "<group>"; };
 		E5A039D52639CF7B00488F6C /* WebResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebResource.swift; sourceTree = "<group>"; };
 		E5A039E32639DF8C00488F6C /* AnimatableFrameHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableFrameHeight.swift; sourceTree = "<group>"; };
 		E5A03A18263B5E8800488F6C /* View+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Helpers.swift"; sourceTree = "<group>"; };
+		E5A03A22263B60E500488F6C /* View+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Action.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +158,7 @@
 		E54631F72630B244007E7F6A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E5A03950263750C300488F6C /* Constants.swift */,
 				E54631F82630B244007E7F6A /* PhantomKit.swift */,
 			);
 			path = "Supporting Files";
@@ -193,7 +190,8 @@
 				E54632282630C2C1007E7F6A /* Array+Ext.swift */,
 				E54632572631CC51007E7F6A /* Calendar+Ext.swift */,
 				E54632302630C5AF007E7F6A /* Set+Ext.swift */,
-				E54632662631DF87007E7F6A /* String+Ext.swift */,
+				E5A0393C26373AE100488F6C /* StoreKit+Ext.swift */,
+				E5A0399E26394F7000488F6C /* Theme+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -212,13 +210,11 @@
 		E54632492631C987007E7F6A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E5A03950263750C300488F6C /* Constants.swift */,
 				E5A039892638A01300488F6C /* Color+Colorful.swift */,
+				E5A03A22263B60E500488F6C /* View+Action.swift */,
 				E54631FD2630B24B007E7F6A /* View+Ext.swift */,
 				E5A03A18263B5E8800488F6C /* View+Helpers.swift */,
-				E5A038AE26342BCC00488F6C /* View+Navigation.swift */,
-				E5A0393C26373AE100488F6C /* StoreKit+Ext.swift */,
-				E5A0399E26394F7000488F6C /* Theme+Ext.swift */,
+				E5A038FB26360E3100488F6C /* View+Presentation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -226,7 +222,6 @@
 		E546324D2631C9AF007E7F6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E5A039B5263958FF00488F6C /* RootView */,
 				E5A0390626360F2600488F6C /* AboutView */,
 				E5A0390726360F3500488F6C /* WebView */,
 			);
@@ -239,7 +234,6 @@
 				E5A0390326360EB500488F6C /* UIKit */,
 				E5A038FF26360E4E00488F6C /* PresentationMethod.swift */,
 				E5A0391D263703FB00488F6C /* PresentationModifier.swift */,
-				E5A038FB26360E3100488F6C /* View+Presentation.swift */,
 			);
 			path = Routing;
 			sourceTree = "<group>";
@@ -282,14 +276,6 @@
 				E5A0392626370DBA00488F6C /* GradientButtonStyle.swift */,
 			);
 			path = Styles;
-			sourceTree = "<group>";
-		};
-		E5A039B5263958FF00488F6C /* RootView */ = {
-			isa = PBXGroup;
-			children = (
-				E5A039B62639591200488F6C /* RootView.swift */,
-			);
-			path = RootView;
 			sourceTree = "<group>";
 		};
 		E5A039D42639CF6C00488F6C /* Network */ = {
@@ -420,10 +406,9 @@
 				E5A0390026360E4E00488F6C /* PresentationMethod.swift in Sources */,
 				E5A038FC26360E3100488F6C /* View+Presentation.swift in Sources */,
 				E5A039222637042E00488F6C /* AnyButtonStyle.swift in Sources */,
-				E54632672631DF87007E7F6A /* String+Ext.swift in Sources */,
 				E54631FE2630B24B007E7F6A /* View+Ext.swift in Sources */,
 				E5463295263209B4007E7F6A /* Router+Ext.swift in Sources */,
-				E5A039B72639591200488F6C /* RootView.swift in Sources */,
+				E5A03A23263B60E500488F6C /* View+Action.swift in Sources */,
 				E5A038A62634296F00488F6C /* BaseHostingController.swift in Sources */,
 				E5A03951263750C300488F6C /* Constants.swift in Sources */,
 				E5A0390926360F4900488F6C /* WebView+ViewModel.swift in Sources */,
@@ -446,7 +431,6 @@
 				E5A0388C2634014200488F6C /* Router+Route+Method.swift in Sources */,
 				E5A0398A2638A01300488F6C /* Color+Colorful.swift in Sources */,
 				E5A039D62639CF7B00488F6C /* WebResource.swift in Sources */,
-				E5A038AF26342BCC00488F6C /* View+Navigation.swift in Sources */,
 				E54631F92630B244007E7F6A /* PhantomKit.swift in Sources */,
 				E5A0392726370DBA00488F6C /* GradientButtonStyle.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,

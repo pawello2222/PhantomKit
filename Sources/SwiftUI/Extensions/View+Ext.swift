@@ -98,6 +98,22 @@ extension View {
     }
 }
 
+// MARK: - Navigation
+
+extension View {
+    public func embedInNavigation(_ title: String) -> some View {
+        navigationTitle(title)
+            .embedInNavigation()
+    }
+}
+
+extension View {
+    public func embedInStackNavigation() -> some View {
+        embedInNavigation()
+            .navigationViewStyle(StackNavigationViewStyle())
+    }
+}
+
 // MARK: - Overlay
 
 extension View {
