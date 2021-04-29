@@ -98,12 +98,33 @@ extension View {
     }
 }
 
+// MARK: - Overlay
+
+extension View {
+    public func clearOverlay<C1>(content: @escaping (ClearShape) -> C1) -> some View where C1: View {
+        overlay(
+            content(ClearShape())
+        )
+    }
+}
+
 // MARK: - Theme
 
 extension View {
     public func themed(_ theme: Theme) -> some View {
-        self
-            .accentUIColor(theme.accentColor)
+        accentUIColor(theme.accentColor)
             .theme(theme)
+    }
+}
+
+// MARK: - Toolbar
+
+extension View {
+    public func toolbar<Content>(
+        _ content: @autoclosure () -> Content
+    ) -> some View where Content: ToolbarContent {
+        toolbar {
+            content()
+        }
     }
 }

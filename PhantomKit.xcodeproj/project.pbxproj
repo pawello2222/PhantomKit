@@ -40,6 +40,7 @@
 		E5A039CB2639C3EA00488F6C /* SimpleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039CA2639C3EA00488F6C /* SimpleLabel.swift */; };
 		E5A039D62639CF7B00488F6C /* WebResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039D52639CF7B00488F6C /* WebResource.swift */; };
 		E5A039E42639DF8C00488F6C /* AnimatableFrameHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039E32639DF8C00488F6C /* AnimatableFrameHeight.swift */; };
+		E5A03A19263B5E8900488F6C /* View+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A03A18263B5E8800488F6C /* View+Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		E5A039CA2639C3EA00488F6C /* SimpleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLabel.swift; sourceTree = "<group>"; };
 		E5A039D52639CF7B00488F6C /* WebResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebResource.swift; sourceTree = "<group>"; };
 		E5A039E32639DF8C00488F6C /* AnimatableFrameHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableFrameHeight.swift; sourceTree = "<group>"; };
+		E5A03A18263B5E8800488F6C /* View+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 				E5A03950263750C300488F6C /* Constants.swift */,
 				E5A039892638A01300488F6C /* Color+Colorful.swift */,
 				E54631FD2630B24B007E7F6A /* View+Ext.swift */,
+				E5A03A18263B5E8800488F6C /* View+Helpers.swift */,
 				E5A038AE26342BCC00488F6C /* View+Navigation.swift */,
 				E5A0393C26373AE100488F6C /* StoreKit+Ext.swift */,
 				E5A0399E26394F7000488F6C /* Theme+Ext.swift */,
@@ -433,6 +436,7 @@
 				E54632582631CC51007E7F6A /* Calendar+Ext.swift in Sources */,
 				E5A039E42639DF8C00488F6C /* AnimatableFrameHeight.swift in Sources */,
 				E5A038E22635E9B300488F6C /* AboutView+Section+Item.swift in Sources */,
+				E5A03A19263B5E8900488F6C /* View+Helpers.swift in Sources */,
 				E5A0389F263428E900488F6C /* BaseHostingView.swift in Sources */,
 				E5A038DF2635E97300488F6C /* AboutView+Section.swift in Sources */,
 				E54632312630C5AF007E7F6A /* Set+Ext.swift in Sources */,

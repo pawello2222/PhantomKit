@@ -11,20 +11,20 @@ import SwiftUI
 // MARK: - Push
 
 extension View {
-    public func present<Content>(
+    public func link<Content>(
         triggeredBy trigger: PresentationMethod.Trigger = .default,
         onDismiss: (() -> Void)? = nil,
-        @ViewBuilder content: @escaping () -> Content
+        @ViewBuilder destination: @escaping () -> Content
     ) -> some View where Content: View {
-        modifier(PresentationModifier(method: .push(trigger: trigger), onDismiss: onDismiss, content: content))
+        modifier(PresentationModifier(method: .push(trigger: trigger), onDismiss: onDismiss, content: destination))
     }
 
-    public func present<Content>(
+    public func link<Content>(
         triggeredBy trigger: PresentationMethod.Trigger = .default,
         onDismiss: (() -> Void)? = nil,
-        content: @autoclosure @escaping () -> Content
+        destination: @autoclosure @escaping () -> Content
     ) -> some View where Content: View {
-        present(triggeredBy: trigger, onDismiss: onDismiss, content: content)
+        link(triggeredBy: trigger, onDismiss: onDismiss, destination: destination)
     }
 }
 
@@ -106,6 +106,31 @@ extension View {
     ) -> some View {
         if let action = action {
             self.action(triggeredBy: trigger, action)
+        }
+    }
+}
+
+// MARK: - Animated Action
+
+extension View {
+    public func animatedAction(
+        triggeredBy trigger: PresentationMethod.Trigger = .default,
+        _ action: @autoclosure @escaping () -> Void
+    ) -> some View {
+        self.animatedAction(triggeredBy: trigger, action)
+    }
+
+    @ViewBuilder
+    public func animatedAction(
+        triggeredBy trigger: PresentationMethod.Trigger = .default,
+        _ action: (() -> Void)?
+    ) -> some View {
+        if let action = action {
+            self.action(triggeredBy: trigger) {
+                withAnimation {
+                    action()
+                }
+            }
         }
     }
 }
