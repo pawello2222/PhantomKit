@@ -14,3 +14,15 @@ public struct ClearShape: View {
             .contentShape(Rectangle())
     }
 }
+
+public struct SectionHeader<Content>: View where Content: View {
+    private let header: () -> Content
+
+    public init(_ header: @autoclosure @escaping () -> Content) {
+        self.header = header
+    }
+
+    public var body: some View {
+        Section(header: header()) {}
+    }
+}
