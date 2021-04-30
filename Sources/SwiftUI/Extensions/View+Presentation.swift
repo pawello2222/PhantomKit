@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-// MARK: - Push
+// MARK: - Link
 
 extension View {
     public func link<Content>(

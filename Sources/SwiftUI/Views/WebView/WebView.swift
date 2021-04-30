@@ -13,13 +13,13 @@ public struct WebView: View {
     @Environment(\.presentationMode) private var presentationMode
     @ObservedObject private var viewModel: ViewModel
 
-    public init(_ viewModel: ViewModel) {
+    public init(viewModel: ViewModel) {
         self.viewModel = viewModel
     }
 
     public var body: some View {
         WebViewRepresentable(viewModel: viewModel)
-            .navigationTitle(viewModel.title)
+            .navigationTitle(viewModel.endpoint.title)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .toolbar {
@@ -46,7 +46,7 @@ public struct WebViewRepresentable: UIViewRepresentable {
 
     public func makeUIView(context: UIViewRepresentableContext<Self>) -> WKWebView {
         webView.navigationDelegate = context.coordinator
-        if let url = viewModel.url {
+        if let url = viewModel.endpoint.url {
             webView.load(URLRequest(url: url))
         }
         return webView
@@ -76,13 +76,13 @@ extension WebViewRepresentable {
             decidePolicyFor navigationAction: WKNavigationAction,
             decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
         ) {
-            guard !viewModel.isNavigationAllowed else {
+            guard !viewModel.endpoint.isNavigationAllowed else {
                 decisionHandler(.allow)
                 return
             }
 
             guard
-                let originalURL = viewModel.url?.absoluteString,
+                let originalURL = viewModel.endpoint.url?.absoluteString,
                 let destinationURL = navigationAction.request.url?.absoluteString,
                 destinationURL.contains(originalURL)
             else {
@@ -91,5 +91,13 @@ extension WebViewRepresentable {
             }
             decisionHandler(.allow)
         }
+    }
+}
+
+// MARK: - Convenience
+
+extension WebView {
+    public init(endpoint: WebEndpoint) {
+        self.viewModel = .init(endpoint)
     }
 }

@@ -81,10 +81,10 @@ extension AboutView.Section {
 }
 
 extension AboutView.Section {
-    public static func graphics(title: String, url: URL) -> Self {
+    public static func graphics(title: String, endpoint: WebEndpoint) -> Self {
         .init(
             title: "GRAPHICS",
-            items: [.link(title: title, url: url)]
+            items: [.link(title: title, endpoint: endpoint)]
         )
     }
 }
@@ -101,13 +101,10 @@ extension AboutView.Section.Item {
 }
 
 extension AboutView.Section.Item {
-    public static func link(title: String, url: URL) -> Self {
+    public static func link(title: String, endpoint: WebEndpoint) -> Self {
         .init(
             title: title,
-            webView: .init(
-                title: title,
-                url: url
-            )
+            webView: .init(endpoint)
         )
     }
 }

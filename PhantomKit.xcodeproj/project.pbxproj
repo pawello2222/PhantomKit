@@ -39,6 +39,8 @@
 		E5A039E42639DF8C00488F6C /* AnimatableFrameHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A039E32639DF8C00488F6C /* AnimatableFrameHeight.swift */; };
 		E5A03A19263B5E8900488F6C /* View+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A03A18263B5E8800488F6C /* View+Helpers.swift */; };
 		E5A03A23263B60E500488F6C /* View+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A03A22263B60E500488F6C /* View+Action.swift */; };
+		E5A03A51263C2E8500488F6C /* URL+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A03A50263C2E8500488F6C /* URL+Ext.swift */; };
+		E5A03A5F263C34A200488F6C /* WebEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A03A5E263C34A200488F6C /* WebEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		E5A039E32639DF8C00488F6C /* AnimatableFrameHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableFrameHeight.swift; sourceTree = "<group>"; };
 		E5A03A18263B5E8800488F6C /* View+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Helpers.swift"; sourceTree = "<group>"; };
 		E5A03A22263B60E500488F6C /* View+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Action.swift"; sourceTree = "<group>"; };
+		E5A03A50263C2E8500488F6C /* URL+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Ext.swift"; sourceTree = "<group>"; };
+		E5A03A5E263C34A200488F6C /* WebEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +196,7 @@
 				E54632302630C5AF007E7F6A /* Set+Ext.swift */,
 				E5A0393C26373AE100488F6C /* StoreKit+Ext.swift */,
 				E5A0399E26394F7000488F6C /* Theme+Ext.swift */,
+				E5A03A50263C2E8500488F6C /* URL+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 		E5A039D42639CF6C00488F6C /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E5A03A5E263C34A200488F6C /* WebEndpoint.swift */,
 				E5A039D52639CF7B00488F6C /* WebResource.swift */,
 			);
 			path = Network;
@@ -412,6 +418,7 @@
 				E5A038A62634296F00488F6C /* BaseHostingController.swift in Sources */,
 				E5A03951263750C300488F6C /* Constants.swift in Sources */,
 				E5A0390926360F4900488F6C /* WebView+ViewModel.swift in Sources */,
+				E5A03A5F263C34A200488F6C /* WebEndpoint.swift in Sources */,
 				E5A039CB2639C3EA00488F6C /* SimpleLabel.swift in Sources */,
 				E5A0394E26374E1200488F6C /* ExtendedLabel.swift in Sources */,
 				E546324F2631CA06007E7F6A /* AboutView.swift in Sources */,
@@ -426,6 +433,7 @@
 				E5A038DF2635E97300488F6C /* AboutView+Section.swift in Sources */,
 				E54632312630C5AF007E7F6A /* Set+Ext.swift in Sources */,
 				E54632382630CB12007E7F6A /* WebView.swift in Sources */,
+				E5A03A51263C2E8500488F6C /* URL+Ext.swift in Sources */,
 				E5A038D92635A69500488F6C /* View+Route.swift in Sources */,
 				E5A0399F26394F7100488F6C /* Theme+Ext.swift in Sources */,
 				E5A0388C2634014200488F6C /* Router+Route+Method.swift in Sources */,

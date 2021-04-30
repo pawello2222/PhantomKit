@@ -10,22 +10,13 @@ import Foundation
 
 extension WebView {
     public class ViewModel: ObservableObject {
-        let title: String
-        @Published var url: URL?
-        @Published var isNavigationAllowed: Bool
+        let endpoint: WebEndpoint
         let onDismiss: (() -> Void)?
 
         @Published public var didFinishLoading = false
 
-        public init(
-            title: String,
-            url: URL?,
-            isNavigationAllowed: Bool = true,
-            onDismiss: (() -> Void)? = nil
-        ) {
-            self.title = title
-            self.url = url
-            self.isNavigationAllowed = isNavigationAllowed
+        public init(_ endpoint: WebEndpoint, onDismiss: (() -> Void)? = nil) {
+            self.endpoint = endpoint
             self.onDismiss = onDismiss
         }
     }

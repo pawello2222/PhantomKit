@@ -68,7 +68,7 @@ extension View {
         case .tap(let action):
             onTapGesture(perform: action)
         case .webView(let viewModel):
-            sheet(content: WebView(viewModel))
+            sheet(content: WebView(viewModel: viewModel))
         }
     }
 }
