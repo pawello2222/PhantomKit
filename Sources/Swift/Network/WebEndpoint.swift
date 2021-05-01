@@ -14,11 +14,18 @@ public typealias WebEndpoint = AdaptiveURL
 
 extension UserInfoKey where Type == WebEndpoint {
     public static var isNavigationAllowed: Self { #function }
+
+    public static var hiddenWebElements: Self { #function }
 }
 
 extension WebEndpoint {
     public var isNavigationAllowed: Bool {
         get { self[userInfoKey: .isNavigationAllowed, default: true] }
         set { self[userInfoKey: .isNavigationAllowed] = newValue }
+    }
+
+    public var hiddenWebElements: [String] {
+        get { self[userInfoKey: .hiddenWebElements, default: []] }
+        set { self[userInfoKey: .hiddenWebElements] = newValue }
     }
 }

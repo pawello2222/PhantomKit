@@ -49,6 +49,7 @@ public struct WebViewRepresentable: UIViewRepresentable {
         if let url = viewModel.endpoint.url {
             webView.load(URLRequest(url: url))
         }
+        webView.allowsBackForwardNavigationGestures = viewModel.endpoint.isNavigationAllowed
         return webView
     }
 
@@ -68,7 +69,12 @@ extension WebViewRepresentable {
         }
 
         public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-            viewModel.didFinishLoading = true
+            let scripts = [
+                WebView.Script.hideElements(classNames: viewModel.endpoint.hiddenWebElements),
+            ]
+            webView.evaluateJavaScript(scripts.joined()) { [weak self] _, _ in
+                self?.viewModel.didFinishLoading = true
+            }
         }
 
         public func webView(
@@ -98,6 +104,6 @@ extension WebViewRepresentable {
 
 extension WebView {
     public init(endpoint: WebEndpoint) {
-        self.viewModel = .init(endpoint)
+        viewModel = .init(endpoint)
     }
 }
