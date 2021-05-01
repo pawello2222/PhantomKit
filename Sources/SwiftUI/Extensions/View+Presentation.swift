@@ -67,3 +67,30 @@ extension View {
         fullScreen(triggeredBy: trigger, onDismiss: onDismiss, content: content)
     }
 }
+
+// MARK: - Web View
+
+extension View {
+    public func webView(
+        method: PresentationMethod = .sheet,
+        onDismiss: (() -> Void)? = nil,
+        endpoint: WebEndpoint
+    ) -> some View {
+        modifier(
+            PresentationModifier(method: method, onDismiss: onDismiss) {
+                WebView(endpoint: endpoint)
+                    .when(method.isModal) {
+                        $0.embedInNavigation()
+                    }
+            }
+        )
+    }
+
+    public func webView(
+        triggeredBy trigger: PresentationMethod.Trigger = .default,
+        onDismiss: (() -> Void)? = nil,
+        endpoint: WebEndpoint
+    ) -> some View {
+        webView(method: .sheet(trigger: trigger), onDismiss: onDismiss, endpoint: endpoint)
+    }
+}

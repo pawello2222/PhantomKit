@@ -28,6 +28,15 @@ public struct PresentationMethod {
         self.transition = transition
         self.trigger = trigger
     }
+
+    public var isModal: Bool {
+        switch transition {
+        case .push:
+            return false
+        case .sheet, .fullScreen:
+            return true
+        }
+    }
 }
 
 // MARK: - Convenience
