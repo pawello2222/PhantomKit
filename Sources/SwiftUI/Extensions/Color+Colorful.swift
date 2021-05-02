@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-/// Taken from: https://github.com/chackle/Colorful
+// Taken from: https://github.com/chackle/Colorful
 extension Color {
     public static let aliceBlue = Color(hex: 0xF0F8FF)
     public static let antiqueWhite = Color(hex: 0xFAEBD7)

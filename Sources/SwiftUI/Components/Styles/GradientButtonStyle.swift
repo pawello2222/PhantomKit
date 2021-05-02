@@ -69,14 +69,6 @@ private struct GradientFillStyleBody<S: Shape>: View {
         )
     }
 
-    private var backgroundColor: Color {
-        Color(
-            isEnabled ?
-                theme.buttonBackgroundColor(id, configuration.isPressed ? .pressed : .normal) :
-                theme.buttonBackgroundColor(id, .disabled)
-        )
-    }
-
     private var gradientColors: [Color] {
         isEnabled ?
             theme.gradientColors.map(Color.init) :
