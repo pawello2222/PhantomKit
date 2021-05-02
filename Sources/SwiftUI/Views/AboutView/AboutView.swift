@@ -39,7 +39,7 @@ extension AboutView {
         image()
             .resizable()
             .scaledToFit()
-            .padding(.maximumPadding)
+            .padding()
     }
 
     private var sectionsView: some View {
