@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.authors               = { 'Pawel Wiszenko' => 'https://github.com/pawello2222' }
   s.source                = { :git => 'https://github.com/pawello2222/PhantomKit.git', :tag => s.version }
   s.source_files          = 'Sources/**/*.swift'
-  s.resources             = 'Sources/**/*.xcassets'
+  s.resources             = 'Sources/**/*.xcassets', 'Sources/**/**/**/*.strings'
   s.requires_arc          = true
   s.ios.deployment_target = '14.0'
   s.pod_target_xcconfig   = {

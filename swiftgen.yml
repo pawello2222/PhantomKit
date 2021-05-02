@@ -4,4 +4,4 @@ strings:
       - templateName: structured-swift5
         params:
           enumName: Localized
-        output: Sources/Helpers/LocalizableStrings.swift
+        output: Sources/Resources/Localization/Helpers/LocalizableStrings.swift

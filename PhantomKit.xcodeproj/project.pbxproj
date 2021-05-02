@@ -12,7 +12,7 @@
 		E52D631C263D6BD200F41D2E /* WebView+Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52D631B263D6BD200F41D2E /* WebView+Script.swift */; };
 		E52D6337263DBB3400F41D2E /* Published+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52D6336263DBB3400F41D2E /* Published+Ext.swift */; };
 		E52D6357263EBD0900F41D2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E52D6359263EBD0900F41D2E /* Localizable.strings */; };
-		E52D635D263EBE2E00F41D2E /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52D635C263EBE2E00F41D2E /* LocalizableStrings.swift */; };
+		E52D638F263EE7CB00F41D2E /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52D638E263EE7CB00F41D2E /* LocalizableStrings.swift */; };
 		E54631F92630B244007E7F6A /* PhantomKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54631F82630B244007E7F6A /* PhantomKit.swift */; };
 		E54631FE2630B24B007E7F6A /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54631FD2630B24B007E7F6A /* View+Ext.swift */; };
 		E54632292630C2C2007E7F6A /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54632282630C2C1007E7F6A /* Array+Ext.swift */; };
@@ -56,7 +56,7 @@
 		E52D631B263D6BD200F41D2E /* WebView+Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebView+Script.swift"; sourceTree = "<group>"; };
 		E52D6336263DBB3400F41D2E /* Published+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Published+Ext.swift"; sourceTree = "<group>"; };
 		E52D6358263EBD0900F41D2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		E52D635C263EBE2E00F41D2E /* LocalizableStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
+		E52D638E263EE7CB00F41D2E /* LocalizableStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
 		E54631F82630B244007E7F6A /* PhantomKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhantomKit.swift; sourceTree = "<group>"; };
 		E54631FD2630B24B007E7F6A /* View+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		E54632282630C2C1007E7F6A /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
@@ -155,20 +155,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E52D634C263EBC6100F41D2E /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				E52D635C263EBE2E00F41D2E /* LocalizableStrings.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		E52D634D263EBC6B00F41D2E /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				E52D6369263ED23700F41D2E /* Helpers */,
 				E52D6359263EBD0900F41D2E /* Localizable.strings */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		E52D6369263ED23700F41D2E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E52D638E263EE7CB00F41D2E /* LocalizableStrings.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		E54631F52630B1BD007E7F6A /* Sources */ = {
@@ -176,7 +177,6 @@
 			children = (
 				E54632272630C284007E7F6A /* Swift */,
 				E54631FC2630B24B007E7F6A /* SwiftUI */,
-				E52D634C263EBC6100F41D2E /* Helpers */,
 				E54631F72630B244007E7F6A /* Resources */,
 			);
 			path = Sources;
@@ -457,7 +457,7 @@
 			files = (
 				E52D631C263D6BD200F41D2E /* WebView+Script.swift in Sources */,
 				E5A0390026360E4E00488F6C /* PresentationMethod.swift in Sources */,
-				E52D635D263EBE2E00F41D2E /* LocalizableStrings.swift in Sources */,
+				E52D638F263EE7CB00F41D2E /* LocalizableStrings.swift in Sources */,
 				E5A038FC26360E3100488F6C /* View+Presentation.swift in Sources */,
 				E5A039222637042E00488F6C /* AnyButtonStyle.swift in Sources */,
 				E54631FE2630B24B007E7F6A /* View+Ext.swift in Sources */,
