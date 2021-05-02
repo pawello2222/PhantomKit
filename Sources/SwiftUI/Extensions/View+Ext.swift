@@ -8,18 +8,30 @@
 
 import SwiftUI
 
+// MARK: - Border
+
+extension View {
+    @inlinable public func borderColor(_ color: Color, width: CGFloat = 1) -> some View {
+        border(color, width: width)
+    }
+
+    @inlinable public func borderUIColor(_ uiColor: UIColor, width: CGFloat = 1) -> some View {
+        borderColor(.init(uiColor), width: width)
+    }
+}
+
 // MARK: - Color
 
 extension View {
-    public func accentUIColor(_ uiColor: UIColor) -> some View {
-        accentColor(Color(uiColor))
+    @inlinable public func accentUIColor(_ uiColor: UIColor) -> some View {
+        accentColor(.init(uiColor))
     }
 
-    public func bgColor(_ color: Color) -> some View {
+    @inlinable public func bgColor(_ color: Color) -> some View {
         background(color)
     }
 
-    public func fgColor(_ color: Color) -> some View {
+    @inlinable public func fgColor(_ color: Color) -> some View {
         foregroundColor(color)
     }
 }
@@ -27,16 +39,18 @@ extension View {
 // MARK: - Frame
 
 extension View {
-    public func maxFrame() -> some View {
+    @inlinable public func maximumFrame() -> some View {
         frame(maxWidth: .infinity, maxHeight: .infinity)
     }
-}
 
-extension View {
-    public func frameAction(_ action: @escaping () -> Void) -> some View {
-        maxFrame()
+    @inlinable public func onTapFrame(perform action: @escaping () -> Void) -> some View {
+        maximumFrame()
             .contentShape(Rectangle())
             .onTapGesture(perform: action)
+    }
+
+    @inlinable public func onTapFrame(perform action: @autoclosure @escaping () -> Void) -> some View {
+        onTapFrame(perform: action)
     }
 }
 
@@ -117,9 +131,11 @@ extension View {
 // MARK: - Overlay
 
 extension View {
-    public func clearOverlay<C1>(content: @escaping (ClearShape) -> C1) -> some View where C1: View {
+    public func invisibleOverlay<Content>(
+        content: @escaping (InvisibleShape) -> Content
+    ) -> some View where Content: View {
         overlay(
-            content(ClearShape())
+            content(InvisibleShape())
         )
     }
 }

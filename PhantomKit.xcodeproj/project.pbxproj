@@ -21,6 +21,7 @@
 		E546324F2631CA06007E7F6A /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E546324E2631CA06007E7F6A /* AboutView.swift */; };
 		E54632582631CC51007E7F6A /* Calendar+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54632572631CC51007E7F6A /* Calendar+Ext.swift */; };
 		E5463295263209B4007E7F6A /* Router+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5463294263209B4007E7F6A /* Router+Ext.swift */; };
+		E581CF01263F1FDF0019C550 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581CF00263F1FDF0019C550 /* Constants.swift */; };
 		E5A0388C2634014200488F6C /* Router+Route+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0388B2634014200488F6C /* Router+Route+Method.swift */; };
 		E5A0389F263428E900488F6C /* BaseHostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0389E263428E900488F6C /* BaseHostingView.swift */; };
 		E5A038A62634296F00488F6C /* BaseHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038A52634296F00488F6C /* BaseHostingController.swift */; };
@@ -65,6 +66,7 @@
 		E546324E2631CA06007E7F6A /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		E54632572631CC51007E7F6A /* Calendar+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Ext.swift"; sourceTree = "<group>"; };
 		E5463294263209B4007E7F6A /* Router+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+Ext.swift"; sourceTree = "<group>"; };
+		E581CF00263F1FDF0019C550 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E5A0388B2634014200488F6C /* Router+Route+Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+Route+Method.swift"; sourceTree = "<group>"; };
 		E5A0389E263428E900488F6C /* BaseHostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHostingView.swift; sourceTree = "<group>"; };
 		E5A038A52634296F00488F6C /* BaseHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHostingController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		E54631F52630B1BD007E7F6A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				E581CEFF263F1FD20019C550 /* Helpers */,
 				E54632272630C284007E7F6A /* Swift */,
 				E54631FC2630B24B007E7F6A /* SwiftUI */,
 				E54631F72630B244007E7F6A /* Resources */,
@@ -255,6 +258,14 @@
 				E5A0390726360F3500488F6C /* WebView */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E581CEFF263F1FD20019C550 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E581CF00263F1FDF0019C550 /* Constants.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		E5A038FA26360DFA00488F6C /* Routing */ = {
@@ -490,6 +501,7 @@
 				E54631F92630B244007E7F6A /* PhantomKit.swift in Sources */,
 				E5A0392726370DBA00488F6C /* GradientButtonStyle.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				E581CF01263F1FDF0019C550 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
