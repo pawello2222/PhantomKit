@@ -8,7 +8,6 @@
 
 import SwiftUI
 
-// Taken from: https://stackoverflow.com/a/60873883/8697793
 public struct AnimatableFrameHeight: AnimatableModifier {
     private var height: CGFloat
 
