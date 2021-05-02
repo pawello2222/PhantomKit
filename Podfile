@@ -4,10 +4,10 @@ inhibit_all_warnings!
 
 #pod "Introspect"
 #pod 'RealmSwift'
-pod 'SwiftGen', '~> 6.0'
 pod 'Xcore', :git => 'https://github.com/pawello2222/xcore', :branch => "phantomKit"
 
 target 'PhantomKit_Tests' do
+  pod 'SwiftGen', '~> 6.0'
 #  pod 'PhantomKit', :path => './'
 end
 
