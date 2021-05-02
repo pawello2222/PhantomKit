@@ -10,12 +10,11 @@ import SwiftUI
 
 open class BaseHostingController<Content>: UIHostingController<AnyView> where Content: View {
     private let theme: Theme
-    private let base: BaseHostingView<Content>
 
     public init(rootView: Content, theme: Theme = .default) {
         self.theme = theme
-        base = BaseHostingView(theme: theme, content: rootView)
-        super.init(rootView: base.eraseToAnyView())
+        let baseView = BaseHostingView(theme: theme, content: rootView)
+        super.init(rootView: baseView.eraseToAnyView())
     }
 
     @available(*, unavailable)
@@ -37,10 +36,7 @@ open class BaseHostingController<Content>: UIHostingController<AnyView> where Co
     }
 
     override open var preferredStatusBarBackground: Chrome.Style {
-        guard preferredNavigationBarBackground.isTransparent else {
-            return .transparent
-        }
-        return theme.chrome
+        theme.chrome
     }
 
     override open var preferredStatusBarStyle: UIStatusBarStyle {

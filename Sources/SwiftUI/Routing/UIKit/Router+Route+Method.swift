@@ -73,17 +73,14 @@ extension Router.Route.Method {
 
 extension Router.Route.Method {
     func show<Content>(_ view: Content, navigationController: UINavigationController) where Content: View {
-        let pushVC = BaseHostingController(rootView: view)
         guard isModal else {
+            let pushVC = BaseHostingController(rootView: view)
             navigationController.pushViewController(pushVC, animated: isAnimated)
             return
         }
 
-        let modalVC = BaseHostingController(rootView: view.embedInStackNavigation())
-        if transition == .fullScreen {
-            modalVC.apply {
-                $0.modalPresentationStyle = .fullScreen
-            }
+        let modalVC = BaseHostingController(rootView: view.embedInStackNavigation()).apply {
+            $0.modalPresentationStyle = transition == .fullScreen ? .fullScreen : .automatic
         }
         navigationController.present(modalVC, animated: isAnimated)
     }

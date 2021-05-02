@@ -8,18 +8,18 @@
 
 import SwiftUI
 
-public struct PresentationModifier<DestinationContent>: ViewModifier where DestinationContent: View {
+public struct PresentationModifier<Destination>: ViewModifier where Destination: View {
     @Environment(\.theme) private var theme
     private let method: PresentationMethod
     private let onDismiss: (() -> Void)?
-    private let content: () -> DestinationContent
+    private let content: () -> Destination
 
     @State private var isActive = false
 
     public init(
         method: PresentationMethod = .push,
         onDismiss: (() -> Void)? = nil,
-        @ViewBuilder content: @escaping () -> DestinationContent
+        @ViewBuilder content: @escaping () -> Destination
     ) {
         self.method = method
         self.onDismiss = onDismiss
@@ -32,17 +32,7 @@ public struct PresentationModifier<DestinationContent>: ViewModifier where Desti
     }
 }
 
-// MARK: - Destination
-
-extension PresentationModifier {
-    @ViewBuilder
-    private func destinationContent() -> some View {
-        content()
-            .themed(theme)
-    }
-}
-
-// MARK: - Transition
+// MARK: - Transition Body
 
 extension PresentationModifier {
     @ViewBuilder
@@ -50,18 +40,24 @@ extension PresentationModifier {
         switch method.transition {
         case .push:
             content
-                .background(NavigationLink("", destination: destinationContent(), isActive: $isActive))
+                .background(NavigationLink("", destination: destination(), isActive: $isActive))
         case .sheet:
             content
-                .sheet(isPresented: $isActive, onDismiss: onDismiss, content: destinationContent)
+                .sheet(isPresented: $isActive, onDismiss: onDismiss, content: destination)
         case .fullScreen:
             content
-                .fullScreenCover(isPresented: $isActive, onDismiss: onDismiss, content: destinationContent)
+                .fullScreenCover(isPresented: $isActive, onDismiss: onDismiss, content: destination)
         }
+    }
+
+    @ViewBuilder
+    private func destination() -> some View {
+        content()
+            .themed(theme)
     }
 }
 
-// MARK: - Trigger
+// MARK: - Trigger Body
 
 extension PresentationModifier {
     @ViewBuilder
