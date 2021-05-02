@@ -72,13 +72,15 @@ extension View {
 
 extension View {
     public func webView(
-        method: PresentationMethod = .sheet,
-        onDismiss: (() -> Void)? = nil,
-        endpoint: WebEndpoint
+        openedAs method: PresentationMethod = .sheet,
+        endpoint: WebEndpoint,
+        edgesIgnoringSafeArea: Edge.Set = .none,
+        onDismiss: (() -> Void)? = nil
     ) -> some View {
         modifier(
             PresentationModifier(method: method, onDismiss: onDismiss) {
                 WebView(endpoint: endpoint)
+                    .edgesIgnoringSafeArea(edgesIgnoringSafeArea)
                     .when(method.isModal) {
                         $0.embedInNavigation()
                     }
@@ -88,9 +90,15 @@ extension View {
 
     public func webView(
         triggeredBy trigger: PresentationMethod.Trigger,
-        onDismiss: (() -> Void)? = nil,
-        endpoint: WebEndpoint
+        endpoint: WebEndpoint,
+        edgesIgnoringSafeArea: Edge.Set = .none,
+        onDismiss: (() -> Void)? = nil
     ) -> some View {
-        webView(method: .sheet(trigger: trigger), onDismiss: onDismiss, endpoint: endpoint)
+        webView(
+            openedAs: .sheet(trigger: trigger),
+            endpoint: endpoint,
+            edgesIgnoringSafeArea: edgesIgnoringSafeArea,
+            onDismiss: onDismiss
+        )
     }
 }

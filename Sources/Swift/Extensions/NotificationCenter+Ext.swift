@@ -6,11 +6,12 @@
 //  Copyright © 2021 Pawel Wiszenko. All rights reserved.
 //
 
-import Foundation
+import Combine
 
 extension NotificationCenter.Event {
-    @discardableResult
-    public func orientationDidChange(_ callback: @escaping () -> Void) -> NSObjectProtocol {
-        observe(UIDevice.orientationDidChangeNotification, callback)
+    public var orientationDidChangePublisher: AnyPublisher<Notification, Never> {
+        NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
 }

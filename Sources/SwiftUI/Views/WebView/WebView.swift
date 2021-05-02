@@ -50,6 +50,7 @@ public struct WebViewRepresentable: UIViewRepresentable {
             webView.load(URLRequest(url: url))
         }
         webView.allowsBackForwardNavigationGestures = viewModel.endpoint.isNavigationAllowed
+        webView.scrollView.contentInsetAdjustmentBehavior = .never
         return webView
     }
 
