@@ -28,7 +28,9 @@ public struct AboutView: View {
         }
         .padding(.maximumPadding)
         .navigationBarHidden(true)
-        .onTapFrame(perform: presentationMode.wrappedValue.dismiss())
+        .onTapFrame {
+            presentationMode.wrappedValue.dismiss()
+        }
     }
 }
 
