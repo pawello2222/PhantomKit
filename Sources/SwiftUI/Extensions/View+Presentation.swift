@@ -16,7 +16,7 @@ extension View {
         onDismiss: (() -> Void)? = nil,
         @ViewBuilder destination: @escaping () -> Content
     ) -> some View where Content: View {
-        modifier(PresentationModifier(method: .push(trigger: trigger), onDismiss: onDismiss, content: destination))
+        modifier(PresentationModifier(method: .link(trigger: trigger), onDismiss: onDismiss, content: destination))
     }
 
     public func link<Content>(

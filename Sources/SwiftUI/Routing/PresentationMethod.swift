@@ -10,7 +10,7 @@ import SwiftUI
 
 public struct PresentationMethod {
     public enum Transition {
-        case push
+        case link
         case sheet
         case fullScreen
     }
@@ -24,14 +24,14 @@ public struct PresentationMethod {
     public let transition: Transition
     public let trigger: Trigger
 
-    public init(transition: Transition = .push, trigger: Trigger = .default) {
+    public init(transition: Transition = .link, trigger: Trigger = .default) {
         self.transition = transition
         self.trigger = trigger
     }
 
     public var isModal: Bool {
         switch transition {
-        case .push:
+        case .link:
             return false
         case .sheet, .fullScreen:
             return true
@@ -42,12 +42,12 @@ public struct PresentationMethod {
 // MARK: - Convenience
 
 extension PresentationMethod {
-    public static var push: Self {
-        .push(trigger: .default)
+    public static var link: Self {
+        .link(trigger: .default)
     }
 
-    public static func push(trigger: Trigger) -> Self {
-        .init(transition: .push, trigger: trigger)
+    public static func link(trigger: Trigger) -> Self {
+        .init(transition: .link, trigger: trigger)
     }
 
     public static var sheet: Self {

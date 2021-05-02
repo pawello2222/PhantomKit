@@ -17,7 +17,7 @@ public struct PresentationModifier<Destination>: ViewModifier where Destination:
     @State private var isActive = false
 
     public init(
-        method: PresentationMethod = .push,
+        method: PresentationMethod = .link,
         onDismiss: (() -> Void)? = nil,
         @ViewBuilder content: @escaping () -> Destination
     ) {
@@ -38,7 +38,7 @@ extension PresentationModifier {
     @ViewBuilder
     private func transitionBody<Content>(_ content: Content) -> some View where Content: View {
         switch method.transition {
-        case .push:
+        case .link:
             content
                 .background(NavigationLink("", destination: destination(), isActive: $isActive))
         case .sheet:
