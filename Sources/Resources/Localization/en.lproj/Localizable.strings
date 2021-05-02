@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  PhantomKit
+
+  Created by Pawel Wiszenko on 02/05/2021.
+  Copyright © 2021 Pawel Wiszenko. All rights reserved.
+*/
+
+// MARK: - General
+
+"done" = "Done";
+
+// MARK: - About View
+
+"about_view.app_design" = "App Design";
+"about_view.graphics" = "Graphics";

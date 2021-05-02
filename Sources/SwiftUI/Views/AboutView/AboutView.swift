@@ -74,7 +74,7 @@ extension AboutView {
 extension AboutView.Section {
     public static func appDesign(author: String) -> Self {
         .init(
-            title: "APP DESIGN",
+            title: Localized.AboutView.appDesign,
             items: [.copyright(author: author)]
         )
     }
@@ -83,7 +83,7 @@ extension AboutView.Section {
 extension AboutView.Section {
     public static func graphics(title: String, endpoint: WebEndpoint) -> Self {
         .init(
-            title: "GRAPHICS",
+            title: Localized.AboutView.graphics,
             items: [.link(title, endpoint: endpoint)]
         )
     }

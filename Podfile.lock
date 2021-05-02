@@ -2,15 +2,18 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
+  - SwiftGen (6.4.0)
   - Xcore (1.0.0):
     - SDWebImage
 
 DEPENDENCIES:
+  - SwiftGen (~> 6.0)
   - Xcore (from `https://github.com/pawello2222/xcore`, branch `phantomKit`)
 
 SPEC REPOS:
   trunk:
     - SDWebImage
+    - SwiftGen
 
 EXTERNAL SOURCES:
   Xcore:
@@ -24,8 +27,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
   Xcore: 632eae194fdb5ecdce6891e37a0cb4e0733314d2
 
-PODFILE CHECKSUM: e103ca6ac48d8ccf300c79306b50f9aaf65b245e
+PODFILE CHECKSUM: 7e7c42ab2cb8ec66daec02453fe73b6baed9eebc
 
 COCOAPODS: 1.10.1

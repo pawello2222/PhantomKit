@@ -24,7 +24,7 @@ public struct WebView: View {
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Done") {
+                    Button(Localized.done) {
                         viewModel.onDismiss?()
                         presentationMode.wrappedValue.dismiss()
                     }
