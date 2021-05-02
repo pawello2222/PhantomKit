@@ -10,52 +10,54 @@ import Foundation
 
 extension WebView {
     public enum Script {
-        private static let _hideElementById =
-            """
-            const hideElementById = id => {
-                const element = document.getElementById(id);
-                if (!element) { return; }
-                if (element.style) {
-                    element.style.display = 'none';
-                }
-            };
-            """
+        public static func hideElements(ids: [String]) -> String {
+            guard !ids.isEmpty else { return "" }
+            let ids = ids
+                .map { "hideElementById('\($0)');" }
+            return
+                """
+                \(_hideElementById)
+                \(ids.joined(separator: " "))
+                """
+        }
 
-        private static let _hideElementsByClassName =
-            """
-            const hideElementsByClassName = className => {
-                const elements = document.getElementsByClassName(className);
-                if (!elements) { return; }
-                for (let e of elements) {
-                    if (e.style) {
-                        e.style.display = 'none';
-                    }
-                }
-            };
-            """
+        public static func hideElements(classNames: [String]) -> String {
+            guard !classNames.isEmpty else { return "" }
+            let classNames = classNames
+                .map { "hideElementsByClassName('\($0)');" }
+            return
+                """
+                \(_hideElementsByClassName)
+                \(classNames.joined(separator: " "))
+                """
+        }
     }
 }
 
-extension WebView.Script {
-    public static func hideElements(ids: [String]) -> String {
-        guard !ids.isEmpty else { return "" }
-        let ids = ids
-            .map { "hideElementById('\($0)');" }
-        return
-            """
-            \(_hideElementById)
-            \(ids.joined(separator: " "))
-            """
-    }
+// MARK: - Scripts
 
-    public static func hideElements(classNames: [String]) -> String {
-        guard !classNames.isEmpty else { return "" }
-        let classNames = classNames
-            .map { "hideElementsByClassName('\($0)');" }
-        return
-            """
-            \(_hideElementsByClassName)
-            \(classNames.joined(separator: " "))
-            """
-    }
+extension WebView.Script {
+    private static let _hideElementById =
+        """
+        const hideElementById = id => {
+            const element = document.getElementById(id);
+            if (!element) { return; }
+            if (element.style) {
+                element.style.display = 'none';
+            }
+        };
+        """
+
+    private static let _hideElementsByClassName =
+        """
+        const hideElementsByClassName = className => {
+            const elements = document.getElementsByClassName(className);
+            if (!elements) { return; }
+            for (let e of elements) {
+                if (e.style) {
+                    e.style.display = 'none';
+                }
+            }
+        };
+        """
 }

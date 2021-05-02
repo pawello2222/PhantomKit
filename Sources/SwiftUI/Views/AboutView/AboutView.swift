@@ -44,7 +44,7 @@ extension AboutView {
 
     private var sectionsView: some View {
         ForEach(sections, id: \.title) {
-            Section.SectionView(section: $0)
+            Section.ContentView(section: $0)
         }
     }
 }
@@ -84,7 +84,7 @@ extension AboutView.Section {
     public static func graphics(title: String, endpoint: WebEndpoint) -> Self {
         .init(
             title: "GRAPHICS",
-            items: [.link(title: title, endpoint: endpoint)]
+            items: [.link(title, endpoint: endpoint)]
         )
     }
 }
@@ -93,18 +93,9 @@ extension AboutView.Section.Item {
     public static func copyright(author: String) -> Self {
         var components = ["©"]
         if let year = Calendar.current.year {
-            components.append(String(describing: year))
+            components.append(String(year))
         }
         components.append(author)
-        return .init(title: components.joined(separator: " "))
-    }
-}
-
-extension AboutView.Section.Item {
-    public static func link(title: String, endpoint: WebEndpoint) -> Self {
-        .init(
-            title: title,
-            webView: .init(endpoint)
-        )
+        return .text(components.joined(separator: " "))
     }
 }

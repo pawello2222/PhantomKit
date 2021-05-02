@@ -10,65 +10,62 @@ import SwiftUI
 
 extension AboutView.Section {
     public struct Item {
-        let title: String
-        let action: Action?
+        public let title: String
+        public let content: () -> AnyView
 
         public init(title: String) {
             self.title = title
-            action = nil
+            content = {
+                TextView(title: title)
+                    .eraseToAnyView()
+            }
         }
 
-        public init(
-            title: String,
-            action: @escaping () -> Void
-        ) {
+        public init(title: String, endpoint: WebEndpoint) {
             self.title = title
-            self.action = .tap(action)
-        }
-
-        public init(
-            title: String,
-            webView: WebView.ViewModel
-        ) {
-            self.title = title
-            action = .webView(webView)
+            content = {
+                LinkView(title: title, endpoint: endpoint)
+                    .eraseToAnyView()
+            }
         }
     }
 }
 
-// MARK: - Action
+// MARK: - Views
 
 extension AboutView.Section.Item {
-    enum Action {
-        case tap(() -> Void)
-        case webView(WebView.ViewModel)
-    }
-}
-
-// MARK: - View
-
-extension AboutView.Section.Item {
-    struct ItemView: View {
-        let item: AboutView.Section.Item
+    struct TextView: View {
+        let title: String
 
         var body: some View {
-            Text(item.title)
+            Text(title)
                 .font(.app(.body, weight: .medium))
-                .unwrap(item.action) {
-                    $0.action($1)
-                }
         }
     }
 }
 
-extension View {
-    @ViewBuilder
-    fileprivate func action(_ action: AboutView.Section.Item.Action) -> some View {
-        switch action {
-        case .tap(let action):
-            onTapGesture(perform: action)
-        case .webView(let viewModel):
-            sheet(content: WebView(viewModel: viewModel))
+extension AboutView.Section.Item {
+    struct LinkView: View {
+        let title: String
+        let endpoint: WebEndpoint
+
+        var body: some View {
+            TextView(title: title)
+                .webView(endpoint: endpoint)
         }
+    }
+}
+
+// MARK: - Convenience
+
+extension AboutView.Section.Item {
+    public static func text(_ title: String) -> Self {
+        .init(title: title)
+    }
+}
+
+extension AboutView.Section.Item {
+    public static func link(_ title: String, endpoint: WebEndpoint) -> Self {
+        .init(title: title, endpoint: endpoint)
     }
 }

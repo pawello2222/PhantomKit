@@ -23,7 +23,7 @@ extension AboutView {
 // MARK: - View
 
 extension AboutView.Section {
-    struct SectionView: View {
+    struct ContentView: View {
         let section: AboutView.Section
 
         var body: some View {
@@ -31,8 +31,8 @@ extension AboutView.Section {
                 Text(section.title)
                     .font(.app(.subheadline, weight: .semibold))
                     .foregroundColor(.secondary)
-                ForEach(section.items, id: \.title) {
-                    AboutView.Section.Item.ItemView(item: $0)
+                ForEach(section.items, id: \.title) { item in
+                    item.content()
                 }
             }
         }

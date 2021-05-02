@@ -87,7 +87,7 @@ extension View {
     }
 
     public func webView(
-        triggeredBy trigger: PresentationMethod.Trigger = .default,
+        triggeredBy trigger: PresentationMethod.Trigger,
         onDismiss: (() -> Void)? = nil,
         endpoint: WebEndpoint
     ) -> some View {
