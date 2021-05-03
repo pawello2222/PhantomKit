@@ -53,7 +53,7 @@ extension PresentationModifier {
     @ViewBuilder
     private func destination() -> some View {
         content()
-            .themed(theme)
+            .rootViewAppearance(theme: theme)
     }
 }
 

@@ -51,11 +51,11 @@ extension AboutView {
 
 extension AboutView {
     public init(
-        assetIdentifier: ImageAssetIdentifier,
+        image: ImageAssetIdentifier,
         sections: [Section] = []
     ) {
         self.sections = sections
-        image = { Image(assetIdentifier: assetIdentifier) }
+        self.image = { Image(assetIdentifier: image) }
     }
 }
 

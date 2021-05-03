@@ -11,6 +11,7 @@ import SwiftUI
 public struct ExtendedLabel<Label>: View where Label: View {
     @Environment(\.defaultIconHeight) private var iconHeight
     @Environment(\.defaultButtonCornerRadius) private var cornerRadius
+    @Environment(\.theme) private var theme
     private let image: Image?
     private let color: Color
     private let label: () -> Label
@@ -28,7 +29,7 @@ public struct ExtendedLabel<Label>: View where Label: View {
     public var body: some View {
         HStack {
             imageView
-            label()
+            labelView
             Spacer()
             indicatorView
         }
@@ -48,10 +49,15 @@ public struct ExtendedLabel<Label>: View where Label: View {
         }
     }
 
+    private var labelView: some View {
+        label()
+            .foregroundUIColor(theme.textColor)
+    }
+
     private var indicatorView: some View {
         Image(system: .chevronRight)
             .imageScale(.small)
-            .font(.app(.body, weight: .semibold))
+            .font(Font.body.weight(.semibold))
             .foregroundUIColor(.darkGray)
     }
 }
@@ -73,30 +79,30 @@ extension EnvironmentValues {
 
 extension ExtendedLabel {
     public init(
-        text: String,
+        _ title: String,
         systemImage: SystemAssetIdentifier,
         color: Color = .clear
     ) where Label == Text {
         self.init(image: Image(system: systemImage), color: color) {
-            Text(text)
+            Text(title)
         }
     }
 
     public init(
-        text: String,
+        _ title: String,
         systemImage: SystemAssetIdentifier,
         uiColor: UIColor = .clear
     ) where Label == Text {
-        self.init(text: text, systemImage: systemImage, color: .init(uiColor))
+        self.init(title, systemImage: systemImage, color: .init(uiColor))
     }
 
     public init(
-        text: String,
-        assetIdentifier: ImageAssetIdentifier,
+        _ title: String,
+        image: ImageAssetIdentifier,
         color: Color = .clear
     ) where Label == Text {
-        self.init(image: Image(assetIdentifier: assetIdentifier), color: color) {
-            Text(text)
+        self.init(image: Image(assetIdentifier: image), color: color) {
+            Text(title)
         }
     }
 }

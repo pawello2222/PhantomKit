@@ -42,11 +42,11 @@ public struct SimpleLabel<Label>: View where Label: View {
 
 extension SimpleLabel {
     public init(
-        _ text: String,
+        _ title: String,
         systemImage: SystemAssetIdentifier
     ) where Label == Text {
         self.init(image: Image(system: systemImage)) {
-            Text(text)
+            Text(title)
         }
     }
 }

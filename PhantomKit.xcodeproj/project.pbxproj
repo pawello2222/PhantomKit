@@ -23,6 +23,10 @@
 		E5463295263209B4007E7F6A /* Router+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5463294263209B4007E7F6A /* Router+Ext.swift */; };
 		E581CF01263F1FDF0019C550 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581CF00263F1FDF0019C550 /* Constants.swift */; };
 		E581CF3C263F44050019C550 /* NotificationCenter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581CF3B263F44050019C550 /* NotificationCenter+Ext.swift */; };
+		E581CF8B264038D00019C550 /* RootViewAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581CF8A264038D00019C550 /* RootViewAppearance.swift */; };
+		E581CFB026408EAB0019C550 /* TabViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581CFAF26408EAB0019C550 /* TabViewItem.swift */; };
+		E581CFC62640A4E30019C550 /* SelectionTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581CFC52640A4E30019C550 /* SelectionTabView.swift */; };
+		E581CFCB2640A5450019C550 /* TabSelectionKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581CFCA2640A5450019C550 /* TabSelectionKey.swift */; };
 		E5A0388C2634014200488F6C /* Router+Route+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0388B2634014200488F6C /* Router+Route+Method.swift */; };
 		E5A0389F263428E900488F6C /* BaseHostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0389E263428E900488F6C /* BaseHostingView.swift */; };
 		E5A038A62634296F00488F6C /* BaseHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038A52634296F00488F6C /* BaseHostingController.swift */; };
@@ -69,6 +73,10 @@
 		E5463294263209B4007E7F6A /* Router+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+Ext.swift"; sourceTree = "<group>"; };
 		E581CF00263F1FDF0019C550 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E581CF3B263F44050019C550 /* NotificationCenter+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Ext.swift"; sourceTree = "<group>"; };
+		E581CF8A264038D00019C550 /* RootViewAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewAppearance.swift; sourceTree = "<group>"; };
+		E581CFAF26408EAB0019C550 /* TabViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewItem.swift; sourceTree = "<group>"; };
+		E581CFC52640A4E30019C550 /* SelectionTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTabView.swift; sourceTree = "<group>"; };
+		E581CFCA2640A5450019C550 /* TabSelectionKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSelectionKey.swift; sourceTree = "<group>"; };
 		E5A0388B2634014200488F6C /* Router+Route+Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+Route+Method.swift"; sourceTree = "<group>"; };
 		E5A0389E263428E900488F6C /* BaseHostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHostingView.swift; sourceTree = "<group>"; };
 		E5A038A52634296F00488F6C /* BaseHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHostingController.swift; sourceTree = "<group>"; };
@@ -238,6 +246,7 @@
 				E5A039CA2639C3EA00488F6C /* SimpleLabel.swift */,
 				E5A0394D26374E1200488F6C /* ExtendedLabel.swift */,
 				E5A039202637042500488F6C /* Styles */,
+				E581CF8A264038D00019C550 /* RootViewAppearance.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -258,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				E5A0390626360F2600488F6C /* AboutView */,
+				E581CFC42640A4CD0019C550 /* SelectionTabView */,
 				E5A0390726360F3500488F6C /* WebView */,
 			);
 			path = Views;
@@ -269,6 +279,16 @@
 				E581CF00263F1FDF0019C550 /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E581CFC42640A4CD0019C550 /* SelectionTabView */ = {
+			isa = PBXGroup;
+			children = (
+				E581CFC52640A4E30019C550 /* SelectionTabView.swift */,
+				E581CFCA2640A5450019C550 /* TabSelectionKey.swift */,
+				E581CFAF26408EAB0019C550 /* TabViewItem.swift */,
+			);
+			path = SelectionTabView;
 			sourceTree = "<group>";
 		};
 		E5A038FA26360DFA00488F6C /* Routing */ = {
@@ -469,6 +489,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E581CFB026408EAB0019C550 /* TabViewItem.swift in Sources */,
 				E52D631C263D6BD200F41D2E /* WebView+Script.swift in Sources */,
 				E5A0390026360E4E00488F6C /* PresentationMethod.swift in Sources */,
 				E52D638F263EE7CB00F41D2E /* LocalizableStrings.swift in Sources */,
@@ -477,6 +498,7 @@
 				E54631FE2630B24B007E7F6A /* View+Ext.swift in Sources */,
 				E5463295263209B4007E7F6A /* Router+Ext.swift in Sources */,
 				E52D6337263DBB3400F41D2E /* Published+Ext.swift in Sources */,
+				E581CFC62640A4E30019C550 /* SelectionTabView.swift in Sources */,
 				E5A03A23263B60E500488F6C /* View+Action.swift in Sources */,
 				E5A038A62634296F00488F6C /* BaseHostingController.swift in Sources */,
 				E5A0390926360F4900488F6C /* WebView+ViewModel.swift in Sources */,
@@ -484,6 +506,7 @@
 				E5A039CB2639C3EA00488F6C /* SimpleLabel.swift in Sources */,
 				E5A0394E26374E1200488F6C /* ExtendedLabel.swift in Sources */,
 				E546324F2631CA06007E7F6A /* AboutView.swift in Sources */,
+				E581CFCB2640A5450019C550 /* TabSelectionKey.swift in Sources */,
 				E5A0391E263703FB00488F6C /* PresentationModifier.swift in Sources */,
 				E54632292630C2C2007E7F6A /* Array+Ext.swift in Sources */,
 				E5A0393D26373AE100488F6C /* StoreKit+Ext.swift in Sources */,
@@ -493,6 +516,7 @@
 				E5A03A19263B5E8900488F6C /* View+Helpers.swift in Sources */,
 				E5A0389F263428E900488F6C /* BaseHostingView.swift in Sources */,
 				E5A038DF2635E97300488F6C /* AboutView+Section.swift in Sources */,
+				E581CF8B264038D00019C550 /* RootViewAppearance.swift in Sources */,
 				E54632312630C5AF007E7F6A /* Set+Ext.swift in Sources */,
 				E54632382630CB12007E7F6A /* WebView.swift in Sources */,
 				E581CF3C263F44050019C550 /* NotificationCenter+Ext.swift in Sources */,

@@ -140,15 +140,6 @@ extension View {
     }
 }
 
-// MARK: - Theme
-
-extension View {
-    public func themed(_ theme: Theme) -> some View {
-        accentUIColor(theme.accentColor)
-            .theme(theme)
-    }
-}
-
 // MARK: - Toolbar
 
 extension View {
