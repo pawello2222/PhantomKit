@@ -28,7 +28,10 @@ public struct PresentationModifier<Destination>: ViewModifier where Destination:
 
     @ViewBuilder
     public func body(content: Content) -> some View {
-        transitionBody(triggerBody(content))
+        transitionBody(
+            content
+                .modifier(PresentationTriggerModifier(trigger: method.trigger, isActive: $isActive))
+        )
     }
 }
 
@@ -59,10 +62,13 @@ extension PresentationModifier {
 
 // MARK: - Trigger Body
 
-extension PresentationModifier {
+struct PresentationTriggerModifier: ViewModifier {
+    let trigger: PresentationMethod.Trigger
+    @Binding var isActive: Bool
+
     @ViewBuilder
-    private func triggerBody(_ content: Content) -> some View {
-        switch method.trigger {
+    func body(content: Content) -> some View {
+        switch trigger {
         case .tap:
             content
                 .onTapGesture {

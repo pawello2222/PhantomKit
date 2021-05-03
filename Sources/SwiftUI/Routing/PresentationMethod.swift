@@ -31,10 +31,10 @@ public struct PresentationMethod {
 
     public var isModal: Bool {
         switch transition {
-        case .link:
-            return false
         case .sheet, .fullScreen:
             return true
+        default:
+            return false
         }
     }
 }
