@@ -31,6 +31,7 @@
 		E581CFE52640B4D00019C550 /* AlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581CFE42640B4D00019C550 /* AlertModifier.swift */; };
 		E581CFFB2640BB260019C550 /* Alert+Button+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581CFFA2640BB260019C550 /* Alert+Button+Ext.swift */; };
 		E581D00C2640BCEF0019C550 /* ActionSheet+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581D00B2640BCEF0019C550 /* ActionSheet+Ext.swift */; };
+		E581D01D2640BD640019C550 /* PresentationTriggerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581D01C2640BD640019C550 /* PresentationTriggerModifier.swift */; };
 		E5A0388C2634014200488F6C /* Router+Route+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0388B2634014200488F6C /* Router+Route+Method.swift */; };
 		E5A0389F263428E900488F6C /* BaseHostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0389E263428E900488F6C /* BaseHostingView.swift */; };
 		E5A038A62634296F00488F6C /* BaseHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A038A52634296F00488F6C /* BaseHostingController.swift */; };
@@ -85,6 +86,7 @@
 		E581CFE42640B4D00019C550 /* AlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModifier.swift; sourceTree = "<group>"; };
 		E581CFFA2640BB260019C550 /* Alert+Button+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Button+Ext.swift"; sourceTree = "<group>"; };
 		E581D00B2640BCEF0019C550 /* ActionSheet+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Ext.swift"; sourceTree = "<group>"; };
+		E581D01C2640BD640019C550 /* PresentationTriggerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationTriggerModifier.swift; sourceTree = "<group>"; };
 		E5A0388B2634014200488F6C /* Router+Route+Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+Route+Method.swift"; sourceTree = "<group>"; };
 		E5A0389E263428E900488F6C /* BaseHostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHostingView.swift; sourceTree = "<group>"; };
 		E5A038A52634296F00488F6C /* BaseHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHostingController.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				E5A0390326360EB500488F6C /* UIKit */,
 				E5A038FF26360E4E00488F6C /* PresentationMethod.swift */,
 				E5A0391D263703FB00488F6C /* PresentationModifier.swift */,
+				E581D01C2640BD640019C550 /* PresentationTriggerModifier.swift */,
 				E5A038FB26360E3100488F6C /* View+Presentation.swift */,
 				E581CFE12640B4010019C550 /* ActionSheetModifier.swift */,
 				E581CFE42640B4D00019C550 /* AlertModifier.swift */,
@@ -504,6 +507,7 @@
 				E581CFFB2640BB260019C550 /* Alert+Button+Ext.swift in Sources */,
 				E581CFE22640B4010019C550 /* ActionSheetModifier.swift in Sources */,
 				E581CFB026408EAB0019C550 /* TabViewItem.swift in Sources */,
+				E581D01D2640BD640019C550 /* PresentationTriggerModifier.swift in Sources */,
 				E52D631C263D6BD200F41D2E /* WebView+Script.swift in Sources */,
 				E5A0390026360E4E00488F6C /* PresentationMethod.swift in Sources */,
 				E52D638F263EE7CB00F41D2E /* LocalizableStrings.swift in Sources */,

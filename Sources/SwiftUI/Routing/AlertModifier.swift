@@ -8,31 +8,42 @@
 
 import SwiftUI
 
-//public struct AlertModifier: ViewModifier {
-//    private let content: () -> Alert
-//
-//    @State private var isActive = false
-//
-//    public init(@ViewBuilder content: @escaping () -> Alert) {
-//        self.content = content
-//    }
-//
-//    @ViewBuilder
-//    public func body(content: Content) -> some View {
-//        Button {
-//            isActive = true
-//        } label: {
-//            content
-//                .contentShape(Rectangle())
-//        }
-//        .alert(isPresented: $isActive, content: self.content)
-//    }
-//}
-//
-//// MARK: - View
-//
-//extension View {
-//    public func alert(@ViewBuilder content: @escaping () -> Alert) -> some View {
-//        modifier(AlertModifier(content: content))
-//    }
-//}
+public struct AlertModifier: ViewModifier {
+    private let trigger: PresentationMethod.Trigger
+    private let content: () -> Alert
+
+    @State private var isActive = false
+
+    public init(
+        trigger: PresentationMethod.Trigger = .default,
+        @ViewBuilder content: @escaping () -> Alert
+    ) {
+        self.trigger = trigger
+        self.content = content
+    }
+
+    @ViewBuilder
+    public func body(content: Content) -> some View {
+        content
+            .modifier(PresentationTriggerModifier(trigger: trigger, isActive: $isActive))
+            .alert(isPresented: $isActive, content: self.content)
+    }
+}
+
+// MARK: - View
+
+extension View {
+    public func alert(
+        triggeredBy trigger: PresentationMethod.Trigger = .default,
+        @ViewBuilder content: @escaping () -> Alert
+    ) -> some View {
+        modifier(AlertModifier(trigger: trigger, content: content))
+    }
+
+    public func alert(
+        triggeredBy trigger: PresentationMethod.Trigger = .default,
+        content: @autoclosure @escaping () -> Alert
+    ) -> some View {
+        alert(content: content)
+    }
+}
