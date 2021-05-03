@@ -23,11 +23,16 @@ public struct SimpleLabel<Label>: View where Label: View {
 
     public var body: some View {
         HStack {
-            label()
+            labelView
             Spacer()
             imageView
         }
         .contentShape(Rectangle())
+    }
+
+    private var labelView: some View {
+        label()
+            .foregroundUIColor(theme.textColor)
     }
 
     @ViewBuilder
