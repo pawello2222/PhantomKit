@@ -58,7 +58,7 @@
 		E5A03A5F263C34A200488F6C /* WebEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A03A5E263C34A200488F6C /* WebEndpoint.swift */; };
 		E5D19B68264151A5002436B9 /* SplitPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D19B67264151A5002436B9 /* SplitPicker.swift */; };
 		E5D19B7226415B1E002436B9 /* SplitPicker+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D19B7126415B1E002436B9 /* SplitPicker+Item.swift */; };
-		E5D19B7626415B2C002436B9 /* SplitPicker+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D19B7526415B2C002436B9 /* SplitPicker+Selection.swift */; };
+		E5D19B7626415B2C002436B9 /* SplitPicker+SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D19B7526415B2C002436B9 /* SplitPicker+SelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,7 +117,7 @@
 		E5A03A5E263C34A200488F6C /* WebEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebEndpoint.swift; sourceTree = "<group>"; };
 		E5D19B67264151A5002436B9 /* SplitPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitPicker.swift; sourceTree = "<group>"; };
 		E5D19B7126415B1E002436B9 /* SplitPicker+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplitPicker+Item.swift"; sourceTree = "<group>"; };
-		E5D19B7526415B2C002436B9 /* SplitPicker+Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplitPicker+Selection.swift"; sourceTree = "<group>"; };
+		E5D19B7526415B2C002436B9 /* SplitPicker+SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplitPicker+SelectionView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,11 +260,11 @@
 		E54632482631C955007E7F6A /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E581CFC42640A4CD0019C550 /* SelectionTabView */,
-				E5D19B7026415B0A002436B9 /* SplitPicker */,
 				E5A039E32639DF8C00488F6C /* AnimatableFrameHeight.swift */,
 				E5A039CA2639C3EA00488F6C /* SimpleLabel.swift */,
 				E5A0394D26374E1200488F6C /* ExtendedLabel.swift */,
+				E581CFC42640A4CD0019C550 /* SelectionTabView */,
+				E5D19B7026415B0A002436B9 /* SplitPicker */,
 				E5A039202637042500488F6C /* Styles */,
 				E581CF8A264038D00019C550 /* RootViewAppearance.swift */,
 			);
@@ -381,7 +381,7 @@
 			children = (
 				E5D19B67264151A5002436B9 /* SplitPicker.swift */,
 				E5D19B7126415B1E002436B9 /* SplitPicker+Item.swift */,
-				E5D19B7526415B2C002436B9 /* SplitPicker+Selection.swift */,
+				E5D19B7526415B2C002436B9 /* SplitPicker+SelectionView.swift */,
 			);
 			path = SplitPicker;
 			sourceTree = "<group>";
@@ -563,7 +563,7 @@
 				E54632382630CB12007E7F6A /* WebView.swift in Sources */,
 				E581CF3C263F44050019C550 /* NotificationCenter+Ext.swift in Sources */,
 				E5A03A51263C2E8500488F6C /* URL+Ext.swift in Sources */,
-				E5D19B7626415B2C002436B9 /* SplitPicker+Selection.swift in Sources */,
+				E5D19B7626415B2C002436B9 /* SplitPicker+SelectionView.swift in Sources */,
 				E5A038D92635A69500488F6C /* View+Route.swift in Sources */,
 				E5A0399F26394F7100488F6C /* Theme+Ext.swift in Sources */,
 				E5A0388C2634014200488F6C /* Router+Route+Method.swift in Sources */,

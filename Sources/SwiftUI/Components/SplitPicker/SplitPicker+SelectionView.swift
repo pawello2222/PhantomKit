@@ -1,5 +1,5 @@
 //
-//  SplitPicker+Selection.swift
+//  SplitPicker+SelectionView.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 04.05.2021.
