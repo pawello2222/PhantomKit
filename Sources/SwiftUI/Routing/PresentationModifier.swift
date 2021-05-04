@@ -43,7 +43,7 @@ extension PresentationModifier {
         switch method.transition {
         case .link:
             content
-                .background(NavigationLink("", destination: destination(), isActive: $isActive))
+                .background(NavigationLink("", destination: destination(), isActive: $isActive).hidden())
         case .sheet:
             content
                 .sheet(isPresented: $isActive, onDismiss: onDismiss, content: destination)

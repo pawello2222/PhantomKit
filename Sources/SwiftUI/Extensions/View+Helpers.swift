@@ -14,3 +14,12 @@ public struct InvisibleShape: View {
             .opacity(.minimumOpacity)
     }
 }
+
+public struct IndicatorView: View {
+    public var body: some View {
+        Image(system: .chevronRight)
+            .imageScale(.small)
+            .font(Font.body.weight(.semibold))
+            .foregroundUIColor(.darkGray)
+    }
+}

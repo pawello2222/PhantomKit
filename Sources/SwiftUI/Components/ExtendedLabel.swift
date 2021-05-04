@@ -31,7 +31,7 @@ public struct ExtendedLabel<Label>: View where Label: View {
             imageView
             labelView
             Spacer()
-            indicatorView
+            IndicatorView()
         }
         .contentShape(Rectangle())
     }
@@ -52,13 +52,6 @@ public struct ExtendedLabel<Label>: View where Label: View {
     private var labelView: some View {
         label()
             .foregroundUIColor(theme.textColor)
-    }
-
-    private var indicatorView: some View {
-        Image(system: .chevronRight)
-            .imageScale(.small)
-            .font(Font.body.weight(.semibold))
-            .foregroundUIColor(.darkGray)
     }
 }
 

@@ -380,8 +380,8 @@
 			isa = PBXGroup;
 			children = (
 				E5D19B67264151A5002436B9 /* SplitPicker.swift */,
-				E5D19B7126415B1E002436B9 /* SplitPicker+Item.swift */,
 				E5D19B7526415B2C002436B9 /* SplitPicker+SelectionView.swift */,
+				E5D19B7126415B1E002436B9 /* SplitPicker+Item.swift */,
 			);
 			path = SplitPicker;
 			sourceTree = "<group>";

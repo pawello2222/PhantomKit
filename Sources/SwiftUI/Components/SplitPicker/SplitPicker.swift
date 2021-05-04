@@ -36,14 +36,25 @@ public struct SplitPicker<
 
     public var body: some View {
         HStack {
-            label()
+            labelView
             Spacer()
-            if let selectedItem = items.first { $0.selection == selection } {
-                Text(String(selectedItem.short))
-                    .foregroundUIColor(theme.textSecondaryColor)
-            }
+            selectedItemView
+            IndicatorView()
         }
         .link(destination: selectionView)
+    }
+
+    private var labelView: some View {
+        label()
+            .foregroundUIColor(theme.textColor)
+    }
+
+    @ViewBuilder
+    private var selectedItemView: some View {
+        if let selectedItem = items.first(where: { $0.selection == selection }) {
+            Text(String(selectedItem.short))
+                .foregroundUIColor(theme.textSecondaryColor)
+        }
     }
 }
 
