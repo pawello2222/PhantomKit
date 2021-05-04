@@ -1,5 +1,5 @@
 //
-//  PhantomKit.swift
+//  Bundle.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 21.04.2021.
@@ -7,8 +7,6 @@
 //
 
 import Foundation
-
-@_exported import Xcore
 
 private class PhantomKitMarker {}
 
