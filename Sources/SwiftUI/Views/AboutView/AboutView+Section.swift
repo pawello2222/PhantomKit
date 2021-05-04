@@ -2,7 +2,7 @@
 //  AboutView+Section.swift
 //  PhantomKit
 //
-//  Created by Pawel Wiszenko on 25/04/2021.
+//  Created by Pawel Wiszenko on 25.04.2021.
 //  Copyright © 2021 Pawel Wiszenko. All rights reserved.
 //
 
