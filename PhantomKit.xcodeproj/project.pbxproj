@@ -56,6 +56,9 @@
 		E5A03A23263B60E500488F6C /* View+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A03A22263B60E500488F6C /* View+Action.swift */; };
 		E5A03A51263C2E8500488F6C /* URL+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A03A50263C2E8500488F6C /* URL+Ext.swift */; };
 		E5A03A5F263C34A200488F6C /* WebEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A03A5E263C34A200488F6C /* WebEndpoint.swift */; };
+		E5D19B68264151A5002436B9 /* SplitPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D19B67264151A5002436B9 /* SplitPicker.swift */; };
+		E5D19B7226415B1E002436B9 /* SplitPicker+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D19B7126415B1E002436B9 /* SplitPicker+Item.swift */; };
+		E5D19B7626415B2C002436B9 /* SplitPicker+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D19B7526415B2C002436B9 /* SplitPicker+Selection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +115,9 @@
 		E5A03A22263B60E500488F6C /* View+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Action.swift"; sourceTree = "<group>"; };
 		E5A03A50263C2E8500488F6C /* URL+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Ext.swift"; sourceTree = "<group>"; };
 		E5A03A5E263C34A200488F6C /* WebEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebEndpoint.swift; sourceTree = "<group>"; };
+		E5D19B67264151A5002436B9 /* SplitPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitPicker.swift; sourceTree = "<group>"; };
+		E5D19B7126415B1E002436B9 /* SplitPicker+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplitPicker+Item.swift"; sourceTree = "<group>"; };
+		E5D19B7526415B2C002436B9 /* SplitPicker+Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplitPicker+Selection.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +260,8 @@
 		E54632482631C955007E7F6A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E581CFC42640A4CD0019C550 /* SelectionTabView */,
+				E5D19B7026415B0A002436B9 /* SplitPicker */,
 				E5A039E32639DF8C00488F6C /* AnimatableFrameHeight.swift */,
 				E5A039CA2639C3EA00488F6C /* SimpleLabel.swift */,
 				E5A0394D26374E1200488F6C /* ExtendedLabel.swift */,
@@ -281,7 +289,6 @@
 			isa = PBXGroup;
 			children = (
 				E5A0390626360F2600488F6C /* AboutView */,
-				E581CFC42640A4CD0019C550 /* SelectionTabView */,
 				E5A0390726360F3500488F6C /* WebView */,
 			);
 			path = Views;
@@ -367,6 +374,16 @@
 				E5A039D52639CF7B00488F6C /* WebResource.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		E5D19B7026415B0A002436B9 /* SplitPicker */ = {
+			isa = PBXGroup;
+			children = (
+				E5D19B67264151A5002436B9 /* SplitPicker.swift */,
+				E5D19B7126415B1E002436B9 /* SplitPicker+Item.swift */,
+				E5D19B7526415B2C002436B9 /* SplitPicker+Selection.swift */,
+			);
+			path = SplitPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,6 +525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E581D02D2640BED10019C550 /* Section+Ext.swift in Sources */,
+				E5D19B7226415B1E002436B9 /* SplitPicker+Item.swift in Sources */,
 				E581CFFB2640BB260019C550 /* Alert+Button+Ext.swift in Sources */,
 				E581CFE22640B4010019C550 /* ActionSheetModifier.swift in Sources */,
 				E581CFB026408EAB0019C550 /* TabViewItem.swift in Sources */,
@@ -529,6 +547,7 @@
 				E5A0394E26374E1200488F6C /* ExtendedLabel.swift in Sources */,
 				E546324F2631CA06007E7F6A /* AboutView.swift in Sources */,
 				E581CFCB2640A5450019C550 /* TabSelectionKey.swift in Sources */,
+				E5D19B68264151A5002436B9 /* SplitPicker.swift in Sources */,
 				E5A0391E263703FB00488F6C /* PresentationModifier.swift in Sources */,
 				E54632292630C2C2007E7F6A /* Array+Ext.swift in Sources */,
 				E581D00C2640BCEF0019C550 /* ActionSheet+Ext.swift in Sources */,
@@ -544,6 +563,7 @@
 				E54632382630CB12007E7F6A /* WebView.swift in Sources */,
 				E581CF3C263F44050019C550 /* NotificationCenter+Ext.swift in Sources */,
 				E5A03A51263C2E8500488F6C /* URL+Ext.swift in Sources */,
+				E5D19B7626415B2C002436B9 /* SplitPicker+Selection.swift in Sources */,
 				E5A038D92635A69500488F6C /* View+Route.swift in Sources */,
 				E5A0399F26394F7100488F6C /* Theme+Ext.swift in Sources */,
 				E5A0388C2634014200488F6C /* Router+Route+Method.swift in Sources */,
