@@ -160,10 +160,10 @@
 		E587B8B026430FC900F0F240 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				E587B8B126430FC900F0F240 /* Resources */,
-				E587B8B926430FC900F0F240 /* Swift */,
 				E587B8C626430FC900F0F240 /* Helpers */,
+				E587B8B926430FC900F0F240 /* Swift */,
 				E587B8C826430FC900F0F240 /* SwiftUI */,
+				E587B8B126430FC900F0F240 /* Resources */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
