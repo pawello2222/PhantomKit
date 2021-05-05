@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1240"
+   LastUpgradeVersion = "1250"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "PhantomKit_Example.app"
-               BlueprintName = "PhantomKit_Example"
-               ReferencedContainer = "container:PhantomKit.xcodeproj">
+               BlueprintIdentifier = "PhantomKit_PhantomKit"
+               BuildableName = "PhantomKit_PhantomKit"
+               BlueprintName = "PhantomKit_PhantomKit"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PhantomKit"
+               BuildableName = "PhantomKit"
+               BlueprintName = "PhantomKit"
+               ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,10 +42,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "PhantomKit_Tests.xctest"
-               BlueprintName = "PhantomKit_Tests"
-               ReferencedContainer = "container:PhantomKit.xcodeproj">
+               BlueprintIdentifier = "PhantomKitTests"
+               BuildableName = "PhantomKitTests"
+               BlueprintName = "PhantomKitTests"
+               ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -41,24 +55,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "PhantomKit_Example.app"
-            BlueprintName = "PhantomKit_Example"
-            ReferencedContainer = "container:PhantomKit.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "PhantomKit_Tests.xctest"
-               BlueprintName = "PhantomKit_Tests"
-               ReferencedContainer = "container:PhantomKit.xcodeproj">
+               BlueprintIdentifier = "PhantomKitTests"
+               BuildableName = "PhantomKitTests"
+               BlueprintName = "PhantomKitTests"
+               ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -73,16 +78,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "PhantomKit_Example.app"
-            BlueprintName = "PhantomKit_Example"
-            ReferencedContainer = "container:PhantomKit.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -90,16 +85,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "PhantomKit_Example.app"
-            BlueprintName = "PhantomKit_Example"
-            ReferencedContainer = "container:PhantomKit.xcodeproj">
+            BlueprintIdentifier = "PhantomKit_PhantomKit"
+            BuildableName = "PhantomKit_PhantomKit"
+            BlueprintName = "PhantomKit_PhantomKit"
+            ReferencedContainer = "container:">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
