@@ -5,30 +5,14 @@ import PackageDescription
 // MARK: - Dependencies
 
 let depencencies: [Package.Dependency] = [
-    .package(
-        name: "Xcore",
-        url: "https://github.com/pawello2222/xcore.git",
-        .branch("phantomKit")
-    ),
-    .package(
-        url: "https://github.com/SwiftGen/SwiftGen.git",
-        .upToNextMajor(from: "6.0.0")
-    ),
+    .package(name: "Xcore", url: "https://github.com/pawello2222/xcore.git", .branch("phantomKit")),
 ]
 
 // MARK: - Targets
 
 let targets: [Target] = [
-    .target(
-        name: "PhantomKit",
-        dependencies: ["Xcore"],
-        path: "Sources"
-    ),
-    .testTarget(
-        name: "PhantomKitTests",
-        dependencies: ["PhantomKit"],
-        path: "Tests"
-    ),
+    .target(name: "PhantomKit", dependencies: ["Xcore"], path: "Sources"),
+    .testTarget(name: "PhantomKitTests", dependencies: ["PhantomKit"], path: "Tests"),
 ]
 
 // MARK: - Package
