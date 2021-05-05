@@ -6,7 +6,7 @@ import PackageDescription
 
 let depencencies: [Package.Dependency] = [
     .package(name: "Xcore", url: "https://github.com/pawello2222/xcore.git", .branch("phantomKit")),
-    .package(url: "https://github.com/sindresorhus/Defaults", .upToNextMajor("4.2.2")),
+    .package(url: "https://github.com/sindresorhus/Defaults", .upToNextMajor(from: "4.2.2")),
 ]
 
 // MARK: - Targets
