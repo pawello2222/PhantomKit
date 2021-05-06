@@ -1,5 +1,5 @@
 //
-//  Publisher.swift
+//  Publisher+Ext.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 06.05.2021.

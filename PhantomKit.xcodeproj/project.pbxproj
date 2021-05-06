@@ -60,7 +60,7 @@
 		E587B92E2643102C00F0F240 /* Xcore in Frameworks */ = {isa = PBXBuildFile; productRef = E587B92D2643102C00F0F240 /* Xcore */; };
 		E5CA106A2643573E008FD164 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA10692643573E008FD164 /* Defaults */; };
 		E5CA106D2643576B008FD164 /* Defaults+Published.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA106C2643576B008FD164 /* Defaults+Published.swift */; };
-		E5CA1071264406B9008FD164 /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA1070264406B9008FD164 /* Publisher.swift */; };
+		E5CA1071264406B9008FD164 /* Publisher+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA1070264406B9008FD164 /* Publisher+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -130,7 +130,7 @@
 		E587B8F626430FC900F0F240 /* WebView+Script.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebView+Script.swift"; sourceTree = "<group>"; };
 		E587B8F826430FC900F0F240 /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		E5CA106C2643576B008FD164 /* Defaults+Published.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Defaults+Published.swift"; sourceTree = "<group>"; };
-		E5CA1070264406B9008FD164 /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
+		E5CA1070264406B9008FD164 /* Publisher+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,7 +226,7 @@
 				E587B8BE26430FC900F0F240 /* Calendar+Ext.swift */,
 				E587B8BF26430FC900F0F240 /* Set+Ext.swift */,
 				E587B8C026430FC900F0F240 /* Published+Ext.swift */,
-				E5CA1070264406B9008FD164 /* Publisher.swift */,
+				E5CA1070264406B9008FD164 /* Publisher+Ext.swift */,
 				E587B8C126430FC900F0F240 /* Theme+Ext.swift */,
 				E587B8C226430FC900F0F240 /* StoreKit+Ext.swift */,
 				E587B8C326430FC900F0F240 /* Array+Ext.swift */,
@@ -481,7 +481,7 @@
 				E587B91126430FC900F0F240 /* AnimatableFrameHeight.swift in Sources */,
 				E587B8FF26430FC900F0F240 /* Set+Ext.swift in Sources */,
 				E587B91326430FC900F0F240 /* GradientButtonStyle.swift in Sources */,
-				E5CA1071264406B9008FD164 /* Publisher.swift in Sources */,
+				E5CA1071264406B9008FD164 /* Publisher+Ext.swift in Sources */,
 				E587B91A26430FC900F0F240 /* View+Presentation.swift in Sources */,
 				E587B91926430FC900F0F240 /* SelectionTabView.swift in Sources */,
 				E587B91D26430FC900F0F240 /* Router+Route+Method.swift in Sources */,

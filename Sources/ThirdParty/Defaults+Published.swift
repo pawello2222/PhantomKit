@@ -22,12 +22,7 @@ extension Published where Value: Codable & Equatable {
 
 extension Published where Value: Codable & Equatable {
     public init(wrappedValue defaultValue: Value, _ key: String, storage: UserDefaults = .standard) {
-        let key = Defaults.Keys.Key<Value>(key, default: defaultValue, suite: storage)
-        self.init(initialValue: Defaults[key])
-        projectedValue
-            .removeDuplicates()
-            .sink { Defaults[key] = $0 }
-            .store(in: &cancellables)
+        self.init(Defaults.Keys.Key<Value>(key, default: defaultValue, suite: storage))
     }
 }
 
