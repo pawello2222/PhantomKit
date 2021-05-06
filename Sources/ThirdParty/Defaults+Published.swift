@@ -10,13 +10,23 @@
 import Combine
 import Defaults
 
-extension Published {
-    public init(_ key: Defaults.Keys.Key<Value>) where Value: Codable {
+extension Published where Value: Codable & Equatable {
+    public init(_ key: Defaults.Keys.Key<Value>) {
         self.init(initialValue: Defaults[key])
         projectedValue
-            .sink { value in
-                Defaults[key] = value
-            }
+            .removeDuplicates()
+            .sink { Defaults[key] = $0 }
+            .store(in: &cancellables)
+    }
+}
+
+extension Published where Value: Codable & Equatable {
+    public init(wrappedValue defaultValue: Value, _ key: String, storage: UserDefaults = .standard) {
+        let key = Defaults.Keys.Key<Value>(key, default: defaultValue, suite: storage)
+        self.init(initialValue: Defaults[key])
+        projectedValue
+            .removeDuplicates()
+            .sink { Defaults[key] = $0 }
             .store(in: &cancellables)
     }
 }

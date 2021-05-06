@@ -15,3 +15,38 @@ extension Publisher {
         receive(on: .main, options: options)
     }
 }
+
+// MARK: -  Combine Latest
+
+extension Publishers.CombineLatest where A.Output: Equatable, B.Output: Equatable {
+    public func removeAllDuplicates() -> AnyPublisher<Output, Failure> {
+        Publishers.CombineLatest(
+            a.removeDuplicates(),
+            b.removeDuplicates()
+        )
+        .eraseToAnyPublisher()
+    }
+}
+
+extension Publishers.CombineLatest3 where A.Output: Equatable, B.Output: Equatable, C.Output: Equatable {
+    public func removeAllDuplicates() -> AnyPublisher<Output, Failure> {
+        Publishers.CombineLatest3(
+            a.removeDuplicates(),
+            b.removeDuplicates(),
+            c.removeDuplicates()
+        )
+        .eraseToAnyPublisher()
+    }
+}
+
+extension Publishers.CombineLatest4 where A.Output: Equatable, B.Output: Equatable, C.Output: Equatable, D.Output: Equatable {
+    public func removeAllDuplicates() -> AnyPublisher<Output, Failure> {
+        Publishers.CombineLatest4(
+            a.removeDuplicates(),
+            b.removeDuplicates(),
+            c.removeDuplicates(),
+            d.removeDuplicates()
+        )
+        .eraseToAnyPublisher()
+    }
+}
