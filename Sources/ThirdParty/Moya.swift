@@ -15,7 +15,7 @@ import Moya
 // MARK: - MoyaProvider
 
 extension MoyaProvider where Target: APIErrorMappable {
-    func requestAndParsePublisher<Result>(
+    public func requestAndParsePublisher<Result>(
         _ target: Target,
         for resultType: Result.Type
     ) -> AnyPublisher<Result, APIError> where Result: Decodable {
