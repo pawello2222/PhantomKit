@@ -6,13 +6,12 @@ import PackageDescription
 
 let depencencies: [Package.Dependency] = [
     .package(name: "Xcore", url: "https://github.com/pawello2222/xcore.git", .branch("phantomKit")),
-    .package(url: "https://github.com/sindresorhus/Defaults", .upToNextMajor(from: "4.2.2")),
 ]
 
 // MARK: - Targets
 
 let targets: [Target] = [
-    .target(name: "PhantomKit", dependencies: ["Xcore", "Defaults"], path: "Sources"),
+    .target(name: "PhantomKit", dependencies: ["Xcore"], path: "Sources"),
     .testTarget(name: "PhantomKitTests", dependencies: ["PhantomKit"], path: "Tests"),
 ]
 
