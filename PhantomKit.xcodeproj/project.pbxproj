@@ -59,8 +59,12 @@
 		E587B92A26430FC900F0F240 /* WebView+Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8F626430FC900F0F240 /* WebView+Script.swift */; };
 		E587B92E2643102C00F0F240 /* Xcore in Frameworks */ = {isa = PBXBuildFile; productRef = E587B92D2643102C00F0F240 /* Xcore */; };
 		E5CA106A2643573E008FD164 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA10692643573E008FD164 /* Defaults */; };
-		E5CA106D2643576B008FD164 /* Defaults+Published.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA106C2643576B008FD164 /* Defaults+Published.swift */; };
+		E5CA106D2643576B008FD164 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA106C2643576B008FD164 /* Defaults.swift */; };
 		E5CA1071264406B9008FD164 /* Publisher+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA1070264406B9008FD164 /* Publisher+Ext.swift */; };
+		E5CA108026459820008FD164 /* Moya.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA107F26459820008FD164 /* Moya.swift */; };
+		E5CA1083264598B0008FD164 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA1082264598B0008FD164 /* Moya */; };
+		E5CA1085264598B0008FD164 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA1084264598B0008FD164 /* CombineMoya */; };
+		E5CA108726459A7D008FD164 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA108626459A7D008FD164 /* APIError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -129,8 +133,10 @@
 		E587B8F526430FC900F0F240 /* WebView+ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebView+ViewModel.swift"; sourceTree = "<group>"; };
 		E587B8F626430FC900F0F240 /* WebView+Script.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebView+Script.swift"; sourceTree = "<group>"; };
 		E587B8F826430FC900F0F240 /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		E5CA106C2643576B008FD164 /* Defaults+Published.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Defaults+Published.swift"; sourceTree = "<group>"; };
+		E5CA106C2643576B008FD164 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		E5CA1070264406B9008FD164 /* Publisher+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Ext.swift"; sourceTree = "<group>"; };
+		E5CA107F26459820008FD164 /* Moya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moya.swift; sourceTree = "<group>"; };
+		E5CA108626459A7D008FD164 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +146,8 @@
 			files = (
 				E5CA106A2643573E008FD164 /* Defaults in Frameworks */,
 				E587B92E2643102C00F0F240 /* Xcore in Frameworks */,
+				E5CA1085264598B0008FD164 /* CombineMoya in Frameworks */,
+				E5CA1083264598B0008FD164 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +222,7 @@
 		E587B8BA26430FC900F0F240 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E5CA108626459A7D008FD164 /* APIError.swift */,
 				E587B8BB26430FC900F0F240 /* WebEndpoint.swift */,
 				E587B8BC26430FC900F0F240 /* WebResource.swift */,
 			);
@@ -378,7 +387,8 @@
 		E5CA106B26435753008FD164 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				E5CA106C2643576B008FD164 /* Defaults+Published.swift */,
+				E5CA106C2643576B008FD164 /* Defaults.swift */,
+				E5CA107F26459820008FD164 /* Moya.swift */,
 			);
 			path = ThirdParty;
 			sourceTree = "<group>";
@@ -402,6 +412,8 @@
 			packageProductDependencies = (
 				E587B92D2643102C00F0F240 /* Xcore */,
 				E5CA10692643573E008FD164 /* Defaults */,
+				E5CA1082264598B0008FD164 /* Moya */,
+				E5CA1084264598B0008FD164 /* CombineMoya */,
 			);
 			productName = PhantomKit;
 			productReference = E587B8A626430F4900F0F240 /* libPhantomKit.a */;
@@ -434,6 +446,7 @@
 			packageReferences = (
 				E587B92C2643102C00F0F240 /* XCRemoteSwiftPackageReference "xcore" */,
 				E5CA10682643573E008FD164 /* XCRemoteSwiftPackageReference "Defaults" */,
+				E5CA1081264598B0008FD164 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = E587B8A726430F4900F0F240 /* Products */;
 			projectDirPath = "";
@@ -453,6 +466,7 @@
 				E587B92126430FC900F0F240 /* PresentationMethod.swift in Sources */,
 				E587B90226430FC900F0F240 /* StoreKit+Ext.swift in Sources */,
 				E587B91226430FC900F0F240 /* ExtendedLabel.swift in Sources */,
+				E5CA108026459820008FD164 /* Moya.swift in Sources */,
 				E587B92526430FC900F0F240 /* AboutView.swift in Sources */,
 				E587B90D26430FC900F0F240 /* Section+Ext.swift in Sources */,
 				E587B91526430FC900F0F240 /* RootViewAppearance.swift in Sources */,
@@ -461,7 +475,7 @@
 				E587B90E26430FC900F0F240 /* SplitPicker+SelectionView.swift in Sources */,
 				E587B92226430FC900F0F240 /* PresentationModifier.swift in Sources */,
 				E587B8F926430FC900F0F240 /* Imports.swift in Sources */,
-				E5CA106D2643576B008FD164 /* Defaults+Published.swift in Sources */,
+				E5CA106D2643576B008FD164 /* Defaults.swift in Sources */,
 				E587B90826430FC900F0F240 /* ActionSheet+Ext.swift in Sources */,
 				E587B8FE26430FC900F0F240 /* Calendar+Ext.swift in Sources */,
 				E587B92726430FC900F0F240 /* AboutView+Section+Item.swift in Sources */,
@@ -483,6 +497,7 @@
 				E587B91326430FC900F0F240 /* GradientButtonStyle.swift in Sources */,
 				E5CA1071264406B9008FD164 /* Publisher+Ext.swift in Sources */,
 				E587B91A26430FC900F0F240 /* View+Presentation.swift in Sources */,
+				E5CA108726459A7D008FD164 /* APIError.swift in Sources */,
 				E587B91926430FC900F0F240 /* SelectionTabView.swift in Sources */,
 				E587B91D26430FC900F0F240 /* Router+Route+Method.swift in Sources */,
 				E587B92826430FC900F0F240 /* WebView.swift in Sources */,
@@ -700,6 +715,14 @@
 				minimumVersion = 4.2.2;
 			};
 		};
+		E5CA1081264598B0008FD164 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = exactVersion;
+				version = "15.0.0-alpha.1";
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -712,6 +735,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E5CA10682643573E008FD164 /* XCRemoteSwiftPackageReference "Defaults" */;
 			productName = Defaults;
+		};
+		E5CA1082264598B0008FD164 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5CA1081264598B0008FD164 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		E5CA1084264598B0008FD164 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5CA1081264598B0008FD164 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

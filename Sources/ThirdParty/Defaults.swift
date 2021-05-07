@@ -1,5 +1,5 @@
 //
-//  Defaults+Published.swift
+//  Defaults.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 06.05.2021.
@@ -7,8 +7,11 @@
 //
 
 #if canImport(Defaults)
+
 import Combine
 import Defaults
+
+// MARK: - Published
 
 extension Published where Value: Codable & Equatable {
     public init(_ key: Defaults.Keys.Key<Value>) {
@@ -29,4 +32,5 @@ extension Published where Value: Codable & Equatable {
 // MARK: - Private
 
 private var cancellables = Set<AnyCancellable>()
+
 #endif
