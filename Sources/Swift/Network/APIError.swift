@@ -50,8 +50,14 @@ extension APIError {
 
 // MARK: - APIErrorMappable
 
-public protocol APIErrorMappable {
-    associatedtype ErrorResponse: Decodable
+public protocol APIErrorMappable: ResponseDecodable {
+    static func parseError(from response: ResponseWrapper) -> APIError
+}
 
-    static func parseError(from response: ErrorResponse) -> APIError
+public protocol ResponseDecodable {
+    associatedtype ResponseWrapper: Decodable
+}
+
+public protocol RequestEncodable {
+    associatedtype RequestWrapper: Encodable
 }
