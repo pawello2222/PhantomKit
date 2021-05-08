@@ -33,7 +33,7 @@ extension MoyaProvider where Target: APIErrorMappable {
                 Just(data)
                     .decode(type: Target.ErrorResponse.self, decoder: JSONDecoder())
                     .mapError {
-                        APIError.parsing(message: $0.localizedDescription)
+                        APIError.parsing(message: $0.nsErrorDescription)
                     }
                     .tryMap { errorResponse in
                         throw Target.parseError(from: errorResponse)
@@ -53,7 +53,7 @@ extension Publisher where Output == Moya.Response, Failure == MoyaError {
             if error.errorCode == -1009 {
                 return .offline
             }
-            return .network(code: error.errorCode, message: error.localizedDescription)
+            return .network(code: error.errorCode, message: error.nsErrorDescription)
         }
         .eraseToAnyPublisher()
     }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E549C70C2645D526004388C4 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C70B2645D526004388C4 /* Logger.swift */; };
+		E549C70E2646BEDF004388C4 /* Error+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C70D2646BEDF004388C4 /* Error+Ext.swift */; };
 		E587B8F926430FC900F0F240 /* Imports.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8B226430FC900F0F240 /* Imports.swift */; };
 		E587B8FA26430FC900F0F240 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8B326430FC900F0F240 /* Bundle.swift */; };
 		E587B8FB26430FC900F0F240 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8B826430FC900F0F240 /* LocalizableStrings.swift */; };
@@ -82,6 +83,7 @@
 
 /* Begin PBXFileReference section */
 		E549C70B2645D526004388C4 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		E549C70D2646BEDF004388C4 /* Error+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Ext.swift"; sourceTree = "<group>"; };
 		E587B8A626430F4900F0F240 /* libPhantomKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPhantomKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E587B8B226430FC900F0F240 /* Imports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Imports.swift; sourceTree = "<group>"; };
 		E587B8B326430FC900F0F240 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				E587B8BE26430FC900F0F240 /* Calendar+Ext.swift */,
+				E549C70D2646BEDF004388C4 /* Error+Ext.swift */,
 				E587B8BF26430FC900F0F240 /* Set+Ext.swift */,
 				E587B8C026430FC900F0F240 /* Published+Ext.swift */,
 				E5CA1070264406B9008FD164 /* Publisher+Ext.swift */,
@@ -491,6 +494,7 @@
 				E587B8FB26430FC900F0F240 /* LocalizableStrings.swift in Sources */,
 				E587B92A26430FC900F0F240 /* WebView+Script.swift in Sources */,
 				E587B90326430FC900F0F240 /* Array+Ext.swift in Sources */,
+				E549C70E2646BEDF004388C4 /* Error+Ext.swift in Sources */,
 				E587B91C26430FC900F0F240 /* View+Route.swift in Sources */,
 				E587B90926430FC900F0F240 /* Alert+Button+Ext.swift in Sources */,
 				E587B91B26430FC900F0F240 /* BaseHostingController.swift in Sources */,
