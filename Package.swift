@@ -6,13 +6,14 @@ import PackageDescription
 
 let depencencies: [Package.Dependency] = [
     .package(name: "Xcore", url: "https://github.com/pawello2222/xcore.git", .branch("phantomKit")),
+    .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "9.0.0")),
 ]
 
 // MARK: - Targets
 
 let targets: [Target] = [
     .target(name: "PhantomKit", dependencies: ["Xcore"], path: "Sources"),
-    .testTarget(name: "PhantomKitTests", dependencies: ["PhantomKit"], path: "Tests"),
+    .testTarget(name: "PhantomKitTests", dependencies: ["PhantomKit", "Nimble"], path: "Tests"),
 ]
 
 // MARK: - Package
