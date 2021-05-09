@@ -17,6 +17,8 @@
 		E549C72C2647F4FA004388C4 /* NSDecimalNumber+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C72A2647ED5F004388C4 /* NSDecimalNumber+Ext.swift */; };
 		E549C72F26484DFA004388C4 /* CurrencyFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C72E26484DFA004388C4 /* CurrencyFormatterTests.swift */; };
 		E549C7312648515D004388C4 /* PercentFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C7302648515D004388C4 /* PercentFormatterTests.swift */; };
+		E549C73626487C8A004388C4 /* LocalizedDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C73526487C8A004388C4 /* LocalizedDateFormatter.swift */; };
+		E549C73A264895F4004388C4 /* DateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C739264895F4004388C4 /* DateFormatterTests.swift */; };
 		E587B8F926430FC900F0F240 /* Imports.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8B226430FC900F0F240 /* Imports.swift */; };
 		E587B8FA26430FC900F0F240 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8B326430FC900F0F240 /* Bundle.swift */; };
 		E587B8FB26430FC900F0F240 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8B826430FC900F0F240 /* LocalizableStrings.swift */; };
@@ -110,6 +112,8 @@
 		E549C72A2647ED5F004388C4 /* NSDecimalNumber+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDecimalNumber+Ext.swift"; sourceTree = "<group>"; };
 		E549C72E26484DFA004388C4 /* CurrencyFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatterTests.swift; sourceTree = "<group>"; };
 		E549C7302648515D004388C4 /* PercentFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentFormatterTests.swift; sourceTree = "<group>"; };
+		E549C73526487C8A004388C4 /* LocalizedDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedDateFormatter.swift; sourceTree = "<group>"; };
+		E549C739264895F4004388C4 /* DateFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterTests.swift; sourceTree = "<group>"; };
 		E587B8A626430F4900F0F240 /* libPhantomKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPhantomKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E587B8B226430FC900F0F240 /* Imports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Imports.swift; sourceTree = "<group>"; };
 		E587B8B326430FC900F0F240 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				E549C7262647CA7F004388C4 /* LocalizedFormatter.swift */,
+				E549C73526487C8A004388C4 /* LocalizedDateFormatter.swift */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 				E549C7282647CB00004388C4 /* DecimalFormatterTests.swift */,
 				E549C72E26484DFA004388C4 /* CurrencyFormatterTests.swift */,
 				E549C7302648515D004388C4 /* PercentFormatterTests.swift */,
+				E549C739264895F4004388C4 /* DateFormatterTests.swift */,
 			);
 			path = LocalizedFormatter;
 			sourceTree = "<group>";
@@ -565,6 +571,7 @@
 			files = (
 				E549C71A26475B89004388C4 /* Tests.swift in Sources */,
 				E549C7292647CB00004388C4 /* DecimalFormatterTests.swift in Sources */,
+				E549C73A264895F4004388C4 /* DateFormatterTests.swift in Sources */,
 				E549C7312648515D004388C4 /* PercentFormatterTests.swift in Sources */,
 				E549C72F26484DFA004388C4 /* CurrencyFormatterTests.swift in Sources */,
 			);
@@ -627,6 +634,7 @@
 				E587B90F26430FC900F0F240 /* SplitPicker+Item.swift in Sources */,
 				E549C72C2647F4FA004388C4 /* NSDecimalNumber+Ext.swift in Sources */,
 				E587B8FC26430FC900F0F240 /* WebEndpoint.swift in Sources */,
+				E549C73626487C8A004388C4 /* LocalizedDateFormatter.swift in Sources */,
 				E587B91E26430FC900F0F240 /* BaseHostingView.swift in Sources */,
 				E587B91726430FC900F0F240 /* TabViewItem.swift in Sources */,
 				E587B91026430FC900F0F240 /* SplitPicker.swift in Sources */,

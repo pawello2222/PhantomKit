@@ -22,16 +22,6 @@ public class LocalizedFormatter: Appliable {
     public var invalidValueString = "--"
 }
 
-// MARK: - Convenience
-
-extension LocalizedFormatter {
-    public static var currency = makeCurrencyFormatter()
-
-    public static var decimal = makeDecimalFormatter()
-
-    public static var percent = makePercentFormatter()
-}
-
 extension LocalizedFormatter {
     public static func makeCurrencyFormatter(
         locale: Locale = .current,
@@ -46,6 +36,7 @@ extension LocalizedFormatter {
     public static func makeDecimalFormatter(locale: Locale = .current) -> LocalizedFormatter {
         .init().apply {
             $0.formatter.numberStyle = .decimal
+            $0.formatter.locale = locale
             $0.formatter.maximumFractionDigits = 2
         }
     }
@@ -152,9 +143,19 @@ extension LocalizedFormatter {
 
     private func with<T>(plusSign: String, _ block: () -> T) -> T {
         let existingPositivePrefix = formatter.positivePrefix
-        formatter.positivePrefix = plusSign + formatter.positiveSuffix
+        formatter.positivePrefix = plusSign + formatter.positivePrefix
         let result = block()
         formatter.positivePrefix = existingPositivePrefix
         return result
     }
+}
+
+// MARK: - Convenience
+
+extension LocalizedFormatter {
+    public static var currency = makeCurrencyFormatter()
+
+    public static var decimal = makeDecimalFormatter()
+
+    public static var percent = makePercentFormatter()
 }
