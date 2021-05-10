@@ -77,6 +77,7 @@
 		E5CA1083264598B0008FD164 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA1082264598B0008FD164 /* Moya */; };
 		E5CA1085264598B0008FD164 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA1084264598B0008FD164 /* CombineMoya */; };
 		E5CA108726459A7D008FD164 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA108626459A7D008FD164 /* APIError.swift */; };
+		E5E7C4C6264944290045596E /* DoneButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C5264944290045596E /* DoneButtonModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +172,7 @@
 		E5CA107F26459820008FD164 /* Moya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moya.swift; sourceTree = "<group>"; };
 		E5CA108626459A7D008FD164 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		E5CA108A26459D00008FD164 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		E5E7C4C5264944290045596E /* DoneButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButtonModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +369,7 @@
 				E587B8DB26430FC900F0F240 /* RootViewAppearance.swift */,
 				E587B8DC26430FC900F0F240 /* SimpleLabel.swift */,
 				E587B8DD26430FC900F0F240 /* SelectionTabView */,
+				E5E7C4C5264944290045596E /* DoneButtonModifier.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				E587B92126430FC900F0F240 /* PresentationMethod.swift in Sources */,
 				E587B90226430FC900F0F240 /* StoreKit+Ext.swift in Sources */,
 				E587B91226430FC900F0F240 /* ExtendedLabel.swift in Sources */,
+				E5E7C4C6264944290045596E /* DoneButtonModifier.swift in Sources */,
 				E5CA108026459820008FD164 /* Moya.swift in Sources */,
 				E587B92526430FC900F0F240 /* AboutView.swift in Sources */,
 				E587B90D26430FC900F0F240 /* Section+Ext.swift in Sources */,
