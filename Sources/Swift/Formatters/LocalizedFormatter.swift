@@ -19,6 +19,10 @@ public class LocalizedFormatter: Appliable {
         }
     }
 
+    public var defaultPrecision: Precision = .default
+
+    public var maximumAllowedFractionDigits = 16
+
     public var usesSignForZero = false
 
     public var invalidValueString = "--"
@@ -32,6 +36,7 @@ extension LocalizedFormatter {
         .init().apply {
             $0.formatter.numberStyle = .currency
             $0.formatter.locale = .init(identifier: "\(locale.identifier)@currency=\(currencyCode)")
+            $0.defaultPrecision = .constant(2)
         }
     }
 
@@ -39,7 +44,6 @@ extension LocalizedFormatter {
         .init().apply {
             $0.formatter.numberStyle = .decimal
             $0.formatter.locale = locale
-            $0.formatter.maximumFractionDigits = 2
         }
     }
 
@@ -47,7 +51,6 @@ extension LocalizedFormatter {
         .init().apply {
             $0.formatter.numberStyle = .percent
             $0.formatter.locale = locale
-            $0.formatter.maximumFractionDigits = 2
             $0.formatter.multiplier = 1
         }
     }
@@ -69,7 +72,7 @@ extension LocalizedFormatter {
         from value: Int,
         abbreviated: Bool = false,
         sign: Sign = .default,
-        precision: Int = 2
+        precision: Precision? = nil
     ) -> String {
         string(from: NSDecimalNumber(value: value), abbreviated: abbreviated, sign: sign, precision: precision)
     }
@@ -78,7 +81,7 @@ extension LocalizedFormatter {
         from value: Float,
         abbreviated: Bool = false,
         sign: Sign = .default,
-        precision: Int = 2
+        precision: Precision? = nil
     ) -> String {
         string(from: NSDecimalNumber(value: value), abbreviated: abbreviated, sign: sign, precision: precision)
     }
@@ -87,7 +90,7 @@ extension LocalizedFormatter {
         from value: Double,
         abbreviated: Bool = false,
         sign: Sign = .default,
-        precision: Int = 2
+        precision: Precision? = nil
     ) -> String {
         string(from: NSDecimalNumber(value: value), abbreviated: abbreviated, sign: sign, precision: precision)
     }
@@ -96,7 +99,7 @@ extension LocalizedFormatter {
         from value: Decimal,
         abbreviated: Bool = false,
         sign: Sign = .default,
-        precision: Int = 2
+        precision: Precision? = nil
     ) -> String {
         string(from: NSDecimalNumber(decimal: value), abbreviated: abbreviated, sign: sign, precision: precision)
     }
@@ -105,19 +108,25 @@ extension LocalizedFormatter {
         from value: NSDecimalNumber,
         abbreviated: Bool = false,
         sign: Sign = .default,
-        precision: Int = 2
+        precision: Precision? = nil
     ) -> String {
-        guard value.rounded(toPlaces: precision) != .zero else {
+        var roundedValue = value
+        if let places = precision?.maximum ?? defaultPrecision.maximum {
+            roundedValue = value.rounded(toPlaces: places)
+        }
+        guard roundedValue != .zero else {
             if usesSignForZero {
                 return with(zeroSign: sign.zero) {
-                    string(from: value.rounded(toPlaces: precision))
+                    string(from: roundedValue)
                 }
             } else {
-                return string(from: value)
+                return string(from: roundedValue)
             }
         }
-        return with(sign: sign) {
-            abbreviated ? abbreviatedString(from: value) : string(from: value)
+        return with(precision: precision) {
+            with(sign: sign) {
+                abbreviated ? abbreviatedString(from: value) : string(from: value)
+            }
         }
     }
 }
@@ -157,10 +166,13 @@ extension LocalizedFormatter {
         return result
     }
 
-    private func with<T>(precision: Int, _ block: () -> T) -> T {
+    private func with<T>(precision: Precision?, _ block: () -> T) -> T {
+        let existingMinimumFractionDigits = formatter.minimumFractionDigits
         let existingMaximumFractionDigits = formatter.maximumFractionDigits
-        formatter.maximumFractionDigits = precision
+        formatter.minimumFractionDigits = precision?.minimum ?? defaultPrecision.minimum ?? 0
+        formatter.maximumFractionDigits = precision?.maximum ?? defaultPrecision.maximum ?? maximumAllowedFractionDigits
         let result = block()
+        formatter.minimumFractionDigits = existingMinimumFractionDigits
         formatter.maximumFractionDigits = existingMaximumFractionDigits
         return result
     }

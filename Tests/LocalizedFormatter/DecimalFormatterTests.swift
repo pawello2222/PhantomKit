@@ -120,4 +120,21 @@ class DecimalFormatterTests: XCTestCase {
         expect(usFormatter.string(from: -0.00, sign: all)).to(equal("=0"))
         expect(usFormatter.string(from: -0.001, sign: all)).to(equal("=0"))
     }
+
+    func test_decimalFormatter_withPrecision_shouldFormatDecimals() throws {
+        expect(self.usFormatter.string(from: 0.123456789, precision: .default)).to(equal("0.12"))
+        expect(self.usFormatter.string(from: 0.123456789, precision: .maximum)).to(equal("0.123456789"))
+        expect(self.usFormatter.string(from: 0.123456789, precision: .init(...9))).to(equal("0.123456789"))
+        expect(self.usFormatter.string(from: 0.123456789, precision: .constant(4))).to(equal("0.1235"))
+        expect(self.usFormatter.string(from: 0.123, precision: .constant(4))).to(equal("0.1230"))
+    }
+
+    func test_decimalFormatter_withAbbreviationAndSignAndPrecision_shouldFormatDecimals() throws {
+        expect(self.usFormatter
+            .string(from: -123.123456789, abbreviated: true, sign: .arrow, precision: .constant(4)))
+            .to(equal("▼123.1235"))
+        expect(self.usFormatter
+            .string(from: 123_456_789.123456789, abbreviated: true, sign: .arrow, precision: .constant(4)))
+            .to(equal("▲123.4568m"))
+    }
 }

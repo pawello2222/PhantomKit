@@ -67,7 +67,7 @@ extension NSDecimalNumber {
 }
 
 extension NSDecimalNumber {
-    func rounded(toPlaces decimals: Int) -> NSDecimalNumber {
+    public func rounded(toPlaces decimals: Int) -> NSDecimalNumber {
         rounding(accordingToBehavior: NSDecimalNumberHandler.scaled(decimals))
     }
 }
