@@ -20,14 +20,21 @@ class CurrencyFormatterTests: XCTestCase {
 
     override func tearDownWithError() throws {}
 
-    func test_currencyFormatter_shouldFormatToUSD() throws {
+    func test_currencyFormatter_shouldFormatAmounts() throws {
         expect(self.usFormatter.string(from: 1)).to(equal("$1.00"))
         expect(self.usFormatter.string(from: 432)).to(equal("$432.00"))
         expect(self.usFormatter.string(from: 1000)).to(equal("$1,000.00"))
         expect(self.usFormatter.string(from: 48_729_432)).to(equal("$48,729,432.00"))
     }
 
-    func test_currencyFormatter_withLocalePLPL_shouldFormatToPLN() throws {
+    func test_currencyFormatter_shouldFormatNegativeAmounts() throws {
+        expect(self.usFormatter.string(from: -1)).to(equal("-$1.00"))
+        expect(self.usFormatter.string(from: -432)).to(equal("-$432.00"))
+        expect(self.usFormatter.string(from: -1000)).to(equal("-$1,000.00"))
+        expect(self.usFormatter.string(from: -48_729_432)).to(equal("-$48,729,432.00"))
+    }
+
+    func test_currencyFormatter_withLocalePLPL_shouldFormatAmountsToPLN() throws {
         let plFormatter = LocalizedFormatter.makeCurrencyFormatter(
             locale: .init(identifier: "pl_PL"),
             currencyCode: "PLN"
@@ -39,7 +46,7 @@ class CurrencyFormatterTests: XCTestCase {
         expect(plFormatter.string(from: 48_729_432)).to(equal("48 729 432,00 zł"))
     }
 
-    func test_currencyFormatter_withLocaleENPL_shouldFormatToPLN() throws {
+    func test_currencyFormatter_withLocaleENPL_shouldFormatAmountsToPLN() throws {
         let plFormatter = LocalizedFormatter.makeCurrencyFormatter(
             locale: .init(identifier: "en_PL"),
             currencyCode: "PLN"
@@ -51,7 +58,31 @@ class CurrencyFormatterTests: XCTestCase {
         expect(plFormatter.string(from: 48_729_432)).to(equal("48 729 432,00 PLN"))
     }
 
-    func test_currencyFormatter_withAbbreviation_shouldFormatToUSD() throws {
+    func test_currencyFormatter_withLocalePLPL_shouldFormatNegativeAmountsToPLN() throws {
+        let plFormatter = LocalizedFormatter.makeCurrencyFormatter(
+            locale: .init(identifier: "pl_PL"),
+            currencyCode: "PLN"
+        )
+
+        expect(plFormatter.string(from: -1)).to(equal("-1,00 zł"))
+        expect(plFormatter.string(from: -432)).to(equal("-432,00 zł"))
+        expect(plFormatter.string(from: -1000)).to(equal("-1000,00 zł"))
+        expect(plFormatter.string(from: -48_729_432)).to(equal("-48 729 432,00 zł"))
+    }
+
+    func test_currencyFormatter_withCurrencyCodePLN_shouldFormatNegativeAmountsToPLN() throws {
+        let plFormatter = LocalizedFormatter.makeCurrencyFormatter(
+            locale: .init(identifier: "en_US"),
+            currencyCode: "PLN"
+        )
+
+        expect(plFormatter.string(from: -1)).to(equal("-PLN 1.00"))
+        expect(plFormatter.string(from: -432)).to(equal("-PLN 432.00"))
+        expect(plFormatter.string(from: -1000)).to(equal("-PLN 1,000.00"))
+        expect(plFormatter.string(from: -48_729_432)).to(equal("-PLN 48,729,432.00"))
+    }
+
+    func test_currencyFormatter_withAbbreviation_shouldFormatAmounts() throws {
         expect(self.usFormatter.string(from: 326.09734, abbreviated: true)).to(equal("$326.10"))
         expect(self.usFormatter.string(from: 1432.99, abbreviated: true)).to(equal("$1.43k"))
         expect(self.usFormatter.string(from: 100_081, abbreviated: true)).to(equal("$100.08k"))
