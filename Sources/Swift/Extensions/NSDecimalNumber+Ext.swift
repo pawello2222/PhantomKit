@@ -10,29 +10,20 @@ import Foundation
 
 extension NSDecimalNumber {
     static func + (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> NSDecimalNumber {
-        return lhs.adding(rhs, withBehavior: behavior)
+        return lhs.adding(rhs, withBehavior: NSDecimalNumberHandler.default)
     }
 
     static func - (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> NSDecimalNumber {
-        return lhs.subtracting(rhs, withBehavior: behavior)
+        return lhs.subtracting(rhs, withBehavior: NSDecimalNumberHandler.default)
     }
 
     static func * (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> NSDecimalNumber {
-        return lhs.multiplying(by: rhs, withBehavior: behavior)
+        return lhs.multiplying(by: rhs, withBehavior: NSDecimalNumberHandler.default)
     }
 
     static func / (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> NSDecimalNumber {
-        return lhs.dividing(by: rhs, withBehavior: behavior)
+        return lhs.dividing(by: rhs, withBehavior: NSDecimalNumberHandler.default)
     }
-
-    private static let behavior: NSDecimalNumberHandler = .init(
-        roundingMode: .plain,
-        scale: 16,
-        raiseOnExactness: false,
-        raiseOnOverflow: false,
-        raiseOnUnderflow: false,
-        raiseOnDivideByZero: false
-    )
 }
 
 extension NSDecimalNumber {
@@ -72,5 +63,26 @@ extension NSDecimalNumber {
 
     static func >= (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> Bool {
         return [.orderedDescending, .orderedSame].contains(lhs.compare(rhs))
+    }
+}
+
+extension NSDecimalNumber {
+    func rounded(toPlaces decimals: Int) -> NSDecimalNumber {
+        rounding(accordingToBehavior: NSDecimalNumberHandler.scaled(decimals))
+    }
+}
+
+extension NSDecimalNumberHandler {
+    public static var `default`: NSDecimalNumberHandler = .scaled(16)
+
+    fileprivate static func scaled(_ scale: Int) -> NSDecimalNumberHandler {
+        .init(
+            roundingMode: .plain,
+            scale: Int16(scale),
+            raiseOnExactness: false,
+            raiseOnOverflow: false,
+            raiseOnUnderflow: false,
+            raiseOnDivideByZero: false
+        )
     }
 }

@@ -14,10 +14,12 @@ extension LocalizedFormatter {
     public struct Sign {
         public let plus: Style
         public let minus: Style
+        public let zero: Style
 
-        public init(plus: Style, minus: Style) {
+        public init(plus: Style, minus: Style, zero: Style = .none) {
             self.plus = plus
             self.minus = minus
+            self.zero = zero
         }
     }
 }

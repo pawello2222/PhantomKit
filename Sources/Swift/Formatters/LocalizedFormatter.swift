@@ -19,6 +19,8 @@ public class LocalizedFormatter: Appliable {
         }
     }
 
+    public var usesSignForZero = false
+
     public var invalidValueString = "--"
 }
 
@@ -66,41 +68,55 @@ extension LocalizedFormatter {
     public func string(
         from value: Int,
         abbreviated: Bool = false,
-        sign: Sign = .default
+        sign: Sign = .default,
+        precision: Int = 2
     ) -> String {
-        string(from: NSDecimalNumber(value: value), abbreviated: abbreviated, sign: sign)
+        string(from: NSDecimalNumber(value: value), abbreviated: abbreviated, sign: sign, precision: precision)
     }
 
     public func string(
         from value: Float,
         abbreviated: Bool = false,
-        sign: Sign = .default
+        sign: Sign = .default,
+        precision: Int = 2
     ) -> String {
-        string(from: NSDecimalNumber(value: value), abbreviated: abbreviated, sign: sign)
+        string(from: NSDecimalNumber(value: value), abbreviated: abbreviated, sign: sign, precision: precision)
     }
 
     public func string(
         from value: Double,
         abbreviated: Bool = false,
-        sign: Sign = .default
+        sign: Sign = .default,
+        precision: Int = 2
     ) -> String {
-        string(from: NSDecimalNumber(value: value), abbreviated: abbreviated, sign: sign)
+        string(from: NSDecimalNumber(value: value), abbreviated: abbreviated, sign: sign, precision: precision)
     }
 
     public func string(
         from value: Decimal,
         abbreviated: Bool = false,
-        sign: Sign = .default
+        sign: Sign = .default,
+        precision: Int = 2
     ) -> String {
-        string(from: NSDecimalNumber(decimal: value), abbreviated: abbreviated, sign: sign)
+        string(from: NSDecimalNumber(decimal: value), abbreviated: abbreviated, sign: sign, precision: precision)
     }
 
     public func string(
         from value: NSDecimalNumber,
         abbreviated: Bool = false,
-        sign: Sign = .default
+        sign: Sign = .default,
+        precision: Int = 2
     ) -> String {
-        with(sign: sign) {
+        guard value.rounded(toPlaces: precision) != .zero else {
+            if usesSignForZero {
+                return with(zeroSign: sign.zero) {
+                    string(from: value.rounded(toPlaces: precision))
+                }
+            } else {
+                return string(from: value)
+            }
+        }
+        return with(sign: sign) {
             abbreviated ? abbreviatedString(from: value) : string(from: value)
         }
     }
@@ -138,6 +154,14 @@ extension LocalizedFormatter {
         let result = block()
         formatter.positiveSuffix = existingPositiveSuffix
         formatter.negativeSuffix = existingNegativeSuffix
+        return result
+    }
+
+    private func with<T>(precision: Int, _ block: () -> T) -> T {
+        let existingMaximumFractionDigits = formatter.maximumFractionDigits
+        formatter.maximumFractionDigits = precision
+        let result = block()
+        formatter.maximumFractionDigits = existingMaximumFractionDigits
         return result
     }
 
@@ -181,6 +205,24 @@ extension LocalizedFormatter {
 
         formatter.positivePrefix = existingPositivePrefix
         formatter.negativePrefix = existingNegativePrefix
+        return result
+    }
+
+    private func with<T>(zeroSign: Sign.Style, _ block: () -> T) -> T {
+        let existingPositivePrefix = formatter.positivePrefix
+
+        var newZeroSign: String!
+        switch zeroSign {
+        case .custom(let zeroSign):
+            newZeroSign = zeroSign
+        default:
+            newZeroSign = ""
+        }
+        formatter.positivePrefix = newZeroSign + formatter.positivePrefix
+
+        let result = block()
+
+        formatter.positivePrefix = existingPositivePrefix
         return result
     }
 }

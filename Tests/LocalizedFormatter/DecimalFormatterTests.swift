@@ -94,4 +94,30 @@ class DecimalFormatterTests: XCTestCase {
         expect(self.usFormatter.string(from: 123.456, sign: both)).to(equal("▲123.46"))
         expect(self.usFormatter.string(from: -123.456, sign: both)).to(equal("▼123.46"))
     }
+
+    func test_decimalFormatter_withSign_shouldFormatZero() throws {
+        expect(self.usFormatter.string(from: 0, sign: .none)).to(equal("0"))
+        expect(self.usFormatter.string(from: 0, sign: .default)).to(equal("0"))
+        expect(self.usFormatter.string(from: 0, sign: .both)).to(equal("0"))
+        expect(self.usFormatter.string(from: 0, sign: .arrow)).to(equal("0"))
+        expect(self.usFormatter.string(from: 0.00, sign: .both)).to(equal("0"))
+        expect(self.usFormatter.string(from: 0.001, sign: .both)).to(equal("0"))
+        expect(self.usFormatter.string(from: -0, sign: .both)).to(equal("0"))
+    }
+
+    func test_decimalFormatter_usesSignForZero_shouldFormatZero() throws {
+        let usFormatter = LocalizedFormatter.makeDecimalFormatter(locale: .init(identifier: "en_US")).apply {
+            $0.usesSignForZero = true
+        }
+        let all: LocalizedFormatter.Sign = .init(plus: .custom("▲"), minus: .custom("▼"), zero: .custom("="))
+
+        expect(usFormatter.string(from: 0, sign: .arrow)).to(equal("0"))
+        expect(usFormatter.string(from: 0, sign: all)).to(equal("=0"))
+        expect(usFormatter.string(from: 0.00, sign: all)).to(equal("=0"))
+        expect(usFormatter.string(from: 0.001, sign: all)).to(equal("=0"))
+        expect(usFormatter.string(from: -0, sign: .arrow)).to(equal("0"))
+        expect(usFormatter.string(from: -0, sign: all)).to(equal("=0"))
+        expect(usFormatter.string(from: -0.00, sign: all)).to(equal("=0"))
+        expect(usFormatter.string(from: -0.001, sign: all)).to(equal("=0"))
+    }
 }
