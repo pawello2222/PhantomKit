@@ -10,6 +10,6 @@ import Foundation
 
 extension String {
     public func withParentheses() -> String {
-        "(\(self)"
+        "(\(self))"
     }
 }

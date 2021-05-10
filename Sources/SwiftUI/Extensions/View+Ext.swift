@@ -8,6 +8,34 @@
 
 import SwiftUI
 
+// MARK: - Align
+
+extension View {
+    public func aligned(_ alignemnt: HorizontalAlignment) -> some View {
+        HStack {
+            if alignemnt == .trailing {
+                Spacer()
+            }
+            self
+            if alignemnt == .leading {
+                Spacer()
+            }
+        }
+    }
+
+    public func aligned(_ alignemnt: VerticalAlignment) -> some View {
+        VStack {
+            if alignemnt == .bottom {
+                Spacer()
+            }
+            self
+            if alignemnt == .top {
+                Spacer()
+            }
+        }
+    }
+}
+
 // MARK: - Border
 
 extension View {
