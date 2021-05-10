@@ -52,4 +52,8 @@ extension LocalizedFormatter.Sign {
     public static var arrow: Self {
         .init(plus: .custom("▲"), minus: .custom("▼"))
     }
+
+    public static var spacedArrow: Self {
+        .init(plus: .custom("▲ "), minus: .custom("▼ "))
+    }
 }
