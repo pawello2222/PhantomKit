@@ -78,6 +78,7 @@
 		E5CA1085264598B0008FD164 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA1084264598B0008FD164 /* CombineMoya */; };
 		E5CA108726459A7D008FD164 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA108626459A7D008FD164 /* APIError.swift */; };
 		E5E7C4C6264944290045596E /* DoneButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C5264944290045596E /* DoneButtonModifier.swift */; };
+		E5E7C4C8264995600045596E /* LocalizedFormatter+Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C7264995600045596E /* LocalizedFormatter+Sign.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +174,7 @@
 		E5CA108626459A7D008FD164 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		E5CA108A26459D00008FD164 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		E5E7C4C5264944290045596E /* DoneButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButtonModifier.swift; sourceTree = "<group>"; };
+		E5E7C4C7264995600045596E /* LocalizedFormatter+Sign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedFormatter+Sign.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				E549C7262647CA7F004388C4 /* LocalizedFormatter.swift */,
+				E5E7C4C7264995600045596E /* LocalizedFormatter+Sign.swift */,
 				E549C73526487C8A004388C4 /* LocalizedDateFormatter.swift */,
 			);
 			path = Formatters;
@@ -600,6 +603,7 @@
 				E587B8F926430FC900F0F240 /* Imports.swift in Sources */,
 				E5CA106D2643576B008FD164 /* Defaults.swift in Sources */,
 				E587B90826430FC900F0F240 /* ActionSheet+Ext.swift in Sources */,
+				E5E7C4C8264995600045596E /* LocalizedFormatter+Sign.swift in Sources */,
 				E587B8FE26430FC900F0F240 /* Calendar+Ext.swift in Sources */,
 				E587B92726430FC900F0F240 /* AboutView+Section+Item.swift in Sources */,
 				E587B91626430FC900F0F240 /* SimpleLabel.swift in Sources */,

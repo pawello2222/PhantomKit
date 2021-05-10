@@ -76,10 +76,10 @@ class CurrencyFormatterTests: XCTestCase {
             currencyCode: "PLN"
         )
 
-        expect(plFormatter.string(from: -1)).to(equal("-PLN 1.00"))
-        expect(plFormatter.string(from: -432)).to(equal("-PLN 432.00"))
-        expect(plFormatter.string(from: -1000)).to(equal("-PLN 1,000.00"))
-        expect(plFormatter.string(from: -48_729_432)).to(equal("-PLN 48,729,432.00"))
+        expect(plFormatter.string(from: -1)).to(equal("-PLN1.00"))
+        expect(plFormatter.string(from: -432)).to(equal("-PLN432.00"))
+        expect(plFormatter.string(from: -1000)).to(equal("-PLN1,000.00"))
+        expect(plFormatter.string(from: -48_729_432)).to(equal("-PLN48,729,432.00"))
     }
 
     func test_currencyFormatter_withAbbreviation_shouldFormatAmounts() throws {
@@ -87,5 +87,30 @@ class CurrencyFormatterTests: XCTestCase {
         expect(self.usFormatter.string(from: 1432.99, abbreviated: true)).to(equal("$1.43k"))
         expect(self.usFormatter.string(from: 100_081, abbreviated: true)).to(equal("$100.08k"))
         expect(self.usFormatter.string(from: 48_729_432, abbreviated: true)).to(equal("$48.73m"))
+    }
+
+    func test_currencyFormatter_withLocalizedSign_shouldFormatAmounts() throws {
+        expect(self.usFormatter.string(from: 123.456, sign: .none)).to(equal("$123.46"))
+        expect(self.usFormatter.string(from: 123.456, sign: .default)).to(equal("$123.46"))
+        expect(self.usFormatter.string(from: 123.456, sign: .both)).to(equal("+$123.46"))
+        expect(self.usFormatter.string(from: -123.456, sign: .none)).to(equal("$123.46"))
+        expect(self.usFormatter.string(from: -123.456, sign: .default)).to(equal("-$123.46"))
+        expect(self.usFormatter.string(from: -123.456, sign: .both)).to(equal("-$123.46"))
+    }
+
+    func test_currencyFormatter_withCustomSign_shouldFormatAmounts() throws {
+        let plus: LocalizedFormatter.Sign.Style = .custom("▲")
+        let minus: LocalizedFormatter.Sign.Style = .custom("▼")
+
+        let plusOnly: LocalizedFormatter.Sign = .init(plus: plus, minus: .none)
+        let minusOnly: LocalizedFormatter.Sign = .init(plus: .none, minus: minus)
+        let both: LocalizedFormatter.Sign = .init(plus: plus, minus: minus)
+
+        expect(self.usFormatter.string(from: 123.456, sign: plusOnly)).to(equal("▲$123.46"))
+        expect(self.usFormatter.string(from: -123.456, sign: plusOnly)).to(equal("$123.46"))
+        expect(self.usFormatter.string(from: 123.456, sign: minusOnly)).to(equal("$123.46"))
+        expect(self.usFormatter.string(from: -123.456, sign: minusOnly)).to(equal("▼$123.46"))
+        expect(self.usFormatter.string(from: 123.456, sign: both)).to(equal("▲$123.46"))
+        expect(self.usFormatter.string(from: -123.456, sign: both)).to(equal("▼$123.46"))
     }
 }

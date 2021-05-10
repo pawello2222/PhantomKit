@@ -69,4 +69,29 @@ class DecimalFormatterTests: XCTestCase {
         expect(self.usFormatter.string(from: 123_000.01, abbreviated: true)).to(equal("123k"))
         expect(self.usFormatter.string(from: 6_723_846.5673658, abbreviated: true)).to(equal("6.72m"))
     }
+
+    func test_decimalFormatter_withLocalizedSign_shouldFormatDecimals() throws {
+        expect(self.usFormatter.string(from: 123.456, sign: .none)).to(equal("123.46"))
+        expect(self.usFormatter.string(from: 123.456, sign: .default)).to(equal("123.46"))
+        expect(self.usFormatter.string(from: 123.456, sign: .both)).to(equal("+123.46"))
+        expect(self.usFormatter.string(from: -123.456, sign: .none)).to(equal("123.46"))
+        expect(self.usFormatter.string(from: -123.456, sign: .default)).to(equal("-123.46"))
+        expect(self.usFormatter.string(from: -123.456, sign: .both)).to(equal("-123.46"))
+    }
+
+    func test_decimalFormatter_withCustomSign_shouldFormatDecimals() throws {
+        let plus: LocalizedFormatter.Sign.Style = .custom("▲")
+        let minus: LocalizedFormatter.Sign.Style = .custom("▼")
+
+        let plusOnly: LocalizedFormatter.Sign = .init(plus: plus, minus: .none)
+        let minusOnly: LocalizedFormatter.Sign = .init(plus: .none, minus: minus)
+        let both: LocalizedFormatter.Sign = .init(plus: plus, minus: minus)
+
+        expect(self.usFormatter.string(from: 123.456, sign: plusOnly)).to(equal("▲123.46"))
+        expect(self.usFormatter.string(from: -123.456, sign: plusOnly)).to(equal("123.46"))
+        expect(self.usFormatter.string(from: 123.456, sign: minusOnly)).to(equal("123.46"))
+        expect(self.usFormatter.string(from: -123.456, sign: minusOnly)).to(equal("▼123.46"))
+        expect(self.usFormatter.string(from: 123.456, sign: both)).to(equal("▲123.46"))
+        expect(self.usFormatter.string(from: -123.456, sign: both)).to(equal("▼123.46"))
+    }
 }

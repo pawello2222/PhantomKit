@@ -66,41 +66,41 @@ extension LocalizedFormatter {
     public func string(
         from value: Int,
         abbreviated: Bool = false,
-        signed: Bool = false
+        sign: Sign = .default
     ) -> String {
-        string(from: NSDecimalNumber(value: value), abbreviated: abbreviated, signed: signed)
+        string(from: NSDecimalNumber(value: value), abbreviated: abbreviated, sign: sign)
     }
 
     public func string(
         from value: Float,
         abbreviated: Bool = false,
-        signed: Bool = false
+        sign: Sign = .default
     ) -> String {
-        string(from: NSDecimalNumber(value: value), abbreviated: abbreviated, signed: signed)
+        string(from: NSDecimalNumber(value: value), abbreviated: abbreviated, sign: sign)
     }
 
     public func string(
         from value: Double,
         abbreviated: Bool = false,
-        signed: Bool = false
+        sign: Sign = .default
     ) -> String {
-        string(from: NSDecimalNumber(value: value), abbreviated: abbreviated, signed: signed)
+        string(from: NSDecimalNumber(value: value), abbreviated: abbreviated, sign: sign)
     }
 
     public func string(
         from value: Decimal,
         abbreviated: Bool = false,
-        signed: Bool = false
+        sign: Sign = .default
     ) -> String {
-        string(from: NSDecimalNumber(decimal: value), abbreviated: abbreviated, signed: signed)
+        string(from: NSDecimalNumber(decimal: value), abbreviated: abbreviated, sign: sign)
     }
 
     public func string(
         from value: NSDecimalNumber,
         abbreviated: Bool = false,
-        signed: Bool = false
+        sign: Sign = .default
     ) -> String {
-        with(plusSign: signed ? formatter.plusSign : "") {
+        with(sign: sign) {
             abbreviated ? abbreviatedString(from: value) : string(from: value)
         }
     }
@@ -141,11 +141,46 @@ extension LocalizedFormatter {
         return result
     }
 
-    private func with<T>(plusSign: String, _ block: () -> T) -> T {
+    private func with<T>(sign: Sign, _ block: () -> T) -> T {
         let existingPositivePrefix = formatter.positivePrefix
-        formatter.positivePrefix = plusSign + formatter.positivePrefix
+        let existingNegativePrefix = formatter.negativePrefix
+
+        var newPlusSign: String!
+        switch sign.plus {
+        case .none:
+            newPlusSign = ""
+        case .localized:
+            newPlusSign = formatter.plusSign
+        case .custom(let plusSign):
+            newPlusSign = plusSign
+        }
+        if formatter.positivePrefix.contains(formatter.plusSign) {
+            formatter.positivePrefix = formatter.positivePrefix
+                .replacingOccurrences(of: formatter.plusSign, with: newPlusSign)
+        } else {
+            formatter.positivePrefix = newPlusSign + formatter.positivePrefix
+        }
+
+        var newMinusSign: String!
+        switch sign.minus {
+        case .none:
+            newMinusSign = ""
+        case .localized:
+            newMinusSign = formatter.minusSign
+        case .custom(let minusSign):
+            newMinusSign = minusSign
+        }
+        if formatter.negativePrefix.contains(formatter.minusSign) {
+            formatter.negativePrefix = formatter.negativePrefix
+                .replacingOccurrences(of: formatter.minusSign, with: newMinusSign)
+        } else {
+            formatter.negativePrefix = newPlusSign + formatter.negativePrefix
+        }
+
         let result = block()
+
         formatter.positivePrefix = existingPositivePrefix
+        formatter.negativePrefix = existingNegativePrefix
         return result
     }
 }
