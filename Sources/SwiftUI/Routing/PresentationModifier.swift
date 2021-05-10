@@ -11,6 +11,7 @@ import SwiftUI
 public struct PresentationModifier<Destination>: ViewModifier where Destination: View {
     @Environment(\.theme) private var theme
     private let method: PresentationMethod
+    private let onTrigger: (() -> Void)?
     private let onDismiss: (() -> Void)?
     private let content: () -> Destination
 
@@ -18,10 +19,12 @@ public struct PresentationModifier<Destination>: ViewModifier where Destination:
 
     public init(
         method: PresentationMethod = .link,
+        onTrigger: (() -> Void)? = nil,
         onDismiss: (() -> Void)? = nil,
         @ViewBuilder content: @escaping () -> Destination
     ) {
         self.method = method
+        self.onTrigger = onTrigger
         self.onDismiss = onDismiss
         self.content = content
     }
@@ -30,7 +33,7 @@ public struct PresentationModifier<Destination>: ViewModifier where Destination:
     public func body(content: Content) -> some View {
         transitionBody(
             content
-                .modifier(PresentationTriggerModifier(trigger: method.trigger, isActive: $isActive))
+                .modifier(PresentationTriggerModifier(trigger: method.trigger, isActive: $isActive, onTrigger: onTrigger))
         )
     }
 }

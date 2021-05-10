@@ -11,6 +11,7 @@ import SwiftUI
 struct PresentationTriggerModifier: ViewModifier {
     let trigger: PresentationMethod.Trigger
     @Binding var isActive: Bool
+    var onTrigger: (() -> Void)?
 
     @ViewBuilder
     func body(content: Content) -> some View {
@@ -18,6 +19,7 @@ struct PresentationTriggerModifier: ViewModifier {
         case .tap:
             content
                 .onTapGesture {
+                    onTrigger?()
                     isActive = true
                 }
         case .button(let style):
@@ -31,6 +33,7 @@ struct PresentationTriggerModifier: ViewModifier {
 
     private func buttonBody(_ content: Content) -> some View {
         Button {
+            onTrigger?()
             isActive = true
         } label: {
             content

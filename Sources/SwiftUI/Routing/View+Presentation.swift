@@ -8,23 +8,48 @@
 
 import SwiftUI
 
+extension View {
+    public func presentation<Content>(
+        method: PresentationMethod,
+        onTrigger: (() -> Void)? = nil,
+        onDismiss: (() -> Void)? = nil,
+        @ViewBuilder content: @escaping () -> Content
+    ) -> some View where Content: View {
+        modifier(
+            PresentationModifier(
+                method: method,
+                onTrigger: onTrigger,
+                onDismiss: onDismiss,
+                content: content
+            )
+        )
+    }
+}
+
 // MARK: - Link
 
 extension View {
     public func link<Content>(
         triggeredBy trigger: PresentationMethod.Trigger = .default,
+        onTrigger: (() -> Void)? = nil,
         onDismiss: (() -> Void)? = nil,
         @ViewBuilder destination: @escaping () -> Content
     ) -> some View where Content: View {
-        modifier(PresentationModifier(method: .link(trigger: trigger), onDismiss: onDismiss, content: destination))
+        presentation(
+            method: .link(trigger: trigger),
+            onTrigger: onTrigger,
+            onDismiss: onDismiss,
+            content: destination
+        )
     }
 
     public func link<Content>(
         triggeredBy trigger: PresentationMethod.Trigger = .default,
+        onTrigger: (() -> Void)? = nil,
         onDismiss: (() -> Void)? = nil,
         destination: @autoclosure @escaping () -> Content
     ) -> some View where Content: View {
-        link(triggeredBy: trigger, onDismiss: onDismiss, destination: destination)
+        link(triggeredBy: trigger, onTrigger: onTrigger, onDismiss: onDismiss, destination: destination)
     }
 }
 
@@ -33,18 +58,25 @@ extension View {
 extension View {
     public func sheet<Content>(
         triggeredBy trigger: PresentationMethod.Trigger = .default,
+        onTrigger: (() -> Void)? = nil,
         onDismiss: (() -> Void)? = nil,
         @ViewBuilder content: @escaping () -> Content
     ) -> some View where Content: View {
-        modifier(PresentationModifier(method: .sheet(trigger: trigger), onDismiss: onDismiss, content: content))
+        presentation(
+            method: .sheet(trigger: trigger),
+            onTrigger: onTrigger,
+            onDismiss: onDismiss,
+            content: content
+        )
     }
 
     public func sheet<Content>(
         triggeredBy trigger: PresentationMethod.Trigger = .default,
+        onTrigger: (() -> Void)? = nil,
         onDismiss: (() -> Void)? = nil,
         content: @autoclosure @escaping () -> Content
     ) -> some View where Content: View {
-        sheet(triggeredBy: trigger, onDismiss: onDismiss, content: content)
+        sheet(triggeredBy: trigger, onTrigger: onTrigger, onDismiss: onDismiss, content: content)
     }
 }
 
@@ -53,18 +85,25 @@ extension View {
 extension View {
     public func fullScreen<Content>(
         triggeredBy trigger: PresentationMethod.Trigger = .default,
+        onTrigger: (() -> Void)? = nil,
         onDismiss: (() -> Void)? = nil,
         @ViewBuilder content: @escaping () -> Content
     ) -> some View where Content: View {
-        modifier(PresentationModifier(method: .fullScreen(trigger: trigger), onDismiss: onDismiss, content: content))
+        presentation(
+            method: .fullScreen(trigger: trigger),
+            onTrigger: onTrigger,
+            onDismiss: onDismiss,
+            content: content
+        )
     }
 
     public func fullScreen<Content>(
         triggeredBy trigger: PresentationMethod.Trigger = .default,
+        onTrigger: (() -> Void)? = nil,
         onDismiss: (() -> Void)? = nil,
         content: @autoclosure @escaping () -> Content
     ) -> some View where Content: View {
-        fullScreen(triggeredBy: trigger, onDismiss: onDismiss, content: content)
+        fullScreen(triggeredBy: trigger, onTrigger: onTrigger, onDismiss: onDismiss, content: content)
     }
 }
 
@@ -77,15 +116,13 @@ extension View {
         edgesIgnoringSafeArea: Edge.Set = .none,
         onDismiss: (() -> Void)? = nil
     ) -> some View {
-        modifier(
-            PresentationModifier(method: method, onDismiss: onDismiss) {
-                WebView(endpoint: endpoint)
-                    .edgesIgnoringSafeArea(edgesIgnoringSafeArea)
-                    .when(method.isModal) {
-                        $0.embedInNavigation()
-                    }
-            }
-        )
+        presentation(method: method, onDismiss: onDismiss) {
+            WebView(endpoint: endpoint)
+                .edgesIgnoringSafeArea(edgesIgnoringSafeArea)
+                .when(method.isModal) {
+                    $0.embedInNavigation()
+                }
+        }
     }
 
     public func webView(
