@@ -11,10 +11,10 @@ import Foundation
 // MARK: - Common Theme
 
 extension Theme {
-    public static let common = Theme.default.applying {
+    public static let common: Theme = .default.applying {
         $0.id = #function
-        $0.userInfo[.gradientColors] = [UIColor.systemRed, .systemOrange]
-        $0.userInfo[.gradientDisabledColors] = [UIColor.gray, .lightGray]
+        $0.gradientColors = [.systemRed, .systemOrange]
+        $0.gradientDisabledColors = [.gray, .lightGray]
     }
 }
 
@@ -22,15 +22,17 @@ extension Theme {
 
 extension Theme {
     public var gradientColors: [UIColor] {
-        userInfo[.gradientColors] as? [UIColor] ?? [.systemTint]
+        get { userInfo[.gradientColors] as? [UIColor] ?? [accentColor] }
+        set { userInfo[.gradientColors] = newValue }
     }
 
     public var gradientDisabledColors: [UIColor] {
-        userInfo[.gradientDisabledColors] as? [UIColor] ?? [.secondarySystemBackground]
+        get { userInfo[.gradientDisabledColors] as? [UIColor] ?? [backgroundSecondaryColor] }
+        set { userInfo[.gradientDisabledColors] = newValue }
     }
 }
 
-// MARK: - UserInfoKey
+// MARK: - UserInfo
 
 extension UserInfoKey where Type == Theme {
     public static var gradientColors: Self { #function }

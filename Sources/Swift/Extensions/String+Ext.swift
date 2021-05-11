@@ -9,7 +9,7 @@
 import Foundation
 
 extension String {
-    public func withParentheses() -> String {
+    public func inParentheses() -> String {
         "(\(self))"
     }
 }

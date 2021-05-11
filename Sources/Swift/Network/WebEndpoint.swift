@@ -10,13 +10,7 @@ import Foundation
 
 public typealias WebEndpoint = AdaptiveURL
 
-// MARK: - UserInfo
-
-extension UserInfoKey where Type == WebEndpoint {
-    public static var isNavigationAllowed: Self { #function }
-
-    public static var hiddenWebElements: Self { #function }
-}
+// MARK: - Custom keys
 
 extension WebEndpoint {
     public var isNavigationAllowed: Bool {
@@ -28,4 +22,11 @@ extension WebEndpoint {
         get { self[userInfoKey: .hiddenWebElements, default: []] }
         set { self[userInfoKey: .hiddenWebElements] = newValue }
     }
+}
+
+// MARK: - UserInfo
+
+extension UserInfoKey where Type == WebEndpoint {
+    public static var isNavigationAllowed: Self { #function }
+    public static var hiddenWebElements: Self { #function }
 }
