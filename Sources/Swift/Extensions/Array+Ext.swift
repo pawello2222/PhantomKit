@@ -28,3 +28,14 @@ extension Array {
         }
     }
 }
+
+extension Array {
+    public func filter<Value>(
+        where keyPath: KeyPath<Element, Value>,
+        equals value: Value
+    ) -> Self where Value: Comparable {
+        filter {
+            $0[keyPath: keyPath] == value
+        }
+    }
+}
