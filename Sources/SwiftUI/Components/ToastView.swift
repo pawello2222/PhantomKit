@@ -76,9 +76,9 @@ extension ToastView {
 // MARK: - Convenience
 
 extension ToastView where Content == Text {
-    public init(text: String, style: Style = .info) {
+    public init(_ title: String, style: Style = .info) {
         self.init(style: style) {
-            Text(text)
+            Text(title)
         }
     }
 }
@@ -94,7 +94,7 @@ extension Theme {
     }
 
     public var toastInfoColor: ToastColorConfiguration {
-        get { userInfo[.toastInfoColor] as? ToastColorConfiguration ?? (text: .white, background: .systemBlue) }
+        get { userInfo[.toastInfoColor] as? ToastColorConfiguration ?? (text: .white, background: .systemTeal) }
         set { userInfo[.toastInfoColor] = newValue }
     }
 
