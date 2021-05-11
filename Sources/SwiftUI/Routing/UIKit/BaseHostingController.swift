@@ -18,12 +18,12 @@ open class BaseHostingController<Content>: UIHostingController<AnyView> where Co
     }
 
     @available(*, unavailable)
-    override public init(rootView _: AnyView) {
+    override public init(rootView: AnyView) {
         fatalError()
     }
 
     @available(*, unavailable)
-    public required init?(coder _: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError()
     }
 

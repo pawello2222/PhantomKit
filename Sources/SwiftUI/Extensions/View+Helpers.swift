@@ -24,6 +24,22 @@ public struct InvisibleShape: View {
     }
 }
 
+public struct ProgressOverlay: View {
+    private let title: String
+
+    public init(title: String) {
+        self.title = title
+    }
+
+    public var body: some View {
+        ZStack {
+            Color.clear
+            ProgressView(title)
+                .progressViewStyle(CircularProgressViewStyle())
+        }
+    }
+}
+
 public struct Unwrap<Value, Content>: View where Content: View {
     private let value: Value?
     private let content: (Value) -> Content
