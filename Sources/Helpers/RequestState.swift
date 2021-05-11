@@ -8,13 +8,15 @@
 
 import Foundation
 
-enum RequestState: Equatable {
+public enum RequestState: Equatable {
     case notStarted
     case inProgress
     case succeeded
     case failed
+}
 
-    var isFinished: Bool {
+extension RequestState {
+    public var isFinished: Bool {
         isContained(in: [.succeeded, .failed])
     }
 }
