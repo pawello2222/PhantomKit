@@ -12,7 +12,7 @@ import Foundation
 
 extension Theme {
     public static let common: Theme = .default.applying {
-        $0.id = #function
+        $0.id = "common"
         $0.gradientColors = [.systemRed, .systemOrange]
         $0.gradientDisabledColors = [.gray, .lightGray]
     }
