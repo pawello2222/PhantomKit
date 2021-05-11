@@ -64,6 +64,16 @@ extension View {
     }
 }
 
+// MARK: - Fixed size
+
+extension View {
+    @inlinable public func fixedSize(_ edges: Edge.Set) -> some View {
+        let horizontal = !edges.isDisjoint(with: .horizontal)
+        let vertical = !edges.isDisjoint(with: .vertical)
+        return fixedSize(horizontal: horizontal, vertical: vertical)
+    }
+}
+
 // MARK: - Frame
 
 extension View {

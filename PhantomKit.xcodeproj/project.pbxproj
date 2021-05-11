@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E52A3130264AE27B00017D94 /* RequestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A312F264AE27B00017D94 /* RequestState.swift */; };
+		E52A3132264B01A300017D94 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A3131264B01A300017D94 /* ToastView.swift */; };
 		E549C70C2645D526004388C4 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C70B2645D526004388C4 /* Logger.swift */; };
 		E549C70E2646BEDF004388C4 /* Error+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C70D2646BEDF004388C4 /* Error+Ext.swift */; };
 		E549C71A26475B89004388C4 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C71926475B89004388C4 /* Tests.swift */; };
@@ -110,6 +111,7 @@
 
 /* Begin PBXFileReference section */
 		E52A312F264AE27B00017D94 /* RequestState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestState.swift; sourceTree = "<group>"; };
+		E52A3131264B01A300017D94 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		E549C70B2645D526004388C4 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		E549C70D2646BEDF004388C4 /* Error+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Ext.swift"; sourceTree = "<group>"; };
 		E549C71726475B89004388C4 /* PhantomKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhantomKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -388,6 +390,7 @@
 				E587B8DC26430FC900F0F240 /* SimpleLabel.swift */,
 				E587B8DD26430FC900F0F240 /* SelectionTabView */,
 				E5E7C4C5264944290045596E /* DoneButtonModifier.swift */,
+				E52A3131264B01A300017D94 /* ToastView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				E5CA108026459820008FD164 /* Moya.swift in Sources */,
 				E587B92526430FC900F0F240 /* AboutView.swift in Sources */,
 				E587B90D26430FC900F0F240 /* Section+Ext.swift in Sources */,
+				E52A3132264B01A300017D94 /* ToastView.swift in Sources */,
 				E587B91526430FC900F0F240 /* RootViewAppearance.swift in Sources */,
 				E587B90726430FC900F0F240 /* View+Helpers.swift in Sources */,
 				E587B90A26430FC900F0F240 /* View+Ext.swift in Sources */,
