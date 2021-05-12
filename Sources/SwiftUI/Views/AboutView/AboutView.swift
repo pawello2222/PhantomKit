@@ -93,7 +93,7 @@ extension AboutView.Section.Item {
     public static func copyright(author: String, startYear: Int? = nil) -> Self {
         let endYear = Date().component(.year)
         var components = ["©"]
-        if let startYear = startYear {
+        if let startYear = startYear, startYear < endYear {
             components.append("\(startYear) - \(endYear)")
         } else {
             components.append("\(endYear)")
