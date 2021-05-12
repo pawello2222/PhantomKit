@@ -10,7 +10,12 @@
 
 "done" = "Done";
 
-// MARK: - About View
+// MARK: - About
 
-"about_view.app_design" = "App Design";
-"about_view.graphics" = "Graphics";
+"about.app_design" = "App Design";
+"about.graphics" = "Graphics";
+
+// MARK: - Last Updated
+
+"last_updated.last_updated" = "Last updated: %@";
+"last_updated.never" = "Never";

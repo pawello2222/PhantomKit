@@ -16,3 +16,9 @@ extension Date {
         calendar.dateComponents(components, from: self)
     }
 }
+
+extension Date {
+    public func localizedString(formatter: LocalizedDateFormatter = .date) -> String {
+        formatter.string(from: self)
+    }
+}

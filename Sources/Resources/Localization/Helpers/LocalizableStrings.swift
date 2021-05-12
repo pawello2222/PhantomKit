@@ -13,11 +13,20 @@ internal enum Localized {
   /// Done
   internal static let done = Localized.tr("Localizable", "done")
 
-  internal enum AboutView {
+  internal enum About {
     /// App Design
-    internal static let appDesign = Localized.tr("Localizable", "about_view.app_design")
+    internal static let appDesign = Localized.tr("Localizable", "about.app_design")
     /// Graphics
-    internal static let graphics = Localized.tr("Localizable", "about_view.graphics")
+    internal static let graphics = Localized.tr("Localizable", "about.graphics")
+  }
+
+  internal enum LastUpdated {
+    /// Last updated: %@
+    internal static func lastUpdated(_ p1: Any) -> String {
+      return Localized.tr("Localizable", "last_updated.last_updated", String(describing: p1))
+    }
+    /// Never
+    internal static let never = Localized.tr("Localizable", "last_updated.never")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
