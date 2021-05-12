@@ -78,6 +78,7 @@
 		E587B92A26430FC900F0F240 /* WebView+Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8F626430FC900F0F240 /* WebView+Script.swift */; };
 		E587B92E2643102C00F0F240 /* Xcore in Frameworks */ = {isa = PBXBuildFile; productRef = E587B92D2643102C00F0F240 /* Xcore */; };
 		E5C7EBAB264C5B7D00E74EEF /* LastUpdatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */; };
+		E5C7EBB0264C758F00E74EEF /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */; };
 		E5CA106A2643573E008FD164 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA10692643573E008FD164 /* Defaults */; };
 		E5CA106D2643576B008FD164 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA106C2643576B008FD164 /* Defaults.swift */; };
 		E5CA1071264406B9008FD164 /* Publisher+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA1070264406B9008FD164 /* Publisher+Ext.swift */; };
@@ -185,6 +186,7 @@
 		E587B8F526430FC900F0F240 /* WebView+ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebView+ViewModel.swift"; sourceTree = "<group>"; };
 		E587B8F626430FC900F0F240 /* WebView+Script.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebView+Script.swift"; sourceTree = "<group>"; };
 		E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdatedView.swift; sourceTree = "<group>"; };
+		E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		E5CA106C2643576B008FD164 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		E5CA1070264406B9008FD164 /* Publisher+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Ext.swift"; sourceTree = "<group>"; };
 		E5CA107F26459820008FD164 /* Moya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moya.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				E587B8DD26430FC900F0F240 /* SelectionTabView */,
 				E5E7C4C5264944290045596E /* DoneButtonModifier.swift */,
 				E52A3131264B01A300017D94 /* ToastView.swift */,
+				E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				E55AB59B2649E9A5000D7441 /* String+Ext.swift in Sources */,
 				E587B91326430FC900F0F240 /* GradientButtonStyle.swift in Sources */,
 				E52A3130264AE27B00017D94 /* RequestState.swift in Sources */,
+				E5C7EBB0264C758F00E74EEF /* PullToRefresh.swift in Sources */,
 				E549C7272647CA7F004388C4 /* LocalizedFormatter.swift in Sources */,
 				E5CA1071264406B9008FD164 /* Publisher+Ext.swift in Sources */,
 				E587B91A26430FC900F0F240 /* View+Presentation.swift in Sources */,
