@@ -90,10 +90,13 @@ extension AboutView.Section {
 }
 
 extension AboutView.Section.Item {
-    public static func copyright(author: String) -> Self {
+    public static func copyright(author: String, startYear: Int? = nil) -> Self {
+        let endYear = Date().component(.year)
         var components = ["©"]
-        if let year = Calendar.current.year {
-            components.append(String(year))
+        if let startYear = startYear {
+            components.append("\(startYear) - \(endYear)")
+        } else {
+            components.append("\(endYear)")
         }
         components.append(author)
         return .text(components.joined(separator: " "))
