@@ -41,10 +41,17 @@ class DecimalFormatterTests: XCTestCase {
     }
 
     func test_decimalFormatter_withAbbreviation_shouldFormatIntegers() throws {
-        expect(self.usFormatter.string(from: 1, abbreviated: true)).to(equal("1"))
-        expect(self.usFormatter.string(from: 432, abbreviated: true)).to(equal("432"))
-        expect(self.usFormatter.string(from: 1000, abbreviated: true)).to(equal("1k"))
-        expect(self.usFormatter.string(from: 48_729_432, abbreviated: true)).to(equal("48.73m"))
+        expect(self.usFormatter.string(from: 1, abbreviation: .default)).to(equal("1"))
+        expect(self.usFormatter.string(from: 432, abbreviation: .default)).to(equal("432"))
+        expect(self.usFormatter.string(from: 1000, abbreviation: .default)).to(equal("1k"))
+        expect(self.usFormatter.string(from: 48_729_432, abbreviation: .default)).to(equal("48.73m"))
+    }
+
+    func test_decimalFormatter_withAbbreviationCapitalized_shouldFormatIntegers() throws {
+        expect(self.usFormatter.string(from: 1, abbreviation: .default.capitalized)).to(equal("1"))
+        expect(self.usFormatter.string(from: 432, abbreviation: .default.capitalized)).to(equal("432"))
+        expect(self.usFormatter.string(from: 1000, abbreviation: .default.capitalized)).to(equal("1K"))
+        expect(self.usFormatter.string(from: 48_729_432, abbreviation: .default.capitalized)).to(equal("48.73M"))
     }
 
     func test_decimalFormatter_shouldFormatDecimals() throws {
@@ -64,10 +71,10 @@ class DecimalFormatterTests: XCTestCase {
     }
 
     func test_decimalFormatter_withAbbreviation_shouldFormatDecimals() throws {
-        expect(self.usFormatter.string(from: 0.648723, abbreviated: true)).to(equal("0.65"))
-        expect(self.usFormatter.string(from: 12.53, abbreviated: true)).to(equal("12.53"))
-        expect(self.usFormatter.string(from: 123_000.01, abbreviated: true)).to(equal("123k"))
-        expect(self.usFormatter.string(from: 6_723_846.5673658, abbreviated: true)).to(equal("6.72m"))
+        expect(self.usFormatter.string(from: 0.648723, abbreviation: .default)).to(equal("0.65"))
+        expect(self.usFormatter.string(from: 12.53, abbreviation: .default)).to(equal("12.53"))
+        expect(self.usFormatter.string(from: 123_000.01, abbreviation: .default)).to(equal("123k"))
+        expect(self.usFormatter.string(from: 6_723_846.5673658, abbreviation: .default)).to(equal("6.72m"))
     }
 
     func test_decimalFormatter_withLocalizedSign_shouldFormatDecimals() throws {
@@ -131,10 +138,10 @@ class DecimalFormatterTests: XCTestCase {
 
     func test_decimalFormatter_withAbbreviationAndSignAndPrecision_shouldFormatDecimals() throws {
         expect(self.usFormatter
-            .string(from: -123.123456789, abbreviated: true, sign: .arrow, precision: .constant(4)))
+            .string(from: -123.123456789, abbreviation: .default, sign: .arrow, precision: .constant(4)))
             .to(equal("▼123.1235"))
         expect(self.usFormatter
-            .string(from: 123_456_789.123456789, abbreviated: true, sign: .arrow, precision: .constant(4)))
+            .string(from: 123_456_789.123456789, abbreviation: .default, sign: .arrow, precision: .constant(4)))
             .to(equal("▲123.4568m"))
     }
 }

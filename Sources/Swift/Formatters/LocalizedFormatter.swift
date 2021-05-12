@@ -56,57 +56,48 @@ extension LocalizedFormatter {
     }
 }
 
-// MARK: - Abbreviation
-
-extension LocalizedFormatter {
-    public enum Abbreviation: String {
-        case thousand = "k"
-        case million = "m"
-    }
-}
-
 // MARK: - Format
 
 extension LocalizedFormatter {
     public func string(
         from value: Int,
-        abbreviated: Bool = false,
+        abbreviation: Abbreviation = .none,
         sign: Sign = .default,
         precision: Precision? = nil
     ) -> String {
-        string(from: NSDecimalNumber(value: value), abbreviated: abbreviated, sign: sign, precision: precision)
+        string(from: NSDecimalNumber(value: value), abbreviation: abbreviation, sign: sign, precision: precision)
     }
 
     public func string(
         from value: Float,
-        abbreviated: Bool = false,
+        abbreviation: Abbreviation = .none,
         sign: Sign = .default,
         precision: Precision? = nil
     ) -> String {
-        string(from: NSDecimalNumber(value: value), abbreviated: abbreviated, sign: sign, precision: precision)
+        string(from: NSDecimalNumber(value: value), abbreviation: abbreviation, sign: sign, precision: precision)
     }
 
     public func string(
         from value: Double,
-        abbreviated: Bool = false,
+        abbreviation: Abbreviation = .none,
         sign: Sign = .default,
         precision: Precision? = nil
     ) -> String {
-        string(from: NSDecimalNumber(value: value), abbreviated: abbreviated, sign: sign, precision: precision)
+        string(from: NSDecimalNumber(value: value), abbreviation: abbreviation, sign: sign, precision: precision)
     }
 
     public func string(
         from value: Decimal,
-        abbreviated: Bool = false,
+        abbreviation: Abbreviation = .none,
         sign: Sign = .default,
         precision: Precision? = nil
     ) -> String {
-        string(from: NSDecimalNumber(decimal: value), abbreviated: abbreviated, sign: sign, precision: precision)
+        string(from: NSDecimalNumber(decimal: value), abbreviation: abbreviation, sign: sign, precision: precision)
     }
 
     public func string(
         from value: NSDecimalNumber,
-        abbreviated: Bool = false,
+        abbreviation: Abbreviation = .none,
         sign: Sign = .default,
         precision: Precision? = nil
     ) -> String {
@@ -123,28 +114,22 @@ extension LocalizedFormatter {
                 return string(from: roundedValue)
             }
         }
-        return with(precision: precision) {
-            with(sign: sign) {
-                abbreviated ? abbreviatedString(from: value) : string(from: value)
+        return with(sign: sign) {
+            with(precision: precision) {
+                abbreviatedString(from: value, abbreviation: abbreviation)
             }
         }
     }
-}
 
-extension LocalizedFormatter {
-    private func abbreviatedString(from value: NSDecimalNumber) -> String {
-        switch abs(value.decimalValue) {
-        case 1_000_000...:
-            return with(abbreviation: .million) {
-                string(from: value / 1_000_000)
+    private func abbreviatedString(from value: NSDecimalNumber, abbreviation: Abbreviation) -> String {
+        for (suffix, threshold) in abbreviation.items {
+            if value >= threshold {
+                return with(abbreviationSuffix: suffix) {
+                    string(from: value / threshold)
+                }
             }
-        case 1000...:
-            return with(abbreviation: .thousand) {
-                string(from: value / 1000)
-            }
-        default:
-            return string(from: value)
         }
+        return string(from: value)
     }
 
     private func string(from value: NSDecimalNumber) -> String {
@@ -155,11 +140,11 @@ extension LocalizedFormatter {
 // MARK: - Helpers
 
 extension LocalizedFormatter {
-    private func with<T>(abbreviation: Abbreviation, _ block: () -> T) -> T {
+    private func with<T>(abbreviationSuffix: String, _ block: () -> T) -> T {
         let existingPositiveSuffix = formatter.positiveSuffix
         let existingNegativeSuffix = formatter.negativeSuffix
-        formatter.positiveSuffix = abbreviation.rawValue + formatter.positiveSuffix
-        formatter.negativeSuffix = abbreviation.rawValue + formatter.negativeSuffix
+        formatter.positiveSuffix = abbreviationSuffix + formatter.positiveSuffix
+        formatter.negativeSuffix = abbreviationSuffix + formatter.negativeSuffix
         let result = block()
         formatter.positiveSuffix = existingPositiveSuffix
         formatter.negativeSuffix = existingNegativeSuffix
