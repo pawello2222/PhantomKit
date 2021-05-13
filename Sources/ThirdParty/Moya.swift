@@ -26,7 +26,7 @@ extension MoyaProvider where Target: APIErrorMappable {
             .eraseToAnyPublisher()
     }
 
-    func decode<Result>(_ data: Data) -> AnyPublisher<Result, APIError> where Result: Decodable {
+    private func decode<Result>(_ data: Data) -> AnyPublisher<Result, APIError> where Result: Decodable {
         Just(data)
             .decode(type: Result.self, decoder: JSONDecoder())
             .tryCatch { _ in
@@ -40,7 +40,7 @@ extension MoyaProvider where Target: APIErrorMappable {
                     }
                     .eraseToAnyPublisher()
             }
-            .mapError { $0 as? APIError ?? APIError() }
+            .mapError { $0 as? APIError ?? .init() }
             .eraseToAnyPublisher()
     }
 }
@@ -48,7 +48,7 @@ extension MoyaProvider where Target: APIErrorMappable {
 // MARK: - Publisher
 
 extension Publisher where Output == Moya.Response, Failure == MoyaError {
-    func parseNetworkError() -> AnyPublisher<Moya.Response, APIError> {
+    fileprivate func parseNetworkError() -> AnyPublisher<Moya.Response, APIError> {
         mapError { error in
             if error.errorCode == -1009 {
                 return .offline

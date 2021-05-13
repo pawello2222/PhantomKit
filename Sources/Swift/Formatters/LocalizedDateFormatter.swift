@@ -58,23 +58,17 @@ extension LocalizedDateFormatter {
 // MARK: - Format
 
 extension LocalizedDateFormatter {
-    public func string(
-        from date: Date
-    ) -> String {
+    public func string(from date: Date) -> String {
         dateFormatter.string(from: date)
     }
 }
 
 extension LocalizedDateFormatter {
-    public func string(
-        from dateComponents: DateComponents
-    ) -> String {
+    public func string(from dateComponents: DateComponents) -> String {
         dateComponentsFormatter.string(from: dateComponents) ?? invalidValueString
     }
 
-    public func string(
-        from ti: TimeInterval
-    ) -> String {
+    public func string(from ti: TimeInterval) -> String {
         dateComponentsFormatter.string(from: ti) ?? invalidValueString
     }
 }

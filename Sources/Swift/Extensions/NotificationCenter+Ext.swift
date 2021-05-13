@@ -11,7 +11,7 @@ import Combine
 extension NotificationCenter.Event {
     public var orientationDidChangePublisher: AnyPublisher<Notification, Never> {
         NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)
-            .receive(on: DispatchQueue.main)
+            .receiveOnMain()
             .eraseToAnyPublisher()
     }
 }

@@ -9,60 +9,60 @@
 import Foundation
 
 extension NSDecimalNumber {
-    static func + (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> NSDecimalNumber {
-        return lhs.adding(rhs, withBehavior: NSDecimalNumberHandler.default)
+    public static func + (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> NSDecimalNumber {
+        lhs.adding(rhs, withBehavior: NSDecimalNumberHandler.default)
     }
 
-    static func - (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> NSDecimalNumber {
-        return lhs.subtracting(rhs, withBehavior: NSDecimalNumberHandler.default)
+    public static func - (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> NSDecimalNumber {
+        lhs.subtracting(rhs, withBehavior: NSDecimalNumberHandler.default)
     }
 
-    static func * (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> NSDecimalNumber {
-        return lhs.multiplying(by: rhs, withBehavior: NSDecimalNumberHandler.default)
+    public static func * (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> NSDecimalNumber {
+        lhs.multiplying(by: rhs, withBehavior: NSDecimalNumberHandler.default)
     }
 
-    static func / (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> NSDecimalNumber {
-        return lhs.dividing(by: rhs, withBehavior: NSDecimalNumberHandler.default)
+    public static func / (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> NSDecimalNumber {
+        lhs.dividing(by: rhs, withBehavior: NSDecimalNumberHandler.default)
     }
 }
 
 extension NSDecimalNumber {
-    static func += (lhs: inout NSDecimalNumber, rhs: NSDecimalNumber) {
+    public static func += (lhs: inout NSDecimalNumber, rhs: NSDecimalNumber) {
         lhs = lhs + rhs
     }
 
-    static func -= (lhs: inout NSDecimalNumber, rhs: NSDecimalNumber) {
+    public static func -= (lhs: inout NSDecimalNumber, rhs: NSDecimalNumber) {
         lhs = lhs - rhs
     }
 
-    static func *= (lhs: inout NSDecimalNumber, rhs: NSDecimalNumber) {
+    public static func *= (lhs: inout NSDecimalNumber, rhs: NSDecimalNumber) {
         lhs = lhs * rhs
     }
 
-    static func /= (lhs: inout NSDecimalNumber, rhs: NSDecimalNumber) {
+    public static func /= (lhs: inout NSDecimalNumber, rhs: NSDecimalNumber) {
         lhs = lhs / rhs
     }
 }
 
 extension NSDecimalNumber {
-    static func == (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> Bool {
-        return lhs.compare(rhs) == .orderedSame
+    public static func == (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> Bool {
+        lhs.compare(rhs) == .orderedSame
     }
 
-    static func < (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> Bool {
-        return lhs.compare(rhs) == .orderedAscending
+    public static func < (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> Bool {
+        lhs.compare(rhs) == .orderedAscending
     }
 
-    static func > (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> Bool {
-        return lhs.compare(rhs) == .orderedDescending
+    public static func > (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> Bool {
+        lhs.compare(rhs) == .orderedDescending
     }
 
-    static func <= (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> Bool {
-        return [.orderedAscending, .orderedSame].contains(lhs.compare(rhs))
+    public static func <= (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> Bool {
+        lhs.compare(rhs).isContained(in: [.orderedAscending, .orderedSame])
     }
 
-    static func >= (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> Bool {
-        return [.orderedDescending, .orderedSame].contains(lhs.compare(rhs))
+    public static func >= (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> Bool {
+        lhs.compare(rhs).isContained(in: [.orderedDescending, .orderedSame])
     }
 }
 
@@ -75,7 +75,7 @@ extension NSDecimalNumber {
 extension NSDecimalNumberHandler {
     public static var `default`: NSDecimalNumberHandler = .scaled(16)
 
-    fileprivate static func scaled(_ scale: Int) -> NSDecimalNumberHandler {
+    public static func scaled(_ scale: Int) -> NSDecimalNumberHandler {
         .init(
             roundingMode: .plain,
             scale: Int16(scale),

@@ -6,7 +6,6 @@
 //  Copyright © 2021 Pawel Wiszenko. All rights reserved.
 //
 
-import Foundation
 import os.log
 
 public enum Logger {
