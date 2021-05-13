@@ -13,6 +13,8 @@ public class LocalizedFormatter: Appliable {
 
     private lazy var formatter = NumberFormatter()
 
+    // Properties
+
     public var usesGroupingSeparator = false {
         didSet {
             formatter.usesGroupingSeparator = usesGroupingSeparator
@@ -195,7 +197,7 @@ extension LocalizedFormatter {
             formatter.negativePrefix = formatter.negativePrefix
                 .replacingOccurrences(of: formatter.minusSign, with: newMinusSign)
         } else {
-            formatter.negativePrefix = newPlusSign + formatter.negativePrefix
+            formatter.negativePrefix = newMinusSign + formatter.negativePrefix
         }
 
         let result = block()
