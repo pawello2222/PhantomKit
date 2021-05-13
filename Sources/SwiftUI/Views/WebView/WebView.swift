@@ -42,7 +42,7 @@ public struct WebViewRepresentable: UIViewRepresentable {
         self.viewModel = viewModel
     }
 
-    public func makeUIView(context: UIViewRepresentableContext<Self>) -> WKWebView {
+    public func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
         webView.navigationDelegate = context.coordinator
         if let url = viewModel.endpoint.url {
@@ -53,7 +53,7 @@ public struct WebViewRepresentable: UIViewRepresentable {
         return webView
     }
 
-    public func updateUIView(_ uiView: WKWebView, context: UIViewRepresentableContext<Self>) {}
+    public func updateUIView(_ uiView: WKWebView, context: Context) {}
 
     public func makeCoordinator() -> Self.Coordinator {
         .init(viewModel)

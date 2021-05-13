@@ -19,14 +19,14 @@ public struct PullToRefresh: UIViewRepresentable {
         self.onRefresh = onRefresh
     }
 
-    public func makeUIView(context: UIViewRepresentableContext<PullToRefresh>) -> UIView {
+    public func makeUIView(context: Context) -> UIView {
         .init(frame: .zero).apply {
             $0.isHidden = true
             $0.isUserInteractionEnabled = false
         }
     }
 
-    public func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<PullToRefresh>) {
+    public func updateUIView(_ uiView: UIView, context: Context) {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             guard let viewHost = uiView.superview?.superview else {
                 return

@@ -21,3 +21,29 @@ extension Alert.Button {
         .destructive(Text(title), action: action)
     }
 }
+
+extension Alert.Button {
+    public static func `default`(_ title: String, animatedAction: @escaping () -> Void) -> Alert.Button {
+        .default(Text(title)) {
+            withAnimation {
+                animatedAction()
+            }
+        }
+    }
+
+    public static func cancel(_ title: String, animatedAction: @escaping () -> Void) -> Alert.Button {
+        .cancel(Text(title)) {
+            withAnimation {
+                animatedAction()
+            }
+        }
+    }
+
+    public static func destructive(_ title: String, animatedAction: @escaping () -> Void) -> Alert.Button {
+        .destructive(Text(title)) {
+            withAnimation {
+                animatedAction()
+            }
+        }
+    }
+}
