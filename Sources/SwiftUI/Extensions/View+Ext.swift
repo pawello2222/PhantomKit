@@ -54,6 +54,18 @@ extension View {
     @inlinable public func accentUIColor(_ uiColor: UIColor) -> some View {
         accentColor(.init(uiColor))
     }
+
+    public func expandingBackgroundUIColor(_ uiColor: UIColor, edgesIgnoringSafeArea: Edge.Set = .all) -> some View {
+        expandingBackgroundColor(.init(uiColor), edgesIgnoringSafeArea: edgesIgnoringSafeArea)
+    }
+
+    public func expandingBackgroundColor(_ color: Color, edgesIgnoringSafeArea: Edge.Set = .all) -> some View {
+        ZStack {
+            color
+                .edgesIgnoringSafeArea(edgesIgnoringSafeArea)
+            self
+        }
+    }
 }
 
 // MARK: - Fixed size
