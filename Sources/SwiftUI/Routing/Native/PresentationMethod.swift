@@ -33,7 +33,7 @@ public struct PresentationMethod {
         switch transition {
         case .sheet, .fullScreen:
             return true
-        default:
+        case .link:
             return false
         }
     }

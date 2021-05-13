@@ -62,7 +62,7 @@
 		E587B91C26430FC900F0F240 /* View+Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8E526430FC900F0F240 /* View+Route.swift */; };
 		E587B91D26430FC900F0F240 /* Router+Route+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8E626430FC900F0F240 /* Router+Route+Method.swift */; };
 		E587B91E26430FC900F0F240 /* BaseHostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8E726430FC900F0F240 /* BaseHostingView.swift */; };
-		E587B91F26430FC900F0F240 /* Router+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8E826430FC900F0F240 /* Router+Ext.swift */; };
+		E587B91F26430FC900F0F240 /* RouteHandler+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8E826430FC900F0F240 /* RouteHandler+Ext.swift */; };
 		E587B92026430FC900F0F240 /* AlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8E926430FC900F0F240 /* AlertModifier.swift */; };
 		E587B92126430FC900F0F240 /* PresentationMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8EA26430FC900F0F240 /* PresentationMethod.swift */; };
 		E587B92226430FC900F0F240 /* PresentationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8EB26430FC900F0F240 /* PresentationModifier.swift */; };
@@ -173,7 +173,7 @@
 		E587B8E526430FC900F0F240 /* View+Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Route.swift"; sourceTree = "<group>"; };
 		E587B8E626430FC900F0F240 /* Router+Route+Method.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Router+Route+Method.swift"; sourceTree = "<group>"; };
 		E587B8E726430FC900F0F240 /* BaseHostingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseHostingView.swift; sourceTree = "<group>"; };
-		E587B8E826430FC900F0F240 /* Router+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Router+Ext.swift"; sourceTree = "<group>"; };
+		E587B8E826430FC900F0F240 /* RouteHandler+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RouteHandler+Ext.swift"; sourceTree = "<group>"; };
 		E587B8E926430FC900F0F240 /* AlertModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertModifier.swift; sourceTree = "<group>"; };
 		E587B8EA26430FC900F0F240 /* PresentationMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationMethod.swift; sourceTree = "<group>"; };
 		E587B8EB26430FC900F0F240 /* PresentationModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationModifier.swift; sourceTree = "<group>"; };
@@ -435,13 +435,8 @@
 		E587B8E126430FC900F0F240 /* Routing */ = {
 			isa = PBXGroup;
 			children = (
-				E587B8E226430FC900F0F240 /* View+Presentation.swift */,
+				E5EDC2C8264D9A0B0088CDE8 /* Native */,
 				E587B8E326430FC900F0F240 /* UIKit */,
-				E587B8E926430FC900F0F240 /* AlertModifier.swift */,
-				E587B8EA26430FC900F0F240 /* PresentationMethod.swift */,
-				E587B8EB26430FC900F0F240 /* PresentationModifier.swift */,
-				E587B8EC26430FC900F0F240 /* PresentationTriggerModifier.swift */,
-				E587B8ED26430FC900F0F240 /* ActionSheetModifier.swift */,
 			);
 			path = Routing;
 			sourceTree = "<group>";
@@ -450,10 +445,10 @@
 			isa = PBXGroup;
 			children = (
 				E587B8E426430FC900F0F240 /* BaseHostingController.swift */,
-				E587B8E526430FC900F0F240 /* View+Route.swift */,
-				E587B8E626430FC900F0F240 /* Router+Route+Method.swift */,
 				E587B8E726430FC900F0F240 /* BaseHostingView.swift */,
-				E587B8E826430FC900F0F240 /* Router+Ext.swift */,
+				E587B8E826430FC900F0F240 /* RouteHandler+Ext.swift */,
+				E587B8E626430FC900F0F240 /* Router+Route+Method.swift */,
+				E587B8E526430FC900F0F240 /* View+Route.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -512,6 +507,19 @@
 				E5EDC2C4264D956B0088CDE8 /* ToastView+Theme.swift */,
 			);
 			path = ToastView;
+			sourceTree = "<group>";
+		};
+		E5EDC2C8264D9A0B0088CDE8 /* Native */ = {
+			isa = PBXGroup;
+			children = (
+				E587B8ED26430FC900F0F240 /* ActionSheetModifier.swift */,
+				E587B8E926430FC900F0F240 /* AlertModifier.swift */,
+				E587B8EA26430FC900F0F240 /* PresentationMethod.swift */,
+				E587B8EB26430FC900F0F240 /* PresentationModifier.swift */,
+				E587B8EC26430FC900F0F240 /* PresentationTriggerModifier.swift */,
+				E587B8E226430FC900F0F240 /* View+Presentation.swift */,
+			);
+			path = Native;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -691,7 +699,7 @@
 				E587B90926430FC900F0F240 /* Alert+Button+Ext.swift in Sources */,
 				E587B91B26430FC900F0F240 /* BaseHostingController.swift in Sources */,
 				E587B8FA26430FC900F0F240 /* Bundle.swift in Sources */,
-				E587B91F26430FC900F0F240 /* Router+Ext.swift in Sources */,
+				E587B91F26430FC900F0F240 /* RouteHandler+Ext.swift in Sources */,
 				E587B91426430FC900F0F240 /* AnyButtonStyle.swift in Sources */,
 				E587B91126430FC900F0F240 /* AnimatableFrameHeight.swift in Sources */,
 				E587B8FF26430FC900F0F240 /* Set+Ext.swift in Sources */,

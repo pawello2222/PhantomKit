@@ -35,7 +35,24 @@ extension Router.Route {
     }
 }
 
-// MARK: - Method: Convenience
+// MARK: - Display
+
+extension Router.Route.Method {
+    func show<Content>(_ view: Content, navigationController: UINavigationController) where Content: View {
+        guard isModal else {
+            let pushVC = BaseHostingController(rootView: view)
+            navigationController.pushViewController(pushVC, animated: isAnimated)
+            return
+        }
+
+        let modalVC = BaseHostingController(rootView: view.embedInStackNavigation()).apply {
+            $0.modalPresentationStyle = transition == .fullScreen ? .fullScreen : .automatic
+        }
+        navigationController.present(modalVC, animated: isAnimated)
+    }
+}
+
+// MARK: - Convenience
 
 extension Router.Route.Method {
     // Push
@@ -66,22 +83,5 @@ extension Router.Route.Method {
 
     public static func fullScreen(animated: Bool) -> Self {
         .init(transition: .fullScreen, animated: animated)
-    }
-}
-
-// MARK: - Display
-
-extension Router.Route.Method {
-    func show<Content>(_ view: Content, navigationController: UINavigationController) where Content: View {
-        guard isModal else {
-            let pushVC = BaseHostingController(rootView: view)
-            navigationController.pushViewController(pushVC, animated: isAnimated)
-            return
-        }
-
-        let modalVC = BaseHostingController(rootView: view.embedInStackNavigation()).apply {
-            $0.modalPresentationStyle = transition == .fullScreen ? .fullScreen : .automatic
-        }
-        navigationController.present(modalVC, animated: isAnimated)
     }
 }
