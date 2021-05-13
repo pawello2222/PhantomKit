@@ -32,9 +32,7 @@ public struct AboutView: View {
             presentationMode.wrappedValue.dismiss()
         }
     }
-}
 
-extension AboutView {
     private var imageView: some View {
         image()
             .resizable()
@@ -48,6 +46,8 @@ extension AboutView {
         }
     }
 }
+
+// MARK: - Convenience
 
 extension AboutView {
     public init(

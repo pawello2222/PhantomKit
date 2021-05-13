@@ -456,9 +456,9 @@
 		E587B8EE26430FC900F0F240 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */,
 				E587B8EF26430FC900F0F240 /* AboutView */,
 				E587B8F326430FC900F0F240 /* WebView */,
-				E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

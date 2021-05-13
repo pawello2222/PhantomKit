@@ -10,8 +10,8 @@ import SwiftUI
 
 extension AboutView.Section {
     public struct Item {
-        public let title: String
-        public let content: () -> AnyView
+        let title: String
+        let content: () -> AnyView
 
         public init(title: String) {
             self.title = title

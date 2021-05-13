@@ -38,13 +38,12 @@ public struct WebView: View {
 public struct WebViewRepresentable: UIViewRepresentable {
     @ObservedObject private var viewModel: WebView.ViewModel
 
-    private let webView = WKWebView()
-
     public init(viewModel: WebView.ViewModel) {
         self.viewModel = viewModel
     }
 
     public func makeUIView(context: UIViewRepresentableContext<Self>) -> WKWebView {
+        let webView = WKWebView()
         webView.navigationDelegate = context.coordinator
         if let url = viewModel.endpoint.url {
             webView.load(URLRequest(url: url))
