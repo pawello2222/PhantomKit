@@ -90,6 +90,7 @@
 		E5E7C4CA2649ADB00045596E /* LocalizedFormatter+Precision.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C92649ADB00045596E /* LocalizedFormatter+Precision.swift */; };
 		E5EDC2BF264D82620088CDE8 /* Network+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDC2BE264D82620088CDE8 /* Network+Protocols.swift */; };
 		E5EDC2C2264D92CE0088CDE8 /* View+Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDC2C1264D92CE0088CDE8 /* View+Footer.swift */; };
+		E5EDC2C5264D956B0088CDE8 /* ToastView+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDC2C4264D956B0088CDE8 /* ToastView+Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +198,7 @@
 		E5E7C4C92649ADB00045596E /* LocalizedFormatter+Precision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedFormatter+Precision.swift"; sourceTree = "<group>"; };
 		E5EDC2BE264D82620088CDE8 /* Network+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Protocols.swift"; sourceTree = "<group>"; };
 		E5EDC2C1264D92CE0088CDE8 /* View+Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Footer.swift"; sourceTree = "<group>"; };
+		E5EDC2C4264D956B0088CDE8 /* ToastView+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToastView+Theme.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,16 +397,17 @@
 		E587B8D126430FC900F0F240 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E587B8D226430FC900F0F240 /* SplitPicker */,
 				E587B8D626430FC900F0F240 /* AnimatableFrameHeight.swift */,
+				E587B8DA26430FC900F0F240 /* AnyButtonStyle.swift */,
+				E5E7C4C5264944290045596E /* DoneButtonModifier.swift */,
 				E587B8D726430FC900F0F240 /* ExtendedLabel.swift */,
-				E587B8D826430FC900F0F240 /* Styles */,
+				E587B8D926430FC900F0F240 /* GradientButtonStyle.swift */,
+				E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */,
 				E587B8DB26430FC900F0F240 /* RootViewAppearance.swift */,
 				E587B8DC26430FC900F0F240 /* SimpleLabel.swift */,
 				E587B8DD26430FC900F0F240 /* SelectionTabView */,
-				E5E7C4C5264944290045596E /* DoneButtonModifier.swift */,
-				E52A3131264B01A300017D94 /* ToastView.swift */,
-				E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */,
+				E587B8D226430FC900F0F240 /* SplitPicker */,
+				E5EDC2C3264D955C0088CDE8 /* ToastView */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -412,28 +415,19 @@
 		E587B8D226430FC900F0F240 /* SplitPicker */ = {
 			isa = PBXGroup;
 			children = (
+				E587B8D526430FC900F0F240 /* SplitPicker.swift */,
 				E587B8D326430FC900F0F240 /* SplitPicker+SelectionView.swift */,
 				E587B8D426430FC900F0F240 /* SplitPicker+Item.swift */,
-				E587B8D526430FC900F0F240 /* SplitPicker.swift */,
 			);
 			path = SplitPicker;
-			sourceTree = "<group>";
-		};
-		E587B8D826430FC900F0F240 /* Styles */ = {
-			isa = PBXGroup;
-			children = (
-				E587B8D926430FC900F0F240 /* GradientButtonStyle.swift */,
-				E587B8DA26430FC900F0F240 /* AnyButtonStyle.swift */,
-			);
-			path = Styles;
 			sourceTree = "<group>";
 		};
 		E587B8DD26430FC900F0F240 /* SelectionTabView */ = {
 			isa = PBXGroup;
 			children = (
+				E587B8E026430FC900F0F240 /* SelectionTabView.swift */,
 				E587B8DE26430FC900F0F240 /* TabViewItem.swift */,
 				E587B8DF26430FC900F0F240 /* TabSelectionKey.swift */,
-				E587B8E026430FC900F0F240 /* SelectionTabView.swift */,
 			);
 			path = SelectionTabView;
 			sourceTree = "<group>";
@@ -509,6 +503,15 @@
 				E549C70B2645D526004388C4 /* Logger.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		E5EDC2C3264D955C0088CDE8 /* ToastView */ = {
+			isa = PBXGroup;
+			children = (
+				E52A3131264B01A300017D94 /* ToastView.swift */,
+				E5EDC2C4264D956B0088CDE8 /* ToastView+Theme.swift */,
+			);
+			path = ToastView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -704,6 +707,7 @@
 				E587B91926430FC900F0F240 /* SelectionTabView.swift in Sources */,
 				E587B91D26430FC900F0F240 /* Router+Route+Method.swift in Sources */,
 				E587B92826430FC900F0F240 /* WebView.swift in Sources */,
+				E5EDC2C5264D956B0088CDE8 /* ToastView+Theme.swift in Sources */,
 				E587B91826430FC900F0F240 /* TabSelectionKey.swift in Sources */,
 				E587B92026430FC900F0F240 /* AlertModifier.swift in Sources */,
 				E55AB59F264ADA2A000D7441 /* Equatable+Ext.swift in Sources */,

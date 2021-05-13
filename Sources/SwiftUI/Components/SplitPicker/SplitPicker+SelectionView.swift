@@ -59,6 +59,7 @@ extension SplitPicker.SelectionView {
                         .foregroundUIColor(theme.accentColor)
                 }
             }
+            .font(.app(.body))
             .contentShape(Rectangle())
         }
     }
@@ -89,7 +90,7 @@ extension SplitPicker.SelectionView {
             }
             .frame(maxWidth: shortLabelWidth)
             Text(String(item.long))
-                .font(.subheadline)
+                .font(.app(.subheadline))
                 .foregroundUIColor(theme.textSecondaryColor)
         }
     }
