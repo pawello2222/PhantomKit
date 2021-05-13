@@ -20,16 +20,6 @@ public enum APIError: Error {
     case generic(code: Int?, message: String?)
 }
 
-// MARK: - Convenience
-
-extension APIError {
-    public init(code: Int? = nil, message: String? = nil) {
-        self = .generic(code: code, message: message)
-    }
-}
-
-// MARK: - Computed properties
-
 extension APIError {
     public var message: String? {
         switch self {
@@ -48,16 +38,10 @@ extension APIError {
     }
 }
 
-// MARK: - APIErrorMappable
+// MARK: - Convenience
 
-public protocol APIErrorMappable: ResponseDecodable {
-    static func parseError(from response: ResponseWrapper) -> APIError
-}
-
-public protocol ResponseDecodable {
-    associatedtype ResponseWrapper: Decodable
-}
-
-public protocol RequestEncodable {
-    associatedtype RequestWrapper: Encodable
+extension APIError {
+    public init(code: Int? = nil, message: String? = nil) {
+        self = .generic(code: code, message: message)
+    }
 }

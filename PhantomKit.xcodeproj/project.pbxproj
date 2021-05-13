@@ -30,7 +30,6 @@
 		E587B8FA26430FC900F0F240 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8B326430FC900F0F240 /* Bundle.swift */; };
 		E587B8FB26430FC900F0F240 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8B826430FC900F0F240 /* LocalizableStrings.swift */; };
 		E587B8FC26430FC900F0F240 /* WebEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8BB26430FC900F0F240 /* WebEndpoint.swift */; };
-		E587B8FD26430FC900F0F240 /* WebResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8BC26430FC900F0F240 /* WebResource.swift */; };
 		E587B8FE26430FC900F0F240 /* Calendar+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8BE26430FC900F0F240 /* Calendar+Ext.swift */; };
 		E587B8FF26430FC900F0F240 /* Set+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8BF26430FC900F0F240 /* Set+Ext.swift */; };
 		E587B90026430FC900F0F240 /* Published+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8C026430FC900F0F240 /* Published+Ext.swift */; };
@@ -90,6 +89,7 @@
 		E5E7C4C6264944290045596E /* DoneButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C5264944290045596E /* DoneButtonModifier.swift */; };
 		E5E7C4C8264995600045596E /* LocalizedFormatter+Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C7264995600045596E /* LocalizedFormatter+Sign.swift */; };
 		E5E7C4CA2649ADB00045596E /* LocalizedFormatter+Precision.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C92649ADB00045596E /* LocalizedFormatter+Precision.swift */; };
+		E5EDC2BF264D82620088CDE8 /* Network+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDC2BE264D82620088CDE8 /* Network+Protocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,7 +140,6 @@
 		E587B8B626430FC900F0F240 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E587B8B826430FC900F0F240 /* LocalizableStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
 		E587B8BB26430FC900F0F240 /* WebEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebEndpoint.swift; sourceTree = "<group>"; };
-		E587B8BC26430FC900F0F240 /* WebResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebResource.swift; sourceTree = "<group>"; };
 		E587B8BE26430FC900F0F240 /* Calendar+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calendar+Ext.swift"; sourceTree = "<group>"; };
 		E587B8BF26430FC900F0F240 /* Set+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set+Ext.swift"; sourceTree = "<group>"; };
 		E587B8C026430FC900F0F240 /* Published+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Published+Ext.swift"; sourceTree = "<group>"; };
@@ -197,6 +196,7 @@
 		E5E7C4C5264944290045596E /* DoneButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButtonModifier.swift; sourceTree = "<group>"; };
 		E5E7C4C7264995600045596E /* LocalizedFormatter+Sign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedFormatter+Sign.swift"; sourceTree = "<group>"; };
 		E5E7C4C92649ADB00045596E /* LocalizedFormatter+Precision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedFormatter+Precision.swift"; sourceTree = "<group>"; };
+		E5EDC2BE264D82620088CDE8 /* Network+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Protocols.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,9 +330,9 @@
 			isa = PBXGroup;
 			children = (
 				E5CA108626459A7D008FD164 /* APIError.swift */,
-				E587B8BB26430FC900F0F240 /* WebEndpoint.swift */,
-				E587B8BC26430FC900F0F240 /* WebResource.swift */,
+				E5EDC2BE264D82620088CDE8 /* Network+Protocols.swift */,
 				E52A3133264C0C5900017D94 /* RefreshGuardian.swift */,
+				E587B8BB26430FC900F0F240 /* WebEndpoint.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -706,6 +706,7 @@
 				E549C70C2645D526004388C4 /* Logger.swift in Sources */,
 				E587B90626430FC900F0F240 /* Constants.swift in Sources */,
 				E587B92626430FC900F0F240 /* AboutView+Section.swift in Sources */,
+				E5EDC2BF264D82620088CDE8 /* Network+Protocols.swift in Sources */,
 				E587B90F26430FC900F0F240 /* SplitPicker+Item.swift in Sources */,
 				E549C72C2647F4FA004388C4 /* NSDecimalNumber+Ext.swift in Sources */,
 				E587B8FC26430FC900F0F240 /* WebEndpoint.swift in Sources */,
@@ -714,7 +715,6 @@
 				E587B91726430FC900F0F240 /* TabViewItem.swift in Sources */,
 				E587B91026430FC900F0F240 /* SplitPicker.swift in Sources */,
 				E587B92426430FC900F0F240 /* ActionSheetModifier.swift in Sources */,
-				E587B8FD26430FC900F0F240 /* WebResource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
