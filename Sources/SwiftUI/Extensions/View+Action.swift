@@ -32,13 +32,6 @@ extension View {
         }
     }
 
-    public func action(
-        triggeredBy trigger: PresentationMethod.Trigger = .default,
-        _ action: @autoclosure @escaping () -> Void
-    ) -> some View {
-        self.action(triggeredBy: trigger, action)
-    }
-
     @ViewBuilder
     public func action(
         triggeredBy trigger: PresentationMethod.Trigger = .default,
@@ -48,18 +41,18 @@ extension View {
             self.action(triggeredBy: trigger, action)
         }
     }
+
+    public func action(
+        triggeredBy trigger: PresentationMethod.Trigger = .default,
+        _ action: @autoclosure @escaping () -> Void
+    ) -> some View {
+        self.action(triggeredBy: trigger, action)
+    }
 }
 
 // MARK: - Animated Action
 
 extension View {
-    public func animatedAction(
-        triggeredBy trigger: PresentationMethod.Trigger = .default,
-        _ action: @autoclosure @escaping () -> Void
-    ) -> some View {
-        animatedAction(triggeredBy: trigger, action)
-    }
-
     @ViewBuilder
     public func animatedAction(
         triggeredBy trigger: PresentationMethod.Trigger = .default,
@@ -72,5 +65,12 @@ extension View {
                 }
             }
         }
+    }
+
+    public func animatedAction(
+        triggeredBy trigger: PresentationMethod.Trigger = .default,
+        _ action: @autoclosure @escaping () -> Void
+    ) -> some View {
+        animatedAction(triggeredBy: trigger, action)
     }
 }

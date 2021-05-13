@@ -26,14 +26,16 @@ public struct InvisibleShape: View {
 
 public struct ProgressOverlay: View {
     private let title: String
+    private let color: Color
 
-    public init(title: String) {
+    public init(title: String, color: Color = .clear) {
         self.title = title
+        self.color = color
     }
 
     public var body: some View {
         ZStack {
-            Color.clear
+            color
             ProgressView(title)
                 .progressViewStyle(CircularProgressViewStyle())
         }

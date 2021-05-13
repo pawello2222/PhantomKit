@@ -54,14 +54,6 @@ extension View {
     @inlinable public func accentUIColor(_ uiColor: UIColor) -> some View {
         accentColor(.init(uiColor))
     }
-
-    @inlinable public func bgColor(_ color: Color) -> some View {
-        background(color)
-    }
-
-    @inlinable public func fgColor(_ color: Color) -> some View {
-        foregroundColor(color)
-    }
 }
 
 // MARK: - Fixed size
@@ -92,64 +84,6 @@ extension View {
     }
 }
 
-// MARK: - Footer
-
-extension View {
-    // Overlay
-
-    public func overlayFooter<Content>(
-        alignment: HorizontalAlignment = .center,
-        @ViewBuilder content: () -> Content
-    ) -> some View where Content: View {
-        ZStack(alignment: .init(horizontal: alignment, vertical: .bottom)) {
-            self
-            content()
-        }
-    }
-
-    public func overlayFooter<Content>(
-        alignment: HorizontalAlignment = .center,
-        _ content: @autoclosure () -> Content
-    ) -> some View where Content: View {
-        overlayFooter(alignment: alignment, content: content)
-    }
-
-    // Pinned
-
-    public func pinnedFooter<Content>(
-        alignment: HorizontalAlignment = .center,
-        spacing: CGFloat? = nil,
-        @ViewBuilder content: () -> Content
-    ) -> some View where Content: View {
-        VStack(alignment: alignment, spacing: spacing) {
-            self
-            content()
-                .frame(maxWidth: .infinity)
-        }
-    }
-
-    public func pinnedFooter<Content>(
-        alignment: HorizontalAlignment = .center,
-        spacing: CGFloat? = nil,
-        _ content: @autoclosure () -> Content
-    ) -> some View where Content: View {
-        pinnedFooter(alignment: alignment, spacing: spacing, content: content)
-    }
-
-    // Default
-
-    public func defaultFooter<Content>(
-        _ content: @autoclosure () -> Content
-    ) -> some View where Content: View {
-        VStack {
-            self
-            content()
-                .frame(maxWidth: .infinity)
-                .padding()
-        }
-    }
-}
-
 // MARK: - Navigation
 
 extension View {
@@ -157,9 +91,7 @@ extension View {
         navigationTitle(title)
             .embedInNavigation()
     }
-}
 
-extension View {
     public func embedInStackNavigation() -> some View {
         embedInNavigation()
             .navigationViewStyle(StackNavigationViewStyle())
