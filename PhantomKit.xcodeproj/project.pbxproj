@@ -75,6 +75,7 @@
 		E587B92A26430FC900F0F240 /* WebView+Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8F626430FC900F0F240 /* WebView+Script.swift */; };
 		E587B92E2643102C00F0F240 /* Xcore in Frameworks */ = {isa = PBXBuildFile; productRef = E587B92D2643102C00F0F240 /* Xcore */; };
 		E5AB538C264EDD9600D993AE /* Async in Frameworks */ = {isa = PBXBuildFile; productRef = E5AB538B264EDD9600D993AE /* Async */; };
+		E5AB538E264EE08600D993AE /* ContinuousProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */; };
 		E5C7EBAB264C5B7D00E74EEF /* LastUpdatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */; };
 		E5C7EBB0264C758F00E74EEF /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */; };
 		E5C7EBB2264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBB1264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift */; };
@@ -184,6 +185,7 @@
 		E587B8F426430FC900F0F240 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		E587B8F526430FC900F0F240 /* WebView+ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebView+ViewModel.swift"; sourceTree = "<group>"; };
 		E587B8F626430FC900F0F240 /* WebView+Script.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebView+Script.swift"; sourceTree = "<group>"; };
+		E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousProgressViewStyle.swift; sourceTree = "<group>"; };
 		E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdatedView.swift; sourceTree = "<group>"; };
 		E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		E5C7EBB1264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedFormatter+Abbreviation.swift"; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 			children = (
 				E587B8D626430FC900F0F240 /* AnimatableFrameHeight.swift */,
 				E587B8DA26430FC900F0F240 /* AnyButtonStyle.swift */,
+				E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */,
 				E5E7C4C5264944290045596E /* DoneButtonModifier.swift */,
 				E587B8D726430FC900F0F240 /* ExtendedLabel.swift */,
 				E587B8D926430FC900F0F240 /* GradientButtonStyle.swift */,
@@ -667,6 +670,7 @@
 				E587B92126430FC900F0F240 /* PresentationMethod.swift in Sources */,
 				E587B90226430FC900F0F240 /* StoreKit+Ext.swift in Sources */,
 				E5EDC2C2264D92CE0088CDE8 /* View+Footer.swift in Sources */,
+				E5AB538E264EE08600D993AE /* ContinuousProgressViewStyle.swift in Sources */,
 				E55AB59D264A7775000D7441 /* Date+Ext.swift in Sources */,
 				E587B91226430FC900F0F240 /* ExtendedLabel.swift in Sources */,
 				E5C7EBB2264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift in Sources */,
