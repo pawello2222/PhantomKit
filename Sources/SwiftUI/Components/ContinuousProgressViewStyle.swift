@@ -15,6 +15,8 @@ public struct ContinuousProgressViewStyle: ProgressViewStyle {
     @State private var size: CGSize = .zero
     private let cycleInterval: TimeInterval = 3
 
+    public init() {}
+
     public func makeBody(configuration: Self.Configuration) -> some View {
         ZStack(alignment: .top) {
             trimmedCircleView(from: 0, to: 1)
