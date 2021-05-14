@@ -20,12 +20,10 @@ public class LocalizedDateFormatter: Appliable {
 extension LocalizedDateFormatter {
     public static func makeDateFormatter(
         locale: Locale = .current,
-        timeZone: TimeZone = .gmt,
         format: String
     ) -> LocalizedDateFormatter {
         .init().apply {
             $0.dateFormatter.locale = locale
-            $0.dateFormatter.timeZone = timeZone
             $0.dateFormatter.dateFormat = format
         }
     }
@@ -60,8 +58,10 @@ extension LocalizedDateFormatter {
 // MARK: - Format
 
 extension LocalizedDateFormatter {
-    public func date(from string: String) -> Date? {
-        dateFormatter.date(from: string)
+    public func date(from string: String, timeZone: TimeZone = .current) -> Date? {
+        with(timeZone: timeZone) {
+            dateFormatter.date(from: string)
+        }
     }
 }
 
@@ -78,6 +78,18 @@ extension LocalizedDateFormatter {
 
     public func string(from ti: TimeInterval) -> String {
         dateComponentsFormatter.string(from: ti) ?? invalidValueString
+    }
+}
+
+// MARK: - Helpers
+
+extension LocalizedDateFormatter {
+    private func with<T>(timeZone: TimeZone, _ block: () -> T) -> T {
+        let existingTimeZone = dateFormatter.timeZone
+        dateFormatter.timeZone = timeZone
+        let result = block()
+        dateFormatter.timeZone = existingTimeZone
+        return result
     }
 }
 
