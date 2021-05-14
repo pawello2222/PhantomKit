@@ -58,7 +58,7 @@ extension LocalizedDateFormatter {
 // MARK: - Format
 
 extension LocalizedDateFormatter {
-    public func date(from string: String, timeZone: TimeZone = .current) -> Date? {
+    public func date(from string: String, timeZone: TimeZone? = nil) -> Date? {
         with(timeZone: timeZone) {
             dateFormatter.date(from: string)
         }
@@ -84,7 +84,7 @@ extension LocalizedDateFormatter {
 // MARK: - Helpers
 
 extension LocalizedDateFormatter {
-    private func with<T>(timeZone: TimeZone, _ block: () -> T) -> T {
+    private func with<T>(timeZone: TimeZone?, _ block: () -> T) -> T {
         let existingTimeZone = dateFormatter.timeZone
         dateFormatter.timeZone = timeZone
         let result = block()
