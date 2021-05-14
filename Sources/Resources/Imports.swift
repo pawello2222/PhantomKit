@@ -6,4 +6,5 @@
 //  Copyright © 2021 Pawel Wiszenko. All rights reserved.
 //
 
+@_exported import Async
 @_exported import Xcore

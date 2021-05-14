@@ -5,14 +5,15 @@ import PackageDescription
 // MARK: - Dependencies
 
 let depencencies: [Package.Dependency] = [
-    .package(name: "Xcore", url: "https://github.com/pawello2222/xcore.git", .branch("phantomKit")),
+    .package(url: "https://github.com/duemunk/Async", from: "2.1.0"),
     .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "9.0.0")),
+    .package(name: "Xcore", url: "https://github.com/pawello2222/xcore.git", .branch("phantomKit")),
 ]
 
 // MARK: - Targets
 
 let targets: [Target] = [
-    .target(name: "PhantomKit", dependencies: ["Xcore"], path: "Sources"),
+    .target(name: "PhantomKit", dependencies: ["Async", Xcore"], path: "Sources"),
     .testTarget(name: "PhantomKitTests", dependencies: ["PhantomKit", "Nimble"], path: "Tests"),
 ]
 
