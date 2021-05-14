@@ -13,7 +13,7 @@ let depencencies: [Package.Dependency] = [
 // MARK: - Targets
 
 let targets: [Target] = [
-    .target(name: "PhantomKit", dependencies: ["Async", Xcore"], path: "Sources"),
+    .target(name: "PhantomKit", dependencies: ["Async", "Xcore"], path: "Sources"),
     .testTarget(name: "PhantomKitTests", dependencies: ["PhantomKit", "Nimble"], path: "Tests"),
 ]
 
