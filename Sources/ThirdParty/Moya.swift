@@ -32,8 +32,8 @@ extension MoyaProvider where Target: APIErrorMappable {
             .tryCatch { _ in
                 Just(data)
                     .decode(type: Target.ResponseWrapper.self, decoder: JSONDecoder())
-                    .mapError {
-                        APIError.parsing(message: $0.nsErrorDescription)
+                    .mapError { error -> APIError in
+                        APIError.parsing(message: error.nsErrorDescription)
                     }
                     .tryMap { errorResponse in
                         throw Target.parseError(from: errorResponse)
