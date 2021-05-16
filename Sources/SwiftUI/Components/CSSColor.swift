@@ -1,5 +1,5 @@
 //
-//  Color+Colorful.swift
+//  CSSColor.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 27.04.2021.
@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-// Taken from: https://github.com/chackle/Colorful
-extension Color {
+// Reference: https://www.w3schools.com/cssref/css_colors.asp
+public enum CSSColor {
     public static let aliceBlue = Color(hex: 0xF0F8FF)
     public static let antiqueWhite = Color(hex: 0xFAEBD7)
     public static let aqua = Color(hex: 0x00FFFF)
@@ -17,10 +17,12 @@ extension Color {
     public static let azure = Color(hex: 0xF0FFFF)
     public static let beige = Color(hex: 0xF5F5DC)
     public static let bisque = Color(hex: 0xFFE4C4)
+    public static let black = Color(hex: 0x000000)
     public static let blanchedAlmond = Color(hex: 0xFFEBCD)
+    public static let blue = Color(hex: 0x0000FF)
     public static let blueViolet = Color(hex: 0x8A2BE2)
     public static let brown = Color(hex: 0xA52A2A)
-    public static let burleywood = Color(hex: 0xDEB887)
+    public static let burlyWood = Color(hex: 0xDEB887)
     public static let cadetBlue = Color(hex: 0x5F9EA0)
     public static let chartreuse = Color(hex: 0x7FFF00)
     public static let chocolate = Color(hex: 0xD2691E)
@@ -58,6 +60,8 @@ extension Color {
     public static let ghostWhite = Color(hex: 0xF8F8FF)
     public static let gold = Color(hex: 0xFFD700)
     public static let goldenRod = Color(hex: 0xDAA520)
+    public static let gray = Color(hex: 0x808080)
+    public static let green = Color(hex: 0x008000)
     public static let greenYellow = Color(hex: 0xADFF2F)
     public static let honeyDew = Color(hex: 0xF0FFF0)
     public static let hotPink = Color(hex: 0xFF69B4)
@@ -65,8 +69,8 @@ extension Color {
     public static let indigo = Color(hex: 0x4B0082)
     public static let ivory = Color(hex: 0xFFFFF0)
     public static let khaki = Color(hex: 0xF0E68C)
-    public static let lavendar = Color(hex: 0xE6E6FA)
-    public static let lavendarBlush = Color(hex: 0xFFF0F5)
+    public static let lavender = Color(hex: 0xE6E6FA)
+    public static let lavenderBlush = Color(hex: 0xFFF0F5)
     public static let lawnGreen = Color(hex: 0x7CFC00)
     public static let lemonChiffon = Color(hex: 0xFFFACD)
     public static let lightBlue = Color(hex: 0xADD8E6)
@@ -105,6 +109,7 @@ extension Color {
     public static let oldLace = Color(hex: 0xFDF5E6)
     public static let olive = Color(hex: 0x808000)
     public static let oliveDrab = Color(hex: 0x6B8E23)
+    public static let orange = Color(hex: 0xFFA500)
     public static let orangeRed = Color(hex: 0xFF4500)
     public static let orchid = Color(hex: 0xDA70D6)
     public static let paleGoldenRod = Color(hex: 0xEEE8AA)
@@ -114,9 +119,12 @@ extension Color {
     public static let papayaWhip = Color(hex: 0xFFEFD5)
     public static let peachPuff = Color(hex: 0xFFDAB9)
     public static let peru = Color(hex: 0xCD853F)
+    public static let pink = Color(hex: 0xFFC0CB)
     public static let plum = Color(hex: 0xDDA0DD)
     public static let powderBlue = Color(hex: 0xB0E0E6)
+    public static let purple = Color(hex: 0x800080)
     public static let rebeccaPurple = Color(hex: 0x663399)
+    public static let red = Color(hex: 0xFF0000)
     public static let rosyBrown = Color(hex: 0xBC8F8F)
     public static let royalBlue = Color(hex: 0x4169E1)
     public static let saddleBrown = Color(hex: 0x8B4513)
@@ -139,7 +147,9 @@ extension Color {
     public static let turquoise = Color(hex: 0x40E0D0)
     public static let violet = Color(hex: 0xEE82EE)
     public static let wheat = Color(hex: 0xF5DEB3)
+    public static let white = Color(hex: 0xFFFFFF)
     public static let whiteSmoke = Color(hex: 0xF5F5F5)
+    public static let yellow = Color(hex: 0xFFFF00)
     public static let yellowGreen = Color(hex: 0x9ACD32)
 }
 

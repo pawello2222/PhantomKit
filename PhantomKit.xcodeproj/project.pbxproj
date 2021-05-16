@@ -41,7 +41,7 @@
 		E587B90826430FC900F0F240 /* ActionSheet+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8CB26430FC900F0F240 /* ActionSheet+Ext.swift */; };
 		E587B90926430FC900F0F240 /* Alert+Button+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8CC26430FC900F0F240 /* Alert+Button+Ext.swift */; };
 		E587B90A26430FC900F0F240 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8CD26430FC900F0F240 /* View+Ext.swift */; };
-		E587B90B26430FC900F0F240 /* Color+Colorful.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8CE26430FC900F0F240 /* Color+Colorful.swift */; };
+		E587B90B26430FC900F0F240 /* CSSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8CE26430FC900F0F240 /* CSSColor.swift */; };
 		E587B90C26430FC900F0F240 /* View+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8CF26430FC900F0F240 /* View+Action.swift */; };
 		E587B90D26430FC900F0F240 /* Section+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8D026430FC900F0F240 /* Section+Ext.swift */; };
 		E587B90E26430FC900F0F240 /* SplitPicker+SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8D326430FC900F0F240 /* SplitPicker+SelectionView.swift */; };
@@ -153,7 +153,7 @@
 		E587B8CB26430FC900F0F240 /* ActionSheet+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Ext.swift"; sourceTree = "<group>"; };
 		E587B8CC26430FC900F0F240 /* Alert+Button+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alert+Button+Ext.swift"; sourceTree = "<group>"; };
 		E587B8CD26430FC900F0F240 /* View+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
-		E587B8CE26430FC900F0F240 /* Color+Colorful.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Colorful.swift"; sourceTree = "<group>"; };
+		E587B8CE26430FC900F0F240 /* CSSColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSSColor.swift; sourceTree = "<group>"; };
 		E587B8CF26430FC900F0F240 /* View+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Action.swift"; sourceTree = "<group>"; };
 		E587B8D026430FC900F0F240 /* Section+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Section+Ext.swift"; sourceTree = "<group>"; };
 		E587B8D326430FC900F0F240 /* SplitPicker+SelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SplitPicker+SelectionView.swift"; sourceTree = "<group>"; };
@@ -385,7 +385,6 @@
 			children = (
 				E587B8CB26430FC900F0F240 /* ActionSheet+Ext.swift */,
 				E587B8CC26430FC900F0F240 /* Alert+Button+Ext.swift */,
-				E587B8CE26430FC900F0F240 /* Color+Colorful.swift */,
 				E587B8D026430FC900F0F240 /* Section+Ext.swift */,
 				E587B8CF26430FC900F0F240 /* View+Action.swift */,
 				E587B8CD26430FC900F0F240 /* View+Ext.swift */,
@@ -401,6 +400,7 @@
 				E587B8D626430FC900F0F240 /* AnimatableFrameHeight.swift */,
 				E587B8DA26430FC900F0F240 /* AnyButtonStyle.swift */,
 				E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */,
+				E587B8CE26430FC900F0F240 /* CSSColor.swift */,
 				E5E7C4C5264944290045596E /* DoneButtonModifier.swift */,
 				E587B8D726430FC900F0F240 /* ExtendedLabel.swift */,
 				E587B8D926430FC900F0F240 /* GradientButtonStyle.swift */,
@@ -724,7 +724,7 @@
 				E587B92026430FC900F0F240 /* AlertModifier.swift in Sources */,
 				E55AB59F264ADA2A000D7441 /* Equatable+Ext.swift in Sources */,
 				E587B90526430FC900F0F240 /* URL+Ext.swift in Sources */,
-				E587B90B26430FC900F0F240 /* Color+Colorful.swift in Sources */,
+				E587B90B26430FC900F0F240 /* CSSColor.swift in Sources */,
 				E587B92926430FC900F0F240 /* WebView+ViewModel.swift in Sources */,
 				E587B90C26430FC900F0F240 /* View+Action.swift in Sources */,
 				E549C70C2645D526004388C4 /* Logger.swift in Sources */,
