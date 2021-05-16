@@ -22,6 +22,17 @@ extension Array {
 }
 
 extension Array {
+    public func first<Value>(
+        where keyPath: KeyPath<Element, Value>,
+        equals value: Value
+    ) -> Element? where Value: Comparable {
+        first {
+            $0[keyPath: keyPath] == value
+        }
+    }
+}
+
+extension Array {
     public func filter<Value>(
         where keyPath: KeyPath<Element, Value>,
         equals value: Value
