@@ -22,3 +22,11 @@ public struct EmptyButtonModifier<S>: ViewModifier where S: ButtonStyle {
         .buttonStyle(style)
     }
 }
+
+// MARK: - View
+
+extension View {
+    public func emptyButtonStyle<S>(_ style: S) -> some View where S: ButtonStyle {
+        modifier(EmptyButtonModifier(style: style))
+    }
+}
