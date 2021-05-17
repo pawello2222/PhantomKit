@@ -9,18 +9,6 @@
 import SwiftUI
 
 public struct PresentationMethod {
-    public enum Transition {
-        case link
-        case sheet
-        case fullScreen
-    }
-
-    public enum Trigger {
-        case tap
-        case button(style: AnyButtonStyle)
-        case primitiveButton(style: AnyPrimitiveButtonStyle)
-    }
-
     public let transition: Transition
     public let trigger: Trigger
 
@@ -28,7 +16,9 @@ public struct PresentationMethod {
         self.transition = transition
         self.trigger = trigger
     }
+}
 
+extension PresentationMethod {
     public var isModal: Bool {
         switch transition {
         case .sheet, .fullScreen:
@@ -36,6 +26,26 @@ public struct PresentationMethod {
         case .link:
             return false
         }
+    }
+}
+
+// MARK: - Transition
+
+extension PresentationMethod {
+    public enum Transition {
+        case link
+        case sheet
+        case fullScreen
+    }
+}
+
+// MARK: - Trigger
+
+extension PresentationMethod {
+    public enum Trigger {
+        case tap
+        case button(style: AnyButtonStyle)
+        case primitiveButton(style: AnyPrimitiveButtonStyle)
     }
 }
 

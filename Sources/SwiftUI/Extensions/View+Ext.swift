@@ -71,7 +71,7 @@ extension View {
 // MARK: - Fixed size
 
 extension View {
-    @inlinable public func fixedSize(_ edges: Edge.Set) -> some View {
+    @inlinable public func fixedSize(_ edges: Edge.Set = .all) -> some View {
         let horizontal = !edges.isDisjoint(with: .horizontal)
         let vertical = !edges.isDisjoint(with: .vertical)
         return fixedSize(horizontal: horizontal, vertical: vertical)
@@ -81,25 +81,22 @@ extension View {
 // MARK: - Frame
 
 extension View {
-    @inlinable public func maximumFrame() -> some View {
-        frame(maxWidth: .infinity, maxHeight: .infinity)
+    @inlinable public func maxFrame(_ edges: Edge.Set = .all) -> some View {
+        let maxWidth: CGFloat? = !edges.isDisjoint(with: .horizontal) ? .infinity : nil
+        let maxHeight: CGFloat? = !edges.isDisjoint(with: .vertical) ? .infinity : nil
+        return frame(maxWidth: maxWidth, maxHeight: maxHeight)
     }
 
-    @inlinable public func onTapFrame(perform action: @escaping () -> Void) -> some View {
-        maximumFrame()
+    @inlinable public func maxContentFrame(_ edges: Edge.Set = .all) -> some View {
+        maxFrame(edges)
             .contentShape(Rectangle())
-            .onTapGesture(perform: action)
-    }
-
-    @inlinable public func onTapFrame(perform action: @autoclosure @escaping () -> Void) -> some View {
-        onTapFrame(perform: action)
     }
 }
 
 // MARK: - Navigation
 
 extension View {
-    public func embedInNavigation(_ title: String) -> some View {
+    public func embedInNavigation(title: String) -> some View {
         navigationTitle(title)
             .embedInNavigation()
     }
