@@ -20,6 +20,7 @@ public struct EmptyButtonModifier<S>: ViewModifier where S: ButtonStyle {
             content
         }
         .buttonStyle(style)
+        .disabled(true)
     }
 }
 
