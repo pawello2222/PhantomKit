@@ -9,6 +9,8 @@
 import SwiftUI
 
 public struct IndicatorView: View {
+    public init() {}
+
     public var body: some View {
         Image(system: .chevronRight)
             .imageScale(.small)
@@ -18,9 +20,26 @@ public struct IndicatorView: View {
 }
 
 public struct InvisibleShape: View {
+    public init() {}
+
     public var body: some View {
         Color.black
             .opacity(.minimumOpacity)
+    }
+}
+
+public struct SpacerView: View {
+    private let width: CGFloat?
+    private let height: CGFloat?
+
+    public init(width: CGFloat? = nil, height: CGFloat? = nil) {
+        self.width = width
+        self.height = height
+    }
+
+    public var body: some View {
+        Spacer()
+            .frame(width: width, height: height)
     }
 }
 
