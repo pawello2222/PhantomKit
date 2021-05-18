@@ -48,11 +48,11 @@
 		E587B90F26430FC900F0F240 /* SplitPicker+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8D426430FC900F0F240 /* SplitPicker+Item.swift */; };
 		E587B91026430FC900F0F240 /* SplitPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8D526430FC900F0F240 /* SplitPicker.swift */; };
 		E587B91126430FC900F0F240 /* AnimatableFrameHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8D626430FC900F0F240 /* AnimatableFrameHeight.swift */; };
-		E587B91226430FC900F0F240 /* ExtendedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8D726430FC900F0F240 /* ExtendedLabel.swift */; };
+		E587B91226430FC900F0F240 /* IconBadgeLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8D726430FC900F0F240 /* IconBadgeLabelStyle.swift */; };
 		E587B91326430FC900F0F240 /* GradientButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8D926430FC900F0F240 /* GradientButtonStyle.swift */; };
 		E587B91426430FC900F0F240 /* AnyButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8DA26430FC900F0F240 /* AnyButtonStyle.swift */; };
 		E587B91526430FC900F0F240 /* RootViewAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8DB26430FC900F0F240 /* RootViewAppearance.swift */; };
-		E587B91626430FC900F0F240 /* SimpleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8DC26430FC900F0F240 /* SimpleLabel.swift */; };
+		E587B91626430FC900F0F240 /* SimpleLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8DC26430FC900F0F240 /* SimpleLabelStyle.swift */; };
 		E587B91726430FC900F0F240 /* TabViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8DE26430FC900F0F240 /* TabViewItem.swift */; };
 		E587B91826430FC900F0F240 /* TabSelectionKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8DF26430FC900F0F240 /* TabSelectionKey.swift */; };
 		E587B91926430FC900F0F240 /* SelectionTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8E026430FC900F0F240 /* SelectionTabView.swift */; };
@@ -76,6 +76,7 @@
 		E587B92E2643102C00F0F240 /* Xcore in Frameworks */ = {isa = PBXBuildFile; productRef = E587B92D2643102C00F0F240 /* Xcore */; };
 		E5888A082653CA5D00FC185E /* Button+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888A072653CA5D00FC185E /* Button+Ext.swift */; };
 		E5888A0A2653DF7500FC185E /* AnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888A092653DF7500FC185E /* AnimatedButton.swift */; };
+		E5888A0C2653F9E000FC185E /* EnvironmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888A0B2653F9E000FC185E /* EnvironmentValues.swift */; };
 		E5AB538C264EDD9600D993AE /* Async in Frameworks */ = {isa = PBXBuildFile; productRef = E5AB538B264EDD9600D993AE /* Async */; };
 		E5AB538E264EE08600D993AE /* ContinuousProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */; };
 		E5C7EBAB264C5B7D00E74EEF /* LastUpdatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */; };
@@ -162,11 +163,11 @@
 		E587B8D426430FC900F0F240 /* SplitPicker+Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SplitPicker+Item.swift"; sourceTree = "<group>"; };
 		E587B8D526430FC900F0F240 /* SplitPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitPicker.swift; sourceTree = "<group>"; };
 		E587B8D626430FC900F0F240 /* AnimatableFrameHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableFrameHeight.swift; sourceTree = "<group>"; };
-		E587B8D726430FC900F0F240 /* ExtendedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendedLabel.swift; sourceTree = "<group>"; };
+		E587B8D726430FC900F0F240 /* IconBadgeLabelStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconBadgeLabelStyle.swift; sourceTree = "<group>"; };
 		E587B8D926430FC900F0F240 /* GradientButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientButtonStyle.swift; sourceTree = "<group>"; };
 		E587B8DA26430FC900F0F240 /* AnyButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyButtonStyle.swift; sourceTree = "<group>"; };
 		E587B8DB26430FC900F0F240 /* RootViewAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewAppearance.swift; sourceTree = "<group>"; };
-		E587B8DC26430FC900F0F240 /* SimpleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleLabel.swift; sourceTree = "<group>"; };
+		E587B8DC26430FC900F0F240 /* SimpleLabelStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleLabelStyle.swift; sourceTree = "<group>"; };
 		E587B8DE26430FC900F0F240 /* TabViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewItem.swift; sourceTree = "<group>"; };
 		E587B8DF26430FC900F0F240 /* TabSelectionKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabSelectionKey.swift; sourceTree = "<group>"; };
 		E587B8E026430FC900F0F240 /* SelectionTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionTabView.swift; sourceTree = "<group>"; };
@@ -189,6 +190,7 @@
 		E587B8F626430FC900F0F240 /* WebView+Script.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebView+Script.swift"; sourceTree = "<group>"; };
 		E5888A072653CA5D00FC185E /* Button+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Ext.swift"; sourceTree = "<group>"; };
 		E5888A092653DF7500FC185E /* AnimatedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedButton.swift; sourceTree = "<group>"; };
+		E5888A0B2653F9E000FC185E /* EnvironmentValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentValues.swift; sourceTree = "<group>"; };
 		E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousProgressViewStyle.swift; sourceTree = "<group>"; };
 		E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdatedView.swift; sourceTree = "<group>"; };
 		E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
@@ -408,14 +410,15 @@
 				E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */,
 				E587B8CE26430FC900F0F240 /* CSSColor.swift */,
 				E5E7C4C5264944290045596E /* DoneButtonModifier.swift */,
-				E587B8D726430FC900F0F240 /* ExtendedLabel.swift */,
+				E587B8D726430FC900F0F240 /* IconBadgeLabelStyle.swift */,
 				E587B8D926430FC900F0F240 /* GradientButtonStyle.swift */,
 				E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */,
 				E587B8DB26430FC900F0F240 /* RootViewAppearance.swift */,
-				E587B8DC26430FC900F0F240 /* SimpleLabel.swift */,
+				E587B8DC26430FC900F0F240 /* SimpleLabelStyle.swift */,
 				E587B8DD26430FC900F0F240 /* SelectionTabView */,
 				E587B8D226430FC900F0F240 /* SplitPicker */,
 				E5EDC2C3264D955C0088CDE8 /* ToastView */,
+				E5888A0B2653F9E000FC185E /* EnvironmentValues.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -678,7 +681,8 @@
 				E5EDC2C2264D92CE0088CDE8 /* View+Footer.swift in Sources */,
 				E5AB538E264EE08600D993AE /* ContinuousProgressViewStyle.swift in Sources */,
 				E55AB59D264A7775000D7441 /* Date+Ext.swift in Sources */,
-				E587B91226430FC900F0F240 /* ExtendedLabel.swift in Sources */,
+				E587B91226430FC900F0F240 /* IconBadgeLabelStyle.swift in Sources */,
+				E5888A0C2653F9E000FC185E /* EnvironmentValues.swift in Sources */,
 				E5C7EBB2264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift in Sources */,
 				E5E7C4C6264944290045596E /* DoneButtonModifier.swift in Sources */,
 				E5CA108026459820008FD164 /* Moya.swift in Sources */,
@@ -696,7 +700,7 @@
 				E587B90826430FC900F0F240 /* ActionSheet+Ext.swift in Sources */,
 				E5E7C4C8264995600045596E /* LocalizedFormatter+Sign.swift in Sources */,
 				E587B92726430FC900F0F240 /* AboutView+Section+Item.swift in Sources */,
-				E587B91626430FC900F0F240 /* SimpleLabel.swift in Sources */,
+				E587B91626430FC900F0F240 /* SimpleLabelStyle.swift in Sources */,
 				E587B90426430FC900F0F240 /* NotificationCenter+Ext.swift in Sources */,
 				E587B90026430FC900F0F240 /* Published+Ext.swift in Sources */,
 				E587B90126430FC900F0F240 /* Theme+Ext.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  ExtendedLabel.swift
+//  IconBadgeLabelStyle.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 26.04.2021.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-public struct BadgeIconLabelStyle: LabelStyle {
+public struct IconBadgeLabelStyle: LabelStyle {
     @Environment(\.defaultIconHeight) private var iconHeight
     @Environment(\.defaultButtonCornerRadius) private var cornerRadius
     @Environment(\.theme) private var theme
@@ -44,15 +44,10 @@ public struct BadgeIconLabelStyle: LabelStyle {
     }
 }
 
-// MARK: - Environment Values
+// MARK: - Convenience
 
-extension EnvironmentValues {
-    private struct DefaultIconHeightKey: EnvironmentKey {
-        static var defaultValue: CGFloat = 32
-    }
-
-    public var defaultIconHeight: CGFloat {
-        get { self[DefaultIconHeightKey.self] }
-        set { self[DefaultIconHeightKey.self] = newValue }
+extension IconBadgeLabelStyle {
+    public init(uiColor: UIColor = .clear) {
+        self.init(color: .init(uiColor))
     }
 }
