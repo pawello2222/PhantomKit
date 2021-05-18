@@ -31,7 +31,7 @@ public struct AnimatedButton<Label>: View where Label: View {
 // MARK: - Convenience
 
 extension AnimatedButton where Label == Text {
-    public init(title: String, action: @escaping () -> Void) {
+    public init(_ title: String, action: @escaping () -> Void) {
         self.init(action: action) {
             Text(title)
         }

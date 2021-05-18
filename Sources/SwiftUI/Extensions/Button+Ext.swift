@@ -9,7 +9,7 @@
 import SwiftUI
 
 extension Button where Label == Text {
-    public init(title: String) {
+    public init(_ title: String) {
         self.init(action: {}) {
             Text(title)
         }
@@ -17,7 +17,7 @@ extension Button where Label == Text {
 }
 
 extension Button {
-    public init(label: () -> Label) {
+    public init(@ViewBuilder label: () -> Label) {
         self.init(action: {}, label: label)
     }
 }
