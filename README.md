@@ -29,14 +29,14 @@ Alternatively, you can add PhantomKit as a SPM dependency:
 .package(url: "ttps://github.com/pawello2222/PhantomKit.git", .upToNextMajor(from: "1.0.0"))
 ```
 
-Tip: to make PhantomKit truly _invisible_ add the below line in the main file:
-```
+Tip: to make PhantomKit _truly invisible_ add the below line in the main file:
+```swift
 @_exported import PhantomKit
 ```
 
-## SwiftUI vs PhantomKit
+## Highlights
 
-#### Opening a NavigationLink on tap gesture
+### Opening a NavigationLink on tap gesture
 
 - Natively
 ```swift
@@ -56,7 +56,7 @@ Text("Go to...")
     .link(triggeredBy: .tap, destination: Text("Destination"))
 ```
 
-#### Executing an action before and after opening a NavigationLink
+### Executing an action before and after opening a NavigationLink
 
 ```swift
 Text("Go to...")
@@ -65,7 +65,7 @@ Text("Go to...")
     }
 ```
 
-#### Opening a Web View
+### Opening a Web View
 
 ```swift
 extension WebEndpoint {
@@ -85,16 +85,16 @@ Text("Share feedback")
     .webView(triggeredBy: .plainButton endpoint: .feedback)
     
 Text("Share feedback")
-    .webView(openedAs: .link, endpoint: .feedback, edgesIgnoringSafeArea: .all) {
+    .webView(openedAs: .fullScreen, endpoint: .feedback, edgesIgnoringSafeArea: .all) {
         print("onDismiss")
     }
 ```
 
-## Overview
+## API
 
 ### Routing
 
-Two new enums for native SwiftUI routing:
+Two enums for native SwiftUI routing:
 
 ```swift
 extension PresentationMethod {
@@ -151,6 +151,73 @@ Text("Go to...")
     }
 ```
 
+### Formatting
+
+#### LocalizedFormatter
+
+A custom `LocalizedFormatter` that automatically formats numbers, decimals and currencies for a specified locale:
+
+```swift
+extension LocalizedFormatter {
+    public static var currency = makeCurrencyFormatter(locale: .current, currencyCode: "USD")
+    public static var decimal = makeDecimalFormatter(locale: .current)
+    public static var percent = makePercentFormatter(locale: .current)
+}
+```
+
+Examples:
+
+```swift
+let formatter = LocalizedFormatter.makeDecimalFormatter(locale: .init(identifier: "en_US"))
+
+expect(formatter.string(from: 48_729_432)).to(equal("48,729,432"))
+expect(formatter.string(from: 48_729_432, abbreviation: .capitalized)).to(equal("48.73M"))
+expect(formatter.string(from: 0.648723, abbreviation: .default)).to(equal("0.65"))
+expect(formatter.string(from: 123.456, sign: .both)).to(equal("+123.46"))
+expect(formatter.string(from: 0.123456789, precision: .default)).to(equal("0.12"))
+expect(formatter.string(from: 0.123456789, precision: .constant(4))).to(equal("0.1235"))
+```
+
+```swift
+let formatter = LocalizedFormatter.makeCurrencyFormatter(locale: .init(identifier: "en_US"), currencyCode: "USD")
+
+expect(sformatter.string(from: 432)).to(equal("$432.00"))
+expect(formatter.string(from: 1432.99, abbreviation: .default)).to(equal("$1.43k"))
+expect(formatter.string(from: 123.456, sign: .both)).to(equal("+$123.46"))
+```
+
+#### LocalizedDateFormatter
+
+A custom `LocalizedDateFormatter` that automatically formats date and time for a specified locale:
+
+```swift
+extension LocalizedDateFormatter {
+    public static var date = makeDateFormatter(localizedFormat: "yyyyMMdd")
+    public static var datetime = makeDateFormatter(localizedFormat: "yyyyMMddjjmmss")
+}
+```
+
+Examples:
+
+```swift
+let formatter = LocalizedDateFormatter.makeDateFormatter(locale: .init(identifier: "pl_PL"))
+
+let date = Date(year: 2000, month: 3, day: 24)
+
+expect(formatter.string(from: date)).to(equal("24.03.2000"))
+```
+
+```swift
+let formatter = LocalizedDateFormatter.makeDateFormatter(
+    locale: .init(identifier: "en_US"),
+    localizedFormat: "yyyyMMddjjmmss"
+)
+
+let date = Date(year: 2000, month: 3, day: 24, hour: 16, minute: 14, second: 44)
+
+expect(formatter.string(from: date)).to(equal("03/24/2000, 4:14:44 PM"))
+```
+
 ## Roadmap
 
 - [x] SwiftUI
@@ -159,6 +226,7 @@ Text("Go to...")
 - [x] Network layer
 - [x] Third party ([sindresorhus/Defaults](https://github.com/sindresorhus/Defaults), [Moya/Moya](https://github.com/Moya/Moya))
 - [x] SPM compatibility
+- [ ] Database extensions (Core Data, Realm)
 - [ ] Complete documentation
 
 ## License
