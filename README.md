@@ -126,7 +126,7 @@ public func expandingBackgroundColor(_ color: Color, edgesIgnoringSafeArea: Edge
 Before
 ```swift
 ZStack {
-    color
+    Color.red
         .edgesIgnoringSafeArea(edgesIgnoringSafeArea)
     Text("Hello World")
 }
