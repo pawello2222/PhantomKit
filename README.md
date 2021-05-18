@@ -224,7 +224,9 @@ expect(formatter.string(from: date)).to(equal("03/24/2000, 4:14:44 PM"))
 - [x] Routing
 - [x] Localized formatters
 - [x] Network layer
-- [x] Third party ([sindresorhus/Defaults](https://github.com/sindresorhus/Defaults), [Moya/Moya](https://github.com/Moya/Moya))
+- [x] Third party extensions 
+    - [x] [Defaults](https://github.com/sindresorhus/Defaults)
+    - [x] [Moya](https://github.com/Moya/Moya)
 - [x] SPM compatibility
 - [ ] Database extensions (Core Data, Realm)
 - [ ] Complete documentation
