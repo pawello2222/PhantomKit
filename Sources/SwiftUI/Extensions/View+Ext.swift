@@ -12,7 +12,7 @@ import SwiftUI
 
 extension View {
     public func aligned(_ alignemnt: HorizontalAlignment) -> some View {
-        HStack {
+        HStack(spacing: 0) {
             if alignemnt == .trailing {
                 Spacer()
             }
@@ -24,7 +24,7 @@ extension View {
     }
 
     public func aligned(_ alignemnt: VerticalAlignment) -> some View {
-        VStack {
+        VStack(spacing: 0) {
             if alignemnt == .bottom {
                 Spacer()
             }
