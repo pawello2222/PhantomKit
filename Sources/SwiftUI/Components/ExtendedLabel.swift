@@ -8,49 +8,38 @@
 
 import SwiftUI
 
-public struct ExtendedLabel<Label>: View where Label: View {
+public struct BadgeIconLabelStyle: LabelStyle {
     @Environment(\.defaultIconHeight) private var iconHeight
     @Environment(\.defaultButtonCornerRadius) private var cornerRadius
     @Environment(\.theme) private var theme
-    private let image: Image?
     private let color: Color
-    private let label: () -> Label
 
-    public init(
-        image: Image? = nil,
-        color: Color = .clear,
-        @ViewBuilder label: @escaping () -> Label
-    ) {
-        self.image = image
+    public init(color: Color = .clear) {
         self.color = color
-        self.label = label
     }
 
-    public var body: some View {
+    public func makeBody(configuration: Self.Configuration) -> some View {
         HStack {
-            imageView
-            labelView
+            imageView(with: configuration)
+            labelView(with: configuration)
             Spacer()
             IndicatorView()
         }
         .contentShape(Rectangle())
     }
 
-    @ViewBuilder
-    private var imageView: some View {
-        if let image = image {
-            RoundedRectangle(cornerRadius: cornerRadius)
-                .fill(color)
-                .frame(iconHeight)
-                .overlay(
-                    image
-                        .foregroundColor(.white)
-                )
-        }
+    private func imageView(with configuration: Self.Configuration) -> some View {
+        RoundedRectangle(cornerRadius: cornerRadius)
+            .fill(color)
+            .frame(iconHeight)
+            .overlay(
+                configuration.icon
+                    .foregroundColor(.white)
+            )
     }
 
-    private var labelView: some View {
-        label()
+    private func labelView(with configuration: Self.Configuration) -> some View {
+        configuration.title
             .foregroundUIColor(theme.textColor)
     }
 }
@@ -65,37 +54,5 @@ extension EnvironmentValues {
     public var defaultIconHeight: CGFloat {
         get { self[DefaultIconHeightKey.self] }
         set { self[DefaultIconHeightKey.self] = newValue }
-    }
-}
-
-// MARK: - Convenience
-
-extension ExtendedLabel {
-    public init(
-        _ title: String,
-        systemImage: SystemAssetIdentifier,
-        color: Color = .clear
-    ) where Label == Text {
-        self.init(image: Image(system: systemImage), color: color) {
-            Text(title)
-        }
-    }
-
-    public init(
-        _ title: String,
-        systemImage: SystemAssetIdentifier,
-        uiColor: UIColor = .clear
-    ) where Label == Text {
-        self.init(title, systemImage: systemImage, color: .init(uiColor))
-    }
-
-    public init(
-        _ title: String,
-        image: ImageAssetIdentifier,
-        color: Color = .clear
-    ) where Label == Text {
-        self.init(image: Image(assetIdentifier: image), color: color) {
-            Text(title)
-        }
     }
 }
