@@ -7,7 +7,7 @@ import PackageDescription
 let depencencies: [Package.Dependency] = [
     .package(url: "https://github.com/duemunk/Async", .upToNextMajor(from: "2.1.0")),
     .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "9.0.0")),
-    .package(name: "Xcore", url: "https://github.com/pawello2222/xcore.git", .branch("phantomKit")),
+    .package(name: "Xcore", url: "https://github.com/pawello2222/xcore.git", .upToNextMajor(from: "1.0.0")),
 ]
 
 // MARK: - Targets
