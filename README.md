@@ -23,27 +23,30 @@ PhantomKit is a collection of many useful Swift and SwiftUI extensions and compo
 
 PhantomKit is available as a Swift Package.
 
-- From Xcode:
-
-    `File` -> `Swift Packages` -> `Add Package Dependency...` -> `https://github.com/pawello2222/PhantomKit.git`
-
-- From SPM:
+Alternatively, you can add PhantomKit as a SwiftPM dependency:
 
 ```swift
 .package(url: "ttps://github.com/pawello2222/PhantomKit.git", .upToNextMajor(from: "1.0.0"))
 ```
 
-### Import
-
-Add the below import at the top of your file:
-```
-import PhantomKit
-```
-
-To make PhantomKit truly _invisible_ add the below line in the main file:
+Tip: to make PhantomKit truly _invisible_ add the below line in the main file:
 ```
 @_exported import PhantomKit
 ```
+
+## Roadmap
+
+- [x] SwiftUI
+- [x] Routing
+- [x] Localized formatters
+- [x] Network layer
+- [x] Third party ([sindresorhus/Defaults](https://github.com/sindresorhus/Defaults), [Moya/Moya](https://github.com/Moya/Moya))
+- [x] SPM compatibility
+- [ ] Complete documentation
+
+
+## Examples
+
 
 ## License
 
