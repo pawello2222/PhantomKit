@@ -22,7 +22,7 @@ let targets: [Target] = [
 let package = Package(
     name: "PhantomKit",
     defaultLocalization: "en",
-    platforms: [.iOS(.v14)],
+    platforms: [.iOS(.v14), .macOS(.v11)],
     products: [
         .library(name: "PhantomKit", targets: ["PhantomKit"]),
     ],
