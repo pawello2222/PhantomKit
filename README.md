@@ -2,7 +2,9 @@
 <img src="Resources/logo.svg" alt="PhantomKit logo" height=200>
 </p>
 <p align="center">
+  <!---
   <a href="https://github.com/pawello2222/PhantomKit"><img src="https://github.com/pawello2222/PhantomKit/actions/workflows/swift.yml/badge.svg" alt="Build"></a>
+  -->
   <a href="https://github.com/pawello2222/PhantomKit"><img src="https://img.shields.io/badge/language-swift-orange.svg" alt="Language"></a>
   <a href="https://github.com/pawello2222/PhantomKit"><img src="https://img.shields.io/badge/platform-iOS-lightgrey" alt="Supported Platform"></a>
   <a href="https://github.com/pawello2222/PhantomKit"><img src="https://img.shields.io/badge/SPM-compatible-brightgreen.svg" alt="Swift Package Manager"></a>
@@ -229,7 +231,7 @@ expect(formatter.string(from: 0.123456789, precision: .constant(4))).to(equal("0
 ```swift
 let formatter = LocalizedFormatter.makeCurrencyFormatter(locale: .init(identifier: "en_US"), currencyCode: "USD")
 
-expect(sformatter.string(from: 432)).to(equal("$432.00"))
+expect(formatter.string(from: 432)).to(equal("$432.00"))
 expect(formatter.string(from: 1432.99, abbreviation: .default)).to(equal("$1.43k"))
 expect(formatter.string(from: 123.456, sign: .both)).to(equal("+$123.46"))
 ```
