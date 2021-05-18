@@ -75,6 +75,7 @@
 		E587B92A26430FC900F0F240 /* WebView+Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8F626430FC900F0F240 /* WebView+Script.swift */; };
 		E587B92E2643102C00F0F240 /* Xcore in Frameworks */ = {isa = PBXBuildFile; productRef = E587B92D2643102C00F0F240 /* Xcore */; };
 		E5888A082653CA5D00FC185E /* Button+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888A072653CA5D00FC185E /* Button+Ext.swift */; };
+		E5888A0A2653DF7500FC185E /* AnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888A092653DF7500FC185E /* AnimatedButton.swift */; };
 		E5AB538C264EDD9600D993AE /* Async in Frameworks */ = {isa = PBXBuildFile; productRef = E5AB538B264EDD9600D993AE /* Async */; };
 		E5AB538E264EE08600D993AE /* ContinuousProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */; };
 		E5C7EBAB264C5B7D00E74EEF /* LastUpdatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */; };
@@ -187,6 +188,7 @@
 		E587B8F526430FC900F0F240 /* WebView+ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebView+ViewModel.swift"; sourceTree = "<group>"; };
 		E587B8F626430FC900F0F240 /* WebView+Script.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebView+Script.swift"; sourceTree = "<group>"; };
 		E5888A072653CA5D00FC185E /* Button+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Ext.swift"; sourceTree = "<group>"; };
+		E5888A092653DF7500FC185E /* AnimatedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedButton.swift; sourceTree = "<group>"; };
 		E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousProgressViewStyle.swift; sourceTree = "<group>"; };
 		E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdatedView.swift; sourceTree = "<group>"; };
 		E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				E587B8D626430FC900F0F240 /* AnimatableFrameHeight.swift */,
+				E5888A092653DF7500FC185E /* AnimatedButton.swift */,
 				E587B8DA26430FC900F0F240 /* AnyButtonStyle.swift */,
 				E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */,
 				E587B8CE26430FC900F0F240 /* CSSColor.swift */,
@@ -727,6 +730,7 @@
 				E587B91826430FC900F0F240 /* TabSelectionKey.swift in Sources */,
 				E587B92026430FC900F0F240 /* AlertModifier.swift in Sources */,
 				E55AB59F264ADA2A000D7441 /* Equatable+Ext.swift in Sources */,
+				E5888A0A2653DF7500FC185E /* AnimatedButton.swift in Sources */,
 				E587B90526430FC900F0F240 /* URL+Ext.swift in Sources */,
 				E587B90B26430FC900F0F240 /* CSSColor.swift in Sources */,
 				E587B92926430FC900F0F240 /* WebView+ViewModel.swift in Sources */,
