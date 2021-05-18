@@ -90,7 +90,54 @@ Text("Share feedback")
     }
 ```
 
-## API
+### SwiftUI extensions
+
+- `aligned`
+
+```swift
+public func aligned(_ alignemnt: HorizontalAlignment) -> some View
+
+public func aligned(_ alignemnt: VerticalAlignment) -> some View
+```
+
+Before
+```swift
+HStack {
+    Spacer()
+    Text("Hello World")
+}
+```
+
+After
+```swift
+Text("Hello World")
+    .aligned(.trailing)
+```
+
+- `expandingBackgroundColor`
+
+```swift
+public func expandingBackgroundColor(_ color: Color, edgesIgnoringSafeArea: Edge.Set = .all) -> some View
+```
+
+Before
+```swift
+ZStack {
+    color
+        .edgesIgnoringSafeArea(edgesIgnoringSafeArea)
+    Text("Hello World")
+}
+```
+
+After
+```swift
+Text("Hello World")
+    .expandingBackgroundColor(.red)
+```
+
+and many more...!
+
+## Reference
 
 ### Routing
 
