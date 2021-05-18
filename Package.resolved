@@ -50,9 +50,9 @@
         "package": "Xcore",
         "repositoryURL": "https://github.com/pawello2222/xcore.git",
         "state": {
-          "branch": "phantomKit",
-          "revision": "72dc53974285d707eb81b47fd42ef93648e6cbfc",
-          "version": null
+          "branch": null,
+          "revision": "08b154f297154d95f0f7a5196c8b02dd339f83cf",
+          "version": "1.0.1"
         }
       }
     ]
