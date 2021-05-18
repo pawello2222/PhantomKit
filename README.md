@@ -2,6 +2,7 @@
 <img src="Resources/logo.svg" alt="PhantomKit logo" height=200>
 </p>
 <p align="center">
+  <a href="https://github.com/pawello2222/PhantomKit"><img src="https://github.com/pawello2222/PhantomKit/actions/workflows/swift.yml/badge.svg" alt="Build"></a>
   <a href="https://github.com/pawello2222/PhantomKit"><img src="https://img.shields.io/badge/language-swift-orange.svg" alt="Language"></a>
   <a href="https://github.com/pawello2222/PhantomKit"><img src="https://img.shields.io/badge/platform-iOS-lightgrey" alt="Supported Platform"></a>
   <a href="https://github.com/pawello2222/PhantomKit"><img src="https://img.shields.io/badge/SPM-compatible-brightgreen.svg" alt="Swift Package Manager"></a>
