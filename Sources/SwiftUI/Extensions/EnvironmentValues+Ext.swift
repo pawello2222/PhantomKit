@@ -1,12 +1,27 @@
 //
-//  TabSelectionKey.swift
+//  EnvironmentValues+Ext.swift
 //  PhantomKit
 //
-//  Created by Pawel Wiszenko on 03.05.2021.
+//  Created by Pawel Wiszenko on 18.05.2021.
 //  Copyright © 2021 Pawel Wiszenko. All rights reserved.
 //
 
 import SwiftUI
+
+// MARK: - DefaultIconHeight
+
+extension EnvironmentValues {
+    private struct DefaultIconHeightKey: EnvironmentKey {
+        static var defaultValue: CGFloat = 32
+    }
+
+    public var defaultIconHeight: CGFloat {
+        get { self[DefaultIconHeightKey.self] }
+        set { self[DefaultIconHeightKey.self] = newValue }
+    }
+}
+
+// MARK: - TabSelection
 
 extension EnvironmentValues {
     private struct TabSelectionKey: EnvironmentKey {
@@ -19,9 +34,13 @@ extension EnvironmentValues {
     }
 }
 
-// MARK: - View
+// MARK: - View Helpers
 
 extension View {
+    public func defaultIconHeight(_ value: CGFloat) -> some View {
+        environment(\.defaultIconHeight, value)
+    }
+
     public func tabSelection<Selection>(_ selection: Selection) -> some View where Selection: Hashable {
         environment(\.tabSelection, selection)
     }
