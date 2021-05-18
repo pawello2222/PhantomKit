@@ -26,7 +26,7 @@ PhantomKit is available as a Swift Package.
 Alternatively, you can add PhantomKit as a SPM dependency:
 
 ```swift
-.package(url: "ttps://github.com/pawello2222/PhantomKit.git", .upToNextMajor(from: "1.0.0"))
+.package(url: "ttps://github.com/pawello2222/PhantomKit.git", .upToNextMajor(from: "0.0.1"))
 ```
 
 Tip: to make PhantomKit _truly invisible_ add the below line in the main file:
