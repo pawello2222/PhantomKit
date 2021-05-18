@@ -222,7 +222,6 @@ let formatter = LocalizedFormatter.makeDecimalFormatter(locale: .init(identifier
 
 expect(formatter.string(from: 48_729_432)).to(equal("48,729,432"))
 expect(formatter.string(from: 48_729_432, abbreviation: .capitalized)).to(equal("48.73M"))
-expect(formatter.string(from: 0.648723, abbreviation: .default)).to(equal("0.65"))
 expect(formatter.string(from: 123.456, sign: .both)).to(equal("+123.46"))
 expect(formatter.string(from: 0.123456789, precision: .default)).to(equal("0.12"))
 expect(formatter.string(from: 0.123456789, precision: .constant(4))).to(equal("0.1235"))
