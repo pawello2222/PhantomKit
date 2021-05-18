@@ -231,4 +231,4 @@ expect(formatter.string(from: date)).to(equal("03/24/2000, 4:14:44 PM"))
 
 ## License
 
-PhantomKit is available under the MIT license. See the [LICENSE](https://github.com/pawello2222/PhantomKit/LICENSE) file for more info.
+PhantomKit is available under the MIT license. See the [LICENSE](https://github.com/pawello2222/PhantomKit/blob/main/LICENSE) file for more info.
