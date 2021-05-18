@@ -7,7 +7,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   sodipodi:docname="phantom_kit_logo.svg"
+   sodipodi:docname="logo2.svg"
    inkscape:version="1.0.2 (e86c870879, 2021-01-15, custom)"
    id="svg2081"
    version="1.1"
@@ -15,43 +15,10 @@
    height="50mm"
    width="50mm"
    inkscape:export-filename="C:\Users\Pawel\Desktop\phantomKit.png"
-   inkscape:export-xdpi="1999.996"
-   inkscape:export-ydpi="1999.996">
+   inkscape:export-xdpi="520.19202"
+   inkscape:export-ydpi="520.19202">
   <defs
-     id="defs2075">
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Drop Shadow"
-       id="filter1480">
-      <feFlood
-         flood-opacity="0.498039"
-         flood-color="rgb(0,0,0)"
-         result="flood"
-         id="feFlood1470" />
-      <feComposite
-         in="flood"
-         in2="SourceGraphic"
-         operator="in"
-         result="composite1"
-         id="feComposite1472" />
-      <feGaussianBlur
-         in="composite1"
-         stdDeviation="0.5"
-         result="blur"
-         id="feGaussianBlur1474" />
-      <feOffset
-         dx="0"
-         dy="-1.08247e-15"
-         result="offset"
-         id="feOffset1476" />
-      <feComposite
-         in="SourceGraphic"
-         in2="offset"
-         operator="over"
-         result="composite2"
-         id="feComposite1478" />
-    </filter>
-  </defs>
+     id="defs2075" />
   <sodipodi:namedview
      inkscape:window-maximized="1"
      inkscape:window-y="-8"
@@ -62,9 +29,9 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="140.81098"
-     inkscape:cx="-155.86378"
-     inkscape:zoom="2.8284271"
+     inkscape:cy="115.18544"
+     inkscape:cx="65.827278"
+     inkscape:zoom="4"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -93,8 +60,7 @@
      inkscape:label="Layer 1">
     <g
        id="g1282"
-       transform="matrix(1.1499246,0,0,1.1499246,-3.7481152,-3.748115)"
-       style="filter:url(#filter1480)">
+       transform="matrix(1.1499246,0,0,1.1499246,-3.7481152,-3.748115)">
       <g
          id="g998-9-5-6"
          transform="matrix(0.1875,0,0,0.1875,-13.518121,19.921238)"
