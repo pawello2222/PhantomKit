@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E5202FF52652B6D300509CA9 /* EmptyButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5202FF42652B6D300509CA9 /* EmptyButtonModifier.swift */; };
 		E52A3130264AE27B00017D94 /* RequestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A312F264AE27B00017D94 /* RequestState.swift */; };
 		E52A3132264B01A300017D94 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A3131264B01A300017D94 /* ToastView.swift */; };
 		E52A3134264C0C5900017D94 /* RefreshGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A3133264C0C5900017D94 /* RefreshGuardian.swift */; };
@@ -75,6 +74,7 @@
 		E587B92926430FC900F0F240 /* WebView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8F526430FC900F0F240 /* WebView+ViewModel.swift */; };
 		E587B92A26430FC900F0F240 /* WebView+Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8F626430FC900F0F240 /* WebView+Script.swift */; };
 		E587B92E2643102C00F0F240 /* Xcore in Frameworks */ = {isa = PBXBuildFile; productRef = E587B92D2643102C00F0F240 /* Xcore */; };
+		E5888A082653CA5D00FC185E /* Button+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888A072653CA5D00FC185E /* Button+Ext.swift */; };
 		E5AB538C264EDD9600D993AE /* Async in Frameworks */ = {isa = PBXBuildFile; productRef = E5AB538B264EDD9600D993AE /* Async */; };
 		E5AB538E264EE08600D993AE /* ContinuousProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */; };
 		E5C7EBAB264C5B7D00E74EEF /* LastUpdatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */; };
@@ -118,7 +118,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E5202FF42652B6D300509CA9 /* EmptyButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyButtonModifier.swift; sourceTree = "<group>"; };
 		E52A312F264AE27B00017D94 /* RequestState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestState.swift; sourceTree = "<group>"; };
 		E52A3131264B01A300017D94 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		E52A3133264C0C5900017D94 /* RefreshGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshGuardian.swift; sourceTree = "<group>"; };
@@ -187,6 +186,7 @@
 		E587B8F426430FC900F0F240 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		E587B8F526430FC900F0F240 /* WebView+ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebView+ViewModel.swift"; sourceTree = "<group>"; };
 		E587B8F626430FC900F0F240 /* WebView+Script.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebView+Script.swift"; sourceTree = "<group>"; };
+		E5888A072653CA5D00FC185E /* Button+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Ext.swift"; sourceTree = "<group>"; };
 		E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousProgressViewStyle.swift; sourceTree = "<group>"; };
 		E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdatedView.swift; sourceTree = "<group>"; };
 		E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
@@ -387,6 +387,7 @@
 			children = (
 				E587B8CB26430FC900F0F240 /* ActionSheet+Ext.swift */,
 				E587B8CC26430FC900F0F240 /* Alert+Button+Ext.swift */,
+				E5888A072653CA5D00FC185E /* Button+Ext.swift */,
 				E587B8D026430FC900F0F240 /* Section+Ext.swift */,
 				E587B8CF26430FC900F0F240 /* View+Action.swift */,
 				E587B8CD26430FC900F0F240 /* View+Ext.swift */,
@@ -404,7 +405,6 @@
 				E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */,
 				E587B8CE26430FC900F0F240 /* CSSColor.swift */,
 				E5E7C4C5264944290045596E /* DoneButtonModifier.swift */,
-				E5202FF42652B6D300509CA9 /* EmptyButtonModifier.swift */,
 				E587B8D726430FC900F0F240 /* ExtendedLabel.swift */,
 				E587B8D926430FC900F0F240 /* GradientButtonStyle.swift */,
 				E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */,
@@ -681,7 +681,6 @@
 				E5CA108026459820008FD164 /* Moya.swift in Sources */,
 				E587B92526430FC900F0F240 /* AboutView.swift in Sources */,
 				E587B90D26430FC900F0F240 /* Section+Ext.swift in Sources */,
-				E5202FF52652B6D300509CA9 /* EmptyButtonModifier.swift in Sources */,
 				E52A3132264B01A300017D94 /* ToastView.swift in Sources */,
 				E587B91526430FC900F0F240 /* RootViewAppearance.swift in Sources */,
 				E587B90726430FC900F0F240 /* View+Helpers.swift in Sources */,
@@ -723,6 +722,7 @@
 				E587B91926430FC900F0F240 /* SelectionTabView.swift in Sources */,
 				E587B91D26430FC900F0F240 /* Router+Route+Method.swift in Sources */,
 				E587B92826430FC900F0F240 /* WebView.swift in Sources */,
+				E5888A082653CA5D00FC185E /* Button+Ext.swift in Sources */,
 				E5EDC2C5264D956B0088CDE8 /* ToastView+Theme.swift in Sources */,
 				E587B91826430FC900F0F240 /* TabSelectionKey.swift in Sources */,
 				E587B92026430FC900F0F240 /* AlertModifier.swift in Sources */,
