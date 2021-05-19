@@ -16,4 +16,4 @@ jobs:
     - name: Build
       run:  xcodebuild -scheme PhantomKit build -sdk iphonesimulator -configuration Release
     - name: Run tests
-      run:  xcodebuild -scheme PhantomKit test -sdk iphonesimulator -configuration Release
+      run:  xcodebuild -scheme PhantomKitTests test -sdk iphonesimulator -configuration Release
