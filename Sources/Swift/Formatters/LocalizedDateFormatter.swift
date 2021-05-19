@@ -22,7 +22,7 @@ extension LocalizedDateFormatter {
         locale: Locale = .current,
         format: String
     ) -> LocalizedDateFormatter {
-        .init().apply {
+        LocalizedDateFormatter().apply {
             $0.dateFormatter.locale = locale
             $0.dateFormatter.dateFormat = format
         }
@@ -32,7 +32,7 @@ extension LocalizedDateFormatter {
         locale: Locale = .current,
         localizedFormat: String = "yyyyMMdd"
     ) -> LocalizedDateFormatter {
-        .init().apply {
+        LocalizedDateFormatter().apply {
             $0.dateFormatter.locale = locale
             $0.dateFormatter.setLocalizedDateFormatFromTemplate(localizedFormat)
         }
@@ -45,7 +45,7 @@ extension LocalizedDateFormatter {
         allowedUnits: NSCalendar.Unit = [.hour, .minute, .second],
         unitsStyle: DateComponentsFormatter.UnitsStyle = .full
     ) -> LocalizedDateFormatter {
-        .init().apply {
+        LocalizedDateFormatter().apply {
             $0.dateComponentsFormatter.calendar = .current.applying {
                 $0.locale = locale
             }

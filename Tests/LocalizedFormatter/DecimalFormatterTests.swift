@@ -113,7 +113,7 @@ class DecimalFormatterTests: XCTestCase {
     }
 
     func test_decimalFormatter_usesSignForZero_shouldFormatZero() throws {
-        let usFormatter = LocalizedFormatter.makeDecimalFormatter(locale: .init(identifier: "en_US")).apply {
+        let usFormatter = LocalizedFormatter.makeDecimalFormatter(locale: Locale(identifier: "en_US")).apply {
             $0.usesSignForZero = true
         }
         let all: LocalizedFormatter.Sign = .init(plus: .custom("▲"), minus: .custom("▼"), zero: .custom("="))
