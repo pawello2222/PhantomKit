@@ -46,7 +46,7 @@ extension LocalizedDateFormatter {
         unitsStyle: DateComponentsFormatter.UnitsStyle = .full
     ) -> LocalizedDateFormatter {
         LocalizedDateFormatter().apply {
-            $0.dateComponentsFormatter.calendar = .current.applying {
+            $0.dateComponentsFormatter.calendar = Calendar.default.applying {
                 $0.locale = locale
             }
             $0.dateComponentsFormatter.allowedUnits = allowedUnits
