@@ -16,4 +16,4 @@ jobs:
     - name: Build
       run:  xcodebuild -scheme PhantomKit build -sdk iphonesimulator -configuration Release
     - name: Run tests
-      run:  xcodebuild -scheme PhantomKitTests test -sdk iphonesimulator -configuration Release -destination 'platform=iOS Simulator,name=iPhone 12 Pro'
+      run:  xcodebuild -scheme PhantomKitTests test -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12 Pro'
