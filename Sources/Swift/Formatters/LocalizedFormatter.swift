@@ -35,7 +35,7 @@ extension LocalizedFormatter {
         locale: Locale = .current,
         currencyCode: String = Locale.current.currencyCode ?? "USD"
     ) -> LocalizedFormatter {
-        .init().apply {
+        LocalizedFormatter().apply {
             $0.formatter.numberStyle = .currency
             $0.formatter.locale = .init(identifier: "\(locale.identifier)@currency=\(currencyCode)")
             $0.defaultPrecision = .constant(2)
@@ -43,14 +43,14 @@ extension LocalizedFormatter {
     }
 
     public static func makeDecimalFormatter(locale: Locale = .current) -> LocalizedFormatter {
-        .init().apply {
+        LocalizedFormatter().apply {
             $0.formatter.numberStyle = .decimal
             $0.formatter.locale = locale
         }
     }
 
     public static func makePercentFormatter(locale: Locale = .current) -> LocalizedFormatter {
-        .init().apply {
+        LocalizedFormatter().apply {
             $0.formatter.numberStyle = .percent
             $0.formatter.locale = locale
             $0.formatter.multiplier = 1

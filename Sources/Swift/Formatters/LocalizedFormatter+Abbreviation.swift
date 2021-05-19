@@ -43,5 +43,5 @@ extension LocalizedFormatter.Abbreviation {
 
     public static var none: Self = .init()
 
-    public static var capitalized: Self = .default.capitalized
+    public static var capitalized = Self.default.capitalized
 }

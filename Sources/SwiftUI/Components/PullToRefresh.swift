@@ -20,7 +20,7 @@ public struct PullToRefresh: UIViewRepresentable {
     }
 
     public func makeUIView(context: Context) -> UIView {
-        .init(frame: .zero).apply {
+        UIView(frame: .zero).apply {
             $0.isHidden = true
             $0.isUserInteractionEnabled = false
         }
@@ -35,7 +35,7 @@ public struct PullToRefresh: UIViewRepresentable {
                 return
             }
             guard let refreshControl = tableView.refreshControl else {
-                tableView.refreshControl = .init().apply {
+                tableView.refreshControl = UIRefreshControl().apply {
                     $0.addTarget(
                         context.coordinator,
                         action: #selector(Coordinator.onValueChanged),
