@@ -95,7 +95,7 @@ extension AboutView.Section.Item {
         let endYear = Date().component(.year)
         var components = ["©"]
         if let startYear = startYear, startYear < endYear {
-            components.append("\(startYear) - \(endYear)")
+            components.append("\(startYear)-\(endYear)")
         } else {
             components.append("\(endYear)")
         }
