@@ -136,6 +136,42 @@ Text("Hello World")
     .expandingBackgroundColor(.red)
 ```
 
+### Xcore extensions
+
+- Date manipulation
+
+Before
+```swift
+let nextMonth = Calendar.current.date(byAdding: .month, value: 1, to: Date())!
+let isSameMonth = Calendar.current.compare(nextMonth, to: Date(), toGranularity: .month) == .orderedSame
+```
+
+After
+```swift
+let nextMonth = Date().adjusting(.month, by: 1)
+let isSameMonth = Date().isSame(nextMonth, granularity: .month)
+```
+
+- In-flight modifications with `Appliable` and `MutableAppliable`
+
+Before
+```swift
+static let numberFormatter: NumberFormatter = {
+    let formatter = NumberFormatter()
+    formatter.locale = .init(identifier: "en_US_POSIX")
+    formatter.maximumFractionDigits = 3
+    return formatter
+}()
+```
+
+After
+```swift
+static let numberFormatter = NumberFormatter().apply {
+    $0.locale = .usPosix
+    $0.maximumFractionDigits = 3
+}
+```
+
 and many more...!
 
 ## Reference
@@ -281,6 +317,8 @@ expect(formatter.string(from: date)).to(equal("03/24/2000, 4:14:44 PM"))
 - [ ] Complete documentation
 
 ## Dependencies
+
+PhantomKit exports globally the following frameworks making them accessible just by importing PhantomKit alone:
 
 - [duemunk/Async](https://github.com/duemunk/Async)
 - [zmian/Xcore](https://github.com/zmian/xcore)
