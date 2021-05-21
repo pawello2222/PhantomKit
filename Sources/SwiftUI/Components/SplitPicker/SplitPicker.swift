@@ -16,7 +16,7 @@ public struct SplitPicker<
 >: View {
     public typealias Item = PickerItem<Selection, ShortValue, LongValue>
 
-    @Environment(\.theme) private var theme
+    @Environment(\.appTheme) private var theme
     @Binding private var selection: Selection
     private let items: [Item]
     private var showMultiLabels: Bool
@@ -46,14 +46,14 @@ public struct SplitPicker<
 
     private var labelView: some View {
         label()
-            .foregroundUIColor(theme.textColor)
+            .foregroundColor(theme.primaryColor)
     }
 
     @ViewBuilder
     private var selectedItemView: some View {
         if let selectedItem = items.first(where: { $0.selection == selection }) {
             Text(String(selectedItem.short))
-                .foregroundUIColor(theme.textSecondaryColor)
+                .foregroundColor(theme.secondaryColor)
         }
     }
 }

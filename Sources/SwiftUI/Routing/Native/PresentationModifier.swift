@@ -9,7 +9,7 @@
 import SwiftUI
 
 public struct PresentationModifier<Destination>: ViewModifier where Destination: View {
-    @Environment(\.theme) private var theme
+    @Environment(\.appTheme) private var theme
     private let method: PresentationMethod
     private let onTrigger: (() -> Void)?
     private let onDismiss: (() -> Void)?

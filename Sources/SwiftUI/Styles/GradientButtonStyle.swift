@@ -37,7 +37,7 @@ public struct GradientPillButtonStyle: ButtonStyle {
 private struct GradientFillStyleBody<S: Shape>: View {
     @Environment(\.defaultMinButtonHeight) private var minHeight
     @Environment(\.defaultButtonCornerRadius) var cornerRadius
-    @Environment(\.theme) private var theme
+    @Environment(\.appTheme) private var theme
     @Environment(\.isEnabled) private var isEnabled
 
     let id: ButtonIdentifier
@@ -62,17 +62,15 @@ private struct GradientFillStyleBody<S: Shape>: View {
     }
 
     private var foregroundColor: Color {
-        Color(
-            isEnabled ?
-                theme.buttonTextColor(id, configuration.isPressed ? .pressed : .normal) :
-                theme.buttonTextColor(id, .disabled)
-        )
+        isEnabled ?
+            theme.buttonTextColor(id, configuration.isPressed ? .pressed : .normal) :
+            theme.buttonTextColor(id, .disabled)
     }
 
     private var gradientColors: [Color] {
         isEnabled ?
-            theme.gradientColors.map(Color.init) :
-            theme.gradientDisabledColors.map(Color.init)
+            theme.buttonBackgroundGradientColors(id, configuration.isPressed ? .pressed : .normal) :
+            theme.buttonBackgroundGradientColors(id, .disabled)
     }
 }
 

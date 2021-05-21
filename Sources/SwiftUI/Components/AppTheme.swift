@@ -11,6 +11,8 @@ import SwiftUI
 @dynamicMemberLookup
 public struct AppTheme: MutableAppliable, UserInfoContainer {
     public typealias Identifier = Xcore.Identifier<Self>
+    public typealias ButtonColor = (ButtonIdentifier, ButtonState) -> Color
+    public typealias ButtonGradientColors = (ButtonIdentifier, ButtonState) -> [Color]
 
     /// A unique id for the theme.
     public var id: Identifier
@@ -46,18 +48,13 @@ public struct AppTheme: MutableAppliable, UserInfoContainer {
     // MARK: - Button
 
     /// The color for the text of the button.
-    public var buttonTextColor: Color
+    public var buttonTextColor: ButtonColor
 
     /// The color for the background of the button.
-    public var buttonBackgroundColor: Color
+    public var buttonBackgroundColor: ButtonColor
 
-    // MARK: - Gradient
-
-    /// The first color for linear gradients.
-    public var gradientPrimaryColor: Color
-
-    /// The second first color for linear gradients.
-    public var gradientSecondaryColor: Color
+    /// The color for the background of the button.
+    public var buttonBackgroundGradientColors: ButtonGradientColors
 
     // MARK: - Sentiment Color
 
@@ -93,12 +90,9 @@ public struct AppTheme: MutableAppliable, UserInfoContainer {
         backgroundSecondaryColor: Color,
 
         // Button
-        buttonTextColor: Color,
-        buttonBackgroundColor: Color,
-
-        // Gradient
-        gradientPrimaryColor: Color,
-        gradientSecondaryColor: Color,
+        buttonTextColor: @escaping ButtonColor,
+        buttonBackgroundColor: @escaping ButtonColor,
+        buttonBackgroundGradientColors: @escaping ButtonGradientColors,
 
         // Sentiment
         positiveSentimentColor: Color,
@@ -124,10 +118,7 @@ public struct AppTheme: MutableAppliable, UserInfoContainer {
         // Button
         self.buttonTextColor = buttonTextColor
         self.buttonBackgroundColor = buttonBackgroundColor
-
-        // Gradient
-        self.gradientPrimaryColor = gradientPrimaryColor
-        self.gradientSecondaryColor = gradientSecondaryColor
+        self.buttonBackgroundGradientColors = buttonBackgroundGradientColors
 
         // Sentiment
         self.positiveSentimentColor = positiveSentimentColor
@@ -135,6 +126,22 @@ public struct AppTheme: MutableAppliable, UserInfoContainer {
 
         // UserInfo
         self.userInfo = userInfo
+    }
+}
+
+// MARK: - Convenience
+
+extension AppTheme {
+    public func buttonTextColor(_ state: ButtonState = .normal) -> Color {
+        buttonTextColor(.plain, state)
+    }
+
+    public func buttonBackgroundColor(_ state: ButtonState = .normal) -> Color {
+        buttonBackgroundColor(.plain, state)
+    }
+
+    public func buttonBackgroundGradientColors(_ state: ButtonState = .normal) -> [Color] {
+        buttonBackgroundGradientColors(.plain, state)
     }
 }
 
@@ -189,16 +196,64 @@ extension AppTheme {
         backgroundColor: .init(.systemBackground),
         backgroundSecondaryColor: .init(.secondarySystemBackground),
 
-        // Button
-        buttonTextColor: .accentColor,
-        buttonBackgroundColor: .accentColor,
+        // Button Text
+        buttonTextColor: { style, state in
+            switch (style, state) {
+            case (.outline, .normal),
+                 (.outline, .pressed):
+                return .primary
 
-        // Gradient
-        gradientPrimaryColor: .accentColor,
-        gradientSecondaryColor: .accentColor,
+            case (_, .normal):
+                return .white
+            case (_, .pressed):
+                return .white
+            case (_, .disabled):
+                return .secondary
+            }
+        },
+
+        // Button Background
+        buttonBackgroundColor: { style, state in
+            switch (style, state) {
+            case (_, .normal):
+                return .accentColor
+            case (_, .pressed):
+                return .accentColor
+            case (_, .disabled):
+                return .gray
+            }
+        },
+
+        // Button Background
+        buttonBackgroundGradientColors: { style, state in
+            switch (style, state) {
+            case (_, .normal):
+                return [.accentColor]
+            case (_, .pressed):
+                return [.accentColor]
+            case (_, .disabled):
+                return [.gray]
+            }
+        },
 
         // Sentiment
         positiveSentimentColor: .green,
         negativeSentimentColor: .red
     )
+}
+
+// MARK: - Convenience
+
+extension AppTheme {
+    public static let common = AppTheme.default.applying {
+        $0.id = "common"
+        $0.buttonBackgroundGradientColors = { style, state in
+            switch (style, state) {
+            case (_, .disabled):
+                return [.init(.gray), .init(.lightGray)]
+            case (_, _):
+                return [.red, .orange]
+            }
+        }
+    }
 }

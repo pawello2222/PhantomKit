@@ -31,7 +31,6 @@
 		E587B8FC26430FC900F0F240 /* WebEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8BB26430FC900F0F240 /* WebEndpoint.swift */; };
 		E587B8FF26430FC900F0F240 /* Set+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8BF26430FC900F0F240 /* Set+Ext.swift */; };
 		E587B90026430FC900F0F240 /* Published+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8C026430FC900F0F240 /* Published+Ext.swift */; };
-		E587B90126430FC900F0F240 /* Theme+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8C126430FC900F0F240 /* Theme+Ext.swift */; };
 		E587B90226430FC900F0F240 /* StoreKit+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8C226430FC900F0F240 /* StoreKit+Ext.swift */; };
 		E587B90326430FC900F0F240 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8C326430FC900F0F240 /* Array+Ext.swift */; };
 		E587B90426430FC900F0F240 /* NotificationCenter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8C426430FC900F0F240 /* NotificationCenter+Ext.swift */; };
@@ -150,7 +149,6 @@
 		E587B8BB26430FC900F0F240 /* WebEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebEndpoint.swift; sourceTree = "<group>"; };
 		E587B8BF26430FC900F0F240 /* Set+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set+Ext.swift"; sourceTree = "<group>"; };
 		E587B8C026430FC900F0F240 /* Published+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Published+Ext.swift"; sourceTree = "<group>"; };
-		E587B8C126430FC900F0F240 /* Theme+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Theme+Ext.swift"; sourceTree = "<group>"; };
 		E587B8C226430FC900F0F240 /* StoreKit+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StoreKit+Ext.swift"; sourceTree = "<group>"; };
 		E587B8C326430FC900F0F240 /* Array+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		E587B8C426430FC900F0F240 /* NotificationCenter+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Ext.swift"; sourceTree = "<group>"; };
@@ -370,7 +368,6 @@
 				E587B8BF26430FC900F0F240 /* Set+Ext.swift */,
 				E587B8C226430FC900F0F240 /* StoreKit+Ext.swift */,
 				E55AB59A2649E9A5000D7441 /* String+Ext.swift */,
-				E587B8C126430FC900F0F240 /* Theme+Ext.swift */,
 				E5888A8F265814D400FC185E /* UIImage+Ext.swift */,
 				E587B8C526430FC900F0F240 /* URL+Ext.swift */,
 			);
@@ -704,7 +701,6 @@
 				E5888A982658591900FC185E /* AppTheme.swift in Sources */,
 				E587B90026430FC900F0F240 /* Published+Ext.swift in Sources */,
 				E5888A8E26580FA600FC185E /* ByteCountFormatter+Ext.swift in Sources */,
-				E587B90126430FC900F0F240 /* Theme+Ext.swift in Sources */,
 				E587B8FB26430FC900F0F240 /* LocalizableStrings.swift in Sources */,
 				E587B92A26430FC900F0F240 /* WebView+Script.swift in Sources */,
 				E5E7C4CA2649ADB00045596E /* LocalizedFormatter+Precision.swift in Sources */,

@@ -11,7 +11,7 @@ import SwiftUI
 extension SplitPicker {
     struct SelectionView: View {
         @Environment(\.presentationMode) private var presentationMode
-        @Environment(\.theme) private var theme
+        @Environment(\.appTheme) private var theme
         @Binding private var selection: Selection
         private let items: [Item]
         private var showMultiLabels: Bool
@@ -56,7 +56,7 @@ extension SplitPicker.SelectionView {
                 if item == items.first { $0.selection == selection } {
                     Image(system: .checkmark)
                         .font(Font.body.weight(.semibold))
-                        .foregroundUIColor(theme.accentColor)
+                        .foregroundColor(theme.accentColor)
                 }
             }
             .font(.app(.body))
@@ -71,7 +71,7 @@ extension SplitPicker.SelectionView {
     private func itemLabelView(item: SplitPicker.Item) -> some View {
         HStack {
             Text(String(item.long))
-                .foregroundUIColor(theme.textColor)
+                .foregroundColor(theme.primaryColor)
             Spacer()
         }
     }
@@ -82,7 +82,7 @@ extension SplitPicker.SelectionView {
         HStack {
             HStack {
                 Text(String(item.short))
-                    .foregroundUIColor(theme.textColor)
+                    .foregroundColor(theme.primaryColor)
                     .readSize {
                         shortLabelWidth = max($0.width, shortLabelWidth)
                     }
@@ -91,7 +91,7 @@ extension SplitPicker.SelectionView {
             .frame(maxWidth: shortLabelWidth)
             Text(String(item.long))
                 .font(.app(.subheadline))
-                .foregroundUIColor(theme.textSecondaryColor)
+                .foregroundColor(theme.secondaryColor)
         }
     }
 }
