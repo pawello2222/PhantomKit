@@ -8,6 +8,19 @@
 
 import SwiftUI
 
+// MARK: - AppTheme
+
+extension EnvironmentValues {
+    private struct AppThemeKey: EnvironmentKey {
+        static var defaultValue: AppTheme = .default
+    }
+
+    public var appTheme: AppTheme {
+        get { self[AppThemeKey.self] }
+        set { self[AppThemeKey.self] = newValue }
+    }
+}
+
 // MARK: - DefaultIconHeight
 
 extension EnvironmentValues {
@@ -50,6 +63,10 @@ extension EnvironmentValues {
 // MARK: - View Helpers
 
 extension View {
+    public func appTheme(_ appTheme: AppTheme) -> some View {
+        environment(\.appTheme, appTheme)
+    }
+
     public func defaultIconHeight(_ value: CGFloat) -> some View {
         environment(\.defaultIconHeight, value)
     }
