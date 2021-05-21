@@ -79,6 +79,7 @@
 		E5888A8E26580FA600FC185E /* ByteCountFormatter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888A8D26580FA600FC185E /* ByteCountFormatter+Ext.swift */; };
 		E5888A90265814D400FC185E /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888A8F265814D400FC185E /* UIImage+Ext.swift */; };
 		E5888A9426581FFA00FC185E /* Binding+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888A9326581FFA00FC185E /* Binding+Ext.swift */; };
+		E5888A9626583E3F00FC185E /* SafeBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888A9526583E3F00FC185E /* SafeBinding.swift */; };
 		E5AB538C264EDD9600D993AE /* Async in Frameworks */ = {isa = PBXBuildFile; productRef = E5AB538B264EDD9600D993AE /* Async */; };
 		E5AB538E264EE08600D993AE /* ContinuousProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */; };
 		E5C7EBAB264C5B7D00E74EEF /* LastUpdatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */; };
@@ -195,6 +196,7 @@
 		E5888A8D26580FA600FC185E /* ByteCountFormatter+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ByteCountFormatter+Ext.swift"; sourceTree = "<group>"; };
 		E5888A8F265814D400FC185E /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		E5888A9326581FFA00FC185E /* Binding+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Ext.swift"; sourceTree = "<group>"; };
+		E5888A9526583E3F00FC185E /* SafeBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeBinding.swift; sourceTree = "<group>"; };
 		E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousProgressViewStyle.swift; sourceTree = "<group>"; };
 		E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdatedView.swift; sourceTree = "<group>"; };
 		E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 				E5E7C4C5264944290045596E /* DoneButtonModifier.swift */,
 				E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */,
 				E587B8DB26430FC900F0F240 /* RootViewAppearance.swift */,
+				E5888A9526583E3F00FC185E /* SafeBinding.swift */,
 				E587B8DD26430FC900F0F240 /* SelectionTabView */,
 				E587B8D226430FC900F0F240 /* SplitPicker */,
 				E5EDC2C3264D955C0088CDE8 /* ToastView */,
@@ -692,6 +695,7 @@
 				E587B90826430FC900F0F240 /* ActionSheet+Ext.swift in Sources */,
 				E5E7C4C8264995600045596E /* LocalizedFormatter+Sign.swift in Sources */,
 				E587B92726430FC900F0F240 /* AboutView+Section+Item.swift in Sources */,
+				E5888A9626583E3F00FC185E /* SafeBinding.swift in Sources */,
 				E587B91626430FC900F0F240 /* SimpleLabelStyle.swift in Sources */,
 				E587B90426430FC900F0F240 /* NotificationCenter+Ext.swift in Sources */,
 				E587B90026430FC900F0F240 /* Published+Ext.swift in Sources */,
