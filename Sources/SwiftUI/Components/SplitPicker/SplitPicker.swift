@@ -74,6 +74,17 @@ extension SplitPicker {
 
 extension SplitPicker {
     public init(
+        title: String,
+        selection: Binding<Selection>,
+        items: [Item],
+        showMultiLabels: Bool = false
+    ) where Label == Text {
+        self.init(selection: selection, items: items, showMultiLabels: showMultiLabels) {
+            Text(title)
+        }
+    }
+
+    public init(
         selection: Binding<Int>,
         range: ClosedRange<Int>,
         showMultiLabels: Bool = false,
