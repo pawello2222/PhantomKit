@@ -1,0 +1,25 @@
+//
+//  UIImage+Ext.swift
+//  PhantomKit
+//
+//  Created by Pawel Wiszenko on 21.05.2021.
+//  Copyright © 2021 Pawel Wiszenko. All rights reserved.
+//
+
+import Foundation
+
+extension UIImage {
+    public enum JPEGQuality: CGFloat {
+        case lowest = 0
+        case low = 0.25
+        case medium = 0.5
+        case high = 0.75
+        case highest = 1
+    }
+}
+
+extension UIImage {
+    public func jpegData(quality: JPEGQuality) -> Data? {
+        jpegData(compressionQuality: quality.rawValue)
+    }
+}
