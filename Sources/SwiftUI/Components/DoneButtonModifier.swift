@@ -8,14 +8,20 @@
 
 import SwiftUI
 
-public struct DoneButtonModifier: ViewModifier {
+public struct ButtonToolbarModifier: ViewModifier {
     @Environment(\.presentationMode) private var presentationMode
+
+    private let title: String
+
+    public init(title: String) {
+        self.title = title
+    }
 
     public func body(content: Content) -> some View {
         content
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button(Localized.done) {
+                    Button(title) {
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
@@ -26,7 +32,11 @@ public struct DoneButtonModifier: ViewModifier {
 // MARK: View
 
 extension View {
+    public func cancelButtonToolbar() -> some View {
+        modifier(ButtonToolbarModifier(title: Localized.cancel))
+    }
+
     public func doneButtonToolbar() -> some View {
-        modifier(DoneButtonModifier())
+        modifier(ButtonToolbarModifier(title: Localized.done))
     }
 }
