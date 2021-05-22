@@ -54,4 +54,11 @@ extension View {
     ) -> some View where Item: Hashable {
         modifier(TabViewItem(item, title: title, imageName: systemImage.rawValue))
     }
+
+    public func tabItem<Item>(
+        _ item: Item,
+        systemImage: SystemAssetIdentifier
+    ) -> some View where Item: Hashable & CustomStringConvertible {
+        modifier(TabViewItem(item, title: item.description, imageName: systemImage.rawValue))
+    }
 }
