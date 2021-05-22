@@ -14,7 +14,7 @@ public struct DoneButtonModifier: ViewModifier {
     public func body(content: Content) -> some View {
         content
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .cancellationAction) {
                     Button(Localized.done) {
                         presentationMode.wrappedValue.dismiss()
                     }

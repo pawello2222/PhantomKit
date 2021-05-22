@@ -79,6 +79,10 @@ extension LocalizedDateFormatter {
     public func string(from ti: TimeInterval) -> String {
         dateComponentsFormatter.string(from: ti) ?? invalidValueString
     }
+
+    public func string(from startDate: Date, to endDate: Date) -> String {
+        dateComponentsFormatter.string(from: startDate, to: endDate) ?? invalidValueString
+    }
 }
 
 // MARK: - Helpers
@@ -101,4 +105,6 @@ extension LocalizedDateFormatter {
     public static var datetime = makeDateFormatter(localizedFormat: "yyyyMMddjjmmss")
 
     public static var dateComponents = makeDateComponentsFormatter()
+
+    public static var timeComponents = makeDateComponentsFormatter(allowedUnits: [.day, .month, .year])
 }
