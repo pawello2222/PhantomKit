@@ -22,9 +22,9 @@ extension Published {
 }
 
 extension Published where Value: Codable {
-    public init(wrappedValue defaultValue: Value, codableKey: String, storage: UserDefaults = .standard) {
+    public init(wrappedValue defaultValue: Value, codableKey key: String, storage: UserDefaults = .standard) {
         if
-            let data = storage.data(forKey: codableKey),
+            let data = storage.data(forKey: key),
             let decodedValue = try? JSONDecoder().decode(Value.self, from: data)
         {
             self.init(initialValue: decodedValue)
@@ -34,7 +34,7 @@ extension Published where Value: Codable {
         projectedValue
             .sink { value in
                 if let data = try? JSONEncoder().encode(value) {
-                    storage.set(data, forKey: codableKey)
+                    storage.set(data, forKey: key)
                 }
             }
             .store(in: &cancellables)
