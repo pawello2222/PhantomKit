@@ -53,9 +53,9 @@ extension SplitPicker.SelectionView {
                     itemLabelView(item: item)
                 }
                 Spacer()
-                if item == items.first { $0.selection == selection } {
+                if item == items.first(where: \.selection, equals: selection) {
                     Image(system: .checkmark)
-                        .font(Font.body.weight(.semibold))
+                        .font(Font.app(.body).weight(.semibold))
                         .foregroundColor(theme.accentColor)
                 }
             }
