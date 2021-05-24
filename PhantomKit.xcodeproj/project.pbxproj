@@ -84,6 +84,7 @@
 		E5888AB1265ADF7600FC185E /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888AB0265ADF7600FC185E /* UIApplication+Ext.swift */; };
 		E5888ABE265C0C5E00FC185E /* Data+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888ABD265C0C5E00FC185E /* Data+Ext.swift */; };
 		E5888AC0265C18E900FC185E /* FileManager+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888ABF265C18E900FC185E /* FileManager+Ext.swift */; };
+		E5888AE5265C612A00FC185E /* UserDefaults+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888AE4265C612A00FC185E /* UserDefaults+Ext.swift */; };
 		E5AB538C264EDD9600D993AE /* Async in Frameworks */ = {isa = PBXBuildFile; productRef = E5AB538B264EDD9600D993AE /* Async */; };
 		E5AB538E264EE08600D993AE /* ContinuousProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */; };
 		E5C7EBAB264C5B7D00E74EEF /* LastUpdatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */; };
@@ -205,6 +206,7 @@
 		E5888AB0265ADF7600FC185E /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
 		E5888ABD265C0C5E00FC185E /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
 		E5888ABF265C18E900FC185E /* FileManager+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Ext.swift"; sourceTree = "<group>"; };
+		E5888AE4265C612A00FC185E /* UserDefaults+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Ext.swift"; sourceTree = "<group>"; };
 		E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousProgressViewStyle.swift; sourceTree = "<group>"; };
 		E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdatedView.swift; sourceTree = "<group>"; };
 		E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 				E5888AB0265ADF7600FC185E /* UIApplication+Ext.swift */,
 				E5888A8F265814D400FC185E /* UIImage+Ext.swift */,
 				E587B8C526430FC900F0F240 /* URL+Ext.swift */,
+				E5888AE4265C612A00FC185E /* UserDefaults+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 				E587B90A26430FC900F0F240 /* View+Ext.swift in Sources */,
 				E587B90E26430FC900F0F240 /* SplitPicker+SelectionView.swift in Sources */,
 				E587B92226430FC900F0F240 /* PresentationModifier.swift in Sources */,
+				E5888AE5265C612A00FC185E /* UserDefaults+Ext.swift in Sources */,
 				E587B8F926430FC900F0F240 /* Imports.swift in Sources */,
 				E5C7EBAB264C5B7D00E74EEF /* LastUpdatedView.swift in Sources */,
 				E5888A90265814D400FC185E /* UIImage+Ext.swift in Sources */,
