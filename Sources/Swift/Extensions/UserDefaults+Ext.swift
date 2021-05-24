@@ -11,14 +11,14 @@ import SwiftUI
 // MARK: - UIColor
 
 extension UserDefaults {
-    func color(forKey key: String) -> UIColor? {
+    public func color(forKey key: String) -> UIColor? {
         guard let colorData = data(forKey: key) else {
             return nil
         }
         return try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: colorData)
     }
 
-    func set(_ value: UIColor?, forKey key: String) {
+    public func set(_ value: UIColor?, forKey key: String) {
         if let color = value {
             let colorData = try? NSKeyedArchiver.archivedData(
                 withRootObject: color,
@@ -32,14 +32,14 @@ extension UserDefaults {
 // MARK: - Color
 
 extension UserDefaults {
-    func color(forKey key: String) -> Color? {
+    public func color(forKey key: String) -> Color? {
         guard let uiColor: UIColor = color(forKey: key) else {
             return nil
         }
         return Color(uiColor)
     }
 
-    func set(_ value: Color, forKey key: String) {
+    public func set(_ value: Color, forKey key: String) {
         set(UIColor(value), forKey: key)
     }
 }
