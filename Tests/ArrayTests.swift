@@ -15,7 +15,7 @@ class ArrayTests: XCTestCase {
 
     override func tearDownWithError() throws {}
 
-    func test_array_safeIndexSubscript_shouldNotFail() throws {
+    func test_array_safeIndexSubscript_shouldNotThrowError() throws {
         let array = [1, 2, 3]
 
         expect(array[safe: 0]).to(equal(1))
@@ -26,7 +26,7 @@ class ArrayTests: XCTestCase {
         expect(array[safe: -100]).to(beNil())
     }
 
-    func test_array_safeRangeSubscript_shouldNotFail() throws {
+    func test_array_safeRangeSubscript_shouldNotThrowError() throws {
         let array = [1, 2, 3]
 
         expect(array[safe: 0 ..< 1]).to(equal([1]))
