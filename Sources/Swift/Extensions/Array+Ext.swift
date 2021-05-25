@@ -75,3 +75,13 @@ extension Array where Element: Identifiable {
         }
     }
 }
+
+// MARK: - Subscript
+
+extension Array where Element: Equatable {
+    public subscript(safe bounds: Range<Int>) -> ArraySlice<Element> {
+        let lower = bounds.lowerBound.clamped(to: 0...count)
+        let upper = bounds.upperBound.clamped(to: 0...count)
+        return self[lower..<upper]
+    }
+}
