@@ -15,7 +15,7 @@ extension String {
 }
 
 extension String {
-    var isHexNumber: Bool {
+    public var isHexNumber: Bool {
         filter(\.isHexDigit).count == count
     }
 }
