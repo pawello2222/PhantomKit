@@ -10,7 +10,7 @@ import Foundation
 
 extension UIApplication {
     public func addTapGestureRecognizer() {
-        guard let window = firstSceneKeyWindow else { return }
+        guard let window = window(\.isKeyWindow) else { return }
         let tapGesture = UITapGestureRecognizer(target: window, action: #selector(UIView.endEditing)).apply {
             $0.requiresExclusiveTouchType = false
             $0.cancelsTouchesInView = false
