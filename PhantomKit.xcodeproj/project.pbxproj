@@ -99,7 +99,7 @@
 		E5CA1083264598B0008FD164 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA1082264598B0008FD164 /* Moya */; };
 		E5CA1085264598B0008FD164 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA1084264598B0008FD164 /* CombineMoya */; };
 		E5CA108726459A7D008FD164 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA108626459A7D008FD164 /* APIError.swift */; };
-		E5E7C4C6264944290045596E /* DoneButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C5264944290045596E /* DoneButtonModifier.swift */; };
+		E5E7C4C6264944290045596E /* ButtonToolbarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C5264944290045596E /* ButtonToolbarModifier.swift */; };
 		E5E7C4C8264995600045596E /* LocalizedFormatter+Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C7264995600045596E /* LocalizedFormatter+Sign.swift */; };
 		E5E7C4CA2649ADB00045596E /* LocalizedFormatter+Precision.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C92649ADB00045596E /* LocalizedFormatter+Precision.swift */; };
 		E5EDC2BF264D82620088CDE8 /* Network+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDC2BE264D82620088CDE8 /* Network+Protocols.swift */; };
@@ -220,7 +220,7 @@
 		E5CA107F26459820008FD164 /* Moya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moya.swift; sourceTree = "<group>"; };
 		E5CA108626459A7D008FD164 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		E5CA108A26459D00008FD164 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		E5E7C4C5264944290045596E /* DoneButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButtonModifier.swift; sourceTree = "<group>"; };
+		E5E7C4C5264944290045596E /* ButtonToolbarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonToolbarModifier.swift; sourceTree = "<group>"; };
 		E5E7C4C7264995600045596E /* LocalizedFormatter+Sign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedFormatter+Sign.swift"; sourceTree = "<group>"; };
 		E5E7C4C92649ADB00045596E /* LocalizedFormatter+Precision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedFormatter+Precision.swift"; sourceTree = "<group>"; };
 		E5EDC2BE264D82620088CDE8 /* Network+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Protocols.swift"; sourceTree = "<group>"; };
@@ -438,8 +438,8 @@
 				E587B8D626430FC900F0F240 /* AnimatableFrameHeight.swift */,
 				E5888A092653DF7500FC185E /* AnimatedButton.swift */,
 				E5888A972658591900FC185E /* AppTheme.swift */,
+				E5E7C4C5264944290045596E /* ButtonToolbarModifier.swift */,
 				E587B8CE26430FC900F0F240 /* CSSColor.swift */,
-				E5E7C4C5264944290045596E /* DoneButtonModifier.swift */,
 				E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */,
 				E587B8DB26430FC900F0F240 /* RootViewAppearance.swift */,
 				E5888A9526583E3F00FC185E /* SafeBinding.swift */,
@@ -700,7 +700,7 @@
 				E587B91226430FC900F0F240 /* IconBadgeLabelStyle.swift in Sources */,
 				E5888A0C2653F9E000FC185E /* EnvironmentValues+Ext.swift in Sources */,
 				E5C7EBB2264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift in Sources */,
-				E5E7C4C6264944290045596E /* DoneButtonModifier.swift in Sources */,
+				E5E7C4C6264944290045596E /* ButtonToolbarModifier.swift in Sources */,
 				E5CA108026459820008FD164 /* Moya.swift in Sources */,
 				E587B92526430FC900F0F240 /* AboutView.swift in Sources */,
 				E5888AC0265C18E900FC185E /* FileManager+Ext.swift in Sources */,

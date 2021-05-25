@@ -1,5 +1,5 @@
 //
-//  DoneButtonModifier.swift
+//  ButtonToolbarModifier.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 10.05.2021.
