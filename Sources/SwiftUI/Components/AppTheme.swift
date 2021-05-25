@@ -245,7 +245,7 @@ extension AppTheme {
 // MARK: - Convenience
 
 extension AppTheme {
-    public static let common = AppTheme.default.applying {
+    public static let common = AppTheme.system.applying {
         $0.id = "common"
         $0.buttonBackgroundGradientColors = { style, state in
             switch (style, state) {
