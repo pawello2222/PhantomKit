@@ -68,7 +68,7 @@ extension Array where Element: Equatable {
 
 extension Array where Element: Equatable {
     public mutating func toggle(_ element: Element) {
-        if let index = firstIndex(where: \Element.self, equals: element) {
+        if let index = firstIndex(where: \.self, equals: element) {
             remove(at: index)
         } else {
             append(element)
