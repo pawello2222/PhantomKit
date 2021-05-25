@@ -11,7 +11,7 @@ import SwiftUI
 public struct IconBadgeLabelStyle: LabelStyle {
     @Environment(\.defaultIconHeight) private var iconHeight
     @Environment(\.defaultButtonCornerRadius) private var cornerRadius
-    @Environment(\.theme) private var theme
+    @Environment(\.appTheme) private var theme
     private let color: Color
 
     public init(color: Color = .clear) {
@@ -40,7 +40,7 @@ public struct IconBadgeLabelStyle: LabelStyle {
 
     private func labelView(with configuration: Self.Configuration) -> some View {
         configuration.title
-            .foregroundUIColor(theme.textColor)
+            .foregroundColor(theme.primaryColor)
     }
 }
 

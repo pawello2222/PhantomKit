@@ -9,23 +9,23 @@
 import SwiftUI
 
 public struct RootViewAppearance: ViewModifier {
-    private let theme: Theme
+    private let theme: AppTheme
 
-    public init(theme: Theme = .default) {
+    public init(theme: AppTheme = .default) {
         self.theme = theme
     }
 
     public func body(content: Content) -> some View {
         content
-            .accentUIColor(theme.accentColor)
-            .theme(theme)
+            .accentColor(theme.accentColor)
+            .appTheme(theme)
     }
 }
 
 // MARK: - View
 
 extension View {
-    public func rootViewAppearance(theme: Theme = .default) -> some View {
+    public func rootViewAppearance(theme: AppTheme = .default) -> some View {
         modifier(RootViewAppearance(theme: theme))
     }
 }

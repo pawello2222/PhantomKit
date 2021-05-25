@@ -14,7 +14,7 @@ extension Array {
     public func firstIndex<Value>(
         where keyPath: KeyPath<Element, Value>,
         equals value: Value
-    ) -> Index? where Value: Comparable {
+    ) -> Index? where Value: Equatable {
         firstIndex {
             $0[keyPath: keyPath] == value
         }
@@ -25,7 +25,7 @@ extension Array {
     public func first<Value>(
         where keyPath: KeyPath<Element, Value>,
         equals value: Value
-    ) -> Element? where Value: Comparable {
+    ) -> Element? where Value: Equatable {
         first {
             $0[keyPath: keyPath] == value
         }
@@ -36,7 +36,7 @@ extension Array {
     public func filter<Value>(
         where keyPath: KeyPath<Element, Value>,
         equals value: Value
-    ) -> Self where Value: Comparable {
+    ) -> Self where Value: Equatable {
         filter {
             $0[keyPath: keyPath] == value
         }
@@ -47,7 +47,7 @@ extension Array {
     public mutating func removeFirst<Value>(
         where keyPath: KeyPath<Element, Value>,
         equals value: Value
-    ) where Value: Comparable {
+    ) where Value: Equatable {
         if let index = firstIndex(where: keyPath, equals: value) {
             remove(at: index)
         }
@@ -66,12 +66,31 @@ extension Array where Element: Equatable {
 
 // MARK: Toggle
 
-extension Array where Element: Identifiable, Element.ID: Comparable {
+extension Array where Element: Identifiable {
     public mutating func toggle(_ item: Element) {
         if let index = firstIndex(where: \.id, equals: item.id) {
             remove(at: index)
         } else {
             append(item)
         }
+    }
+}
+
+// MARK: - Subscript
+
+extension Array {
+    public subscript(safe index: Int) -> Element? {
+        guard 0 ..< count ~= index else {
+            return nil
+        }
+        return self[index]
+    }
+}
+
+extension Array where Element: Equatable {
+    public subscript(safe bounds: Range<Int>) -> ArraySlice<Element> {
+        let lower = bounds.lowerBound.clamped(to: 0 ... count)
+        let upper = bounds.upperBound.clamped(to: 0 ... count)
+        return self[lower ..< upper]
     }
 }

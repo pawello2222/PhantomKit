@@ -9,7 +9,7 @@
 import SwiftUI
 
 public struct ToastView<Content>: View where Content: View {
-    @Environment(\.theme) private var theme
+    @Environment(\.appTheme) private var theme
     private let style: Style
     private let content: () -> Content
 
@@ -20,11 +20,11 @@ public struct ToastView<Content>: View where Content: View {
 
     public var body: some View {
         ZStack(alignment: .leading) {
-            Color(backgroundColor)
+            backgroundColor
                 .ignoresSafeArea()
             content()
-                .font(.app(.callout, weight: .medium))
-                .foregroundUIColor(textColor)
+                .font(.app(.callout))
+                .foregroundColor(textColor)
                 .padding()
         }
         .fixedSize(.vertical)
@@ -46,7 +46,7 @@ extension ToastView {
 }
 
 extension ToastView {
-    private var textColor: UIColor {
+    private var textColor: Color {
         switch style {
         case .error:
             return theme.toastErrorColor.text
@@ -59,7 +59,7 @@ extension ToastView {
         }
     }
 
-    private var backgroundColor: UIColor {
+    private var backgroundColor: Color {
         switch style {
         case .error:
             return theme.toastErrorColor.background

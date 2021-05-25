@@ -9,7 +9,7 @@
 import SwiftUI
 
 public struct SimpleLabelStyle: LabelStyle {
-    @Environment(\.theme) private var theme
+    @Environment(\.appTheme) private var theme
 
     public init() {}
 
@@ -25,11 +25,11 @@ public struct SimpleLabelStyle: LabelStyle {
     private func imageView(with configuration: Self.Configuration) -> some View {
         configuration.icon
             .imageScale(.large)
-            .foregroundUIColor(theme.accentColor)
+            .foregroundColor(theme.accentColor)
     }
 
     private func labelView(with configuration: Self.Configuration) -> some View {
         configuration.title
-            .foregroundUIColor(theme.textColor)
+            .foregroundColor(theme.primaryColor)
     }
 }

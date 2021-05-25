@@ -39,7 +39,7 @@ extension AboutView.Section.Item {
 
         var body: some View {
             Text(title)
-                .font(.app(.body, weight: .medium))
+                .font(.app(.body))
         }
     }
 }

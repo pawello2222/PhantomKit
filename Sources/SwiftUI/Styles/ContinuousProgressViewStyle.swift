@@ -9,7 +9,7 @@
 import SwiftUI
 
 public struct ContinuousProgressViewStyle: ProgressViewStyle {
-    @Environment(\.theme) private var theme
+    @Environment(\.appTheme) private var theme
     @State private var trimStart: CGFloat = 0
     @State private var trimEnd: CGFloat = 0
     @State private var size: CGSize = .zero
@@ -25,7 +25,7 @@ public struct ContinuousProgressViewStyle: ProgressViewStyle {
             trimmedCircleView(from: trimStart, to: trimEnd)
                 .fill(gradient)
             trimmedCircleView(from: 0, to: 1 / 360)
-                .foregroundUIColor(theme.gradientColors.first ?? theme.accentColor)
+                .foregroundColor(theme.buttonBackgroundGradientColors().first ?? theme.accentColor)
                 .rotationEffect(.degrees(-0.5))
         }
         .rotationEffect(.degrees(-90))
@@ -49,10 +49,7 @@ extension ContinuousProgressViewStyle {
 extension ContinuousProgressViewStyle {
     private var gradient: LinearGradient {
         .init(
-            gradient: .init(colors: [
-                .init(theme.gradientColors.first ?? theme.accentColor),
-                .init(theme.gradientColors.last ?? theme.accentColor),
-            ]),
+            gradient: .init(colors: theme.buttonBackgroundGradientColors()),
             startPoint: .trailing,
             endPoint: .leading
         )

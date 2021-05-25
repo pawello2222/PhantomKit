@@ -14,7 +14,7 @@ import Defaults
 // MARK: - Published
 
 extension Published where Value: Codable & Equatable {
-    public init(_ key: Defaults.Keys.Key<Value>) {
+    public init(defaultsKey key: Defaults.Keys.Key<Value>) {
         self.init(initialValue: Defaults[key])
         projectedValue
             .removeDuplicates()
@@ -24,8 +24,8 @@ extension Published where Value: Codable & Equatable {
 }
 
 extension Published where Value: Codable & Equatable {
-    public init(wrappedValue defaultValue: Value, _ key: String, storage: UserDefaults = .standard) {
-        self.init(Defaults.Keys.Key<Value>(key, default: defaultValue, suite: storage))
+    public init(wrappedValue defaultValue: Value, defaultsKey key: String, storage: UserDefaults = .standard) {
+        self.init(defaultsKey: Defaults.Keys.Key<Value>(key, default: defaultValue, suite: storage))
     }
 }
 

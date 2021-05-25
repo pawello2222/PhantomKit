@@ -24,14 +24,14 @@ extension AboutView {
 
 extension AboutView.Section {
     struct ContentView: View {
-        @Environment(\.theme) private var theme
+        @Environment(\.appTheme) private var theme
         let section: AboutView.Section
 
         var body: some View {
             VStack(spacing: .defaultPadding) {
                 Text(section.title.uppercased())
-                    .font(.app(.subheadline, weight: .semibold))
-                    .foregroundUIColor(theme.textSecondaryColor)
+                    .font(.app(.subheadline))
+                    .foregroundColor(theme.secondaryColor)
                 ForEach(section.items, id: \.title) { item in
                     item.content()
                 }

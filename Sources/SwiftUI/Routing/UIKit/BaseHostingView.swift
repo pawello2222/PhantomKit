@@ -14,6 +14,6 @@ struct BaseHostingView<Content>: View where Content: View {
 
     var body: some View {
         content
-            .environment(\.theme, theme)
+            .theme(theme)
     }
 }

@@ -28,6 +28,12 @@ public class LocalizedFormatter: Appliable {
     public var usesSignForZero = false
 
     public var invalidValueString = "--"
+
+    // Computed properties
+
+    public var decimalSeparator: String {
+        formatter.decimalSeparator
+    }
 }
 
 extension LocalizedFormatter {
