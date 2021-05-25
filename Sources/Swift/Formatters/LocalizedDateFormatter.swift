@@ -100,11 +100,21 @@ extension LocalizedDateFormatter {
 // MARK: - Convenience
 
 extension LocalizedDateFormatter {
-    public static var date = makeDateFormatter()
+    public static var date = makeDateFormatter(localizedFormat: "yyyyMMdd")
+
+    public static var time = makeDateFormatter(localizedFormat: "jjmmss")
 
     public static var datetime = makeDateFormatter(localizedFormat: "yyyyMMddjjmmss")
 
-    public static var dateComponents = makeDateComponentsFormatter()
+    public static var dateComponents = makeDateComponentsFormatter(
+        allowedUnits: [.year, .month, .day]
+    )
 
-    public static var timeComponents = makeDateComponentsFormatter(allowedUnits: [.day, .month, .year])
+    public static var timeComponents = makeDateComponentsFormatter(
+        allowedUnits: [.hour, .minute, .second]
+    )
+
+    public static var datetimeComponents = makeDateComponentsFormatter(
+        allowedUnits: [.year, .month, .day, .hour, .minute, .second]
+    )
 }
