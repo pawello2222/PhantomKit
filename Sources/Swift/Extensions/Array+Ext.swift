@@ -66,12 +66,12 @@ extension Array where Element: Equatable {
 
 // MARK: Toggle
 
-extension Array where Element: Identifiable {
-    public mutating func toggle(_ item: Element) {
-        if let index = firstIndex(where: \.id, equals: item.id) {
+extension Array where Element: Equatable {
+    public mutating func toggle(_ element: Element) {
+        if let index = firstIndex(where: \Element.self, equals: element) {
             remove(at: index)
         } else {
-            append(item)
+            append(element)
         }
     }
 }
