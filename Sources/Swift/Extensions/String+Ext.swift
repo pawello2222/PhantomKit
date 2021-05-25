@@ -13,3 +13,9 @@ extension String {
         "(\(self))"
     }
 }
+
+extension String {
+    var isHexNumber: Bool {
+        filter(\.isHexDigit).count == count
+    }
+}
