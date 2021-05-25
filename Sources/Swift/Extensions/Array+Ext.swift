@@ -78,10 +78,19 @@ extension Array where Element: Identifiable {
 
 // MARK: - Subscript
 
+extension Array {
+    public subscript(safe index: Int) -> Element? {
+        guard 0 ..< count ~= index else {
+            return nil
+        }
+        return self[index]
+    }
+}
+
 extension Array where Element: Equatable {
     public subscript(safe bounds: Range<Int>) -> ArraySlice<Element> {
-        let lower = bounds.lowerBound.clamped(to: 0...count)
-        let upper = bounds.upperBound.clamped(to: 0...count)
-        return self[lower..<upper]
+        let lower = bounds.lowerBound.clamped(to: 0 ... count)
+        let upper = bounds.upperBound.clamped(to: 0 ... count)
+        return self[lower ..< upper]
     }
 }

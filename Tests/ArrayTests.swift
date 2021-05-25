@@ -15,15 +15,26 @@ class ArrayTests: XCTestCase {
 
     override func tearDownWithError() throws {}
 
+    func test_array_safeIndexSubscript_shouldNotFail() throws {
+        let array = [1, 2, 3]
+
+        expect(array[safe: 0]).to(equal(1))
+        expect(array[safe: 2]).to(equal(3))
+        expect(array[safe: 3]).to(beNil())
+        expect(array[safe: -1]).to(beNil())
+        expect(array[safe: 100]).to(beNil())
+        expect(array[safe: -100]).to(beNil())
+    }
+
     func test_array_safeRangeSubscript_shouldNotFail() throws {
         let array = [1, 2, 3]
 
-        expect(array[safe: 0..<1]).to(equal([1]))
-        expect(array[safe: 0..<3]).to(equal([1, 2, 3]))
-        expect(array[safe: -1..<5]).to(equal([1, 2, 3]))
-        expect(array[safe: 2..<100]).to(equal([3]))
-        expect(array[safe: -100..<1]).to(equal([1]))
-        expect(array[safe: -100..<0]).to(equal([]))
-        expect(array[safe: 3..<100]).to(equal([]))
+        expect(array[safe: 0 ..< 1]).to(equal([1]))
+        expect(array[safe: 0 ..< 3]).to(equal([1, 2, 3]))
+        expect(array[safe: -1 ..< 5]).to(equal([1, 2, 3]))
+        expect(array[safe: 2 ..< 100]).to(equal([3]))
+        expect(array[safe: -100 ..< 1]).to(equal([1]))
+        expect(array[safe: -100 ..< 0]).to(equal([]))
+        expect(array[safe: 3 ..< 100]).to(equal([]))
     }
 }
