@@ -8,12 +8,10 @@ on:
 
 jobs:
   build:
-
     runs-on: macos-latest
-
     steps:
     - uses: actions/checkout@v2
-    - name: Build
-      run:  xcodebuild -scheme PhantomKit build -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12 Pro'
-    - name: Run tests
-      run:  xcodebuild -scheme PhantomKitTests test -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12 Pro'
+    - name: Build and Test
+      run:  xcodebuild test -scheme PhantomKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12 Pro' -enableCodeCoverage YES build test
+    - name: Codecov
+      run:  codecov/codecov-action@v1.5.0
