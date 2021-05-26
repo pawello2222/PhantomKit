@@ -3,6 +3,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/pawello2222/PhantomKit"><img src="https://img.shields.io/github/workflow/status/pawello2222/PhantomKit/build?logo=github" alt="Build"></a>
+  <a href="https://app.codecov.io/gh/pawello2222/PhantomKit"><img src="https://img.shields.io/codecov/c/github/pawello2222/PhantomKit?logo=codecov" alt="Code coverage"></a>
   <a href="https://github.com/pawello2222/PhantomKit"><img src="https://img.shields.io/badge/language-swift-orange.svg" alt="Language"></a>
   <a href="https://github.com/pawello2222/PhantomKit"><img src="https://img.shields.io/badge/platform-iOS-lightgrey" alt="Supported Platform"></a>
   <a href="https://github.com/pawello2222/PhantomKit"><img src="https://img.shields.io/badge/SPM-compatible-brightgreen.svg" alt="Swift Package Manager"></a>
