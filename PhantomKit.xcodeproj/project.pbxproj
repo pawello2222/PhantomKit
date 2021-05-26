@@ -258,11 +258,10 @@
 		E549C71826475B89004388C4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				E5638AE6265D6C9A00E73B05 /* ArrayTests.swift */,
-				E549C72D26484DD5004388C4 /* LocalizedFormatter */,
-				E5638B16265E938800E73B05 /* NSDecimalNumberTests.swift */,
-				E52A3135264C27E500017D94 /* RefreshGuardianTests.swift */,
-				E549C71B26475B89004388C4 /* Info.plist */,
+				E5638B1B265EB98F00E73B05 /* Extensions */,
+				E5638B19265EB98400E73B05 /* Formatters */,
+				E5638B1A265EB98B00E73B05 /* Network */,
+				E5638B1C265EB9C200E73B05 /* Resources */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -279,7 +278,7 @@
 			path = Formatters;
 			sourceTree = "<group>";
 		};
-		E549C72D26484DD5004388C4 /* LocalizedFormatter */ = {
+		E5638B19265EB98400E73B05 /* Formatters */ = {
 			isa = PBXGroup;
 			children = (
 				E549C7282647CB00004388C4 /* DecimalFormatterTests.swift */,
@@ -287,7 +286,32 @@
 				E549C7302648515D004388C4 /* PercentFormatterTests.swift */,
 				E549C739264895F4004388C4 /* DateFormatterTests.swift */,
 			);
-			path = LocalizedFormatter;
+			path = Formatters;
+			sourceTree = "<group>";
+		};
+		E5638B1A265EB98B00E73B05 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E52A3135264C27E500017D94 /* RefreshGuardianTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E5638B1B265EB98F00E73B05 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E5638AE6265D6C9A00E73B05 /* ArrayTests.swift */,
+				E5638B16265E938800E73B05 /* NSDecimalNumberTests.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E5638B1C265EB9C200E73B05 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E549C71B26475B89004388C4 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		E587B89D26430F4900F0F240 = {
@@ -810,7 +834,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DMCVYHA293;
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = Tests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -828,7 +852,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DMCVYHA293;
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = Tests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
