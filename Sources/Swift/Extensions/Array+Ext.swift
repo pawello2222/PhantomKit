@@ -41,6 +41,15 @@ extension Array {
             $0[keyPath: keyPath] == value
         }
     }
+
+    public func filter<Value>(
+        where keyPath: KeyPath<Element, Value>,
+        notEquals value: Value
+    ) -> Self where Value: Equatable {
+        filter {
+            $0[keyPath: keyPath] != value
+        }
+    }
 }
 
 extension Array {
@@ -54,24 +63,14 @@ extension Array {
     }
 }
 
-// MARK: Remove
-
-extension Array where Element: Equatable {
-    public mutating func removeFirst(_ item: Element) {
-        if let index = firstIndex(where: { $0 == item }) {
-            remove(at: index)
-        }
-    }
-}
-
 // MARK: Toggle
 
-extension Array where Element: Identifiable {
-    public mutating func toggle(_ item: Element) {
-        if let index = firstIndex(where: \.id, equals: item.id) {
+extension Array where Element: Equatable {
+    public mutating func toggle(_ element: Element) {
+        if let index = firstIndex(where: \.self, equals: element) {
             remove(at: index)
         } else {
-            append(item)
+            append(element)
         }
     }
 }

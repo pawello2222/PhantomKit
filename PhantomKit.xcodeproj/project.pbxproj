@@ -27,6 +27,7 @@
 		E55AB59F264ADA2A000D7441 /* Equatable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AB59E264ADA2A000D7441 /* Equatable+Ext.swift */; };
 		E5638AE5265D6AD800E73B05 /* Numbers+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5638AE4265D6AD800E73B05 /* Numbers+Ext.swift */; };
 		E5638AE8265D6DA100E73B05 /* ArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5638AE6265D6C9A00E73B05 /* ArrayTests.swift */; };
+		E5638B18265E939C00E73B05 /* NSDecimalNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5638B16265E938800E73B05 /* NSDecimalNumberTests.swift */; };
 		E587B8F926430FC900F0F240 /* Imports.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8B226430FC900F0F240 /* Imports.swift */; };
 		E587B8FA26430FC900F0F240 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8B326430FC900F0F240 /* Bundle.swift */; };
 		E587B8FB26430FC900F0F240 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8B826430FC900F0F240 /* LocalizableStrings.swift */; };
@@ -150,6 +151,7 @@
 		E55AB59E264ADA2A000D7441 /* Equatable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Equatable+Ext.swift"; sourceTree = "<group>"; };
 		E5638AE4265D6AD800E73B05 /* Numbers+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numbers+Ext.swift"; sourceTree = "<group>"; };
 		E5638AE6265D6C9A00E73B05 /* ArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayTests.swift; sourceTree = "<group>"; };
+		E5638B16265E938800E73B05 /* NSDecimalNumberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDecimalNumberTests.swift; sourceTree = "<group>"; };
 		E587B8A626430F4900F0F240 /* libPhantomKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPhantomKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E587B8B226430FC900F0F240 /* Imports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Imports.swift; sourceTree = "<group>"; };
 		E587B8B326430FC900F0F240 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			children = (
 				E5638AE6265D6C9A00E73B05 /* ArrayTests.swift */,
 				E549C72D26484DD5004388C4 /* LocalizedFormatter */,
+				E5638B16265E938800E73B05 /* NSDecimalNumberTests.swift */,
 				E52A3135264C27E500017D94 /* RefreshGuardianTests.swift */,
 				E549C71B26475B89004388C4 /* Info.plist */,
 			);
@@ -683,6 +686,7 @@
 				E549C73A264895F4004388C4 /* DateFormatterTests.swift in Sources */,
 				E5638AE8265D6DA100E73B05 /* ArrayTests.swift in Sources */,
 				E549C7312648515D004388C4 /* PercentFormatterTests.swift in Sources */,
+				E5638B18265E939C00E73B05 /* NSDecimalNumberTests.swift in Sources */,
 				E549C72F26484DFA004388C4 /* CurrencyFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

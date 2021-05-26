@@ -162,8 +162,9 @@ extension LocalizedFormatter {
     private func with<T>(precision: Precision?, _ block: () -> T) -> T {
         let existingMinimumFractionDigits = formatter.minimumFractionDigits
         let existingMaximumFractionDigits = formatter.maximumFractionDigits
-        formatter.minimumFractionDigits = precision?.minimum ?? defaultPrecision.minimum ?? 0
-        formatter.maximumFractionDigits = precision?.maximum ?? defaultPrecision.maximum ?? maximumAllowedFractionDigits
+        let precision = precision ?? defaultPrecision
+        formatter.minimumFractionDigits = precision.minimum ?? 0
+        formatter.maximumFractionDigits = precision.maximum ?? maximumAllowedFractionDigits
         let result = block()
         formatter.minimumFractionDigits = existingMinimumFractionDigits
         formatter.maximumFractionDigits = existingMaximumFractionDigits

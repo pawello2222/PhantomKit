@@ -77,13 +77,20 @@ class DecimalFormatterTests: XCTestCase {
         expect(self.usFormatter.string(from: 6_723_846.5673658, abbreviation: .default)).to(equal("6.72m"))
     }
 
-    func test_decimalFormatter_withLocalizedSign_shouldFormatDecimals() throws {
+    func test_decimalFormatter_withSign_shouldFormatDecimals() throws {
         expect(self.usFormatter.string(from: 123.456, sign: .none)).to(equal("123.46"))
         expect(self.usFormatter.string(from: 123.456, sign: .default)).to(equal("123.46"))
         expect(self.usFormatter.string(from: 123.456, sign: .both)).to(equal("+123.46"))
         expect(self.usFormatter.string(from: -123.456, sign: .none)).to(equal("123.46"))
         expect(self.usFormatter.string(from: -123.456, sign: .default)).to(equal("-123.46"))
         expect(self.usFormatter.string(from: -123.456, sign: .both)).to(equal("-123.46"))
+    }
+
+    func test_decimalFormatter_withArrowSign_shouldFormatDecimals() throws {
+        expect(self.usFormatter.string(from: 123.456, sign: .arrow)).to(equal("▲123.46"))
+        expect(self.usFormatter.string(from: -123.456, sign: .arrow)).to(equal("▼123.46"))
+        expect(self.usFormatter.string(from: 123.456, sign: .spacedArrow)).to(equal("▲ 123.46"))
+        expect(self.usFormatter.string(from: -123.456, sign: .spacedArrow)).to(equal("▼ 123.46"))
     }
 
     func test_decimalFormatter_withCustomSign_shouldFormatDecimals() throws {
@@ -131,7 +138,14 @@ class DecimalFormatterTests: XCTestCase {
     func test_decimalFormatter_withPrecision_shouldFormatDecimals() throws {
         expect(self.usFormatter.string(from: 0.123456789, precision: .default)).to(equal("0.12"))
         expect(self.usFormatter.string(from: 0.123456789, precision: .maximum)).to(equal("0.123456789"))
+        expect(self.usFormatter.string(from: 0.123456789, precision: .init())).to(equal("0.123456789"))
+        expect(self.usFormatter.string(from: 0.12, precision: .init(3...))).to(equal("0.120"))
+        expect(self.usFormatter.string(from: 0.123456789, precision: .init(3...))).to(equal("0.123456789"))
+        expect(self.usFormatter.string(from: 0.1234, precision: .init(...5))).to(equal("0.1234"))
+        expect(self.usFormatter.string(from: 0.123456789, precision: .init(...5))).to(equal("0.12346"))
         expect(self.usFormatter.string(from: 0.123456789, precision: .init(...9))).to(equal("0.123456789"))
+        expect(self.usFormatter.string(from: 0.123456, precision: .init(3 ... 9))).to(equal("0.123456"))
+        expect(self.usFormatter.string(from: 0.123456789, precision: .init(3 ... 9))).to(equal("0.123456789"))
         expect(self.usFormatter.string(from: 0.123456789, precision: .constant(4))).to(equal("0.1235"))
         expect(self.usFormatter.string(from: 0.123, precision: .constant(4))).to(equal("0.1230"))
     }
@@ -143,5 +157,21 @@ class DecimalFormatterTests: XCTestCase {
         expect(self.usFormatter
             .string(from: 123_456_789.123456789, abbreviation: .default, sign: .arrow, precision: .constant(4)))
             .to(equal("▲123.4568m"))
+    }
+
+    func test_decimalFormatter_shouldSetGroupingSeparator() throws {
+        let usFormatter = LocalizedFormatter.makeDecimalFormatter(locale: Locale(identifier: "en_US"))
+        expect(usFormatter.string(from: 123_456)).to(equal("123,456"))
+
+        usFormatter.usesGroupingSeparator = false
+        expect(usFormatter.string(from: 123_456)).to(equal("123456"))
+    }
+
+    func test_decimalFormatter_shouldHaveCorrectDecimalSeparators() throws {
+        let usFormatter = LocalizedFormatter.makeDecimalFormatter(locale: Locale(identifier: "en_US"))
+        expect(usFormatter.decimalSeparator).to(equal("."))
+
+        let plFormatter = LocalizedFormatter.makeDecimalFormatter(locale: Locale(identifier: "pl_PL"))
+        expect(plFormatter.decimalSeparator).to(equal(","))
     }
 }
