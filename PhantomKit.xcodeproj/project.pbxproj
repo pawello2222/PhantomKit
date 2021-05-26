@@ -638,6 +638,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E587B8AD26430F4900F0F240 /* Build configuration list for PBXNativeTarget "PhantomKit" */;
 			buildPhases = (
+				E5638B28265ECBCF00E73B05 /* Localization - SwiftGen */,
 				E587B8A226430F4900F0F240 /* Sources */,
 				E587B8A326430F4900F0F240 /* Frameworks */,
 				E587B8A426430F4900F0F240 /* CopyFiles */,
@@ -711,6 +712,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E5638B28265ECBCF00E73B05 /* Localization - SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Localization - SwiftGen";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftgen >/dev/null; then\n  swiftgen\nelse\n  echo \"swiftgen not installed\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E549C71326475B89004388C4 /* Sources */ = {
