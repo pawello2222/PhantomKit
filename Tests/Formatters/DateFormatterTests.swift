@@ -70,29 +70,10 @@ class DateFormatterTests: XCTestCase {
         expect(usFormatter.date(from: dateStr, timeZone: .gmt)).to(equal(date))
     }
 
-    func test_dateComponentsFormatter_withUnitsTime_shouldFormatTimeInterval() throws {
-        let usFormatter = LocalizedDateFormatter.makeDateComponentsFormatter(locale: .init(identifier: "en_US"))
+    func test_date_localizedString_shouldFormatDate() throws {
+        let usFormatter = LocalizedDateFormatter.makeDateFormatter(locale: .init(identifier: "en_US"))
+        let date = Date(year: 2000, month: 3, day: 24)
 
-        expect(usFormatter.string(from: TimeInterval(10))).to(equal("10 seconds"))
-    }
-
-    func test_dateComponentsFormatter_withUnitsTimeAndLocalePL_shouldFormatTimeInterval() throws {
-        let plFormatter = LocalizedDateFormatter.makeDateComponentsFormatter(locale: .init(identifier: "pl_PL"))
-
-        expect(plFormatter.string(from: TimeInterval(10))).to(equal("10 sekund"))
-    }
-
-    func test_dateComponentsFormatter_withUnitsTime_shouldFormatDateFromTo() throws {
-        let usFormatter = LocalizedDateFormatter.makeDateComponentsFormatter(locale: .init(identifier: "en_US"))
-        let now = Date()
-        let future = now.adjusting(.minute, by: 5)
-        expect(usFormatter.string(from: now, to: future)).to(equal("5 minutes"))
-    }
-
-    func test_dateComponentsFormatter_withUnitsDatetime_shouldFormatDateFromTo() throws {
-        let usFormatter = LocalizedDateFormatter.makeDateComponentsFormatter(locale: .init(identifier: "en_US"))
-        let now = Date()
-        let future = now.adjusting(.minute, by: 5)
-        expect(usFormatter.string(from: now, to: future)).to(equal("5 minutes"))
+        expect(date.localizedString(formatter: usFormatter)).to(equal("03/24/2000"))
     }
 }
