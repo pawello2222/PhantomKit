@@ -1,4 +1,4 @@
-name: ci
+name: build
 
 on:
   push:
@@ -11,8 +11,6 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
-    - name: SwiftLint
-      uses: norio-nomura/action-swiftlint@3.2.1
     - name: Build and Test
       run:  xcodebuild test -scheme PhantomKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12 Pro' -enableCodeCoverage YES build test
     - name: Codecov
