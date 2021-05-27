@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: TapGestureRecognizer
+
 extension UIApplication {
     public func addTapGestureRecognizer() {
         guard let window = window(\.isKeyWindow) else { return }
@@ -26,5 +28,13 @@ extension UIApplication: UIGestureRecognizerDelegate {
         shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer
     ) -> Bool {
         return false
+    }
+}
+
+// MARK: Editing
+
+extension UIApplication {
+    public func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
