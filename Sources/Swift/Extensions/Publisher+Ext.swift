@@ -38,15 +38,3 @@ extension Publishers.CombineLatest3 where A.Output: Equatable, B.Output: Equatab
         .eraseToAnyPublisher()
     }
 }
-
-extension Publishers.CombineLatest4 where A.Output: Equatable, B.Output: Equatable, C.Output: Equatable, D.Output: Equatable {
-    public func removeAllDuplicates() -> AnyPublisher<Output, Failure> {
-        Publishers.CombineLatest4(
-            a.removeDuplicates(),
-            b.removeDuplicates(),
-            c.removeDuplicates(),
-            d.removeDuplicates()
-        )
-        .eraseToAnyPublisher()
-    }
-}
