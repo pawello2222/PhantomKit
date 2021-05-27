@@ -33,7 +33,13 @@ public struct PresentationModifier<Destination>: ViewModifier where Destination:
     public func body(content: Content) -> some View {
         transitionBody(
             content
-                .modifier(PresentationTriggerModifier(trigger: method.trigger, isActive: $isActive, onTrigger: onTrigger))
+                .modifier(
+                    PresentationTriggerModifier(
+                        trigger: method.trigger,
+                        isActive: $isActive,
+                        onTrigger: onTrigger
+                    )
+                )
         )
     }
 }

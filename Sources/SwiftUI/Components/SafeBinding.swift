@@ -8,9 +8,10 @@
 
 import SwiftUI
 
-public struct SafeBinding<Collection, Content>: View
-    where Collection: RandomAccessCollection & MutableCollection, Content: View
-{
+public struct SafeBinding<
+    Collection: RandomAccessCollection & MutableCollection,
+    Content: View
+>: View {
     public typealias CollectionBinding = Binding<Collection>
     public typealias ElementBinding = Binding<Collection.Element>
     private let binding: ElementBinding

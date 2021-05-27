@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+// swiftlint:disable multiple_closures_with_trailing_closure
 extension Button where Label == Text {
     public init(_ title: String) {
         self.init(action: {}) {

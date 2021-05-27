@@ -9,7 +9,7 @@
 import SwiftUI
 
 // Adapted from: https://github.com/siteline/SwiftUIRefresh
-// TODO: Use the original implementation once it's fixed
+#warning("TODO: Use the original implementation once it's fixed")
 public struct PullToRefresh: UIViewRepresentable {
     @Binding private var isShowing: Bool
     private let onRefresh: () -> Void
