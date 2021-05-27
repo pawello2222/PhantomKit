@@ -42,10 +42,10 @@ extension SplitPicker {
 
 extension SplitPicker.SelectionView {
     private func itemView(item: SplitPicker.Item) -> some View {
-        Button(action: {
+        Button {
             selection = item.selection
             presentationMode.wrappedValue.dismiss()
-        }) {
+        } label: {
             HStack {
                 if showMultiLabels {
                     itemMultiLabelView(item: item)

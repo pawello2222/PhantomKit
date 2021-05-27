@@ -26,6 +26,7 @@ extension NSDecimalNumber {
     }
 }
 
+// swiftlint:disable shorthand_operator
 extension NSDecimalNumber {
     public static func += (lhs: inout NSDecimalNumber, rhs: NSDecimalNumber) {
         lhs = lhs + rhs

@@ -1,0 +1,7 @@
+disabled_rules:
+  - nesting
+  - trailing_comma
+  - type_name
+
+identifier_name:
+  min_length: 2

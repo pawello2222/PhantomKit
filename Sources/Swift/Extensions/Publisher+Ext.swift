@@ -16,7 +16,7 @@ extension Publisher {
     }
 }
 
-// MARK: -  Combine Latest
+// MARK: - Combine Latest
 
 extension Publishers.CombineLatest where A.Output: Equatable, B.Output: Equatable {
     public func removeAllDuplicates() -> AnyPublisher<Output, Failure> {

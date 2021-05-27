@@ -76,6 +76,7 @@ class NSDecimalNumberTests: XCTestCase {
         expect(lhs).to(equal(result))
     }
 
+    // swiftlint:disable identifier_name
     func test_nsDecimalNumber_shouldCompareNumbers() throws {
         let a = NSDecimalNumber(string: "-1.23")
         let b = NSDecimalNumber(string: "0.437")
