@@ -95,6 +95,7 @@
 		E5AB538C264EDD9600D993AE /* Async in Frameworks */ = {isa = PBXBuildFile; productRef = E5AB538B264EDD9600D993AE /* Async */; };
 		E5AB538E264EE08600D993AE /* ContinuousProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */; };
 		E5ABD6D826604FE800082241 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD6D726604FE800082241 /* SearchBar.swift */; };
+		E5ABD6DD2661024100082241 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD6DC2661024100082241 /* Message.swift */; };
 		E5C7EBAB264C5B7D00E74EEF /* LastUpdatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */; };
 		E5C7EBB0264C758F00E74EEF /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */; };
 		E5C7EBB2264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBB1264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift */; };
@@ -224,6 +225,7 @@
 		E5888AE4265C612A00FC185E /* UserDefaults+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Ext.swift"; sourceTree = "<group>"; };
 		E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousProgressViewStyle.swift; sourceTree = "<group>"; };
 		E5ABD6D726604FE800082241 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		E5ABD6DC2661024100082241 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdatedView.swift; sourceTree = "<group>"; };
 		E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		E5C7EBB1264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedFormatter+Abbreviation.swift"; sourceTree = "<group>"; };
@@ -587,6 +589,7 @@
 			isa = PBXGroup;
 			children = (
 				E549C70B2645D526004388C4 /* Logger.swift */,
+				E5ABD6DC2661024100082241 /* Message.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -812,6 +815,7 @@
 				E587B92726430FC900F0F240 /* AboutView+Section+Item.swift in Sources */,
 				E5888A9626583E3F00FC185E /* SafeBinding.swift in Sources */,
 				E587B91626430FC900F0F240 /* SimpleLabelStyle.swift in Sources */,
+				E5ABD6DD2661024100082241 /* Message.swift in Sources */,
 				E587B90426430FC900F0F240 /* NotificationCenter+Ext.swift in Sources */,
 				E5888A982658591900FC185E /* AppTheme.swift in Sources */,
 				E587B90026430FC900F0F240 /* Published+Ext.swift in Sources */,
