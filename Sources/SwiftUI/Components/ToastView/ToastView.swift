@@ -83,8 +83,6 @@ extension ToastView where Content == Text {
     }
 
     public init(_ message: Message, style: Style = .info) {
-        self.init(style: style) {
-            Text(message.text)
-        }
+        self.init(message.text, style: style)
     }
 }
