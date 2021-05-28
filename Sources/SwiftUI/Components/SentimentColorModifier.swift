@@ -23,12 +23,12 @@ public struct SentimentColorModifier: ViewModifier {
     }
 
     private var color: Color {
-        if value == 0 {
-            return theme.neutralSentimentColor
-        } else if value > 0 {
+        if value > 0 {
             return theme.positiveSentimentColor
-        } else {
+        } else if value < 0 {
             return theme.negativeSentimentColor
+        } else {
+            return theme.neutralSentimentColor
         }
     }
 }
