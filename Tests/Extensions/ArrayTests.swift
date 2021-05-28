@@ -18,6 +18,8 @@ class ArrayTests: XCTestCase {
     func test_array_keyPaths_shouldWorkForEquatableElements() throws {
         var array = [3, 1, 2, 3, 1]
 
+        expect(array.contains(where: \.self, equals: 1)).to(beTrue())
+        expect(array.contains(where: \.self, equals: 4)).to(beFalse())
         expect(array.firstIndex(where: \.self, equals: 1)).to(equal(1))
         expect(array.first(where: \.self, equals: 1)).to(equal(1))
         expect(array.filter(where: \.self, equals: 1)).to(equal([1, 1]))

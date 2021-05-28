@@ -11,6 +11,17 @@ import Foundation
 // MARK: KeyPath
 
 extension Array {
+    public func contains<Value>(
+        where keyPath: KeyPath<Element, Value>,
+        equals value: Value
+    ) -> Bool where Value: Equatable {
+        contains {
+            $0[keyPath: keyPath] == value
+        }
+    }
+}
+
+extension Array {
     public func firstIndex<Value>(
         where keyPath: KeyPath<Element, Value>,
         equals value: Value
