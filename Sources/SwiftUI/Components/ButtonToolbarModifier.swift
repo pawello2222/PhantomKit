@@ -31,7 +31,7 @@ public struct ButtonToolbarModifier: ViewModifier {
     }
 }
 
-// MARK: View
+// MARK: - View
 
 extension View {
     public func cancelButtonToolbar() -> some View {
