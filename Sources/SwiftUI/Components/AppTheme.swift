@@ -59,17 +59,13 @@ public struct AppTheme: MutableAppliable, UserInfoContainer {
     // MARK: - Sentiment Color
 
     /// The color for representing positive sentiment.
-    ///
-    /// Use sentiment colors for items that represent positive or negative outcomes.
-    /// Use this color to for outcomes, such as the validation succeeded.
     public var positiveSentimentColor: Color
 
     /// The color for representing negative sentiment.
-    ///
-    /// Use sentiment colors for items that represent positive or negative outcomes.
-    /// Use this color to for outcomes, such as the validation failed or require
-    /// user's attention.
     public var negativeSentimentColor: Color
+
+    /// The color for representing neutral sentiment.
+    public var neutralSentimentColor: Color
 
     /// Additional info which may be used to describe the theme further.
     public var userInfo: UserInfo
@@ -97,6 +93,7 @@ public struct AppTheme: MutableAppliable, UserInfoContainer {
         // Sentiment
         positiveSentimentColor: Color,
         negativeSentimentColor: Color,
+        neutralSentimentColor: Color,
 
         // UserInfo
         userInfo: UserInfo = [:]
@@ -123,6 +120,7 @@ public struct AppTheme: MutableAppliable, UserInfoContainer {
         // Sentiment
         self.positiveSentimentColor = positiveSentimentColor
         self.negativeSentimentColor = negativeSentimentColor
+        self.neutralSentimentColor = neutralSentimentColor
 
         // UserInfo
         self.userInfo = userInfo
@@ -238,7 +236,8 @@ extension AppTheme {
 
         // Sentiment
         positiveSentimentColor: .green,
-        negativeSentimentColor: .red
+        negativeSentimentColor: .red,
+        neutralSentimentColor: .secondary
     )
 }
 
