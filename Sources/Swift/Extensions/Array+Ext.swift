@@ -8,6 +8,18 @@
 
 import Foundation
 
+// MARK: Iterator
+
+extension Array {
+    public func next(looped: Bool = false) -> Element? {
+        var iterator = makeIterator()
+        guard let next = iterator.next() else {
+            return looped ? first : nil
+        }
+        return next
+    }
+}
+
 // MARK: KeyPath
 
 extension Array {
