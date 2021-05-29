@@ -11,12 +11,22 @@ import Foundation
 // MARK: Iterator
 
 extension Array {
-    public func next(looped: Bool = false) -> Element? {
-        var iterator = makeIterator()
-        guard let next = iterator.next() else {
+    public func next(ofIndex index: Index, looped: Bool = false) -> Element? where Element: Equatable {
+        guard indices.contains(index) else {
+            return nil
+        }
+        let nextIndex = self.index(after: index)
+        guard nextIndex != endIndex else {
             return looped ? first : nil
         }
-        return next
+        return self[nextIndex]
+    }
+
+    public func next(of element: Element, looped: Bool = false) -> Element? where Element: Equatable {
+        guard let currentIndex = firstIndex(where: \.self, equals: element) else {
+            return nil
+        }
+        return next(ofIndex: currentIndex, looped: looped)
     }
 }
 
