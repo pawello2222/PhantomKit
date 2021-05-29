@@ -18,6 +18,14 @@ public struct Message: Hashable, Equatable {
     }
 }
 
+// MARK: - ExpressibleByStringLiteral
+
+extension Message: ExpressibleByStringLiteral {
+    public init(stringLiteral value: String) {
+        self.init(value)
+    }
+}
+
 // MARK: - Convenience
 
 extension Message {
