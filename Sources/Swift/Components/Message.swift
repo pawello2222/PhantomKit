@@ -25,4 +25,11 @@ extension Message {
         title = ""
         self.text = text
     }
+
+    public init?(_ text: String?) {
+        guard let text = text else {
+            return nil
+        }
+        self.init(text)
+    }
 }
