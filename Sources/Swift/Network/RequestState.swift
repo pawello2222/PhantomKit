@@ -13,10 +13,11 @@ public enum RequestState: Equatable {
     case inProgress
     case succeeded
     case failed
+    case cancelled
 }
 
 extension RequestState {
     public var isFinished: Bool {
-        isContained(in: [.succeeded, .failed])
+        isContained(in: [.succeeded, .failed, .cancelled])
     }
 }
