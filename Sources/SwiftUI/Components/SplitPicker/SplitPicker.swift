@@ -51,7 +51,7 @@ public struct SplitPicker<
 
     @ViewBuilder
     private var selectedItemView: some View {
-        if let selectedItem = items.first(where: { $0.selection == selection }) {
+        if let selectedItem = items.first(where: \.selection, equals: selection) {
             Text(String(selectedItem.short))
                 .foregroundColor(theme.secondaryColor)
         }

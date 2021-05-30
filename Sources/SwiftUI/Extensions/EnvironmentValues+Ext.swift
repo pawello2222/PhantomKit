@@ -34,6 +34,19 @@ extension EnvironmentValues {
     }
 }
 
+// MARK: - DefaultShortLabelWidth
+
+extension EnvironmentValues {
+    private struct DefaultShortLabelWidthKey: EnvironmentKey {
+        static var defaultValue: CGFloat = 50
+    }
+
+    public var defaultShortLabelWidth: CGFloat {
+        get { self[DefaultShortLabelWidthKey.self] }
+        set { self[DefaultShortLabelWidthKey.self] = newValue }
+    }
+}
+
 // MARK: - GeometrySize
 
 extension EnvironmentValues {
@@ -69,6 +82,10 @@ extension View {
 
     public func defaultIconHeight(_ value: CGFloat) -> some View {
         environment(\.defaultIconHeight, value)
+    }
+
+    public func defaultShortLabelWidth(_ value: CGFloat) -> some View {
+        environment(\.defaultShortLabelWidth, value)
     }
 
     public func geometrySize(_ size: CGSize) -> some View {
