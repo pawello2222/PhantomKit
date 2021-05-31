@@ -58,30 +58,3 @@ extension LocalizedFormatter.Precision {
         .init(value ... value)
     }
 }
-
-extension LocalizedFormatter.Precision {
-    public static func progressive(relativeTo value: NSDecimalNumber) -> Self {
-        switch abs(value.decimalValue) {
-        case ..<10:
-            return .constant(3)
-        default:
-            return .constant(2)
-        }
-    }
-
-    public static func progressive(relativeTo value: Int) -> Self {
-        .progressive(relativeTo: NSDecimalNumber(value: value))
-    }
-
-    public static func progressive(relativeTo value: Float) -> Self {
-        .progressive(relativeTo: NSDecimalNumber(value: value))
-    }
-
-    public static func progressive(relativeTo value: Double) -> Self {
-        .progressive(relativeTo: NSDecimalNumber(value: value))
-    }
-
-    public static func progressive(relativeTo value: Decimal) -> Self {
-        .progressive(relativeTo: NSDecimalNumber(decimal: value))
-    }
-}
