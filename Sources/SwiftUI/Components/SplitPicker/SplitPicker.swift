@@ -15,7 +15,6 @@ public struct SplitPicker<
     LongValue: Hashable & LosslessStringConvertible
 >: View {
     public typealias Item = PickerItem<Selection, ShortValue, LongValue>
-
     @Environment(\.appTheme) private var theme
     @Binding private var selection: Selection
     private let items: [Item]

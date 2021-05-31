@@ -17,8 +17,6 @@ extension SplitPicker {
         private let items: [Item]
         private var showMultiLabels: Bool
 
-        @State private var shortLabelWidth: CGFloat = 0
-
         init(
             selection: Binding<Selection>,
             items: [Item],
@@ -70,20 +68,16 @@ extension SplitPicker.SelectionView {
 
 extension SplitPicker.SelectionView {
     private func itemLabelView(item: SplitPicker.Item) -> some View {
-        HStack {
-            Text(String(item.long))
-                .foregroundColor(theme.primaryColor)
-            Spacer()
-        }
+        Text(String(item.long))
+            .foregroundColor(theme.primaryColor)
+            .aligned(.leading)
     }
 }
 
 extension SplitPicker.SelectionView {
     private func itemMultiLabelView(item: SplitPicker.Item) -> some View {
         HStack {
-            Text(String(item.short))
-                .foregroundColor(theme.primaryColor)
-                .aligned(.leading)
+            itemLabelView(item: item)
                 .frame(maxWidth: labelWidth)
             Text(String(item.long))
                 .font(.app(.subheadline))
