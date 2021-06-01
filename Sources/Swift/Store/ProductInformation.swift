@@ -14,4 +14,9 @@ public struct ProductInformation {
 
     public let identifier: Identifier
     public let period: SubscriptionPeriod?
+
+    public init(identifier: Identifier, period: SubscriptionPeriod? = nil) {
+        self.identifier = identifier
+        self.period = period
+    }
 }
