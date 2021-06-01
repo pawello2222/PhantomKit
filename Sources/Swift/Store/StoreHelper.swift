@@ -62,8 +62,8 @@ extension StoreHelper {
         SKPaymentQueue.default().add(payment)
     }
 
-    public func isProductPurchased(_ productIdentifier: ProductInformation.Identifier) -> Bool {
-        purchasedProductIdentifiers.contains(productIdentifier)
+    public func isProductPurchased(_ product: ProductInformation) -> Bool {
+        purchasedProductIdentifiers.contains(product.identifier)
     }
 
     public class func canMakePayments() -> Bool {
@@ -159,8 +159,8 @@ extension StoreHelper: SKPaymentTransactionObserver {
         guard
             let transactionDate = transaction.transactionDate,
             let period = products
-                .first(where: \.identifier, equals: transaction.payment.productIdentifier)?
-                .period
+            .first(where: \.identifier, equals: transaction.payment.productIdentifier)?
+            .period
         else {
             return true
         }
