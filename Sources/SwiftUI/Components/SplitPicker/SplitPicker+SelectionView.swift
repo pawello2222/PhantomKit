@@ -78,9 +78,10 @@ extension SplitPicker.SelectionView {
     private func itemMultiLabelView(item: SplitPicker.Item) -> some View {
         HStack {
             Text(String(item.short))
+                .allowsTightening(true)
                 .foregroundColor(theme.primaryColor)
                 .aligned(.leading)
-                .frame(maxWidth: labelWidth)
+                .frame(width: labelWidth)
             Text(String(item.long))
                 .font(.app(.subheadline))
                 .foregroundColor(theme.secondaryColor)
