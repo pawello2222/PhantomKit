@@ -113,7 +113,7 @@ extension StoreHelper: SKPaymentTransactionObserver {
     private func process(completedTransactions: [SKPaymentTransaction]) {
         completedTransactions.forEach {
             log(message: "Transaction completed (\($0.payment.productIdentifier))")
-            deliverPurchaseNotification(for: $0.payment.productIdentifier)
+            processPurchasedProduct(identifier: $0.payment.productIdentifier)
             SKPaymentQueue.default().finishTransaction($0)
         }
     }
@@ -141,15 +141,14 @@ extension StoreHelper: SKPaymentTransactionObserver {
             log(message: "Transaction restored (\(identifier))")
             if isValid(transaction: $0) {
                 validProductIdentifiers.append(identifier)
-                deliverPurchaseNotification(for: identifier)
+                processPurchasedProduct(identifier: identifier)
             }
             SKPaymentQueue.default().finishTransaction($0)
         }
         sendRestoreValidProductsNotification(for: validProductIdentifiers)
     }
 
-    private func deliverPurchaseNotification(for productIdentifier: String?) {
-        guard let identifier = productIdentifier else { return }
+    private func processPurchasedProduct(identifier: String) {
         purchasedProductIdentifiers.insert(identifier)
         suite.set(true, forKey: identifier)
         sendPurchaseProductNotification(for: identifier)
@@ -159,8 +158,8 @@ extension StoreHelper: SKPaymentTransactionObserver {
         guard
             let transactionDate = transaction.transactionDate,
             let period = products
-            .first(where: \.identifier, equals: transaction.payment.productIdentifier)?
-            .period
+                .first(where: \.identifier, equals: transaction.payment.productIdentifier)?
+                .period
         else {
             return true
         }
