@@ -20,3 +20,11 @@ public struct ProductInformation {
         self.period = period
     }
 }
+
+// MARK: - Equatable
+
+extension ProductInformation: Equatable {
+    public static func == (lhs: ProductInformation, rhs: ProductInformation) -> Bool {
+        lhs.identifier == rhs.identifier
+    }
+}
