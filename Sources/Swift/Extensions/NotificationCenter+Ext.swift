@@ -9,9 +9,37 @@
 import Combine
 
 extension NotificationCenter.Event {
-    public var orientationDidChangePublisher: AnyPublisher<Notification, Never> {
-        NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)
+    public func notificationPublisher(for name: Notification.Name) -> AnyPublisher<Notification, Never> {
+        NotificationCenter.default.publisher(for: name)
             .receiveOnMain()
             .eraseToAnyPublisher()
+    }
+}
+
+// MARK: - UIDevice
+
+extension NotificationCenter.Event {
+    public var orientationDidChangePublisher: AnyPublisher<Notification, Never> {
+        notificationPublisher(for: UIDevice.orientationDidChangeNotification)
+    }
+}
+
+// MARK: - StoreHelper
+
+extension NotificationCenter.Event {
+    public var didPurchaseProductPublisher: AnyPublisher<Notification, Never> {
+        notificationPublisher(for: StoreHelper.didPurchaseProductNotification)
+    }
+
+    public var didFailTransactionPublisher: AnyPublisher<Notification, Never> {
+        notificationPublisher(for: StoreHelper.didFailTransactionNotification)
+    }
+
+    public var didRestoreValidProductsPublisher: AnyPublisher<Notification, Never> {
+        notificationPublisher(for: StoreHelper.didRestoreValidProductsNotification)
+    }
+
+    public var didProcessTransactionsPublisher: AnyPublisher<Notification, Never> {
+        notificationPublisher(for: StoreHelper.didProcessTransactionsNotification)
     }
 }
