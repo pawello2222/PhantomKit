@@ -12,7 +12,7 @@ import SwiftUI
 public struct AppTheme: MutableAppliable, UserInfoContainer {
     public typealias Identifier = Xcore.Identifier<Self>
     public typealias ButtonColor = (ButtonIdentifier, ButtonState) -> Color
-    public typealias ButtonGradientColors = (ButtonIdentifier, ButtonState) -> [Color]
+    public typealias ButtonGradientColors = (ButtonState) -> [Color]
 
     /// A unique id for the theme.
     public var id: Identifier
@@ -139,7 +139,7 @@ extension AppTheme {
     }
 
     public func buttonBackgroundGradientColors(_ state: ButtonState = .normal) -> [Color] {
-        buttonBackgroundGradientColors(.plain, state)
+        buttonBackgroundGradientColors(state)
     }
 }
 
@@ -223,14 +223,12 @@ extension AppTheme {
         },
 
         // Button Background
-        buttonBackgroundGradientColors: { style, state in
-            switch (style, state) {
-            case (_, .normal):
-                return [.accentColor]
-            case (_, .pressed):
-                return [.accentColor]
-            case (_, .disabled):
+        buttonBackgroundGradientColors: { state in
+            switch state {
+            case .disabled:
                 return [.gray]
+            default:
+                return [.accentColor]
             }
         },
 
@@ -246,11 +244,11 @@ extension AppTheme {
 extension AppTheme {
     public static let common = AppTheme.system.applying {
         $0.id = "common"
-        $0.buttonBackgroundGradientColors = { style, state in
-            switch (style, state) {
-            case (_, .disabled):
+        $0.buttonBackgroundGradientColors = { state in
+            switch state {
+            case .disabled:
                 return [.init(.gray), .init(.lightGray)]
-            case (_, _):
+            default:
                 return [.red, .orange]
             }
         }
