@@ -123,9 +123,7 @@ extension StoreHelper: SKPaymentTransactionObserver {
         failedTransactions.forEach {
             if let error = $0.error as NSError? {
                 log(error: "Transaction failed (\($0.payment.productIdentifier)) - \(error.description)")
-                if error.code != SKError.paymentCancelled.rawValue {
-                    sendDidFailTransactionNotification(with: error)
-                }
+                sendDidFailTransactionNotification(with: error)
             }
             SKPaymentQueue.default().finishTransaction($0)
         }
@@ -200,7 +198,7 @@ extension StoreHelper {
 
 extension OSLog {
     private static let subsystem = Bundle.phantomKit.identifier
-    fileprivate static let store = OSLog(subsystem: subsystem, category: "Store")
+    fileprivate static let store = OSLog(subsystem: subsystem, category: "StoreHelper")
 }
 
 extension StoreHelper {
