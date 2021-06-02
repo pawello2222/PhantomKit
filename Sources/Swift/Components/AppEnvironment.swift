@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol AppEnvironment {
+public protocol AppEnvironment {
     static func create()
 }
 
 extension AppEnvironment {
-    static var isDebug: Bool {
+    public static var isDebug: Bool {
         #if DEBUG
         return true
         #else
