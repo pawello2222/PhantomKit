@@ -10,7 +10,7 @@ import os.log
 import StoreKit
 
 public class StoreHelper: NSObject {
-    public typealias ProductsRequestCompletion = (_ products: [SKProduct]?, _ error: Error?) -> Void
+    public typealias ProductsRequestCompletion = (Result<[SKProduct], Error>) -> Void
 
     private let products: [ProductInformation]
     private var purchasedProductIdentifiers: Set<ProductInformation.Identifier> = []
@@ -88,13 +88,13 @@ extension StoreHelper: SKProductsRequestDelegate {
         response.products.forEach {
             log(message: "Found product: \($0)")
         }
-        productsRequestCompletion?(response.products, nil)
+        productsRequestCompletion?(.success(response.products))
         clearRequest()
     }
 
     public func request(_ request: SKRequest, didFailWithError error: Error) {
         log(error: "Products request error - \(error.nsErrorDescription)")
-        productsRequestCompletion?(nil, error)
+        productsRequestCompletion?(.failure(error))
         clearRequest()
     }
 }
@@ -104,10 +104,11 @@ extension StoreHelper: SKProductsRequestDelegate {
 extension StoreHelper: SKPaymentTransactionObserver {
     public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         log(message: "Received updated transactions")
+        let map = Dictionary(grouping: transactions, by: \.transactionState).mapValues(\.count)
         process(completedTransactions: transactions.filter(where: \.transactionState, equals: .purchased))
         process(failedTransactions: transactions.filter(where: \.transactionState, equals: .failed))
         process(restoredTransactions: transactions.filter(where: \.transactionState, equals: .restored))
-        sendUpdateFinishedNotification()
+        sendDidProcessTransactionsNotification(map: map)
     }
 
     private func process(completedTransactions: [SKPaymentTransaction]) {
@@ -123,7 +124,7 @@ extension StoreHelper: SKPaymentTransactionObserver {
             if let error = $0.error as NSError? {
                 log(error: "Transaction failed (\($0.payment.productIdentifier)) - \(error.description)")
                 if error.code != SKError.paymentCancelled.rawValue {
-                    sendFailProductNotification(for: error)
+                    sendDidFailTransactionNotification(with: error)
                 }
             }
             SKPaymentQueue.default().finishTransaction($0)
@@ -138,20 +139,21 @@ extension StoreHelper: SKPaymentTransactionObserver {
         var validProductIdentifiers: [ProductInformation.Identifier] = []
         restoredTransactions.forEach {
             let identifier = $0.payment.productIdentifier
-            log(message: "Transaction restored (\(identifier))")
+            log(message: "Transaction restored (\(identifier)) (\(String(describing: $0.transactionDate))")
             if isValid(transaction: $0) {
+                log(message: "Transaction valid (\(identifier)) (\(String(describing: $0.transactionDate))")
                 validProductIdentifiers.append(identifier)
                 processPurchasedProduct(identifier: identifier)
             }
             SKPaymentQueue.default().finishTransaction($0)
         }
-        sendRestoreValidProductsNotification(for: validProductIdentifiers)
+        sendDidRestoreValidProductsNotification(for: validProductIdentifiers)
     }
 
     private func processPurchasedProduct(identifier: String) {
         purchasedProductIdentifiers.insert(identifier)
         suite.set(true, forKey: identifier)
-        sendPurchaseProductNotification(for: identifier)
+        sendDidPurchaseProductNotification(for: identifier)
     }
 
     private func isValid(transaction: SKPaymentTransaction) -> Bool {
@@ -170,27 +172,27 @@ extension StoreHelper: SKPaymentTransactionObserver {
 // MARK: - Notifications
 
 extension StoreHelper {
-    public static var purchaseProductNotification: Notification.Name { .init(#function) }
-    public static var failProductNotification: Notification.Name { .init(#function) }
-    public static var restoreValidProductsNotification: Notification.Name { .init(#function) }
-    public static var updateFinishedNotification: Notification.Name { .init(#function) }
+    public static var didPurchaseProductNotification: Notification.Name { .init(#function) }
+    public static var didFailTransactionNotification: Notification.Name { .init(#function) }
+    public static var didRestoreValidProductsNotification: Notification.Name { .init(#function) }
+    public static var didProcessTransactionsNotification: Notification.Name { .init(#function) }
 }
 
 extension StoreHelper {
-    private func sendPurchaseProductNotification(for identifier: ProductInformation.Identifier) {
-        NotificationCenter.default.post(name: Self.purchaseProductNotification, object: identifier)
+    private func sendDidPurchaseProductNotification(for identifier: ProductInformation.Identifier) {
+        NotificationCenter.default.post(name: Self.didPurchaseProductNotification, object: identifier)
     }
 
-    private func sendFailProductNotification(for error: Error) {
-        NotificationCenter.default.post(name: Self.failProductNotification, object: error)
+    private func sendDidFailTransactionNotification(with error: Error) {
+        NotificationCenter.default.post(name: Self.didFailTransactionNotification, object: error)
     }
 
-    private func sendRestoreValidProductsNotification(for identifiers: [ProductInformation.Identifier]) {
-        NotificationCenter.default.post(name: Self.restoreValidProductsNotification, object: identifiers)
+    private func sendDidRestoreValidProductsNotification(for identifiers: [ProductInformation.Identifier]) {
+        NotificationCenter.default.post(name: Self.didRestoreValidProductsNotification, object: identifiers)
     }
 
-    private func sendUpdateFinishedNotification() {
-        NotificationCenter.default.post(name: Self.updateFinishedNotification, object: nil)
+    private func sendDidProcessTransactionsNotification(map: [SKPaymentTransactionState: Int]) {
+        NotificationCenter.default.post(name: Self.didProcessTransactionsNotification, object: map)
     }
 }
 
