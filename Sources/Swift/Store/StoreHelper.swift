@@ -62,8 +62,8 @@ extension StoreHelper {
         SKPaymentQueue.default().add(payment)
     }
 
-    public func isProductPurchased(_ product: ProductInformation) -> Bool {
-        purchasedProductIdentifiers.contains(product.identifier)
+    public func isProductPurchased(_ productIdentifier: ProductInformation.Identifier) -> Bool {
+        purchasedProductIdentifiers.contains(productIdentifier)
     }
 
     public class func canMakePayments() -> Bool {
