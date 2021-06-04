@@ -21,7 +21,7 @@ extension SKStoreReviewController {
 // MARK: - SKProductSubscriptionPeriod
 
 extension SKProductSubscriptionPeriod {
-    var durationTitle: String {
+    public var durationTitle: String {
         switch unit {
         case .day:
             return "day"
