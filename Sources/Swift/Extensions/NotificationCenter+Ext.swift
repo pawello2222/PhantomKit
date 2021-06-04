@@ -23,23 +23,3 @@ extension NotificationCenter.Event {
         notificationPublisher(for: UIDevice.orientationDidChangeNotification)
     }
 }
-
-// MARK: - StoreHelper
-
-extension NotificationCenter.Event {
-    public var didPurchaseProductPublisher: AnyPublisher<Notification, Never> {
-        notificationPublisher(for: StoreHelper.didPurchaseProductNotification)
-    }
-
-    public var didFailTransactionPublisher: AnyPublisher<Notification, Never> {
-        notificationPublisher(for: StoreHelper.didFailTransactionNotification)
-    }
-
-    public var didRestoreValidProductsPublisher: AnyPublisher<Notification, Never> {
-        notificationPublisher(for: StoreHelper.didRestoreValidProductsNotification)
-    }
-
-    public var didProcessTransactionsPublisher: AnyPublisher<Notification, Never> {
-        notificationPublisher(for: StoreHelper.didProcessTransactionsNotification)
-    }
-}

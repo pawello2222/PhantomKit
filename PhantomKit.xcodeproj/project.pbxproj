@@ -98,8 +98,6 @@
 		E5ABD6DD2661024100082241 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD6DC2661024100082241 /* Message.swift */; };
 		E5ABD6F926614A4800082241 /* SentimentColorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD6F826614A4800082241 /* SentimentColorModifier.swift */; };
 		E5ABD7192662F32300082241 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD7182662F32300082241 /* PopupView.swift */; };
-		E5ABD73E2666C5CD00082241 /* StoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD73D2666C5CC00082241 /* StoreHelper.swift */; };
-		E5ABD7402666DB5300082241 /* ProductInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD73F2666DB5300082241 /* ProductInformation.swift */; };
 		E5ABD7422667E28100082241 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD7412667E28100082241 /* AppEnvironment.swift */; };
 		E5ABD74526682EC500082241 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD74426682EC500082241 /* LoaderView.swift */; };
 		E5C7EBAB264C5B7D00E74EEF /* LastUpdatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */; };
@@ -234,8 +232,6 @@
 		E5ABD6DC2661024100082241 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		E5ABD6F826614A4800082241 /* SentimentColorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimentColorModifier.swift; sourceTree = "<group>"; };
 		E5ABD7182662F32300082241 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
-		E5ABD73D2666C5CC00082241 /* StoreHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreHelper.swift; sourceTree = "<group>"; };
-		E5ABD73F2666DB5300082241 /* ProductInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInformation.swift; sourceTree = "<group>"; };
 		E5ABD7412667E28100082241 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		E5ABD74426682EC500082241 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdatedView.swift; sourceTree = "<group>"; };
@@ -407,7 +403,6 @@
 				E587B8BD26430FC900F0F240 /* Extensions */,
 				E549C7252647CA6E004388C4 /* Formatters */,
 				E587B8BA26430FC900F0F240 /* Network */,
-				E5ABD73C2666C5BA00082241 /* Store */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -590,15 +585,6 @@
 				E587B8DC26430FC900F0F240 /* SimpleLabelStyle.swift */,
 			);
 			path = Styles;
-			sourceTree = "<group>";
-		};
-		E5ABD73C2666C5BA00082241 /* Store */ = {
-			isa = PBXGroup;
-			children = (
-				E5ABD73D2666C5CC00082241 /* StoreHelper.swift */,
-				E5ABD73F2666DB5300082241 /* ProductInformation.swift */,
-			);
-			path = Store;
 			sourceTree = "<group>";
 		};
 		E5CA106B26435753008FD164 /* ThirdParty */ = {
@@ -811,7 +797,6 @@
 				E587B92326430FC900F0F240 /* PresentationTriggerModifier.swift in Sources */,
 				E587B92126430FC900F0F240 /* PresentationMethod.swift in Sources */,
 				E587B90226430FC900F0F240 /* StoreKit+Ext.swift in Sources */,
-				E5ABD73E2666C5CD00082241 /* StoreHelper.swift in Sources */,
 				E5EDC2C2264D92CE0088CDE8 /* View+Footer.swift in Sources */,
 				E5AB538E264EE08600D993AE /* ContinuousProgressViewStyle.swift in Sources */,
 				E55AB59D264A7775000D7441 /* Date+Ext.swift in Sources */,
@@ -893,7 +878,6 @@
 				E5EDC2BF264D82620088CDE8 /* Network+Protocols.swift in Sources */,
 				E587B90F26430FC900F0F240 /* SplitPicker+Item.swift in Sources */,
 				E549C72C2647F4FA004388C4 /* NSDecimalNumber+Ext.swift in Sources */,
-				E5ABD7402666DB5300082241 /* ProductInformation.swift in Sources */,
 				E587B8FC26430FC900F0F240 /* WebEndpoint.swift in Sources */,
 				E549C73626487C8A004388C4 /* LocalizedDateFormatter.swift in Sources */,
 				E5ABD7192662F32300082241 /* PopupView.swift in Sources */,

@@ -18,21 +18,21 @@ extension SKStoreReviewController {
     }
 }
 
-// MARK: - SKProduct.PeriodUnit
+// MARK: - SKProductSubscriptionPeriod
 
-extension SKProduct.PeriodUnit {
-    public func toCalendarUnit() -> NSCalendar.Unit {
-        switch self {
+extension SKProductSubscriptionPeriod {
+    var durationTitle: String {
+        switch unit {
         case .day:
-            return .day
-        case .month:
-            return .month
+            return "day"
         case .week:
-            return .weekOfMonth
+            return "week"
+        case .month:
+            return "month"
         case .year:
-            return .year
-        @unknown default:
-            return .day
+            return "year"
+        default:
+            return "unknown"
         }
     }
 }
