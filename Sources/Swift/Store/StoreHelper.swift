@@ -86,7 +86,7 @@ extension StoreHelper: SKProductsRequestDelegate {
     public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         log(message: "Products request success")
         response.products.forEach {
-            log(message: "Found product: \($0)")
+            log(message: "Found product: \($0.productIdentifier) \($0.localizedTitle) \($0.price)")
         }
         productsRequestCompletion?(.success(response.products))
         clearRequest()
@@ -130,6 +130,7 @@ extension StoreHelper: SKPaymentTransactionObserver {
     }
 
     private func process(restoredTransactions: [SKPaymentTransaction]) {
+        guard !restoredTransactions.isEmpty else { return }
         restoredTransactions.map(\.payment.productIdentifier).forEach {
             purchasedProductIdentifiers.remove($0)
             suite.removeObject(forKey: $0)
