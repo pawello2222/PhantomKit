@@ -54,11 +54,10 @@ extension SplitPicker.SelectionView {
                 Spacer()
                 if item == items.first(where: \.selection, equals: selection) {
                     Image(system: .checkmark)
-                        .font(Font.app(.body).weight(.semibold))
+                        .font(Font.body.weight(.semibold))
                         .foregroundColor(theme.accentColor)
                 }
             }
-            .font(.app(.body))
             .contentShape(Rectangle())
         }
     }
@@ -83,7 +82,7 @@ extension SplitPicker.SelectionView {
                 .aligned(.leading)
                 .frame(width: labelWidth)
             Text(String(item.long))
-                .font(.app(.subheadline))
+                .font(.subheadline)
                 .foregroundColor(theme.secondaryColor)
         }
     }

@@ -23,7 +23,7 @@ public struct ToastView<Content>: View where Content: View {
             backgroundColor
                 .ignoresSafeArea()
             content()
-                .font(.app(.callout))
+                .font(.callout)
                 .foregroundColor(textColor)
                 .padding()
         }
