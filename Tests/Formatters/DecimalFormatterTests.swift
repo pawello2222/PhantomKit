@@ -174,4 +174,16 @@ class DecimalFormatterTests: XCTestCase {
         let plFormatter = LocalizedFormatter.makeDecimalFormatter(locale: Locale(identifier: "pl_PL"))
         expect(plFormatter.decimalSeparator).to(equal(","))
     }
+
+    func test_decimalFormatter_shouldReadNumberFromString() throws {
+        let usFormatter = LocalizedFormatter.makeDecimalFormatter(locale: Locale(identifier: "en_US"))
+
+        expect(usFormatter.number(from: "1")).to(equal(NSNumber(1)))
+        expect(usFormatter.number(from: "-1")).to(equal(NSNumber(-1)))
+        expect(usFormatter.number(from: "phantom-kit")).to(beNil())
+
+        expect(usFormatter.number(from: "123.321")).to(equal(NSDecimalNumber(string: "123.321")))
+        expect(usFormatter.decimalNumber(from: "123.321")).to(equal(NSDecimalNumber(string: "123.321")))
+        expect(usFormatter.decimalNumber(from: "phantom-kit")).to(beNil())
+    }
 }
