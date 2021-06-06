@@ -15,9 +15,38 @@ class ArrayTests: XCTestCase {
 
     override func tearDownWithError() throws {}
 
+    func test_array_next_shouldReturnNextElementIfPresent() throws {
+        let array = [1, 2, 3, 4, 5]
+
+        expect(array.next(ofIndex: 1)).to(equal(3))
+        expect(array.next(ofIndex: 3)).to(equal(5))
+        expect(array.next(ofIndex: 4)).to(beNil())
+        expect(array.next(ofIndex: 5)).to(beNil())
+
+        expect(array.next(of: 1)).to(equal(2))
+        expect(array.next(of: 2)).to(equal(3))
+        expect(array.next(of: 5)).to(beNil())
+        expect(array.next(of: 6)).to(beNil())
+    }
+
+    func test_array_nextLooped_shouldReturnNextElementOrFirst() throws {
+        let array = [1, 2, 3, 4, 5]
+
+        expect(array.next(ofIndex: 3, looped: true)).to(equal(5))
+        expect(array.next(ofIndex: 4, looped: true)).to(equal(1))
+        expect(array.next(ofIndex: 5, looped: true)).to(beNil())
+
+        expect(array.next(of: 1, looped: true)).to(equal(2))
+        expect(array.next(of: 2, looped: true)).to(equal(3))
+        expect(array.next(of: 5, looped: true)).to(equal(1))
+        expect(array.next(of: 6, looped: true)).to(beNil())
+    }
+
     func test_array_keyPaths_shouldWorkForEquatableElements() throws {
         var array = [3, 1, 2, 3, 1]
 
+        expect(array.contains(where: \.self, equals: 1)).to(beTrue())
+        expect(array.contains(where: \.self, equals: 4)).to(beFalse())
         expect(array.firstIndex(where: \.self, equals: 1)).to(equal(1))
         expect(array.first(where: \.self, equals: 1)).to(equal(1))
         expect(array.filter(where: \.self, equals: 1)).to(equal([1, 1]))

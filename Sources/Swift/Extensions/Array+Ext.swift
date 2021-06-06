@@ -8,7 +8,40 @@
 
 import Foundation
 
+// MARK: Iterator
+
+extension Array {
+    public func next(ofIndex index: Index, looped: Bool = false) -> Element? where Element: Equatable {
+        guard indices.contains(index) else {
+            return nil
+        }
+        let nextIndex = self.index(after: index)
+        guard nextIndex != endIndex else {
+            return looped ? first : nil
+        }
+        return self[nextIndex]
+    }
+
+    public func next(of element: Element, looped: Bool = false) -> Element? where Element: Equatable {
+        guard let currentIndex = firstIndex(where: \.self, equals: element) else {
+            return nil
+        }
+        return next(ofIndex: currentIndex, looped: looped)
+    }
+}
+
 // MARK: KeyPath
+
+extension Array {
+    public func contains<Value>(
+        where keyPath: KeyPath<Element, Value>,
+        equals value: Value
+    ) -> Bool where Value: Equatable {
+        contains {
+            $0[keyPath: keyPath] == value
+        }
+    }
+}
 
 extension Array {
     public func firstIndex<Value>(

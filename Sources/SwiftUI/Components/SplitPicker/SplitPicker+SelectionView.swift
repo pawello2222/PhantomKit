@@ -10,13 +10,12 @@ import SwiftUI
 
 extension SplitPicker {
     struct SelectionView: View {
-        @Environment(\.presentationMode) private var presentationMode
         @Environment(\.appTheme) private var theme
+        @Environment(\.defaultShortLabelWidth) private var labelWidth
+        @Environment(\.presentationMode) private var presentationMode
         @Binding private var selection: Selection
         private let items: [Item]
         private var showMultiLabels: Bool
-
-        @State private var shortLabelWidth: CGFloat = 0
 
         init(
             selection: Binding<Selection>,
@@ -55,11 +54,10 @@ extension SplitPicker.SelectionView {
                 Spacer()
                 if item == items.first(where: \.selection, equals: selection) {
                     Image(system: .checkmark)
-                        .font(Font.app(.body).weight(.semibold))
+                        .font(Font.body.weight(.semibold))
                         .foregroundColor(theme.accentColor)
                 }
             }
-            .font(.app(.body))
             .contentShape(Rectangle())
         }
     }
@@ -69,28 +67,22 @@ extension SplitPicker.SelectionView {
 
 extension SplitPicker.SelectionView {
     private func itemLabelView(item: SplitPicker.Item) -> some View {
-        HStack {
-            Text(String(item.long))
-                .foregroundColor(theme.primaryColor)
-            Spacer()
-        }
+        Text(String(item.long))
+            .foregroundColor(theme.primaryColor)
+            .aligned(.leading)
     }
 }
 
 extension SplitPicker.SelectionView {
     private func itemMultiLabelView(item: SplitPicker.Item) -> some View {
         HStack {
-            HStack {
-                Text(String(item.short))
-                    .foregroundColor(theme.primaryColor)
-                    .readSize {
-                        shortLabelWidth = max($0.width, shortLabelWidth)
-                    }
-                Spacer()
-            }
-            .frame(maxWidth: shortLabelWidth)
+            Text(String(item.short))
+                .allowsTightening(true)
+                .foregroundColor(theme.primaryColor)
+                .aligned(.leading)
+                .frame(width: labelWidth)
             Text(String(item.long))
-                .font(.app(.subheadline))
+                .font(.subheadline)
                 .foregroundColor(theme.secondaryColor)
         }
     }

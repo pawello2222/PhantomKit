@@ -12,7 +12,7 @@ import SwiftUI
 public struct AppTheme: MutableAppliable, UserInfoContainer {
     public typealias Identifier = Xcore.Identifier<Self>
     public typealias ButtonColor = (ButtonIdentifier, ButtonState) -> Color
-    public typealias ButtonGradientColors = (ButtonIdentifier, ButtonState) -> [Color]
+    public typealias ButtonGradientColors = (ButtonState) -> [Color]
 
     /// A unique id for the theme.
     public var id: Identifier
@@ -59,17 +59,13 @@ public struct AppTheme: MutableAppliable, UserInfoContainer {
     // MARK: - Sentiment Color
 
     /// The color for representing positive sentiment.
-    ///
-    /// Use sentiment colors for items that represent positive or negative outcomes.
-    /// Use this color to for outcomes, such as the validation succeeded.
     public var positiveSentimentColor: Color
 
     /// The color for representing negative sentiment.
-    ///
-    /// Use sentiment colors for items that represent positive or negative outcomes.
-    /// Use this color to for outcomes, such as the validation failed or require
-    /// user's attention.
     public var negativeSentimentColor: Color
+
+    /// The color for representing neutral sentiment.
+    public var neutralSentimentColor: Color
 
     /// Additional info which may be used to describe the theme further.
     public var userInfo: UserInfo
@@ -97,6 +93,7 @@ public struct AppTheme: MutableAppliable, UserInfoContainer {
         // Sentiment
         positiveSentimentColor: Color,
         negativeSentimentColor: Color,
+        neutralSentimentColor: Color,
 
         // UserInfo
         userInfo: UserInfo = [:]
@@ -123,6 +120,7 @@ public struct AppTheme: MutableAppliable, UserInfoContainer {
         // Sentiment
         self.positiveSentimentColor = positiveSentimentColor
         self.negativeSentimentColor = negativeSentimentColor
+        self.neutralSentimentColor = neutralSentimentColor
 
         // UserInfo
         self.userInfo = userInfo
@@ -141,7 +139,7 @@ extension AppTheme {
     }
 
     public func buttonBackgroundGradientColors(_ state: ButtonState = .normal) -> [Color] {
-        buttonBackgroundGradientColors(.plain, state)
+        buttonBackgroundGradientColors(state)
     }
 }
 
@@ -225,20 +223,19 @@ extension AppTheme {
         },
 
         // Button Background
-        buttonBackgroundGradientColors: { style, state in
-            switch (style, state) {
-            case (_, .normal):
-                return [.accentColor]
-            case (_, .pressed):
-                return [.accentColor]
-            case (_, .disabled):
+        buttonBackgroundGradientColors: { state in
+            switch state {
+            case .disabled:
                 return [.gray]
+            default:
+                return [.accentColor]
             }
         },
 
         // Sentiment
         positiveSentimentColor: .green,
-        negativeSentimentColor: .red
+        negativeSentimentColor: .red,
+        neutralSentimentColor: .secondary
     )
 }
 
@@ -247,11 +244,11 @@ extension AppTheme {
 extension AppTheme {
     public static let common = AppTheme.system.applying {
         $0.id = "common"
-        $0.buttonBackgroundGradientColors = { style, state in
-            switch (style, state) {
-            case (_, .disabled):
+        $0.buttonBackgroundGradientColors = { state in
+            switch state {
+            case .disabled:
                 return [.init(.gray), .init(.lightGray)]
-            case (_, _):
+            default:
                 return [.red, .orange]
             }
         }

@@ -39,7 +39,7 @@ extension AboutView.Section.Item {
 
         var body: some View {
             Text(title)
-                .font(.app(.body))
+                .font(.body)
         }
     }
 }
@@ -50,7 +50,9 @@ extension AboutView.Section.Item {
         let endpoint: WebEndpoint
 
         var body: some View {
-            TextView(title: title)
+            Text(title)
+                .underline()
+                .font(.body)
                 .webView(endpoint: endpoint)
         }
     }

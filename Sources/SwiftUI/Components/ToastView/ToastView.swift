@@ -23,7 +23,7 @@ public struct ToastView<Content>: View where Content: View {
             backgroundColor
                 .ignoresSafeArea()
             content()
-                .font(.app(.callout))
+                .font(.callout)
                 .foregroundColor(textColor)
                 .padding()
         }
@@ -80,5 +80,9 @@ extension ToastView where Content == Text {
         self.init(style: style) {
             Text(title)
         }
+    }
+
+    public init(_ message: Message, style: Style = .info) {
+        self.init(message.text, style: style)
     }
 }

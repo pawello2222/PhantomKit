@@ -64,6 +64,21 @@ extension LocalizedFormatter {
     }
 }
 
+// MARK: - Read
+
+extension LocalizedFormatter {
+    public func number(from string: String) -> NSNumber? {
+        formatter.number(from: string)
+    }
+
+    public func decimalNumber(from string: String) -> NSDecimalNumber? {
+        guard let number = number(from: string) else {
+            return nil
+        }
+        return .init(decimal: number.decimalValue)
+    }
+}
+
 // MARK: - Format
 
 extension LocalizedFormatter {

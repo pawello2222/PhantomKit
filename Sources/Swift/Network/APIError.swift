@@ -45,3 +45,40 @@ extension APIError {
         self = .generic(code: code, message: message)
     }
 }
+
+extension APIError {
+    public var isBadRequest: Bool {
+        guard case .badRequest = self else {
+            return false
+        }
+        return true
+    }
+
+    public var isUnauthorized: Bool {
+        guard case .unauthorized = self else {
+            return false
+        }
+        return true
+    }
+
+    public var isForbidden: Bool {
+        guard case .forbidden = self else {
+            return false
+        }
+        return true
+    }
+
+    public var isTooManyRequests: Bool {
+        guard case .tooManyRequests = self else {
+            return false
+        }
+        return true
+    }
+
+    public var isParsing: Bool {
+        guard case .parsing = self else {
+            return false
+        }
+        return true
+    }
+}

@@ -30,7 +30,7 @@ extension AboutView.Section {
         var body: some View {
             VStack(spacing: .defaultPadding) {
                 Text(section.title.uppercased())
-                    .font(.app(.subheadline))
+                    .font(.subheadline)
                     .foregroundColor(theme.secondaryColor)
                 ForEach(section.items, id: \.title) { item in
                     item.content()

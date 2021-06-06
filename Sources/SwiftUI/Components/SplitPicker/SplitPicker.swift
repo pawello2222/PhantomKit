@@ -15,7 +15,6 @@ public struct SplitPicker<
     LongValue: Hashable & LosslessStringConvertible
 >: View {
     public typealias Item = PickerItem<Selection, ShortValue, LongValue>
-
     @Environment(\.appTheme) private var theme
     @Binding private var selection: Selection
     private let items: [Item]
@@ -51,7 +50,7 @@ public struct SplitPicker<
 
     @ViewBuilder
     private var selectedItemView: some View {
-        if let selectedItem = items.first(where: { $0.selection == selection }) {
+        if let selectedItem = items.first(where: \.selection, equals: selection) {
             Text(String(selectedItem.short))
                 .foregroundColor(theme.secondaryColor)
         }

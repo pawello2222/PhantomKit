@@ -31,7 +31,7 @@ public struct ButtonToolbarModifier: ViewModifier {
     }
 }
 
-// MARK: View
+// MARK: - View
 
 extension View {
     public func cancelButtonToolbar() -> some View {
@@ -39,6 +39,6 @@ extension View {
     }
 
     public func doneButtonToolbar() -> some View {
-        modifier(ButtonToolbarModifier(title: Localized.done, placement: .cancellationAction))
+        modifier(ButtonToolbarModifier(title: Localized.done, placement: .confirmationAction))
     }
 }

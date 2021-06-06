@@ -85,6 +85,8 @@ extension PullToRefresh {
     }
 }
 
+// MARK: - View
+
 extension View {
     public func pullToRefresh(isShowing: Binding<Bool>, onRefresh: @escaping () -> Void) -> some View {
         overlay(

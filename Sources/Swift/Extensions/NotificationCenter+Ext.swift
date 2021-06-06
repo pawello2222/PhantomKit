@@ -9,9 +9,17 @@
 import Combine
 
 extension NotificationCenter.Event {
-    public var orientationDidChangePublisher: AnyPublisher<Notification, Never> {
-        NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)
+    public func notificationPublisher(for name: Notification.Name) -> AnyPublisher<Notification, Never> {
+        NotificationCenter.default.publisher(for: name)
             .receiveOnMain()
             .eraseToAnyPublisher()
+    }
+}
+
+// MARK: - UIDevice
+
+extension NotificationCenter.Event {
+    public var orientationDidChangePublisher: AnyPublisher<Notification, Never> {
+        notificationPublisher(for: UIDevice.orientationDidChangeNotification)
     }
 }
