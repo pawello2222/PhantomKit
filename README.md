@@ -29,7 +29,7 @@ PhantomKit is available as a Swift Package.
 Alternatively, you can add PhantomKit as a SPM dependency:
 
 ```swift
-.package(url: "https://github.com/pawello2222/PhantomKit.git", .upToNextMajor(from: "0.0.1"))
+.package(url: "https://github.com/pawello2222/PhantomKit.git", .upToNextMajor(from: "0.1.0"))
 ```
 
 Tip: to make PhantomKit _truly invisible_ add the below line in the main file:
@@ -85,7 +85,7 @@ Text("Share feedback")
     .webView(endpoint: .feedback)
 
 Text("Share feedback")
-    .webView(triggeredBy: .plainButton endpoint: .feedback)
+    .webView(triggeredBy: .plainButton, endpoint: .feedback)
     
 Text("Share feedback")
     .webView(openedAs: .fullScreen, endpoint: .feedback, edgesIgnoringSafeArea: .all) {
