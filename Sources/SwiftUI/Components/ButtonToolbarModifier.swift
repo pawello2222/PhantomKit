@@ -39,6 +39,6 @@ extension View {
     }
 
     public func doneButtonToolbar() -> some View {
-        modifier(ButtonToolbarModifier(title: Localized.done, placement: .confirmationAction))
+        modifier(ButtonToolbarModifier(title: Localized.done, placement: .cancellationAction))
     }
 }
