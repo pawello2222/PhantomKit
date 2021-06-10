@@ -314,7 +314,7 @@ expect(formatter.string(from: date)).to(equal("03/24/2000, 4:14:44 PM"))
     - [x] [Moya](https://github.com/Moya/Moya)
 - [x] SPM compatibility
 - [ ] Database extensions
-    - [ ] Core Data
+    - [x] Core Data
     - [ ] Realm
 - [ ] Complete documentation
 
