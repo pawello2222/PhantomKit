@@ -8,7 +8,7 @@
 
 import CoreData
 
-protocol PersistentStore {
+public protocol PersistentStore {
     typealias DBOperation<Result> = (NSManagedObjectContext) throws -> Result
 
     func fetch<T, V>(_ request: NSFetchRequest<T>, map: @escaping (T) -> V?) -> [V] where T: ManagedEntity

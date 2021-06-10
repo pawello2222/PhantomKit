@@ -9,7 +9,7 @@
 import CoreData
 import os.log
 
-class CoreDataStack {
+public class CoreDataStack {
     private let modelName: String
     private var useCloudSync: Bool
     private var container: NSPersistentContainer
@@ -51,7 +51,7 @@ extension CoreDataStack: PersistentStore {
         saveWorkingContext(context: context)
     }
 
-    func reloadContainer(useCloudSync: Bool) {
+    public func reloadContainer(useCloudSync: Bool) {
         guard self.useCloudSync != useCloudSync else { return }
         self.useCloudSync = useCloudSync
         container = Self.initContainer(name: modelName, useCloudSync: useCloudSync)
