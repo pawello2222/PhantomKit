@@ -101,6 +101,9 @@
 		E5ABD7422667E28100082241 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD7412667E28100082241 /* AppEnvironment.swift */; };
 		E5ABD74526682EC500082241 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD74426682EC500082241 /* LoaderView.swift */; };
 		E5ABD7602670238F00082241 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD75F2670238F00082241 /* SafariView.swift */; };
+		E5ABD7662672CA8100082241 /* ManagedEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD7652672CA8100082241 /* ManagedEntity.swift */; };
+		E5ABD7682672CAE400082241 /* PersistentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD7672672CAE400082241 /* PersistentStore.swift */; };
+		E5ABD76A2672CB1A00082241 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD7692672CB1A00082241 /* CoreDataStack.swift */; };
 		E5C7EBAB264C5B7D00E74EEF /* LastUpdatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */; };
 		E5C7EBB0264C758F00E74EEF /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */; };
 		E5C7EBB2264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBB1264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift */; };
@@ -236,6 +239,9 @@
 		E5ABD7412667E28100082241 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		E5ABD74426682EC500082241 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		E5ABD75F2670238F00082241 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		E5ABD7652672CA8100082241 /* ManagedEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedEntity.swift; sourceTree = "<group>"; };
+		E5ABD7672672CAE400082241 /* PersistentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStore.swift; sourceTree = "<group>"; };
+		E5ABD7692672CB1A00082241 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdatedView.swift; sourceTree = "<group>"; };
 		E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		E5C7EBB1264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedFormatter+Abbreviation.swift"; sourceTree = "<group>"; };
@@ -405,6 +411,7 @@
 				E587B8BD26430FC900F0F240 /* Extensions */,
 				E549C7252647CA6E004388C4 /* Formatters */,
 				E587B8BA26430FC900F0F240 /* Network */,
+				E5ABD7642672CA5700082241 /* Persistence */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -588,6 +595,16 @@
 				E587B8DC26430FC900F0F240 /* SimpleLabelStyle.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		E5ABD7642672CA5700082241 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				E5ABD7692672CB1A00082241 /* CoreDataStack.swift */,
+				E5ABD7652672CA8100082241 /* ManagedEntity.swift */,
+				E5ABD7672672CAE400082241 /* PersistentStore.swift */,
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 		E5CA106B26435753008FD164 /* ThirdParty */ = {
@@ -847,6 +864,7 @@
 				E587B91C26430FC900F0F240 /* View+Route.swift in Sources */,
 				E587B90926430FC900F0F240 /* Alert+Button+Ext.swift in Sources */,
 				E587B91B26430FC900F0F240 /* BaseHostingController.swift in Sources */,
+				E5ABD7682672CAE400082241 /* PersistentStore.swift in Sources */,
 				E5ABD7422667E28100082241 /* AppEnvironment.swift in Sources */,
 				E587B8FA26430FC900F0F240 /* Bundle.swift in Sources */,
 				E587B91F26430FC900F0F240 /* RouteHandler+Ext.swift in Sources */,
@@ -861,6 +879,7 @@
 				E549C7272647CA7F004388C4 /* LocalizedFormatter.swift in Sources */,
 				E5CA1071264406B9008FD164 /* Publisher+Ext.swift in Sources */,
 				E587B91A26430FC900F0F240 /* View+Presentation.swift in Sources */,
+				E5ABD76A2672CB1A00082241 /* CoreDataStack.swift in Sources */,
 				E5CA108726459A7D008FD164 /* APIError.swift in Sources */,
 				E5888A9426581FFA00FC185E /* Binding+Ext.swift in Sources */,
 				E587B91926430FC900F0F240 /* SelectionTabView.swift in Sources */,
@@ -885,6 +904,7 @@
 				E587B8FC26430FC900F0F240 /* WebEndpoint.swift in Sources */,
 				E549C73626487C8A004388C4 /* LocalizedDateFormatter.swift in Sources */,
 				E5ABD7192662F32300082241 /* PopupView.swift in Sources */,
+				E5ABD7662672CA8100082241 /* ManagedEntity.swift in Sources */,
 				E587B91E26430FC900F0F240 /* BaseHostingView.swift in Sources */,
 				E587B91726430FC900F0F240 /* TabViewItem.swift in Sources */,
 				E587B91026430FC900F0F240 /* SplitPicker.swift in Sources */,
