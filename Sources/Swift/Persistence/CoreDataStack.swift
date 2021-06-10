@@ -14,7 +14,7 @@ open class CoreDataStack {
     private var useCloudSync: Bool
     private var container: NSPersistentContainer
 
-    public init(modelName: String, useCloudSync: Bool) {
+    public init(modelName: String, useCloudSync: Bool = false) {
         self.modelName = modelName
         self.useCloudSync = useCloudSync
         container = Self.initContainer(name: modelName, useCloudSync: useCloudSync)
