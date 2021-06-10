@@ -9,7 +9,7 @@
 import CoreData
 import os.log
 
-public class CoreDataStack {
+open class CoreDataStack {
     private let modelName: String
     private var useCloudSync: Bool
     private var container: NSPersistentContainer
