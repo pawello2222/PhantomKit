@@ -66,6 +66,7 @@ extension CoreDataStack {
             ? initCloudContainer(name: name)
             : initLocalContainer(name: name)
         container.loadPersistentStores { storeDescription, error in
+            container.viewContext.automaticallyMergesChangesFromParent = true
             if let error = error {
                 Logger.error(error.nsErrorDescription, category: .coreData)
             } else {
@@ -79,7 +80,6 @@ extension CoreDataStack {
         let container = NSPersistentCloudKitContainer(name: name)
         let description = container.persistentStoreDescriptions.first
         description?.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
-        container.viewContext.automaticallyMergesChangesFromParent = true
         return container
     }
 
