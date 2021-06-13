@@ -45,19 +45,35 @@ public struct SafariViewRepresentable: UIViewControllerRepresentable {
 // MARK: - View
 
 extension View {
-    public func safariView(url: URL) -> some View {
-        fullScreen {
-            SafariView(url: url)
+    public func safariView(
+        openedAs method: PresentationMethod = .fullScreen,
+        url: URL?
+    ) -> some View {
+        unwrap(url) { content, url in
+            content.presentation(method: method) {
+                SafariView(url: url)
+            }
         }
     }
 
-    public func safariView(url: URL?) -> some View {
-        unwrap(url) {
-            $0.safariView(url: $1)
-        }
+    public func safariView(
+        openedAs method: PresentationMethod = .fullScreen,
+        endpoint: WebEndpoint
+    ) -> some View {
+        safariView(openedAs: method, url: endpoint.url)
     }
 
-    public func safariView(endpoint: WebEndpoint) -> some View {
-        safariView(url: endpoint.url)
+    public func safariView(
+        triggeredBy trigger: PresentationMethod.Trigger,
+        url: URL?
+    ) -> some View {
+        safariView(openedAs: .fullScreen(trigger: trigger), url: url)
+    }
+
+    public func safariView(
+        triggeredBy trigger: PresentationMethod.Trigger,
+        endpoint: WebEndpoint
+    ) -> some View {
+        safariView(triggeredBy: trigger, url: endpoint.url)
     }
 }
