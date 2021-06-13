@@ -104,6 +104,7 @@
 		E5ABD7662672CA8100082241 /* ManagedEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD7652672CA8100082241 /* ManagedEntity.swift */; };
 		E5ABD7682672CAE400082241 /* PersistentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD7672672CAE400082241 /* PersistentStore.swift */; };
 		E5ABD76A2672CB1A00082241 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD7692672CB1A00082241 /* CoreDataStack.swift */; };
+		E5ABD7F02676574400082241 /* CapsuleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD7EF2676574400082241 /* CapsuleTextField.swift */; };
 		E5C7EBAB264C5B7D00E74EEF /* LastUpdatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */; };
 		E5C7EBB0264C758F00E74EEF /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */; };
 		E5C7EBB2264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBB1264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift */; };
@@ -242,6 +243,7 @@
 		E5ABD7652672CA8100082241 /* ManagedEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedEntity.swift; sourceTree = "<group>"; };
 		E5ABD7672672CAE400082241 /* PersistentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStore.swift; sourceTree = "<group>"; };
 		E5ABD7692672CB1A00082241 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		E5ABD7EF2676574400082241 /* CapsuleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleTextField.swift; sourceTree = "<group>"; };
 		E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdatedView.swift; sourceTree = "<group>"; };
 		E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		E5C7EBB1264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedFormatter+Abbreviation.swift"; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 				E5888A092653DF7500FC185E /* AnimatedButton.swift */,
 				E5888A972658591900FC185E /* AppTheme.swift */,
 				E5E7C4C5264944290045596E /* ButtonToolbarModifier.swift */,
+				E5ABD7EF2676574400082241 /* CapsuleTextField.swift */,
 				E587B8CE26430FC900F0F240 /* CSSColor.swift */,
 				E5ABD74426682EC500082241 /* LoaderView.swift */,
 				E5ABD7182662F32300082241 /* PopupView.swift */,
@@ -821,6 +824,7 @@
 				E5AB538E264EE08600D993AE /* ContinuousProgressViewStyle.swift in Sources */,
 				E55AB59D264A7775000D7441 /* Date+Ext.swift in Sources */,
 				E587B91226430FC900F0F240 /* IconBadgeLabelStyle.swift in Sources */,
+				E5ABD7F02676574400082241 /* CapsuleTextField.swift in Sources */,
 				E5888A0C2653F9E000FC185E /* EnvironmentValues+Ext.swift in Sources */,
 				E5C7EBB2264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift in Sources */,
 				E5E7C4C6264944290045596E /* ButtonToolbarModifier.swift in Sources */,
