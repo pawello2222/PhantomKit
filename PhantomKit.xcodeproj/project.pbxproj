@@ -105,6 +105,7 @@
 		E5ABD7682672CAE400082241 /* PersistentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD7672672CAE400082241 /* PersistentStore.swift */; };
 		E5ABD76A2672CB1A00082241 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD7692672CB1A00082241 /* CoreDataStack.swift */; };
 		E5ABD7F02676574400082241 /* CapsuleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD7EF2676574400082241 /* CapsuleTextField.swift */; };
+		E5ABD81A2676A3FC00082241 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD8192676A3FC00082241 /* NetworkImage.swift */; };
 		E5C7EBAB264C5B7D00E74EEF /* LastUpdatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */; };
 		E5C7EBB0264C758F00E74EEF /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */; };
 		E5C7EBB2264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBB1264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift */; };
@@ -244,6 +245,7 @@
 		E5ABD7672672CAE400082241 /* PersistentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStore.swift; sourceTree = "<group>"; };
 		E5ABD7692672CB1A00082241 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		E5ABD7EF2676574400082241 /* CapsuleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleTextField.swift; sourceTree = "<group>"; };
+		E5ABD8192676A3FC00082241 /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
 		E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdatedView.swift; sourceTree = "<group>"; };
 		E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		E5C7EBB1264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedFormatter+Abbreviation.swift"; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 				E5ABD7EF2676574400082241 /* CapsuleTextField.swift */,
 				E587B8CE26430FC900F0F240 /* CSSColor.swift */,
 				E5ABD74426682EC500082241 /* LoaderView.swift */,
+				E5ABD8192676A3FC00082241 /* NetworkImage.swift */,
 				E5ABD7182662F32300082241 /* PopupView.swift */,
 				E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */,
 				E587B8DB26430FC900F0F240 /* RootViewAppearance.swift */,
@@ -865,6 +868,7 @@
 				E5E7C4CA2649ADB00045596E /* LocalizedFormatter+Precision.swift in Sources */,
 				E587B90326430FC900F0F240 /* Array+Ext.swift in Sources */,
 				E549C70E2646BEDF004388C4 /* Error+Ext.swift in Sources */,
+				E5ABD81A2676A3FC00082241 /* NetworkImage.swift in Sources */,
 				E587B91C26430FC900F0F240 /* View+Route.swift in Sources */,
 				E587B90926430FC900F0F240 /* Alert+Button+Ext.swift in Sources */,
 				E587B91B26430FC900F0F240 /* BaseHostingController.swift in Sources */,
