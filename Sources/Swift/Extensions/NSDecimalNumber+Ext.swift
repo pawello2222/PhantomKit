@@ -73,6 +73,14 @@ extension NSDecimalNumber {
     }
 }
 
+extension NSDecimalNumber {
+    public var absValue: NSDecimalNumber {
+        .init(decimal: decimalValue.magnitude)
+    }
+}
+
+// MARK: - NSDecimalNumberHandler
+
 extension NSDecimalNumberHandler {
     public static var `default`: NSDecimalNumberHandler = .scaled(16)
 

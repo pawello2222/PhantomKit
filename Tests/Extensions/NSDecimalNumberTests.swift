@@ -93,4 +93,16 @@ class NSDecimalNumberTests: XCTestCase {
         expect(a == c).to(beFalse())
         expect(b == c).to(beFalse())
     }
+
+    func test_nsDecimalNumber_shouldRoundZero() throws {
+        let number = NSDecimalNumber(string: "-123.456789")
+
+        expect(number.rounded(toPlaces: 4)).to(equal(NSDecimalNumber(string: "-123.4568")))
+    }
+
+    func test_nsDecimalNumber_shouldReturnAbsoluteValue() throws {
+        let number = NSDecimalNumber(string: "-123.456789")
+
+        expect(number.absValue).to(equal(NSDecimalNumber(string: "123.456789")))
+    }
 }
