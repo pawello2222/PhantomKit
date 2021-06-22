@@ -14,5 +14,5 @@ public protocol PersistentStore {
     func fetch<T, V>(_ request: NSFetchRequest<T>, map: @escaping (T) -> V?) -> [V] where T: ManagedEntity
     func delete(_ request: NSBatchDeleteRequest)
     func save(_ operation: @escaping DBOperation<Void>)
-    func reloadContainer(useCloudSync: Bool)
+    func reloadContainer(isCloud: Bool)
 }

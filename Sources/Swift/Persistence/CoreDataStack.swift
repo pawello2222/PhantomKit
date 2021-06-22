@@ -11,13 +11,15 @@ import os.log
 
 open class CoreDataStack {
     private let modelName: String
-    private var useCloudSync: Bool
+    private let storeURL: URL?
+    private var isCloud: Bool
     private var container: NSPersistentContainer
 
-    public init(modelName: String, useCloudSync: Bool = false) {
+    public init(modelName: String, storeURL: URL? = nil, isCloud: Bool = false) {
         self.modelName = modelName
-        self.useCloudSync = useCloudSync
-        container = Self.initContainer(name: modelName, useCloudSync: useCloudSync)
+        self.storeURL = storeURL
+        self.isCloud = isCloud
+        container = Self.initContainer(name: modelName, storeURL: storeURL, isCloud: isCloud)
     }
 }
 
@@ -51,20 +53,20 @@ extension CoreDataStack: PersistentStore {
         saveWorkingContext(context: context)
     }
 
-    public func reloadContainer(useCloudSync: Bool) {
-        guard self.useCloudSync != useCloudSync else { return }
-        self.useCloudSync = useCloudSync
-        container = Self.initContainer(name: modelName, useCloudSync: useCloudSync)
+    public func reloadContainer(isCloud: Bool) {
+        guard self.isCloud != isCloud else { return }
+        self.isCloud = isCloud
+        container = Self.initContainer(name: modelName, storeURL: storeURL, isCloud: isCloud)
     }
 }
 
 // MARK: - Container
 
 extension CoreDataStack {
-    private static func initContainer(name: String, useCloudSync: Bool) -> NSPersistentContainer {
-        let container = useCloudSync
-            ? initCloudContainer(name: name)
-            : initLocalContainer(name: name)
+    private static func initContainer(name: String, storeURL: URL?, isCloud: Bool) -> NSPersistentContainer {
+        let container = isCloud
+            ? initCloudContainer(name: name, storeURL: storeURL)
+            : initLocalContainer(name: name, storeURL: storeURL)
         container.loadPersistentStores { storeDescription, error in
             container.viewContext.automaticallyMergesChangesFromParent = true
             if let error = error {
@@ -76,18 +78,30 @@ extension CoreDataStack {
         return container
     }
 
-    private static func initCloudContainer(name: String) -> NSPersistentContainer {
+    private static func initCloudContainer(name: String, storeURL: URL?) -> NSPersistentContainer {
         let container = NSPersistentCloudKitContainer(name: name)
-        let description = container.persistentStoreDescriptions.first
+        let description = storeDescription(for: container, storeURL: storeURL)
         description?.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
         return container
     }
 
-    private static func initLocalContainer(name: String) -> NSPersistentContainer {
+    private static func initLocalContainer(name: String, storeURL: URL?) -> NSPersistentContainer {
         let container = NSPersistentContainer(name: name)
-        let description = container.persistentStoreDescriptions.first
+        let description = storeDescription(for: container, storeURL: storeURL)
         description?.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)
         return container
+    }
+
+    private static func storeDescription(
+        for container: NSPersistentContainer,
+        storeURL: URL?
+    ) -> NSPersistentStoreDescription? {
+        guard let storeURL = storeURL else {
+            return container.persistentStoreDescriptions.first
+        }
+        let description = NSPersistentStoreDescription(url: storeURL)
+        container.persistentStoreDescriptions = [description]
+        return description
     }
 }
 
