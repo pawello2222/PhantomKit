@@ -145,7 +145,7 @@ extension LocalizedFormatter {
     }
 
     private func abbreviatedString(from value: NSDecimalNumber, abbreviation: Abbreviation) -> String {
-        for (suffix, threshold) in abbreviation.items where value >= threshold {
+        for (suffix, threshold) in abbreviation.items where value.absValue >= threshold {
             return with(abbreviationSuffix: suffix) {
                 string(from: value / threshold)
             }

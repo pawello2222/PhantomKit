@@ -87,6 +87,8 @@ class CurrencyFormatterTests: XCTestCase {
         expect(self.usFormatter.string(from: 1432.99, abbreviation: .default)).to(equal("$1.43k"))
         expect(self.usFormatter.string(from: 100_081, abbreviation: .default)).to(equal("$100.08k"))
         expect(self.usFormatter.string(from: 48_729_432, abbreviation: .default)).to(equal("$48.73m"))
+        expect(self.usFormatter.string(from: -42.8111, abbreviation: .default)).to(equal("-$42.81"))
+        expect(self.usFormatter.string(from: -4239.8111, abbreviation: .default)).to(equal("-$4.24k"))
     }
 
     func test_currencyFormatter_withLocalizedSign_shouldFormatAmounts() throws {

@@ -53,7 +53,7 @@ extension AboutView.Section.Item {
             Text(title)
                 .underline()
                 .font(.body)
-                .webView(endpoint: endpoint)
+                .safariView(endpoint: endpoint)
         }
     }
 }

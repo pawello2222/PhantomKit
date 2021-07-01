@@ -11,25 +11,25 @@ import SwiftUI
 // MARK: - Align
 
 extension View {
-    public func aligned(_ alignemnt: HorizontalAlignment) -> some View {
+    public func aligned(_ alignment: HorizontalAlignment) -> some View {
         HStack(spacing: 0) {
-            if alignemnt == .trailing {
+            if alignment == .trailing {
                 Spacer()
             }
             self
-            if alignemnt == .leading {
+            if alignment == .leading {
                 Spacer()
             }
         }
     }
 
-    public func aligned(_ alignemnt: VerticalAlignment) -> some View {
+    public func aligned(_ alignment: VerticalAlignment) -> some View {
         VStack(spacing: 0) {
-            if alignemnt == .bottom {
+            if alignment == .bottom {
                 Spacer()
             }
             self
-            if alignemnt == .top {
+            if alignment == .top {
                 Spacer()
             }
         }

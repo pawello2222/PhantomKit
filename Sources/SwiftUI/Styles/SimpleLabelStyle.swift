@@ -11,7 +11,11 @@ import SwiftUI
 public struct SimpleLabelStyle: LabelStyle {
     @Environment(\.appTheme) private var theme
 
-    public init() {}
+    private var color: Color
+
+    public init(color: Color) {
+        self.color = color
+    }
 
     public func makeBody(configuration: Self.Configuration) -> some View {
         HStack {
@@ -25,7 +29,7 @@ public struct SimpleLabelStyle: LabelStyle {
     private func imageView(with configuration: Self.Configuration) -> some View {
         configuration.icon
             .imageScale(.large)
-            .foregroundColor(theme.accentColor)
+            .foregroundColor(color)
     }
 
     private func labelView(with configuration: Self.Configuration) -> some View {
