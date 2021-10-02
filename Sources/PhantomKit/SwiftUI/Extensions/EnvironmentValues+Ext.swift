@@ -55,8 +55,8 @@ extension EnvironmentValues {
     }
 
     public var geometrySize: CGSize {
-        get { self[GeometrySizeKey] }
-        set { self[GeometrySizeKey] = newValue }
+        get { self[GeometrySizeKey.self] }
+        set { self[GeometrySizeKey.self] = newValue }
     }
 }
 
