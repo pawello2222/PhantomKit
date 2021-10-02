@@ -7,6 +7,7 @@
 //
 
 import Combine
+import UIKit
 
 extension NotificationCenter.Event {
     public func notificationPublisher(for name: Notification.Name) -> AnyPublisher<Notification, Never> {

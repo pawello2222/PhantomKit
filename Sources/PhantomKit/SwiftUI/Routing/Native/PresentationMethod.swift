@@ -89,19 +89,15 @@ extension PresentationMethod.Trigger {
     }
 
     public static var scaleButton: Self {
-        .styledButton(ScaleEffectButtonStyle())
+        .styledButton(.scaleEffect)
     }
 
     public static var fillButton: Self {
-        .styledButton(FillButtonStyle())
-    }
-
-    public static var pillButton: Self {
-        .styledButton(PillButtonStyle())
+        .styledButton(.fill)
     }
 
     public static var outlineButton: Self {
-        .styledButton(OutlineButtonStyle())
+        .styledButton(.outline)
     }
 
     public static var gradientFillButton: Self {
@@ -123,10 +119,10 @@ extension PresentationMethod.Trigger {
     }
 
     public static var plainButton: Self {
-        .styledButton(PlainButtonStyle())
+        .styledButton(.plain)
     }
 
     public static var borderlessButton: Self {
-        .styledButton(BorderlessButtonStyle())
+        .styledButton(.borderless)
     }
 }

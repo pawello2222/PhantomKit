@@ -7,6 +7,7 @@
 //
 
 import Combine
+import Foundation
 
 // MARK: - Combine Latest
 
