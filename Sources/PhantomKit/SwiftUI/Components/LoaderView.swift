@@ -18,7 +18,7 @@ public struct LoaderView: View {
     }
 
     public var body: some View {
-        VStack(spacing: .defaultPadding) {
+        VStack(spacing: .s4) {
             ProgressView()
                 .progressViewStyle(ContinuousProgressViewStyle())
                 .frame(45)

@@ -119,7 +119,7 @@ extension View {
         presentation(method: method, onDismiss: onDismiss) {
             WebView(endpoint: endpoint)
                 .edgesIgnoringSafeArea(edgesIgnoringSafeArea)
-                .when(method.isModal) {
+                .applyIf(method.isModal) {
                     $0.embedInNavigation()
                 }
         }

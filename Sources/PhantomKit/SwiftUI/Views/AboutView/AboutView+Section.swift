@@ -28,7 +28,7 @@ extension AboutView.Section {
         let section: AboutView.Section
 
         var body: some View {
-            VStack(spacing: .defaultPadding) {
+            VStack(spacing: .s4) {
                 Text(section.title.uppercased())
                     .font(.subheadline)
                     .foregroundColor(theme.secondaryColor)

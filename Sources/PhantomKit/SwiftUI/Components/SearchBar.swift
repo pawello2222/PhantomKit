@@ -23,7 +23,7 @@ public struct SearchBar: View {
             textView
             imageView
         }
-        .padding(.vertical, .minimumPadding)
+        .padding(.vertical, .s2)
         .padding(.horizontal)
         .backgroundColor(theme.backgroundSecondaryColor)
         .clipShape(RoundedRectangle(cornerRadius: 12))

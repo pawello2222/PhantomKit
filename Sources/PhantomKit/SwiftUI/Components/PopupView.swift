@@ -16,7 +16,7 @@ public struct PopupView: View {
     }
 
     public var body: some View {
-        VStack(spacing: .defaultPadding) {
+        VStack(spacing: .s4) {
             Text(message.title)
                 .font(Font.body.weight(.bold))
                 .fixedSize(.vertical)
@@ -28,12 +28,12 @@ public struct PopupView: View {
         .allowsTightening(true)
         .multilineTextAlignment(.center)
         .foregroundColor(Color.black)
-        .padding(.maximumPadding)
+        .padding(.s6)
         .background(
             RoundedRectangle(cornerRadius: 15)
                 .fill(Color.white)
         )
-        .padding(.maximumPadding)
+        .padding(.s6)
         .expandingBackgroundColor(Color.black.opacity(0.75))
         .transition(.opacity)
     }

@@ -15,7 +15,7 @@ public struct IndicatorView: View {
         Image(system: .chevronRight)
             .imageScale(.small)
             .font(Font.body.weight(.medium))
-            .foregroundUIColor(.systemGray2)
+            .foregroundColor(.systemGray2)
     }
 }
 

@@ -22,11 +22,11 @@ public struct AboutView: View {
     }
 
     public var body: some View {
-        VStack(spacing: .maximumPadding) {
+        VStack(spacing: .s6) {
             imageView
             sectionsView
         }
-        .padding(.maximumPadding)
+        .padding(.s6)
         .navigationBarHidden(true)
         .maxContentFrame()
         .action(triggeredBy: .tap) {
