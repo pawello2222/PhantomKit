@@ -28,7 +28,7 @@ open class BaseHostingController<Content>: UIHostingController<AnyView> where Co
     }
 
     override open var preferredNavigationBarTintColor: UIColor {
-        theme.accentColor
+        theme.tintColor
     }
 
     override open var preferredNavigationBarBackground: Chrome.Style {
