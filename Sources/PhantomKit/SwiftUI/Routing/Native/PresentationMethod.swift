@@ -100,12 +100,8 @@ extension PresentationMethod.Trigger {
         .styledButton(.outline)
     }
 
-    public static var gradientFillButton: Self {
-        .styledButton(GradientFillButtonStyle())
-    }
-
-    public static var gradientPillButton: Self {
-        .styledButton(GradientPillButtonStyle())
+    public static var gradientButton: Self {
+        .styledButton(.gradient)
     }
 
     // PrimitiveButtonStyle

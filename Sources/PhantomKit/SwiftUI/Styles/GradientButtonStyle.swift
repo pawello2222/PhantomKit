@@ -8,75 +8,100 @@
 
 import SwiftUI
 
-// MARK: - Fill
+public struct GradientButtonStyle<S: InsettableShape>: ButtonStyle {
+    private let id: ButtonIdentifier
+    private let shape: S
 
-public struct GradientFillButtonStyle: ButtonStyle {
-    public init() {}
+    public init(
+        id: ButtonIdentifier,
+        shape: S
+    ) {
+        self.id = id
+        self.shape = shape
+    }
 
     public func makeBody(configuration: Self.Configuration) -> some View {
-        GradientFillStyleBody(id: .gradientFill, configuration: configuration) {
-            RoundedRectangle(cornerRadius: $0.cornerRadius, style: .continuous)
-        }
+        InternalBody(
+            id: id,
+            configuration: configuration,
+            shape: shape
+        )
     }
 }
 
-// MARK: - Pill
+// MARK: - Internal
 
-public struct GradientPillButtonStyle: ButtonStyle {
-    public init() {}
+extension GradientButtonStyle {
+    private struct InternalBody: View {
+        @Environment(\.defaultMinButtonHeight) private var minHeight
+        @Environment(\.appTheme) private var theme
+        @Environment(\.isEnabled) private var isEnabled
 
-    public func makeBody(configuration: Self.Configuration) -> some View {
-        GradientFillStyleBody(id: .gradientPill, configuration: configuration) { _ in
-            Capsule()
+        let id: ButtonIdentifier
+        let configuration: ButtonStyleConfiguration
+        let shape: S
+
+        var body: some View {
+            configuration.label
+                .frame(maxWidth: .infinity, minHeight: minHeight)
+                .padding(.horizontal)
+                .foregroundColor(foregroundColor)
+                .background(background)
+                .contentShape(shape)
+                .scaleOpacityEffect(configuration.isPressed, options: .scale)
         }
-    }
-}
 
-// MARK: - Helper
-
-private struct GradientFillStyleBody<S: Shape>: View {
-    @Environment(\.defaultMinButtonHeight) private var minHeight
-    @Environment(\.defaultButtonCornerRadius) var cornerRadius
-    @Environment(\.appTheme) private var theme
-    @Environment(\.isEnabled) private var isEnabled
-
-    let id: ButtonIdentifier
-    let configuration: ButtonStyleConfiguration
-    let shape: (Self) -> S
-
-    var body: some View {
-        configuration.label
-            .frame(maxWidth: .infinity, minHeight: minHeight)
-            .padding(.horizontal)
-            .foregroundColor(foregroundColor)
-            .background(
-                shape(self)
-                    .fill(LinearGradient(
-                        gradient: .init(colors: gradientColors),
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    ))
+        private var background: some View {
+            LinearGradient(
+                gradient: .init(colors: gradientColors),
+                startPoint: .leading,
+                endPoint: .trailing
             )
-            .contentShape(shape(self))
-            .scaleOpacityEffect(configuration.isPressed, options: .scale)
-    }
+        }
 
-    private var foregroundColor: Color {
-        isEnabled ?
-            theme.buttonTextColor(id, configuration.isPressed ? .pressed : .normal) :
-            theme.buttonTextColor(id, .disabled)
-    }
+        private var foregroundColor: Color {
+            isEnabled ?
+                theme.buttonTextColor(id, configuration.isPressed ? .pressed : .normal) :
+                theme.buttonTextColor(id, .disabled)
+        }
 
-    private var gradientColors: [Color] {
-        isEnabled ?
-            theme.buttonBackgroundGradientColors(configuration.isPressed ? .pressed : .normal) :
-            theme.buttonBackgroundGradientColors(.disabled)
+        private var gradientColors: [Color] {
+            isEnabled ?
+                theme.buttonBackgroundGradientColors(configuration.isPressed ? .pressed : .normal) :
+                theme.buttonBackgroundGradientColors(.disabled)
+        }
     }
 }
 
 // MARK: - ButtonIdentifier
 
 extension ButtonIdentifier {
-    public static var gradientFill: Self { #function }
-    public static var gradientPill: Self { #function }
+    public static var gradient: Self { #function }
+}
+
+// MARK: - Dot Syntax Support
+
+extension ButtonStyle {
+    public static func gradient<S: InsettableShape>(shape: S) -> Self where Self == GradientButtonStyle<S> {
+        .init(
+            id: .gradient,
+            shape: shape
+        )
+    }
+}
+
+extension ButtonStyle where Self == GradientButtonStyle<RoundedRectangle> {
+    public static func gradient(cornerRadius: CGFloat) -> Self {
+        .gradient(shape: RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
+    }
+
+    public static var gradient: Self {
+        .gradient(cornerRadius: AppConstants.cornerRadius)
+    }
+}
+
+extension ButtonStyle where Self == GradientButtonStyle<Capsule> {
+    public static var capsule: Self {
+        .gradient(shape: Capsule())
+    }
 }
