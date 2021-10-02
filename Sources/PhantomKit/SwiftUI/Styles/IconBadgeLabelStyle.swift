@@ -7,15 +7,21 @@
 //
 
 import SwiftUI
+import Xcore
 
 public struct IconBadgeLabelStyle: LabelStyle {
     @Environment(\.defaultIconHeight) private var iconHeight
-    @Environment(\.defaultButtonCornerRadius) private var cornerRadius
     @Environment(\.appTheme) private var theme
-    private let color: Color
 
-    public init(color: Color = .clear) {
+    private let color: Color
+    private let cornerRadius: CGFloat
+
+    public init(
+        color: Color,
+        cornerRadius: CGFloat
+    ) {
         self.color = color
+        self.cornerRadius = cornerRadius
     }
 
     public func makeBody(configuration: Self.Configuration) -> some View {
@@ -44,10 +50,17 @@ public struct IconBadgeLabelStyle: LabelStyle {
     }
 }
 
-// MARK: - Convenience
+// MARK: - Dot Syntax Support
 
-extension IconBadgeLabelStyle {
-    public init(uiColor: UIColor = .clear) {
-        self.init(color: .init(uiColor))
+extension LabelStyle where Self == IconBadgeLabelStyle {
+    public static func iconBadge(color: Color, cornerRadius: CGFloat) -> Self {
+        .init(
+            color: color,
+            cornerRadius: cornerRadius
+        )
+    }
+
+    public static var iconBadge: Self {
+        .iconBadge(color: .clear, cornerRadius: AppConstants.cornerRadius)
     }
 }
