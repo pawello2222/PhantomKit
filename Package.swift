@@ -15,8 +15,8 @@ let package = Package(
         .package(name: "Xcore", url: "https://github.com/pawello2222/xcore.git", .upToNextMajor(from: "1.0.0")),
     ],
     targets: [
-        .target(name: "PhantomKit", dependencies: ["Async", "Xcore"], path: "Sources"),
-        .testTarget(name: "PhantomKitTests", dependencies: ["PhantomKit", "Nimble"], path: "Tests"),
+        .target(name: "PhantomKit", dependencies: ["Async", "Xcore"]),
+        .testTarget(name: "PhantomKitTests", dependencies: ["PhantomKit", "Nimble"]),
     ],
     swiftLanguageVersions: [.v5]
 )

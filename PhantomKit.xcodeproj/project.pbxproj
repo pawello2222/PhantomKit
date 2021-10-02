@@ -287,13 +287,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E549C71826475B89004388C4 /* Tests */ = {
+		E538EB372708FBAE00B1ADC2 /* PhantomKit */ = {
+			isa = PBXGroup;
+			children = (
+				E587B8C626430FC900F0F240 /* Helpers */,
+				E587B8B926430FC900F0F240 /* Swift */,
+				E587B8C826430FC900F0F240 /* SwiftUI */,
+				E5CA106B26435753008FD164 /* ThirdParty */,
+				E587B8B126430FC900F0F240 /* Resources */,
+			);
+			path = PhantomKit;
+			sourceTree = "<group>";
+		};
+		E538EB382708FBB900B1ADC2 /* PhantomKitTests */ = {
 			isa = PBXGroup;
 			children = (
 				E5638B1B265EB98F00E73B05 /* Extensions */,
 				E5638B19265EB98400E73B05 /* Formatters */,
 				E5638B1A265EB98B00E73B05 /* Network */,
 				E5638B1C265EB9C200E73B05 /* Resources */,
+			);
+			path = PhantomKitTests;
+			sourceTree = "<group>";
+		};
+		E549C71826475B89004388C4 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E538EB382708FBB900B1ADC2 /* PhantomKitTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -372,11 +392,7 @@
 		E587B8B026430FC900F0F240 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				E587B8C626430FC900F0F240 /* Helpers */,
-				E587B8B926430FC900F0F240 /* Swift */,
-				E587B8C826430FC900F0F240 /* SwiftUI */,
-				E5CA106B26435753008FD164 /* ThirdParty */,
-				E587B8B126430FC900F0F240 /* Resources */,
+				E538EB372708FBAE00B1ADC2 /* PhantomKit */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
