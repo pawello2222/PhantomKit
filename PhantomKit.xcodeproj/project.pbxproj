@@ -1174,14 +1174,14 @@
 			repositoryURL = "https://github.com/Quick/Nimble.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.1.0;
+				minimumVersion = 9.0.0;
 			};
 		};
 		E587B92C2643102C00F0F240 /* XCRemoteSwiftPackageReference "xcore" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pawello2222/xcore";
 			requirement = {
-				branch = phantomKit;
+				branch = main;
 				kind = branch;
 			};
 		};
@@ -1190,7 +1190,7 @@
 			repositoryURL = "https://github.com/duemunk/Async";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.0;
+				minimumVersion = 2.0.0;
 			};
 		};
 		E5CA10682643573E008FD164 /* XCRemoteSwiftPackageReference "Defaults" */ = {
@@ -1198,15 +1198,15 @@
 			repositoryURL = "https://github.com/sindresorhus/Defaults";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.2.2;
+				minimumVersion = 5.0.0;
 			};
 		};
 		E5CA1081264598B0008FD164 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya";
 			requirement = {
-				kind = exactVersion;
-				version = "15.0.0-alpha.1";
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
