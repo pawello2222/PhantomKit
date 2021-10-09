@@ -22,14 +22,7 @@ public struct WebView: View {
             .navigationTitle(viewModel.endpoint.title)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button(Localized.done) {
-                        viewModel.onDismiss?()
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                }
-            }
+            .cancelButtonToolbar("Done", onDismiss: viewModel.onDismiss)
     }
 }
 

@@ -73,19 +73,19 @@ extension AboutView {
 // MARK: - Data
 
 extension AboutView.Section {
-    public static func appDesign(author: String, startYear: Int? = nil) -> Self {
+    public static func appDesign(_ title: String, author: String, startYear: Int? = nil) -> Self {
         .init(
-            title: Localized.About.appDesign,
+            title: title,
             items: [.copyright(author: author, startYear: startYear)]
         )
     }
 }
 
 extension AboutView.Section {
-    public static func graphics(title: String, endpoint: WebEndpoint) -> Self {
+    public static func graphics(_ title: String, link: String, endpoint: WebEndpoint) -> Self {
         .init(
-            title: Localized.About.graphics,
-            items: [.link(title, endpoint: endpoint)]
+            title: title,
+            items: [.link(link, endpoint: endpoint)]
         )
     }
 }

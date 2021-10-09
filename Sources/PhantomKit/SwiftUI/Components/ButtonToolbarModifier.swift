@@ -13,10 +13,16 @@ public struct ButtonToolbarModifier: ViewModifier {
 
     private let title: String
     private let placement: ToolbarItemPlacement
+    private let onDismiss: (() -> Void)?
 
-    public init(title: String, placement: ToolbarItemPlacement = .navigationBarLeading) {
+    public init(
+        title: String,
+        placement: ToolbarItemPlacement = .navigationBarLeading,
+        onDismiss: (() -> Void)?
+    ) {
         self.title = title
         self.placement = placement
+        self.onDismiss = onDismiss
     }
 
     public func body(content: Content) -> some View {
@@ -24,6 +30,7 @@ public struct ButtonToolbarModifier: ViewModifier {
             .toolbar {
                 ToolbarItem(placement: placement) {
                     Button(title) {
+                        onDismiss?()
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
@@ -34,11 +41,16 @@ public struct ButtonToolbarModifier: ViewModifier {
 // MARK: - View
 
 extension View {
-    public func cancelButtonToolbar() -> some View {
-        modifier(ButtonToolbarModifier(title: Localized.cancel, placement: .cancellationAction))
-    }
-
-    public func doneButtonToolbar() -> some View {
-        modifier(ButtonToolbarModifier(title: Localized.done, placement: .cancellationAction))
+    public func cancelButtonToolbar(
+        _ title: String,
+        onDismiss: (() -> Void)? = nil
+    ) -> some View {
+        modifier(
+            ButtonToolbarModifier(
+                title: title,
+                placement: .cancellationAction,
+                onDismiss: onDismiss
+            )
+        )
     }
 }

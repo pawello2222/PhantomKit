@@ -34,7 +34,6 @@
 		E5638B24265EBDDF00E73B05 /* DateComponentsFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5638B23265EBDDF00E73B05 /* DateComponentsFormatterTests.swift */; };
 		E587B8F926430FC900F0F240 /* Imports.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8B226430FC900F0F240 /* Imports.swift */; };
 		E587B8FA26430FC900F0F240 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8B326430FC900F0F240 /* Bundle.swift */; };
-		E587B8FB26430FC900F0F240 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8B826430FC900F0F240 /* LocalizableStrings.swift */; };
 		E587B8FC26430FC900F0F240 /* WebEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8BB26430FC900F0F240 /* WebEndpoint.swift */; };
 		E587B8FF26430FC900F0F240 /* Set+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8BF26430FC900F0F240 /* Set+Ext.swift */; };
 		E587B90026430FC900F0F240 /* Published+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8C026430FC900F0F240 /* Published+Ext.swift */; };
@@ -106,7 +105,6 @@
 		E5ABD76A2672CB1A00082241 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD7692672CB1A00082241 /* CoreDataStack.swift */; };
 		E5ABD7F02676574400082241 /* CapsuleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD7EF2676574400082241 /* CapsuleTextField.swift */; };
 		E5ABD81A2676A3FC00082241 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD8192676A3FC00082241 /* NetworkImage.swift */; };
-		E5C7EBAB264C5B7D00E74EEF /* LastUpdatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */; };
 		E5C7EBB0264C758F00E74EEF /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */; };
 		E5C7EBB2264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBB1264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift */; };
 		E5CA106A2643573E008FD164 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA10692643573E008FD164 /* Defaults */; };
@@ -175,8 +173,6 @@
 		E587B8A626430F4900F0F240 /* libPhantomKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPhantomKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E587B8B226430FC900F0F240 /* Imports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Imports.swift; sourceTree = "<group>"; };
 		E587B8B326430FC900F0F240 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
-		E587B8B626430FC900F0F240 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		E587B8B826430FC900F0F240 /* LocalizableStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
 		E587B8BB26430FC900F0F240 /* WebEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebEndpoint.swift; sourceTree = "<group>"; };
 		E587B8BF26430FC900F0F240 /* Set+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set+Ext.swift"; sourceTree = "<group>"; };
 		E587B8C026430FC900F0F240 /* Published+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Published+Ext.swift"; sourceTree = "<group>"; };
@@ -246,7 +242,6 @@
 		E5ABD7692672CB1A00082241 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		E5ABD7EF2676574400082241 /* CapsuleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleTextField.swift; sourceTree = "<group>"; };
 		E5ABD8192676A3FC00082241 /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
-		E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdatedView.swift; sourceTree = "<group>"; };
 		E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		E5C7EBB1264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedFormatter+Abbreviation.swift"; sourceTree = "<group>"; };
 		E5CA106C2643576B008FD164 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
@@ -400,28 +395,10 @@
 		E587B8B126430FC900F0F240 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E587B8B426430FC900F0F240 /* Localization */,
 				E587B8B326430FC900F0F240 /* Bundle.swift */,
 				E587B8B226430FC900F0F240 /* Imports.swift */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		E587B8B426430FC900F0F240 /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				E587B8B526430FC900F0F240 /* Localizable.strings */,
-				E587B8B726430FC900F0F240 /* Helpers */,
-			);
-			path = Localization;
-			sourceTree = "<group>";
-		};
-		E587B8B726430FC900F0F240 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				E587B8B826430FC900F0F240 /* LocalizableStrings.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		E587B8B926430FC900F0F240 /* Swift */ = {
@@ -581,7 +558,6 @@
 			children = (
 				E587B8EF26430FC900F0F240 /* AboutView */,
 				E587B8F326430FC900F0F240 /* WebView */,
-				E5C7EBAA264C5B7D00E74EEF /* LastUpdatedView.swift */,
 				E5ABD75F2670238F00082241 /* SafariView.swift */,
 			);
 			path = Views;
@@ -698,7 +674,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E587B8AD26430F4900F0F240 /* Build configuration list for PBXNativeTarget "PhantomKit" */;
 			buildPhases = (
-				E5638B28265ECBCF00E73B05 /* Localization - SwiftGen */,
 				E5ABD6D92660527D00082241 /* Lint - SwiftLint */,
 				E587B8A226430F4900F0F240 /* Sources */,
 				E587B8A326430F4900F0F240 /* Frameworks */,
@@ -775,24 +750,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		E5638B28265ECBCF00E73B05 /* Localization - SwiftGen */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Localization - SwiftGen";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftgen >/dev/null; then\n  swiftgen\nelse\n  echo \"swiftgen not installed\"\nfi\n";
-		};
 		E5ABD6D92660527D00082241 /* Lint - SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -860,7 +817,6 @@
 				E587B92226430FC900F0F240 /* PresentationModifier.swift in Sources */,
 				E5888AE5265C612A00FC185E /* UserDefaults+Ext.swift in Sources */,
 				E587B8F926430FC900F0F240 /* Imports.swift in Sources */,
-				E5C7EBAB264C5B7D00E74EEF /* LastUpdatedView.swift in Sources */,
 				E5888A90265814D400FC185E /* UIImage+Ext.swift in Sources */,
 				E5CA106D2643576B008FD164 /* Defaults.swift in Sources */,
 				E5888ABE265C0C5E00FC185E /* Data+Ext.swift in Sources */,
@@ -877,7 +833,6 @@
 				E5888A982658591900FC185E /* AppTheme.swift in Sources */,
 				E587B90026430FC900F0F240 /* Published+Ext.swift in Sources */,
 				E5888A8E26580FA600FC185E /* ByteCountFormatter+Ext.swift in Sources */,
-				E587B8FB26430FC900F0F240 /* LocalizableStrings.swift in Sources */,
 				E5888AB1265ADF7600FC185E /* UIApplication+Ext.swift in Sources */,
 				E5ABD6D826604FE800082241 /* SearchBar.swift in Sources */,
 				E587B92A26430FC900F0F240 /* WebView+Script.swift in Sources */,
@@ -945,17 +900,6 @@
 			targetProxy = E549C71D26475B89004388C4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		E587B8B526430FC900F0F240 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E587B8B626430FC900F0F240 /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E549C72026475B89004388C4 /* Debug */ = {
