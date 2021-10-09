@@ -10,6 +10,7 @@
 
 import Combine
 import CombineMoya
+import Foundation
 import Moya
 
 // MARK: - MoyaProvider
