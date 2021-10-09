@@ -963,7 +963,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DMCVYHA293;
-				INFOPLIST_FILE = Tests/Resources/Info.plist;
+				INFOPLIST_FILE = Tests/PhantomKitTests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -981,7 +981,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DMCVYHA293;
-				INFOPLIST_FILE = Tests/Resources/Info.plist;
+				INFOPLIST_FILE = Tests/PhantomKitTests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
