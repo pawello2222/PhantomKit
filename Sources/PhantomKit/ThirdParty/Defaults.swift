@@ -10,6 +10,7 @@
 
 import Combine
 import Defaults
+import Foundation
 
 // MARK: - Published
 
