@@ -10,7 +10,9 @@ import os.log
 
 public enum Logger {
     public static func log(_ message: String, category: OSLog, type: OSLogType) {
+        #if DEBUG
         os_log("%@", log: category, type: type, message)
+        #endif
     }
 
     public static func debug(_ message: String, category: OSLog) {
