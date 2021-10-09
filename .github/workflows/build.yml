@@ -17,3 +17,5 @@ jobs:
         run:  xcodebuild test -scheme PhantomKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13 Pro' -enableCodeCoverage YES build test
       - name: Codecov
         uses: codecov/codecov-action@v2
+        with:
+          verbose: true
