@@ -15,8 +15,15 @@ let package = Package(
         .package(name: "Xcore", url: "https://github.com/pawello2222/xcore.git", .branch("main")),
     ],
     targets: [
-        .target(name: "PhantomKit", dependencies: ["Async", "Xcore"]),
-        .testTarget(name: "PhantomKitTests", dependencies: ["PhantomKit", "Nimble"]),
+        .target(
+            name: "PhantomKit",
+            dependencies: ["Async", "Xcore"]
+        ),
+        .testTarget(
+            name: "PhantomKitTests",
+            dependencies: ["PhantomKit", "Nimble"],
+            exclude: ["Resources/Info.plist"]
+        ),
     ],
     swiftLanguageVersions: [.v5]
 )
