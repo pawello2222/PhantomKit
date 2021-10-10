@@ -56,6 +56,8 @@ class DecimalFormatterTests: XCTestCase {
 
     func test_decimalFormatter_shouldFormatDecimals() throws {
         expect(self.usFormatter.string(from: 0.648723)).to(equal("0.65"))
+        expect(self.usFormatter.string(from: Float(0.648723))).to(equal("0.65"))
+        expect(self.usFormatter.string(from: Decimal(0.648723))).to(equal("0.65"))
         expect(self.usFormatter.string(from: 12.53)).to(equal("12.53"))
         expect(self.usFormatter.string(from: 123.000)).to(equal("123"))
         expect(self.usFormatter.string(from: 6_723_846.5673658)).to(equal("6,723,846.57"))
