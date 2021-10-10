@@ -6,20 +6,33 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  DEVELOPER_DIR: /Applications/Xcode_13.0.app/Contents/Developer
+
+  SCHEME: PhantomKit
+  IOS_SDK: iphonesimulator
+  IOS_DESTINATION: "platform=iOS Simulator,name=iPhone 13 Pro,OS=latest"
+  DERIVED_DATA_PATH: build
+
 jobs:
   build:
     runs-on: macos-11
-    env:
-      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer
-    strategy:
-      matrix:
-        xcode: ["13.0"]
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Build and Test
-        run:  xcodebuild test -scheme PhantomKit -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13 Pro' -enableCodeCoverage YES build test
+      - name: git checkout
+        uses: actions/checkout@v2
+      - name: unit tests
+        run: |
+           set -o pipefail
+           xcodebuild clean build test \
+             -scheme "$SCHEME" \
+             -sdk "$IOS_SDK" \
+             -destination "$IOS_DESTINATION" \
+             -derivedDataPath "$DERIVED_DATA_PATH" \
+             -enableCodeCoverage YES | xcpretty -c
       - name: Codecov
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v2
         with:
+          directory: "$DERIVED_DATA_PATH"
           fail_ci_if_error: true
           verbose: true
