@@ -285,7 +285,6 @@
 		E538EB372708FBAE00B1ADC2 /* PhantomKit */ = {
 			isa = PBXGroup;
 			children = (
-				E587B8C626430FC900F0F240 /* Helpers */,
 				E587B8B926430FC900F0F240 /* Swift */,
 				E587B8C826430FC900F0F240 /* SwiftUI */,
 				E5CA106B26435753008FD164 /* ThirdParty */,
@@ -404,6 +403,7 @@
 		E587B8B926430FC900F0F240 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				E587B8C626430FC900F0F240 /* Helpers */,
 				E5EDC2C0264D8E0A0088CDE8 /* Components */,
 				E587B8BD26430FC900F0F240 /* Extensions */,
 				E549C7252647CA6E004388C4 /* Formatters */,
@@ -463,10 +463,8 @@
 			isa = PBXGroup;
 			children = (
 				E587B8D126430FC900F0F240 /* Components */,
-				E5888A0D2653FAB800FC185E /* Styles */,
 				E587B8C926430FC900F0F240 /* Extensions */,
 				E587B8E126430FC900F0F240 /* Routing */,
-				E587B8EE26430FC900F0F240 /* Views */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -492,13 +490,20 @@
 		E587B8D126430FC900F0F240 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E587B8EF26430FC900F0F240 /* AboutView */,
+				E5FA3D2727131CDC000D1ABA /* Button */,
+				E5FA3D2A271322A2000D1ABA /* Label */,
+				E5FA3D2927132299000D1ABA /* ProgressView */,
+				E5FA3D2C2713233B000D1ABA /* SafariView */,
+				E587B8D226430FC900F0F240 /* SplitPicker */,
+				E587B8DD26430FC900F0F240 /* TabView */,
+				E5FA3D2B271322AC000D1ABA /* TextField */,
+				E5EDC2C3264D955C0088CDE8 /* ToastView */,
+				E5FA3D2827132255000D1ABA /* Toolbar */,
+				E587B8F326430FC900F0F240 /* WebView */,
 				E587B8D626430FC900F0F240 /* AnimatableFrameHeight.swift */,
-				E5888A092653DF7500FC185E /* AnimatedButton.swift */,
 				E5888A972658591900FC185E /* AppTheme.swift */,
-				E5E7C4C5264944290045596E /* ButtonToolbarModifier.swift */,
-				E5ABD7EF2676574400082241 /* CapsuleTextField.swift */,
 				E587B8CE26430FC900F0F240 /* CSSColor.swift */,
-				E5ABD74426682EC500082241 /* LoaderView.swift */,
 				E5ABD8192676A3FC00082241 /* NetworkImage.swift */,
 				E5ABD7182662F32300082241 /* PopupView.swift */,
 				E5C7EBAF264C758F00E74EEF /* PullToRefresh.swift */,
@@ -506,9 +511,6 @@
 				E5888A9526583E3F00FC185E /* SafeBinding.swift */,
 				E5ABD6D726604FE800082241 /* SearchBar.swift */,
 				E5ABD6F826614A4800082241 /* SentimentColorModifier.swift */,
-				E587B8DD26430FC900F0F240 /* SelectionTabView */,
-				E587B8D226430FC900F0F240 /* SplitPicker */,
-				E5EDC2C3264D955C0088CDE8 /* ToastView */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -523,13 +525,13 @@
 			path = SplitPicker;
 			sourceTree = "<group>";
 		};
-		E587B8DD26430FC900F0F240 /* SelectionTabView */ = {
+		E587B8DD26430FC900F0F240 /* TabView */ = {
 			isa = PBXGroup;
 			children = (
 				E587B8E026430FC900F0F240 /* SelectionTabView.swift */,
 				E587B8DE26430FC900F0F240 /* TabViewItem.swift */,
 			);
-			path = SelectionTabView;
+			path = TabView;
 			sourceTree = "<group>";
 		};
 		E587B8E126430FC900F0F240 /* Routing */ = {
@@ -553,16 +555,6 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
-		E587B8EE26430FC900F0F240 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				E587B8EF26430FC900F0F240 /* AboutView */,
-				E587B8F326430FC900F0F240 /* WebView */,
-				E5ABD75F2670238F00082241 /* SafariView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		E587B8EF26430FC900F0F240 /* AboutView */ = {
 			isa = PBXGroup;
 			children = (
@@ -581,18 +573,6 @@
 				E587B8F626430FC900F0F240 /* WebView+Script.swift */,
 			);
 			path = WebView;
-			sourceTree = "<group>";
-		};
-		E5888A0D2653FAB800FC185E /* Styles */ = {
-			isa = PBXGroup;
-			children = (
-				E587B8DA26430FC900F0F240 /* AnyButtonStyle.swift */,
-				E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */,
-				E587B8D926430FC900F0F240 /* GradientButtonStyle.swift */,
-				E587B8D726430FC900F0F240 /* IconBadgeLabelStyle.swift */,
-				E587B8DC26430FC900F0F240 /* SimpleLabelStyle.swift */,
-			);
-			path = Styles;
 			sourceTree = "<group>";
 		};
 		E5ABD7642672CA5700082241 /* Persistence */ = {
@@ -644,6 +624,58 @@
 				E587B8E226430FC900F0F240 /* View+Presentation.swift */,
 			);
 			path = Native;
+			sourceTree = "<group>";
+		};
+		E5FA3D2727131CDC000D1ABA /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				E587B8DA26430FC900F0F240 /* AnyButtonStyle.swift */,
+				E5888A092653DF7500FC185E /* AnimatedButton.swift */,
+				E587B8D926430FC900F0F240 /* GradientButtonStyle.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		E5FA3D2827132255000D1ABA /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				E5E7C4C5264944290045596E /* ButtonToolbarModifier.swift */,
+			);
+			path = Toolbar;
+			sourceTree = "<group>";
+		};
+		E5FA3D2927132299000D1ABA /* ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */,
+				E5ABD74426682EC500082241 /* LoaderView.swift */,
+			);
+			path = ProgressView;
+			sourceTree = "<group>";
+		};
+		E5FA3D2A271322A2000D1ABA /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				E587B8D726430FC900F0F240 /* IconBadgeLabelStyle.swift */,
+				E587B8DC26430FC900F0F240 /* SimpleLabelStyle.swift */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		E5FA3D2B271322AC000D1ABA /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				E5ABD7EF2676574400082241 /* CapsuleTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		E5FA3D2C2713233B000D1ABA /* SafariView */ = {
+			isa = PBXGroup;
+			children = (
+				E5ABD75F2670238F00082241 /* SafariView.swift */,
+			);
+			path = SafariView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
