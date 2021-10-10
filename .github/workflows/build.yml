@@ -23,7 +23,6 @@ jobs:
         uses: actions/checkout@v2
       - name: unit tests
         run: |
-           set -o pipefail
            xcodebuild clean build test \
              -scheme "$SCHEME" \
              -sdk "$IOS_SDK" \
