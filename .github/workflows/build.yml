@@ -12,7 +12,7 @@ env:
   SCHEME: PhantomKit
   IOS_SDK: iphonesimulator
   IOS_DESTINATION: "platform=iOS Simulator,name=iPhone 13 Pro,OS=latest"
-  DERIVED_DATA_PATH: build
+  DERIVED_DATA_PATH: DerivedData
 
 jobs:
   build-test:
@@ -30,8 +30,6 @@ jobs:
              -destination "$IOS_DESTINATION" \
              -enableCodeCoverage YES
       - name: Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v1
         with:
           fail_ci_if_error: true
-          root_dir: ~/Library/Xcode/Developer/DerivedData
-          verbose: true
