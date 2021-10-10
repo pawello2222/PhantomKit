@@ -28,7 +28,7 @@ jobs:
              -scheme "$SCHEME" \
              -sdk "$IOS_SDK" \
              -destination "$IOS_DESTINATION" \
-             -enableCodeCoverage YES | xcpretty -c
+             -enableCodeCoverage YES
       - name: Codecov
         uses: codecov/codecov-action@v2
         with:
