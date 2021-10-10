@@ -28,11 +28,10 @@ jobs:
              -scheme "$SCHEME" \
              -sdk "$IOS_SDK" \
              -destination "$IOS_DESTINATION" \
-             -derivedDataPath "$DERIVED_DATA_PATH" \
              -enableCodeCoverage YES | xcpretty -c
       - name: Codecov
         uses: codecov/codecov-action@v2
         with:
           fail_ci_if_error: true
-          root_dir: $DERIVED_DATA_PATH
+          root_dir: ~/Library/Xcode/Developer/DerivedData
           verbose: true
