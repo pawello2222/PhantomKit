@@ -1,4 +1,4 @@
 coverage:
   ignore:
-    - "Sources/Helpers/Constants.swift"
-    - "Tests"
+    - "Sources/PhantomKit/Swift/Helpers/Constants.swift"
+    - "Tests/PhantomKitTests"
