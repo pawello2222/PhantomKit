@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import Xcore
 
 public struct IconBadgeLabelStyle: LabelStyle {
     @Environment(\.defaultIconHeight) private var iconHeight
@@ -53,7 +52,10 @@ public struct IconBadgeLabelStyle: LabelStyle {
 // MARK: - Dot Syntax Support
 
 extension LabelStyle where Self == IconBadgeLabelStyle {
-    public static func iconBadge(color: Color, cornerRadius: CGFloat) -> Self {
+    public static func iconBadge(
+        color: Color,
+        cornerRadius: CGFloat = AppConstants.cornerRadius
+    ) -> Self {
         .init(
             color: color,
             cornerRadius: cornerRadius
@@ -61,6 +63,6 @@ extension LabelStyle where Self == IconBadgeLabelStyle {
     }
 
     public static var iconBadge: Self {
-        .iconBadge(color: .clear, cornerRadius: AppConstants.cornerRadius)
+        .iconBadge(color: .clear)
     }
 }
