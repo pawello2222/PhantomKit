@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+/// An expanding view with a continuous circular progress view.
 public struct LoaderView: View {
     @Environment(\.appTheme) private var theme
 
@@ -20,11 +21,11 @@ public struct LoaderView: View {
     public var body: some View {
         VStack(spacing: .s4) {
             ProgressView()
-                .progressViewStyle(ContinuousProgressViewStyle())
+                .progressViewStyle(.continuous)
                 .frame(45)
             Text(title)
-                .foregroundColor(theme.secondaryColor)
+                .foregroundStyle(.secondary)
         }
-        .expandingBackgroundColor(theme.backgroundColor)
+        .expandingBackground(theme.backgroundColor)
     }
 }

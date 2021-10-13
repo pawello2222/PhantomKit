@@ -37,9 +37,15 @@ public struct ContinuousProgressViewStyle: ProgressViewStyle {
             startAnimation()
         }
     }
-}
 
-extension ContinuousProgressViewStyle {
+    private var gradient: LinearGradient {
+        .init(
+            gradient: .init(colors: theme.buttonBackgroundGradientColors()),
+            startPoint: .trailing,
+            endPoint: .leading
+        )
+    }
+
     private func trimmedCircleView(from: CGFloat, to: CGFloat) -> some Shape {
         Circle()
             .trim(from: from, to: to)
@@ -51,15 +57,7 @@ extension ContinuousProgressViewStyle {
     }
 }
 
-extension ContinuousProgressViewStyle {
-    private var gradient: LinearGradient {
-        .init(
-            gradient: .init(colors: theme.buttonBackgroundGradientColors()),
-            startPoint: .trailing,
-            endPoint: .leading
-        )
-    }
-}
+// MARK: - Animation
 
 extension ContinuousProgressViewStyle {
     private func startAnimation() {
