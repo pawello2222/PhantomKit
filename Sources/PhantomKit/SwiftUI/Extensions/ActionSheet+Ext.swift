@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+@available(iOS, introduced: 13.0, deprecated: 15.0, message: "Use confirmationDialog instead.")
 extension ActionSheet {
     public init(title: String, buttons: [ActionSheet.Button] = [.cancel()]) {
         self.init(title: Text(title), buttons: buttons)
