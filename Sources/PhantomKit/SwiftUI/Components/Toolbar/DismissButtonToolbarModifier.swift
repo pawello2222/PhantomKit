@@ -1,5 +1,5 @@
 //
-//  ButtonToolbarModifier.swift
+//  DismissButtonToolbarModifier.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 10.05.2021.
@@ -8,8 +8,9 @@
 
 import SwiftUI
 
-public struct ButtonToolbarModifier: ViewModifier {
-    @Environment(\.presentationMode) private var presentationMode
+/// A modifier that adds a dismiss button to the toolbar.
+public struct DismissButtonToolbarModifier: ViewModifier {
+    @Environment(\.dismiss) private var dismiss
 
     private let title: String
     private let placement: ToolbarItemPlacement
@@ -17,8 +18,8 @@ public struct ButtonToolbarModifier: ViewModifier {
 
     public init(
         title: String,
-        placement: ToolbarItemPlacement = .navigationBarLeading,
-        onDismiss: (() -> Void)?
+        placement: ToolbarItemPlacement,
+        onDismiss: (() -> Void)? = nil
     ) {
         self.title = title
         self.placement = placement
@@ -31,7 +32,7 @@ public struct ButtonToolbarModifier: ViewModifier {
                 ToolbarItem(placement: placement) {
                     Button(title) {
                         onDismiss?()
-                        presentationMode.wrappedValue.dismiss()
+                        dismiss()
                     }
                 }
             }
@@ -41,12 +42,13 @@ public struct ButtonToolbarModifier: ViewModifier {
 // MARK: - View
 
 extension View {
-    public func cancelButtonToolbar(
+    /// A modifier that adds a dismiss button to the toolbar.
+    public func dismissButtonToolbar(
         _ title: String,
         onDismiss: (() -> Void)? = nil
     ) -> some View {
         modifier(
-            ButtonToolbarModifier(
+            DismissButtonToolbarModifier(
                 title: title,
                 placement: .cancellationAction,
                 onDismiss: onDismiss
