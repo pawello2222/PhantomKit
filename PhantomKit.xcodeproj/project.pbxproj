@@ -119,6 +119,7 @@
 		E5EDC2C2264D92CE0088CDE8 /* View+Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDC2C1264D92CE0088CDE8 /* View+Footer.swift */; };
 		E5EDC2C5264D956B0088CDE8 /* ToastView+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDC2C4264D956B0088CDE8 /* ToastView+Theme.swift */; };
 		E5FA3D30271732AA000D1ABA /* AppTheme+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA3D2F271732AA000D1ABA /* AppTheme+Default.swift */; };
+		E5FA3D3927176B47000D1ABA /* PrimitiveButtonStyle+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA3D3827176B47000D1ABA /* PrimitiveButtonStyle+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -253,6 +254,7 @@
 		E5EDC2C1264D92CE0088CDE8 /* View+Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Footer.swift"; sourceTree = "<group>"; };
 		E5EDC2C4264D956B0088CDE8 /* ToastView+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToastView+Theme.swift"; sourceTree = "<group>"; };
 		E5FA3D2F271732AA000D1ABA /* AppTheme+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppTheme+Default.swift"; sourceTree = "<group>"; };
+		E5FA3D3827176B47000D1ABA /* PrimitiveButtonStyle+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrimitiveButtonStyle+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -476,6 +478,7 @@
 				E5888A072653CA5D00FC185E /* Button+Ext.swift */,
 				E5888A0B2653F9E000FC185E /* EnvironmentValues+Ext.swift */,
 				E5888AAA265AB4BC00FC185E /* Image+Ext.swift */,
+				E5FA3D3827176B47000D1ABA /* PrimitiveButtonStyle+Ext.swift */,
 				E587B8D026430FC900F0F240 /* Section+Ext.swift */,
 				E587B8CF26430FC900F0F240 /* View+Action.swift */,
 				E587B8CD26430FC900F0F240 /* View+Ext.swift */,
@@ -929,6 +932,7 @@
 				E587B90926430FC900F0F240 /* Alert+Button+Ext.swift in Sources */,
 				E587B91B26430FC900F0F240 /* BaseHostingController.swift in Sources */,
 				E5ABD7682672CAE400082241 /* PersistentStore.swift in Sources */,
+				E5FA3D3927176B47000D1ABA /* PrimitiveButtonStyle+Ext.swift in Sources */,
 				E5ABD7422667E28100082241 /* AppEnvironment.swift in Sources */,
 				E587B8FA26430FC900F0F240 /* Bundle.swift in Sources */,
 				E587B91F26430FC900F0F240 /* RouteHandler+Ext.swift in Sources */,

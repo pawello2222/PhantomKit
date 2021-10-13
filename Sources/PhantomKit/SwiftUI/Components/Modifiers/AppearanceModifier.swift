@@ -25,7 +25,7 @@ public struct AppearanceModifier: ViewModifier {
 // MARK: - View
 
 extension View {
-    public func rootViewAppearance(theme: AppTheme = .default) -> some View {
+    public func appearance(theme: AppTheme = .default) -> some View {
         modifier(AppearanceModifier(theme: theme))
     }
 }

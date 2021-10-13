@@ -81,9 +81,31 @@ extension PresentationMethod {
 
 extension PresentationMethod.Trigger {
     public static var `default`: Self = .defaultButton
+}
 
-    // ButtonStyle
+// PrimitiveButtonStyle
 
+extension PresentationMethod.Trigger {
+    public static func styledButton<S>(_ style: S) -> Self where S: PrimitiveButtonStyle {
+        .primitiveButton(style: AnyPrimitiveButtonStyle(style: style))
+    }
+
+    public static var defaultButton: Self {
+        .styledButton(.default)
+    }
+
+    public static var plainButton: Self {
+        .styledButton(.plain)
+    }
+
+    public static var borderlessButton: Self {
+        .styledButton(.borderless)
+    }
+}
+
+// ButtonStyle
+
+extension PresentationMethod.Trigger {
     public static func styledButton<S>(_ style: S) -> Self where S: ButtonStyle {
         .button(style: AnyButtonStyle(style: style))
     }
@@ -102,23 +124,5 @@ extension PresentationMethod.Trigger {
 
     public static var gradientButton: Self {
         .styledButton(.gradient)
-    }
-
-    // PrimitiveButtonStyle
-
-    public static func styledButton<S>(_ style: S) -> Self where S: PrimitiveButtonStyle {
-        .primitiveButton(style: AnyPrimitiveButtonStyle(style: style))
-    }
-
-    public static var defaultButton: Self {
-        .styledButton(DefaultButtonStyle())
-    }
-
-    public static var plainButton: Self {
-        .styledButton(.plain)
-    }
-
-    public static var borderlessButton: Self {
-        .styledButton(.borderless)
     }
 }
