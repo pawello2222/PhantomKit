@@ -401,10 +401,10 @@
 		E587B8B926430FC900F0F240 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				E587B8C626430FC900F0F240 /* Helpers */,
 				E5EDC2C0264D8E0A0088CDE8 /* Components */,
 				E587B8BD26430FC900F0F240 /* Extensions */,
 				E549C7252647CA6E004388C4 /* Formatters */,
+				E587B8C626430FC900F0F240 /* Helpers */,
 				E587B8BA26430FC900F0F240 /* Network */,
 				E5ABD7642672CA5700082241 /* Persistence */,
 			);
@@ -487,23 +487,23 @@
 		E587B8D126430FC900F0F240 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E5FA3D2E27173293000D1ABA /* AppTheme */,
 				E587B8EF26430FC900F0F240 /* AboutView */,
+				E5FA3D2E27173293000D1ABA /* AppTheme */,
 				E5FA3D2727131CDC000D1ABA /* Button */,
 				E5FA3D3227176613000D1ABA /* Footer */,
 				E5FA3D2A271322A2000D1ABA /* Label */,
 				E5FA3D33271767E7000D1ABA /* Modifiers */,
+				E5FA3D34271768CF000D1ABA /* NetworkImage */,
+				E5FA3D35271768E4000D1ABA /* PopupView */,
 				E5FA3D2927132299000D1ABA /* ProgressView */,
 				E5FA3D2C2713233B000D1ABA /* SafariView */,
+				E5FA3D36271768F0000D1ABA /* SearchBar */,
 				E587B8D226430FC900F0F240 /* SplitPicker */,
 				E587B8DD26430FC900F0F240 /* TabView */,
 				E5FA3D2B271322AC000D1ABA /* TextField */,
 				E5EDC2C3264D955C0088CDE8 /* ToastView */,
 				E5FA3D2827132255000D1ABA /* Toolbar */,
 				E587B8F326430FC900F0F240 /* WebView */,
-				E5ABD8192676A3FC00082241 /* NetworkImage.swift */,
-				E5ABD7182662F32300082241 /* PopupView.swift */,
-				E5ABD6D726604FE800082241 /* SearchBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -705,6 +705,30 @@
 				E5ABD6F826614A4800082241 /* SentimentColorModifier.swift */,
 			);
 			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		E5FA3D34271768CF000D1ABA /* NetworkImage */ = {
+			isa = PBXGroup;
+			children = (
+				E5ABD8192676A3FC00082241 /* NetworkImage.swift */,
+			);
+			path = NetworkImage;
+			sourceTree = "<group>";
+		};
+		E5FA3D35271768E4000D1ABA /* PopupView */ = {
+			isa = PBXGroup;
+			children = (
+				E5ABD7182662F32300082241 /* PopupView.swift */,
+			);
+			path = PopupView;
+			sourceTree = "<group>";
+		};
+		E5FA3D36271768F0000D1ABA /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				E5ABD6D726604FE800082241 /* SearchBar.swift */,
+			);
+			path = SearchBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
