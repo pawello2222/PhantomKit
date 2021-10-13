@@ -8,15 +8,31 @@
 
 import SwiftUI
 
-extension Section {
+extension Section where Parent == Text, Content: View, Footer: View {
+    /// Creates a section with the provided section content.
+    /// - Parameters:
+    ///   - titleKey: The key for the section's localized title, which describes
+    ///     the contents of the section.
+    ///   - content: The section's content.
+    ///   - footer: A view to use as the section's footer.
     public init(
-        title: String,
-        @ViewBuilder content: @escaping () -> Content
-    ) where Parent == Text, Footer == EmptyView, Content: View {
-        self.init(header: Text(title), content: content)
+        _ titleKey: LocalizedStringKey,
+        @ViewBuilder content: () -> Content,
+        @ViewBuilder footer: () -> Footer
+    ) {
+        self.init(content: content, header: { Text(titleKey) }, footer: footer)
     }
 
-    public init(header: Parent) where Parent: View, Footer == EmptyView, Content == EmptyView {
-        self.init(header: header, content: {})
+    /// Creates a section with the provided section content.
+    /// - Parameters:
+    ///   - title: A string that describes the contents of the section.
+    ///   - content: The section's content.
+    ///   - footer: A view to use as the section's footer.
+    public init<S>(
+        _ title: S,
+        @ViewBuilder content: () -> Content,
+        @ViewBuilder footer: () -> Footer
+    ) where S: StringProtocol {
+        self.init(content: content, header: { Text(title) }, footer: footer)
     }
 }
