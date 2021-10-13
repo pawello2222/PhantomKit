@@ -48,21 +48,16 @@ extension View {
     }
 }
 
-// MARK: - Color
+// MARK: - Background
 
 extension View {
-    @inlinable public func accentUIColor(_ uiColor: UIColor) -> some View {
-        accentColor(.init(uiColor))
-    }
-
-    public func expandingBackgroundUIColor(_ uiColor: UIColor, edgesIgnoringSafeArea: Edge.Set = .all) -> some View {
-        expandingBackgroundColor(.init(uiColor), edgesIgnoringSafeArea: edgesIgnoringSafeArea)
-    }
-
-    public func expandingBackgroundColor(_ color: Color, edgesIgnoringSafeArea: Edge.Set = .all) -> some View {
+    public func expandingBackground<V>(
+        _ background: V,
+        ignoresSafeAreaEdges edges: Edge.Set = .all
+    ) -> some View where V: View {
         ZStack {
-            color
-                .edgesIgnoringSafeArea(edgesIgnoringSafeArea)
+            background
+                .ignoresSafeArea(.all, edges: edges)
             self
         }
     }
