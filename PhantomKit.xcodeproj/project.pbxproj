@@ -57,7 +57,7 @@
 		E587B91326430FC900F0F240 /* GradientButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8D926430FC900F0F240 /* GradientButtonStyle.swift */; };
 		E587B91426430FC900F0F240 /* AnyButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8DA26430FC900F0F240 /* AnyButtonStyle.swift */; };
 		E587B91526430FC900F0F240 /* RootViewAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8DB26430FC900F0F240 /* RootViewAppearance.swift */; };
-		E587B91626430FC900F0F240 /* SimpleLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8DC26430FC900F0F240 /* SimpleLabelStyle.swift */; };
+		E587B91626430FC900F0F240 /* SpacedLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8DC26430FC900F0F240 /* SpacedLabelStyle.swift */; };
 		E587B91726430FC900F0F240 /* TabViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8DE26430FC900F0F240 /* TabViewItem.swift */; };
 		E587B91926430FC900F0F240 /* SelectionTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8E026430FC900F0F240 /* SelectionTabView.swift */; };
 		E587B91A26430FC900F0F240 /* View+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8E226430FC900F0F240 /* View+Presentation.swift */; };
@@ -196,7 +196,7 @@
 		E587B8D926430FC900F0F240 /* GradientButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientButtonStyle.swift; sourceTree = "<group>"; };
 		E587B8DA26430FC900F0F240 /* AnyButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyButtonStyle.swift; sourceTree = "<group>"; };
 		E587B8DB26430FC900F0F240 /* RootViewAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewAppearance.swift; sourceTree = "<group>"; };
-		E587B8DC26430FC900F0F240 /* SimpleLabelStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleLabelStyle.swift; sourceTree = "<group>"; };
+		E587B8DC26430FC900F0F240 /* SpacedLabelStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacedLabelStyle.swift; sourceTree = "<group>"; };
 		E587B8DE26430FC900F0F240 /* TabViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewItem.swift; sourceTree = "<group>"; };
 		E587B8E026430FC900F0F240 /* SelectionTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionTabView.swift; sourceTree = "<group>"; };
 		E587B8E226430FC900F0F240 /* View+Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Presentation.swift"; sourceTree = "<group>"; };
@@ -656,7 +656,7 @@
 			isa = PBXGroup;
 			children = (
 				E587B8D726430FC900F0F240 /* IconBadgeLabelStyle.swift */,
-				E587B8DC26430FC900F0F240 /* SimpleLabelStyle.swift */,
+				E587B8DC26430FC900F0F240 /* SpacedLabelStyle.swift */,
 			);
 			path = Label;
 			sourceTree = "<group>";
@@ -867,7 +867,7 @@
 				E5888AAB265AB4BC00FC185E /* Image+Ext.swift in Sources */,
 				E587B92726430FC900F0F240 /* AboutView+Section+Item.swift in Sources */,
 				E5888A9626583E3F00FC185E /* SafeBinding.swift in Sources */,
-				E587B91626430FC900F0F240 /* SimpleLabelStyle.swift in Sources */,
+				E587B91626430FC900F0F240 /* SpacedLabelStyle.swift in Sources */,
 				E5ABD6DD2661024100082241 /* Message.swift in Sources */,
 				E587B90426430FC900F0F240 /* NotificationCenter+Ext.swift in Sources */,
 				E5ABD7602670238F00082241 /* SafariView.swift in Sources */,
