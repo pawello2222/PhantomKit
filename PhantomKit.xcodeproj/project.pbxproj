@@ -119,6 +119,7 @@
 		E5EDC2BF264D82620088CDE8 /* Network+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDC2BE264D82620088CDE8 /* Network+Protocols.swift */; };
 		E5EDC2C2264D92CE0088CDE8 /* View+Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDC2C1264D92CE0088CDE8 /* View+Footer.swift */; };
 		E5EDC2C5264D956B0088CDE8 /* ToastView+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDC2C4264D956B0088CDE8 /* ToastView+Theme.swift */; };
+		E5FA3D30271732AA000D1ABA /* AppTheme+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA3D2F271732AA000D1ABA /* AppTheme+Default.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -253,6 +254,7 @@
 		E5EDC2BE264D82620088CDE8 /* Network+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Protocols.swift"; sourceTree = "<group>"; };
 		E5EDC2C1264D92CE0088CDE8 /* View+Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Footer.swift"; sourceTree = "<group>"; };
 		E5EDC2C4264D956B0088CDE8 /* ToastView+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToastView+Theme.swift"; sourceTree = "<group>"; };
+		E5FA3D2F271732AA000D1ABA /* AppTheme+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppTheme+Default.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -488,6 +490,7 @@
 		E587B8D126430FC900F0F240 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E5FA3D2E27173293000D1ABA /* AppTheme */,
 				E587B8EF26430FC900F0F240 /* AboutView */,
 				E5FA3D2727131CDC000D1ABA /* Button */,
 				E5FA3D2A271322A2000D1ABA /* Label */,
@@ -500,7 +503,6 @@
 				E5FA3D2827132255000D1ABA /* Toolbar */,
 				E587B8F326430FC900F0F240 /* WebView */,
 				E587B8D626430FC900F0F240 /* AnimatableFrameHeight.swift */,
-				E5888A972658591900FC185E /* AppTheme.swift */,
 				E587B8CE26430FC900F0F240 /* CSSColor.swift */,
 				E5ABD8192676A3FC00082241 /* NetworkImage.swift */,
 				E5ABD7182662F32300082241 /* PopupView.swift */,
@@ -673,6 +675,15 @@
 				E5ABD75F2670238F00082241 /* SafariView.swift */,
 			);
 			path = SafariView;
+			sourceTree = "<group>";
+		};
+		E5FA3D2E27173293000D1ABA /* AppTheme */ = {
+			isa = PBXGroup;
+			children = (
+				E5888A972658591900FC185E /* AppTheme.swift */,
+				E5FA3D2F271732AA000D1ABA /* AppTheme+Default.swift */,
+			);
+			path = AppTheme;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -851,6 +862,7 @@
 				E5888ABE265C0C5E00FC185E /* Data+Ext.swift in Sources */,
 				E587B90826430FC900F0F240 /* ActionSheet+Ext.swift in Sources */,
 				E5ABD74526682EC500082241 /* LoaderView.swift in Sources */,
+				E5FA3D30271732AA000D1ABA /* AppTheme+Default.swift in Sources */,
 				E5E7C4C8264995600045596E /* LocalizedFormatter+Sign.swift in Sources */,
 				E5888AAB265AB4BC00FC185E /* Image+Ext.swift in Sources */,
 				E587B92726430FC900F0F240 /* AboutView+Section+Item.swift in Sources */,

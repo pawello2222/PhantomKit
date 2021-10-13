@@ -45,6 +45,17 @@ public struct AppTheme: MutableAppliable, UserInfoContainer {
     /// The color for content layered on top of the main background.
     public var backgroundSecondaryColor: Color
 
+    // MARK: - Sentiment Color
+
+    /// The color for representing positive sentiment.
+    public var positiveSentimentColor: Color
+
+    /// The color for representing neutral sentiment.
+    public var neutralSentimentColor: Color
+
+    /// The color for representing negative sentiment.
+    public var negativeSentimentColor: Color
+
     // MARK: - Button
 
     /// The color for the text of the button.
@@ -56,16 +67,7 @@ public struct AppTheme: MutableAppliable, UserInfoContainer {
     /// The color for the background of the button.
     public var buttonBackgroundGradientColors: ButtonGradientColors
 
-    // MARK: - Sentiment Color
-
-    /// The color for representing positive sentiment.
-    public var positiveSentimentColor: Color
-
-    /// The color for representing negative sentiment.
-    public var negativeSentimentColor: Color
-
-    /// The color for representing neutral sentiment.
-    public var neutralSentimentColor: Color
+    // MARK: - User Info
 
     /// Additional info which may be used to describe the theme further.
     public var userInfo: UserInfo
@@ -85,15 +87,15 @@ public struct AppTheme: MutableAppliable, UserInfoContainer {
         backgroundColor: Color,
         backgroundSecondaryColor: Color,
 
+        // Sentiment
+        positiveSentimentColor: Color,
+        neutralSentimentColor: Color,
+        negativeSentimentColor: Color,
+
         // Button
         buttonTextColor: @escaping ButtonColor,
         buttonBackgroundColor: @escaping ButtonColor,
         buttonBackgroundGradientColors: @escaping ButtonGradientColors,
-
-        // Sentiment
-        positiveSentimentColor: Color,
-        negativeSentimentColor: Color,
-        neutralSentimentColor: Color,
 
         // UserInfo
         userInfo: UserInfo = [:]
@@ -112,15 +114,15 @@ public struct AppTheme: MutableAppliable, UserInfoContainer {
         self.backgroundColor = backgroundColor
         self.backgroundSecondaryColor = backgroundSecondaryColor
 
+        // Sentiment
+        self.positiveSentimentColor = positiveSentimentColor
+        self.neutralSentimentColor = neutralSentimentColor
+        self.negativeSentimentColor = negativeSentimentColor
+
         // Button
         self.buttonTextColor = buttonTextColor
         self.buttonBackgroundColor = buttonBackgroundColor
         self.buttonBackgroundGradientColors = buttonBackgroundGradientColors
-
-        // Sentiment
-        self.positiveSentimentColor = positiveSentimentColor
-        self.negativeSentimentColor = negativeSentimentColor
-        self.neutralSentimentColor = neutralSentimentColor
 
         // UserInfo
         self.userInfo = userInfo
@@ -169,88 +171,5 @@ extension AppTheme: Hashable {
 extension AppTheme: Equatable {
     public static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.id == rhs.id
-    }
-}
-
-// MARK: - Default
-
-extension AppTheme {
-    /// The default theme for the interface.
-    public static var `default`: AppTheme = .system
-
-    /// The system theme for the interface.
-    private static let system = AppTheme(
-        id: "system",
-        accentColor: .accentColor,
-        borderColor: .accentColor,
-        toggleColor: .accentColor,
-        linkColor: .accentColor,
-
-        // Text
-        primaryColor: .primary,
-        secondaryColor: .secondary,
-
-        // Background
-        backgroundColor: .init(.systemBackground),
-        backgroundSecondaryColor: .init(.secondarySystemBackground),
-
-        // Button Text
-        buttonTextColor: { style, state in
-            switch (style, state) {
-            case (.outline, .normal),
-                 (.outline, .pressed):
-                return .primary
-
-            case (_, .normal):
-                return .white
-            case (_, .pressed):
-                return .white
-            case (_, .disabled):
-                return .secondary
-            }
-        },
-
-        // Button Background
-        buttonBackgroundColor: { style, state in
-            switch (style, state) {
-            case (_, .normal):
-                return .accentColor
-            case (_, .pressed):
-                return .accentColor
-            case (_, .disabled):
-                return .gray
-            }
-        },
-
-        // Button Background
-        buttonBackgroundGradientColors: { state in
-            switch state {
-            case .disabled:
-                return [.gray]
-            default:
-                return [.accentColor]
-            }
-        },
-
-        // Sentiment
-        positiveSentimentColor: .green,
-        negativeSentimentColor: .red,
-        neutralSentimentColor: .secondary
-    )
-}
-
-// MARK: - Convenience
-
-extension AppTheme {
-    public static let common = AppTheme.system.applying {
-        $0.id = "common"
-        $0.buttonBackgroundGradientColors = { state in
-            switch state {
-            case .disabled:
-                return [.init(.gray), .init(.lightGray)]
-            default:
-                return [.red, .orange]
-            }
-        }
     }
 }
