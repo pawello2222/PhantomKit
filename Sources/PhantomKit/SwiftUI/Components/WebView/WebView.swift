@@ -10,7 +10,6 @@ import SwiftUI
 import WebKit
 
 public struct WebView: View {
-    @Environment(\.presentationMode) private var presentationMode
     @ObservedObject private var viewModel: ViewModel
 
     public init(viewModel: ViewModel) {
@@ -22,7 +21,7 @@ public struct WebView: View {
             .navigationTitle(viewModel.endpoint.title)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-            .cancelButtonToolbar("Done", onDismiss: viewModel.onDismiss)
+            .dismissButtonToolbar("Done", onDismiss: viewModel.onDismiss)
     }
 }
 

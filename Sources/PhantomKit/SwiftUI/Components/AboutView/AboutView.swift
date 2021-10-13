@@ -9,7 +9,7 @@
 import SwiftUI
 
 public struct AboutView: View {
-    @Environment(\.presentationMode) private var presentationMode
+    @Environment(\.dismiss) private var dismiss
     private let sections: [Section]
     private let image: () -> Image
 
@@ -30,7 +30,7 @@ public struct AboutView: View {
         .navigationBarHidden(true)
         .maxContentFrame()
         .action(triggeredBy: .tap) {
-            presentationMode.wrappedValue.dismiss()
+            dismiss()
         }
     }
 
