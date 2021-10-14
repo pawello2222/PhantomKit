@@ -20,7 +20,13 @@ extension Section where Parent == Text, Content: View, Footer: View {
         @ViewBuilder content: () -> Content,
         @ViewBuilder footer: () -> Footer
     ) {
-        self.init(content: content, header: { Text(titleKey) }, footer: footer)
+        self.init(
+            content: content,
+            header: {
+                Text(titleKey)
+            },
+            footer: footer
+        )
     }
 
     /// Creates a section with the provided section content.
@@ -33,6 +39,12 @@ extension Section where Parent == Text, Content: View, Footer: View {
         @ViewBuilder content: () -> Content,
         @ViewBuilder footer: () -> Footer
     ) where S: StringProtocol {
-        self.init(content: content, header: { Text(title) }, footer: footer)
+        self.init(
+            content: content,
+            header: {
+                Text(title)
+            },
+            footer: footer
+        )
     }
 }
