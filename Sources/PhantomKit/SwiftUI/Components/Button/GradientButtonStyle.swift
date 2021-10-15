@@ -99,6 +99,6 @@ extension ButtonStyle where Self == GradientButtonStyle<RoundedRectangle> {
     }
 
     public static var gradient: Self {
-        .gradient(cornerRadius: .infinity)
+        .gradient(cornerRadius: AppConstants.tileCornerRadius)
     }
 }
