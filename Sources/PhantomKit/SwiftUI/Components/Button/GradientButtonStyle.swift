@@ -52,11 +52,14 @@ extension GradientButtonStyle {
         }
 
         private var background: some View {
-            LinearGradient(
-                gradient: .init(colors: gradientColors),
-                startPoint: .leading,
-                endPoint: .trailing
-            )
+            shape
+                .fill(
+                    LinearGradient(
+                        gradient: .init(colors: gradientColors),
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                )
         }
 
         private var foregroundColor: Color {
@@ -97,11 +100,5 @@ extension ButtonStyle where Self == GradientButtonStyle<RoundedRectangle> {
 
     public static var gradient: Self {
         .gradient(cornerRadius: AppConstants.cornerRadius)
-    }
-}
-
-extension ButtonStyle where Self == GradientButtonStyle<Capsule> {
-    public static var capsule: Self {
-        .gradient(shape: Capsule())
     }
 }
