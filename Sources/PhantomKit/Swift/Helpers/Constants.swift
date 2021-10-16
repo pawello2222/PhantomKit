@@ -9,7 +9,7 @@
 import UIKit
 
 extension AppConstants {
-    public static var buttonCornerRadius: CGFloat = 16
+    public static var buttonCornerRadius: CGFloat = 25
 }
 
 extension Double {
