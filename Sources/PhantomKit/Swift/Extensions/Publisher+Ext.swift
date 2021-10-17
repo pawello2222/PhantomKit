@@ -58,7 +58,7 @@ extension Publisher {
 // MARK: - Async/await Support
 
 extension Publisher {
-    func singleResult() async throws -> Output? {
+    public func singleResult() async throws -> Output? {
         var cancellable: AnyCancellable?
         var didReceiveValue = false
 
