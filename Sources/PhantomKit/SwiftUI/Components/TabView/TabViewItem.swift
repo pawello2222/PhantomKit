@@ -9,7 +9,6 @@
 import SwiftUI
 
 public struct TabViewItem<Item>: ViewModifier where Item: Hashable {
-    @Environment(\.tabSelection) private var tabSelection
     private let item: Item
     private let title: String?
     private let imageName: String
@@ -24,23 +23,11 @@ public struct TabViewItem<Item>: ViewModifier where Item: Hashable {
         content
             .tag(item)
             .tabItem {
-                image
+                Image(systemName: imageName)
                 if let title = title {
                     Text(title)
                 }
             }
-    }
-}
-
-extension TabViewItem {
-    private var image: some View {
-        guard
-            tabSelection?.hashValue == item.hashValue,
-            let uiImage = UIImage(systemName: imageName + ".fill")
-        else {
-            return Image(systemName: imageName)
-        }
-        return Image(uiImage: uiImage)
     }
 }
 

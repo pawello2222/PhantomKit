@@ -58,7 +58,6 @@
 		E587B91526430FC900F0F240 /* AppearanceModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8DB26430FC900F0F240 /* AppearanceModifier.swift */; };
 		E587B91626430FC900F0F240 /* SpacedLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8DC26430FC900F0F240 /* SpacedLabelStyle.swift */; };
 		E587B91726430FC900F0F240 /* TabViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8DE26430FC900F0F240 /* TabViewItem.swift */; };
-		E587B91926430FC900F0F240 /* SelectionTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8E026430FC900F0F240 /* SelectionTabView.swift */; };
 		E587B91A26430FC900F0F240 /* View+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8E226430FC900F0F240 /* View+Presentation.swift */; };
 		E587B91B26430FC900F0F240 /* BaseHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8E426430FC900F0F240 /* BaseHostingController.swift */; };
 		E587B91C26430FC900F0F240 /* View+Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8E526430FC900F0F240 /* View+Route.swift */; };
@@ -198,7 +197,6 @@
 		E587B8DB26430FC900F0F240 /* AppearanceModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceModifier.swift; sourceTree = "<group>"; };
 		E587B8DC26430FC900F0F240 /* SpacedLabelStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacedLabelStyle.swift; sourceTree = "<group>"; };
 		E587B8DE26430FC900F0F240 /* TabViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewItem.swift; sourceTree = "<group>"; };
-		E587B8E026430FC900F0F240 /* SelectionTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionTabView.swift; sourceTree = "<group>"; };
 		E587B8E226430FC900F0F240 /* View+Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Presentation.swift"; sourceTree = "<group>"; };
 		E587B8E426430FC900F0F240 /* BaseHostingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseHostingController.swift; sourceTree = "<group>"; };
 		E587B8E526430FC900F0F240 /* View+Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Route.swift"; sourceTree = "<group>"; };
@@ -526,7 +524,6 @@
 		E587B8DD26430FC900F0F240 /* TabView */ = {
 			isa = PBXGroup;
 			children = (
-				E587B8E026430FC900F0F240 /* SelectionTabView.swift */,
 				E587B8DE26430FC900F0F240 /* TabViewItem.swift */,
 			);
 			path = TabView;
@@ -952,7 +949,6 @@
 				E5ABD76A2672CB1A00082241 /* CoreDataStack.swift in Sources */,
 				E5CA108726459A7D008FD164 /* APIError.swift in Sources */,
 				E5888A9426581FFA00FC185E /* Binding+Ext.swift in Sources */,
-				E587B91926430FC900F0F240 /* SelectionTabView.swift in Sources */,
 				E587B91D26430FC900F0F240 /* Router+Route+Method.swift in Sources */,
 				E5FA3D3D271B8B96000D1ABA /* ConfirmationDialogModifier.swift in Sources */,
 				E587B92826430FC900F0F240 /* WebView.swift in Sources */,

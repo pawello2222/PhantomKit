@@ -60,19 +60,6 @@ extension EnvironmentValues {
     }
 }
 
-// MARK: - TabSelection
-
-extension EnvironmentValues {
-    private struct TabSelectionKey: EnvironmentKey {
-        static var defaultValue: AnyHashable?
-    }
-
-    public var tabSelection: AnyHashable? {
-        get { self[TabSelectionKey.self] }
-        set { self[TabSelectionKey.self] = newValue }
-    }
-}
-
 // MARK: - View Helpers
 
 extension View {
@@ -90,13 +77,5 @@ extension View {
 
     public func geometrySize(_ size: CGSize) -> some View {
         environment(\.geometrySize, size)
-    }
-
-    public func tabSelection<Selection>(_ selection: Selection) -> some View where Selection: Hashable {
-        environment(\.tabSelection, selection)
-    }
-
-    public func tabSelection<Selection>(_ selection: Binding<Selection>) -> some View where Selection: Hashable {
-        tabSelection(selection.wrappedValue)
     }
 }
