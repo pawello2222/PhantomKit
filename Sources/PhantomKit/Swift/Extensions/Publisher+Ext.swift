@@ -54,3 +54,33 @@ extension Publisher {
         receive(on: .main, options: options)
     }
 }
+
+// MARK: - Async/await Support
+
+extension Publisher {
+    func singleResult() async throws -> Output? {
+        var cancellable: AnyCancellable?
+        var didReceiveValue = false
+
+        return try await withCheckedThrowingContinuation { continuation in
+            cancellable = sink(
+                receiveCompletion: { completion in
+                    switch completion {
+                    case .failure(let error):
+                        continuation.resume(throwing: error)
+                    case .finished:
+                        if !didReceiveValue {
+                            continuation.resume(returning: nil)
+                        }
+                    }
+                },
+                receiveValue: { value in
+                    guard !didReceiveValue else { return }
+                    didReceiveValue = true
+                    cancellable?.cancel()
+                    continuation.resume(returning: value)
+                }
+            )
+        }
+    }
+}
