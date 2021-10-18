@@ -57,8 +57,9 @@ extension Publisher {
 
 // MARK: - Async/await Support
 
+// Adopted from here: https://www.swiftbysundell.com/articles/connecting-async-await-with-other-swift-code/
 extension Publisher {
-    public func singleResult() async throws -> Output? {
+    public func singleResult() async throws -> Output {
         var cancellable: AnyCancellable?
         var didReceiveValue = false
 
@@ -70,7 +71,7 @@ extension Publisher {
                         continuation.resume(throwing: error)
                     case .finished:
                         if !didReceiveValue {
-                            continuation.resume(returning: nil)
+                            continuation.resume(throwing: Publishers.MissingOutputError())
                         }
                     }
                 },
@@ -83,4 +84,8 @@ extension Publisher {
             )
         }
     }
+}
+
+extension Publishers {
+    public struct MissingOutputError: Error {}
 }
