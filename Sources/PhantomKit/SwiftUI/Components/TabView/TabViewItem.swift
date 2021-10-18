@@ -23,7 +23,7 @@ public struct TabViewItem<Tag, Title>: ViewModifier where Tag: Hashable, Title: 
         content
             .tag(tag)
             .tabItem {
-                Label(title, image: imageName)
+                Label(title, systemImage: imageName)
             }
     }
 }
