@@ -25,7 +25,7 @@ public struct ConfirmationDialogModifier<
     public init(
         trigger: PresentationMethod.Trigger = .default,
         title: Title,
-        titleVisibility: Visibility = .automatic,
+        titleVisibility: Visibility = .visible,
         @ViewBuilder actions: @escaping () -> Actions,
         @ViewBuilder message: @escaping () -> Message,
         onTrigger: (() -> Void)? = nil
@@ -58,7 +58,7 @@ extension View {
     public func confirmationDialog<S, A, M>(
         triggeredBy trigger: PresentationMethod.Trigger = .default,
         title: S,
-        titleVisibility: Visibility = .automatic,
+        titleVisibility: Visibility = .visible,
         @ViewBuilder actions: @escaping () -> A,
         @ViewBuilder message: @escaping () -> M,
         onTrigger: (() -> Void)? = nil
@@ -76,7 +76,7 @@ extension View {
     public func confirmationDialog<S, A>(
         triggeredBy trigger: PresentationMethod.Trigger = .default,
         title: S,
-        titleVisibility: Visibility = .automatic,
+        titleVisibility: Visibility = .visible,
         @ViewBuilder actions: @escaping () -> A,
         onTrigger: (() -> Void)? = nil
     ) -> some View where S: StringProtocol, A: View {
