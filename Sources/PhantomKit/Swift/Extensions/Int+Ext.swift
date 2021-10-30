@@ -9,7 +9,7 @@
 import Foundation
 
 extension Int {
-    func times(_ block: () -> Void) {
+    public func times(_ block: () -> Void) {
         if self > 0 {
             for _ in 0 ..< self {
                 block()
@@ -17,7 +17,7 @@ extension Int {
         }
     }
 
-    func times(_ block: @autoclosure () -> Void) {
+    public func times(_ block: @autoclosure () -> Void) {
         if self > 0 {
             for _ in 0 ..< self {
                 block()
