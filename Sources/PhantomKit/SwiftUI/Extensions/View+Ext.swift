@@ -92,13 +92,16 @@ extension View {
 
 extension View {
     public func embedInNavigation(title: String) -> some View {
-        navigationTitle(title)
-            .embedInNavigation()
+        NavigationView {
+            self.navigationTitle(title)
+        }
     }
 
     public func embedInStackNavigation() -> some View {
-        embedInNavigation()
-            .navigationViewStyle(StackNavigationViewStyle())
+        NavigationView {
+            self
+        }
+        .navigationViewStyle(.stack)
     }
 }
 
