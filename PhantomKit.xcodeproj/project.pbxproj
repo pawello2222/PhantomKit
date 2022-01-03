@@ -66,8 +66,7 @@
 		E587B92326430FC900F0F240 /* PresentationTriggerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8EC26430FC900F0F240 /* PresentationTriggerModifier.swift */; };
 		E587B92426430FC900F0F240 /* ActionSheetModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8ED26430FC900F0F240 /* ActionSheetModifier.swift */; };
 		E587B92526430FC900F0F240 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8F026430FC900F0F240 /* AboutView.swift */; };
-		E587B92626430FC900F0F240 /* AboutView+Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8F126430FC900F0F240 /* AboutView+Section.swift */; };
-		E587B92726430FC900F0F240 /* AboutView+Section+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8F226430FC900F0F240 /* AboutView+Section+Item.swift */; };
+		E587B92626430FC900F0F240 /* AboutView+Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8F126430FC900F0F240 /* AboutView+Blocks.swift */; };
 		E587B92826430FC900F0F240 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8F426430FC900F0F240 /* WebView.swift */; };
 		E587B92926430FC900F0F240 /* WebView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8F526430FC900F0F240 /* WebView+ViewModel.swift */; };
 		E587B92A26430FC900F0F240 /* WebView+Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8F626430FC900F0F240 /* WebView+Script.swift */; };
@@ -201,8 +200,7 @@
 		E587B8EC26430FC900F0F240 /* PresentationTriggerModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationTriggerModifier.swift; sourceTree = "<group>"; };
 		E587B8ED26430FC900F0F240 /* ActionSheetModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetModifier.swift; sourceTree = "<group>"; };
 		E587B8F026430FC900F0F240 /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
-		E587B8F126430FC900F0F240 /* AboutView+Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AboutView+Section.swift"; sourceTree = "<group>"; };
-		E587B8F226430FC900F0F240 /* AboutView+Section+Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AboutView+Section+Item.swift"; sourceTree = "<group>"; };
+		E587B8F126430FC900F0F240 /* AboutView+Blocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AboutView+Blocks.swift"; sourceTree = "<group>"; };
 		E587B8F426430FC900F0F240 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		E587B8F526430FC900F0F240 /* WebView+ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebView+ViewModel.swift"; sourceTree = "<group>"; };
 		E587B8F626430FC900F0F240 /* WebView+Script.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebView+Script.swift"; sourceTree = "<group>"; };
@@ -540,8 +538,7 @@
 			isa = PBXGroup;
 			children = (
 				E587B8F026430FC900F0F240 /* AboutView.swift */,
-				E587B8F126430FC900F0F240 /* AboutView+Section.swift */,
-				E587B8F226430FC900F0F240 /* AboutView+Section+Item.swift */,
+				E587B8F126430FC900F0F240 /* AboutView+Blocks.swift */,
 			);
 			path = AboutView;
 			sourceTree = "<group>";
@@ -884,7 +881,6 @@
 				E5FA3D30271732AA000D1ABA /* AppTheme+Default.swift in Sources */,
 				E5E7C4C8264995600045596E /* LocalizedFormatter+Sign.swift in Sources */,
 				E5888AAB265AB4BC00FC185E /* Image+Ext.swift in Sources */,
-				E587B92726430FC900F0F240 /* AboutView+Section+Item.swift in Sources */,
 				E5888A9626583E3F00FC185E /* SafeBinding.swift in Sources */,
 				E587B91626430FC900F0F240 /* SpacedLabelStyle.swift in Sources */,
 				E5ABD6DD2661024100082241 /* Message.swift in Sources */,
@@ -933,7 +929,7 @@
 				E587B90C26430FC900F0F240 /* View+Action.swift in Sources */,
 				E549C70C2645D526004388C4 /* Logger.swift in Sources */,
 				E587B90626430FC900F0F240 /* Constants.swift in Sources */,
-				E587B92626430FC900F0F240 /* AboutView+Section.swift in Sources */,
+				E587B92626430FC900F0F240 /* AboutView+Blocks.swift in Sources */,
 				E5EDC2BF264D82620088CDE8 /* Network+Protocols.swift in Sources */,
 				E587B90F26430FC900F0F240 /* SplitPicker+Item.swift in Sources */,
 				E549C72C2647F4FA004388C4 /* NSDecimalNumber+Ext.swift in Sources */,
