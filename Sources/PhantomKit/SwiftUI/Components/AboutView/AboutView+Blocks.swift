@@ -52,7 +52,7 @@ extension AboutView where Header == EmptyView, Footer == EmptyView, Content == E
         }
         components.append(author)
         return Text(components.joined(separator: " "))
-            .font(.footnote)
+            .font(.callout)
     }
 }
 
