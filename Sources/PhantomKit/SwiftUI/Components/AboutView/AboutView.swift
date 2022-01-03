@@ -30,12 +30,13 @@ public struct AboutView<
     }
 
     public var body: some View {
-        VStack(spacing: .s6) {
-            header()
-            Spacer()
+        ZStack {
+            VStack {
+                header()
+                Spacer()
+                footer()
+            }
             content()
-            Spacer()
-            footer()
         }
         .padding(.s6)
         .navigationBarHidden(true)
