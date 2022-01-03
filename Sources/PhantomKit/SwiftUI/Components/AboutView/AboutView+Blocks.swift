@@ -28,7 +28,7 @@ extension AboutView where Header == EmptyView, Footer == EmptyView, Content == E
         title: String,
         @ViewBuilder content: @escaping () -> C
     ) -> some View where C: View {
-        VStack(spacing: .s4) {
+        VStack(spacing: .s2) {
             Text(title.uppercased())
                 .font(.subheadline)
                 .foregroundStyle(.secondary)

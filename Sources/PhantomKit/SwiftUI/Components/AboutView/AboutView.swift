@@ -36,7 +36,7 @@ public struct AboutView<
                 Spacer()
                 footer()
             }
-            VStack(spacing: .s4) {
+            VStack(spacing: .s5) {
                 content()
             }
         }
