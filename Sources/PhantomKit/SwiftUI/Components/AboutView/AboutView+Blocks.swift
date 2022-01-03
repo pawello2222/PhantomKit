@@ -11,11 +11,17 @@ import SwiftUI
 // MARK: - Common
 
 extension AboutView where Header == EmptyView, Footer == EmptyView, Content == EmptyView {
-    public static func logo(_ imageName: String) -> some View {
+    public static func logo(
+        imageName: String,
+        endpoint: WebEndpoint? = nil
+    ) -> some View {
         Image(imageName)
             .resizable()
             .scaledToFit()
             .padding()
+            .unwrap(endpoint) {
+                $0.safariView(endpoint: $1)
+            }
     }
 
     public static func section<C>(
@@ -59,8 +65,11 @@ extension AboutView where Header == EmptyView, Footer == EmptyView, Content == E
 // MARK: - Convenience
 
 extension AboutView where Header == EmptyView, Footer == EmptyView, Content == EmptyView {
-    public static func logo(asset: ImageAssetIdentifier) -> some View {
-        AboutView.logo(asset.rawValue)
+    public static func logo(
+        asset: ImageAssetIdentifier,
+        endpoint: WebEndpoint? = nil
+    ) -> some View {
+        AboutView.logo(imageName: asset.rawValue, endpoint: endpoint)
     }
 
     public static func section(title: String, text: String) -> some View {
