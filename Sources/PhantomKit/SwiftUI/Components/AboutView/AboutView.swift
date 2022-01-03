@@ -36,7 +36,9 @@ public struct AboutView<
                 Spacer()
                 footer()
             }
-            content()
+            VStack {
+                content()
+            }
         }
         .padding(.s6)
         .navigationBarHidden(true)
