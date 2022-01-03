@@ -51,7 +51,8 @@ extension AboutView where Header == EmptyView, Footer == EmptyView, Content == E
             components.append("\(endYear)")
         }
         components.append(author)
-        return AboutView.text(components.joined(separator: " "))
+        return Text(components.joined(separator: " "))
+            .font(.footnote)
     }
 }
 
