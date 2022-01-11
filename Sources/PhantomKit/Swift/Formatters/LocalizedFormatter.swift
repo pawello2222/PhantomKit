@@ -131,10 +131,14 @@ extension LocalizedFormatter {
         guard roundedValue != .zero else {
             if usesSignForZero {
                 return with(zeroSign: sign.zero) {
-                    string(from: roundedValue)
+                    with(precision: precision) {
+                        string(from: roundedValue)
+                    }
                 }
             } else {
-                return string(from: roundedValue)
+                return with(precision: precision) {
+                    string(from: roundedValue)
+                }
             }
         }
         return with(sign: sign) {
