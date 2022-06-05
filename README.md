@@ -16,8 +16,8 @@
 PhantomKit is a collection of many useful Swift and SwiftUI extensions and components. It is an _invisible_ layer that supports your application and makes writing Swift code easier.
 
 ## Requirements
-* iOS 14.0+
-* Xcode 12.0+
+* iOS 15.0+
+* Xcode 13.0+
 * Swift 5.3+
 
 ## Installation
@@ -26,10 +26,8 @@ PhantomKit is a collection of many useful Swift and SwiftUI extensions and compo
 
 PhantomKit is available as a Swift Package.
 
-Alternatively, you can add PhantomKit as a SPM dependency:
-
 ```swift
-.package(url: "https://github.com/pawello2222/PhantomKit.git", .upToNextMajor(from: "0.1.0"))
+.package(url: "https://github.com/pawello2222/PhantomKit.git", .upToNextMajor(from: "0.3.0"))
 ```
 
 Tip: to make PhantomKit _truly invisible_ add the below line in the main file:
@@ -139,6 +137,8 @@ Text("Hello World")
 ```
 
 ### Xcore extensions
+
+PhantomKit also uses the Xcore framework to import some useful extensions:
 
 - Date manipulation
 
@@ -320,10 +320,10 @@ expect(formatter.string(from: date)).to(equal("03/24/2000, 4:14:44 PM"))
 
 ## Dependencies
 
-PhantomKit exports globally the following frameworks making them accessible just by importing PhantomKit alone:
+PhantomKit uses the following frameworks:
 
-- [duemunk/Async](https://github.com/duemunk/Async)
 - [zmian/Xcore](https://github.com/zmian/xcore)
+- [Quick/Nimble](https://github.com/Quick/Nimble) (Tests only)
 
 ## License
 

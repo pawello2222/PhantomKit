@@ -160,6 +160,7 @@
 		E55AB59C264A7775000D7441 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		E55AB59E264ADA2A000D7441 /* Equatable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Equatable+Ext.swift"; sourceTree = "<group>"; };
 		E56211E7284D5EB00048FDAB /* Task+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Ext.swift"; sourceTree = "<group>"; };
+		E56211E9284D623F0048FDAB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E5638AE4265D6AD800E73B05 /* Comparable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comparable+Ext.swift"; sourceTree = "<group>"; };
 		E5638AE6265D6C9A00E73B05 /* ArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayTests.swift; sourceTree = "<group>"; };
 		E5638B16265E938800E73B05 /* NSDecimalNumberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDecimalNumberTests.swift; sourceTree = "<group>"; };
@@ -357,6 +358,7 @@
 		E587B89D26430F4900F0F240 = {
 			isa = PBXGroup;
 			children = (
+				E56211E9284D623F0048FDAB /* README.md */,
 				E5CA108A26459D00008FD164 /* Package.swift */,
 				E587B8B026430FC900F0F240 /* Sources */,
 				E549C71826475B89004388C4 /* Tests */,
