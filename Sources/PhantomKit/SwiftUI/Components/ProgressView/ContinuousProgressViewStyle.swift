@@ -6,7 +6,6 @@
 //  Copyright © 2021 Pawel Wiszenko. All rights reserved.
 //
 
-import Async
 import SwiftUI
 
 /// A progress view in a shape of a circle that spins continuously.
@@ -65,12 +64,12 @@ extension ContinuousProgressViewStyle {
         withAnimation(.easeInOut(duration: cycleInterval)) {
             trimEnd = 1
         }
-        Async.main(after: cycleInterval) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + cycleInterval) {
             withAnimation(.easeInOut(duration: cycleInterval)) {
                 trimStart = 1
             }
         }
-        Async.main(after: cycleInterval * 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + cycleInterval * 2) {
             trimStart = 0
             trimEnd = 0
             withAnimation(.easeInOut(duration: cycleInterval)) {

@@ -26,6 +26,7 @@
 		E55AB59B2649E9A5000D7441 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AB59A2649E9A5000D7441 /* String+Ext.swift */; };
 		E55AB59D264A7775000D7441 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AB59C264A7775000D7441 /* Date+Ext.swift */; };
 		E55AB59F264ADA2A000D7441 /* Equatable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AB59E264ADA2A000D7441 /* Equatable+Ext.swift */; };
+		E56211E8284D5EB00048FDAB /* Task+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56211E7284D5EB00048FDAB /* Task+Ext.swift */; };
 		E5638AE5265D6AD800E73B05 /* Comparable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5638AE4265D6AD800E73B05 /* Comparable+Ext.swift */; };
 		E5638AE8265D6DA100E73B05 /* ArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5638AE6265D6C9A00E73B05 /* ArrayTests.swift */; };
 		E5638B18265E939C00E73B05 /* NSDecimalNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5638B16265E938800E73B05 /* NSDecimalNumberTests.swift */; };
@@ -84,7 +85,6 @@
 		E5888AC0265C18E900FC185E /* FileManager+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888ABF265C18E900FC185E /* FileManager+Ext.swift */; };
 		E5888AE5265C612A00FC185E /* UserDefaults+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888AE4265C612A00FC185E /* UserDefaults+Ext.swift */; };
 		E59B58E22783A25C003E2CA0 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59B58E12783A25C003E2CA0 /* UserDefault.swift */; };
-		E5AB538C264EDD9600D993AE /* Async in Frameworks */ = {isa = PBXBuildFile; productRef = E5AB538B264EDD9600D993AE /* Async */; };
 		E5AB538E264EE08600D993AE /* ContinuousProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AB538D264EE08600D993AE /* ContinuousProgressViewStyle.swift */; };
 		E5ABD6D826604FE800082241 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD6D726604FE800082241 /* SearchBar.swift */; };
 		E5ABD6DD2661024100082241 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD6DC2661024100082241 /* Message.swift */; };
@@ -159,6 +159,7 @@
 		E55AB59A2649E9A5000D7441 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		E55AB59C264A7775000D7441 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		E55AB59E264ADA2A000D7441 /* Equatable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Equatable+Ext.swift"; sourceTree = "<group>"; };
+		E56211E7284D5EB00048FDAB /* Task+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Ext.swift"; sourceTree = "<group>"; };
 		E5638AE4265D6AD800E73B05 /* Comparable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comparable+Ext.swift"; sourceTree = "<group>"; };
 		E5638AE6265D6C9A00E73B05 /* ArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayTests.swift; sourceTree = "<group>"; };
 		E5638B16265E938800E73B05 /* NSDecimalNumberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDecimalNumberTests.swift; sourceTree = "<group>"; };
@@ -265,7 +266,6 @@
 				E587B92E2643102C00F0F240 /* Xcore in Frameworks */,
 				E5CA1085264598B0008FD164 /* CombineMoya in Frameworks */,
 				E5CA1083264598B0008FD164 /* Moya in Frameworks */,
-				E5AB538C264EDD9600D993AE /* Async in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +434,7 @@
 				E587B8BF26430FC900F0F240 /* Set+Ext.swift */,
 				E587B8C226430FC900F0F240 /* StoreKit+Ext.swift */,
 				E55AB59A2649E9A5000D7441 /* String+Ext.swift */,
+				E56211E7284D5EB00048FDAB /* Task+Ext.swift */,
 				E5888AB0265ADF7600FC185E /* UIApplication+Ext.swift */,
 				E5888A8F265814D400FC185E /* UIImage+Ext.swift */,
 				E587B8C526430FC900F0F240 /* URL+Ext.swift */,
@@ -754,7 +755,6 @@
 				E5CA10692643573E008FD164 /* Defaults */,
 				E5CA1082264598B0008FD164 /* Moya */,
 				E5CA1084264598B0008FD164 /* CombineMoya */,
-				E5AB538B264EDD9600D993AE /* Async */,
 			);
 			productName = PhantomKit;
 			productReference = E587B8A626430F4900F0F240 /* libPhantomKit.a */;
@@ -792,7 +792,6 @@
 				E5CA10682643573E008FD164 /* XCRemoteSwiftPackageReference "Defaults" */,
 				E5CA1081264598B0008FD164 /* XCRemoteSwiftPackageReference "Moya" */,
 				E549C72226475E05004388C4 /* XCRemoteSwiftPackageReference "Nimble" */,
-				E5AB538A264EDD9600D993AE /* XCRemoteSwiftPackageReference "Async" */,
 			);
 			productRefGroup = E587B8A726430F4900F0F240 /* Products */;
 			projectDirPath = "";
@@ -918,6 +917,7 @@
 				E587B91326430FC900F0F240 /* GradientButtonStyle.swift in Sources */,
 				E52A3130264AE27B00017D94 /* RequestState.swift in Sources */,
 				E549C7272647CA7F004388C4 /* LocalizedFormatter.swift in Sources */,
+				E56211E8284D5EB00048FDAB /* Task+Ext.swift in Sources */,
 				E5CA1071264406B9008FD164 /* Publisher+Ext.swift in Sources */,
 				E587B91A26430FC900F0F240 /* View+Presentation.swift in Sources */,
 				E5ABD76A2672CB1A00082241 /* CoreDataStack.swift in Sources */,
@@ -1189,14 +1189,6 @@
 				version = "0.0.5-main";
 			};
 		};
-		E5AB538A264EDD9600D993AE /* XCRemoteSwiftPackageReference "Async" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/duemunk/Async";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 		E5CA10682643573E008FD164 /* XCRemoteSwiftPackageReference "Defaults" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/Defaults";
@@ -1225,11 +1217,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E587B92C2643102C00F0F240 /* XCRemoteSwiftPackageReference "xcore" */;
 			productName = Xcore;
-		};
-		E5AB538B264EDD9600D993AE /* Async */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E5AB538A264EDD9600D993AE /* XCRemoteSwiftPackageReference "Async" */;
-			productName = Async;
 		};
 		E5CA10692643573E008FD164 /* Defaults */ = {
 			isa = XCSwiftPackageProductDependency;
