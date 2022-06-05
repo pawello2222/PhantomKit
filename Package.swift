@@ -15,7 +15,7 @@ let package = Package(
     targets: [
         .target(
             name: "PhantomKit",
-            dependencies: ["Async", "Xcore"]
+            dependencies: ["Xcore"]
         ),
         .testTarget(
             name: "PhantomKitTests",
