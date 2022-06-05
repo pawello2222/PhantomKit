@@ -9,6 +9,7 @@
 import SwiftUI
 import Xcore
 
+/// A label style that displays the icon as a rounded rectangle badge.
 public struct IconBadgeLabelStyle: LabelStyle {
     @Environment(\.defaultIconHeight) private var iconHeight
     @Environment(\.appTheme) private var theme
@@ -26,41 +27,41 @@ public struct IconBadgeLabelStyle: LabelStyle {
 
     public func makeBody(configuration: Self.Configuration) -> some View {
         HStack {
-            imageView(with: configuration)
-            labelView(with: configuration)
+            iconView(with: configuration)
+            titleView(with: configuration)
             Spacer()
             IndicatorView()
         }
         .contentShape(Rectangle())
     }
 
-    private func imageView(with configuration: Self.Configuration) -> some View {
+    private func iconView(with configuration: Self.Configuration) -> some View {
         RoundedRectangle(cornerRadius: cornerRadius)
             .fill(color)
             .frame(iconHeight)
             .overlay(
                 configuration.icon
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
             )
     }
 
-    private func labelView(with configuration: Self.Configuration) -> some View {
+    private func titleView(with configuration: Self.Configuration) -> some View {
         configuration.title
-            .foregroundColor(theme.primaryColor)
+            .foregroundStyle(theme.primaryColor)
     }
 }
 
 // MARK: - Dot Syntax Support
 
 extension LabelStyle where Self == IconBadgeLabelStyle {
-    public static func iconBadge(color: Color, cornerRadius: CGFloat) -> Self {
+    /// A label style that displays the icon as a rounded rectangle badge.
+    public static func iconBadge(
+        color: Color,
+        cornerRadius: CGFloat = AppConstants.cornerRadius
+    ) -> Self {
         .init(
             color: color,
             cornerRadius: cornerRadius
         )
-    }
-
-    public static var iconBadge: Self {
-        .iconBadge(color: .clear, cornerRadius: AppConstants.cornerRadius)
     }
 }

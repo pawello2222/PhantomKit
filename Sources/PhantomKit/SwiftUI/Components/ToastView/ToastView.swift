@@ -10,6 +10,8 @@ import SwiftUI
 
 public struct ToastView<Content>: View where Content: View {
     @Environment(\.appTheme) private var theme
+    @State private var isAnimating = false
+
     private let style: Style
     private let content: () -> Content
 
@@ -30,7 +32,10 @@ public struct ToastView<Content>: View where Content: View {
         .fixedSize(.vertical)
         .aligned(.top)
         .transition(.move(edge: .top))
-        .animation(.spring())
+        .animation(.spring(), value: isAnimating)
+        .onAppear {
+            isAnimating = true
+        }
     }
 }
 

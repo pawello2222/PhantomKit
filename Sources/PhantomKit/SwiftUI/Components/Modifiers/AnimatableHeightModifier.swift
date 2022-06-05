@@ -1,5 +1,5 @@
 //
-//  AnimatableFrameHeight.swift
+//  AnimatableHeightModifier.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 28.04.2021.
@@ -8,10 +8,10 @@
 
 import SwiftUI
 
-public struct AnimatableFrameHeight: AnimatableModifier {
+public struct AnimatableHeightModifier: AnimatableModifier {
     private var height: CGFloat
 
-    public init(_ height: CGFloat = 0) {
+    public init(_ height: CGFloat) {
         self.height = height
     }
 
@@ -30,6 +30,6 @@ public struct AnimatableFrameHeight: AnimatableModifier {
 
 extension View {
     public func animatableHeight(_ height: CGFloat = 0) -> some View {
-        modifier(AnimatableFrameHeight(height))
+        modifier(AnimatableHeightModifier(height))
     }
 }

@@ -54,3 +54,59 @@ extension Publisher {
         receive(on: .main, options: options)
     }
 }
+
+// MARK: - Async/await Support
+
+// Adopted from here: https://www.swiftbysundell.com/articles/connecting-async-await-with-other-swift-code/
+extension Publisher {
+    public func ignoreResult() async throws {
+        var cancellables = Set<AnyCancellable>()
+
+        return try await withCheckedThrowingContinuation { continuation in
+            sink(
+                receiveCompletion: { completion in
+                    switch completion {
+                    case .failure(let error):
+                        continuation.resume(throwing: error)
+                    case .finished:
+                        continuation.resume()
+                    }
+                },
+                receiveValue: { _ in }
+            )
+            .store(in: &cancellables)
+        }
+    }
+}
+
+extension Publisher {
+    public func singleResult() async throws -> Output {
+        var cancellable: AnyCancellable?
+        var didReceiveValue = false
+
+        return try await withCheckedThrowingContinuation { continuation in
+            cancellable = sink(
+                receiveCompletion: { completion in
+                    switch completion {
+                    case .failure(let error):
+                        continuation.resume(throwing: error)
+                    case .finished:
+                        if !didReceiveValue {
+                            continuation.resume(throwing: Publishers.MissingOutputError())
+                        }
+                    }
+                },
+                receiveValue: { value in
+                    guard !didReceiveValue else { return }
+                    didReceiveValue = true
+                    cancellable?.cancel()
+                    continuation.resume(returning: value)
+                }
+            )
+        }
+    }
+}
+
+extension Publishers {
+    public struct MissingOutputError: Error {}
+}

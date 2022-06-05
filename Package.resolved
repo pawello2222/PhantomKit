@@ -38,6 +38,15 @@
         }
       },
       {
+        "package": "KeychainAccess",
+        "repositoryURL": "https://github.com/kishikawakatsumi/KeychainAccess",
+        "state": {
+          "branch": null,
+          "revision": "84e546727d66f1adc5439debad16270d0fdd04e7",
+          "version": "4.2.2"
+        }
+      },
+      {
         "package": "Nimble",
         "repositoryURL": "https://github.com/Quick/Nimble.git",
         "state": {
@@ -60,7 +69,7 @@
         "repositoryURL": "https://github.com/pawello2222/xcore.git",
         "state": {
           "branch": "main",
-          "revision": "d3018987345ea80b92f768ed5516828e48b3cc32",
+          "revision": "ffd5f03731aac0872df2c016602a27b983010086",
           "version": null
         }
       }

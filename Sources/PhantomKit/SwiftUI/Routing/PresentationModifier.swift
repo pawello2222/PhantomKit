@@ -10,6 +10,7 @@ import SwiftUI
 
 public struct PresentationModifier<Destination>: ViewModifier where Destination: View {
     @Environment(\.appTheme) private var theme
+
     private let method: PresentationMethod
     private let onTrigger: (() -> Void)?
     private let onDismiss: (() -> Void)?
@@ -65,6 +66,6 @@ extension PresentationModifier {
     @ViewBuilder
     private func destination() -> some View {
         content()
-            .rootViewAppearance(theme: theme)
+            .appearance(theme: theme)
     }
 }

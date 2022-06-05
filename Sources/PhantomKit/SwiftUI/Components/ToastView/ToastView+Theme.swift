@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Xcore
 
 public typealias ToastColorConfiguration = (text: Color, background: Color)
 

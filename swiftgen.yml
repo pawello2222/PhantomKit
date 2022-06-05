@@ -1,7 +1,0 @@
-strings:
-  - inputs: Sources/Resources/Localization/en.lproj/Localizable.strings
-    outputs:
-      - templateName: structured-swift5
-        params:
-          enumName: Localized
-        output: Sources/Resources/Localization/Helpers/LocalizableStrings.swift

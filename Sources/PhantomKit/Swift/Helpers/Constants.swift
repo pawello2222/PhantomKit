@@ -6,7 +6,12 @@
 //  Copyright © 2021 Pawel Wiszenko. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import Xcore
+
+extension AppConstants {
+    public static var buttonCornerRadius: CGFloat = 25
+}
 
 extension Double {
     public static let minimumOpacity = 0.0001

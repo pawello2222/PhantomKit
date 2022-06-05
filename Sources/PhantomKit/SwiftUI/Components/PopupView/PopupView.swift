@@ -34,7 +34,7 @@ public struct PopupView: View {
                 .fill(Color.white)
         )
         .padding(.s6)
-        .expandingBackgroundColor(Color.black.opacity(0.75))
+        .expandingBackground(Color.black.opacity(0.75))
         .transition(.opacity)
     }
 }

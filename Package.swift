@@ -4,20 +4,18 @@ import PackageDescription
 
 let package = Package(
     name: "PhantomKit",
-    defaultLocalization: "en",
-    platforms: [.iOS(.v14)],
+    platforms: [.iOS(.v15)],
     products: [
         .library(name: "PhantomKit", targets: ["PhantomKit"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/duemunk/Async", .upToNextMajor(from: "2.1.0")),
-        .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "9.0.0")),
-        .package(name: "Xcore", url: "https://github.com/pawello2222/xcore.git", .branch("main")),
+        .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "10.0.0")),
+        .package(name: "Xcore", url: "https://github.com/pawello2222/xcore.git", .exact("0.0.5-main")),
     ],
     targets: [
         .target(
             name: "PhantomKit",
-            dependencies: ["Async", "Xcore"]
+            dependencies: ["Xcore"]
         ),
         .testTarget(
             name: "PhantomKitTests",

@@ -1,5 +1,5 @@
 //
-//  RootViewAppearance.swift
+//  AppearanceModifier.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 03.05.2021.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-public struct RootViewAppearance: ViewModifier {
+public struct AppearanceModifier: ViewModifier {
     private let theme: AppTheme
 
     public init(theme: AppTheme = .default) {
@@ -17,7 +17,7 @@ public struct RootViewAppearance: ViewModifier {
 
     public func body(content: Content) -> some View {
         content
-            .accentColor(theme.accentColor)
+            .tint(theme.accentColor)
             .appTheme(theme)
     }
 }
@@ -25,7 +25,7 @@ public struct RootViewAppearance: ViewModifier {
 // MARK: - View
 
 extension View {
-    public func rootViewAppearance(theme: AppTheme = .default) -> some View {
-        modifier(RootViewAppearance(theme: theme))
+    public func appearance(theme: AppTheme = .default) -> some View {
+        modifier(AppearanceModifier(theme: theme))
     }
 }

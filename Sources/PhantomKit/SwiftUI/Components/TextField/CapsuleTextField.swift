@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Xcore
 
 public struct CapsuleTextField: View {
     @Environment(\.appTheme) private var theme

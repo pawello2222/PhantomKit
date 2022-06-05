@@ -10,7 +10,6 @@ import SwiftUI
 import WebKit
 
 public struct WebView: View {
-    @Environment(\.presentationMode) private var presentationMode
     @ObservedObject private var viewModel: ViewModel
 
     public init(viewModel: ViewModel) {
@@ -22,7 +21,7 @@ public struct WebView: View {
             .navigationTitle(viewModel.endpoint.title)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-            .cancelButtonToolbar("Done", onDismiss: viewModel.onDismiss)
+            .dismissButtonToolbar("Done", onDismiss: viewModel.onDismiss)
     }
 }
 
@@ -38,9 +37,7 @@ public struct WebViewRepresentable: UIViewRepresentable {
     public func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
         webView.navigationDelegate = context.coordinator
-        if let url = viewModel.endpoint.url {
-            webView.load(URLRequest(url: url))
-        }
+        webView.load(URLRequest(url: viewModel.endpoint.url))
         webView.allowsBackForwardNavigationGestures = viewModel.endpoint.isNavigationAllowed
         webView.scrollView.contentInsetAdjustmentBehavior = .never
         return webView
@@ -80,8 +77,8 @@ extension WebViewRepresentable {
                 return
             }
 
+            let originalURL = viewModel.endpoint.url.absoluteString
             guard
-                let originalURL = viewModel.endpoint.url?.absoluteString,
                 let destinationURL = navigationAction.request.url?.absoluteString,
                 destinationURL.contains(originalURL)
             else {

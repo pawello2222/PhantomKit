@@ -113,14 +113,16 @@ extension View {
     public func webView(
         openedAs method: PresentationMethod = .sheet,
         endpoint: WebEndpoint,
-        edgesIgnoringSafeArea: Edge.Set = .none,
+        ignoresSafeAreaEdges: Edge.Set = .none,
         onDismiss: (() -> Void)? = nil
     ) -> some View {
         presentation(method: method, onDismiss: onDismiss) {
             WebView(endpoint: endpoint)
-                .edgesIgnoringSafeArea(edgesIgnoringSafeArea)
-                .applyIf(method.isModal) {
-                    $0.embedInNavigation()
+                .ignoresSafeArea(.all, edges: ignoresSafeAreaEdges)
+                .applyIf(method.isModal) { content in
+                    NavigationView {
+                        content
+                    }
                 }
         }
     }
@@ -128,13 +130,13 @@ extension View {
     public func webView(
         triggeredBy trigger: PresentationMethod.Trigger,
         endpoint: WebEndpoint,
-        edgesIgnoringSafeArea: Edge.Set = .none,
+        ignoresSafeAreaEdges: Edge.Set = .none,
         onDismiss: (() -> Void)? = nil
     ) -> some View {
         webView(
             openedAs: .sheet(trigger: trigger),
             endpoint: endpoint,
-            edgesIgnoringSafeArea: edgesIgnoringSafeArea,
+            ignoresSafeAreaEdges: ignoresSafeAreaEdges,
             onDismiss: onDismiss
         )
     }

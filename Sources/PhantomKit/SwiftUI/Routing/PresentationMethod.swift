@@ -81,44 +81,48 @@ extension PresentationMethod {
 
 extension PresentationMethod.Trigger {
     public static var `default`: Self = .defaultButton
+}
 
-    // ButtonStyle
+// PrimitiveButtonStyle
 
-    public static func styledButton<S>(_ style: S) -> Self where S: ButtonStyle {
-        .button(style: AnyButtonStyle(style: style))
-    }
-
-    public static var scaleButton: Self {
-        .styledButton(.scaleEffect)
-    }
-
-    public static var fillButton: Self {
-        .styledButton(.fill)
-    }
-
-    public static var outlineButton: Self {
-        .styledButton(.outline)
-    }
-
-    public static var gradientButton: Self {
-        .styledButton(.gradient)
-    }
-
-    // PrimitiveButtonStyle
-
-    public static func styledButton<S>(_ style: S) -> Self where S: PrimitiveButtonStyle {
+extension PresentationMethod.Trigger {
+    public static func button<S>(_ style: S) -> Self where S: PrimitiveButtonStyle {
         .primitiveButton(style: AnyPrimitiveButtonStyle(style: style))
     }
 
     public static var defaultButton: Self {
-        .styledButton(DefaultButtonStyle())
+        .button(.default)
     }
 
     public static var plainButton: Self {
-        .styledButton(.plain)
+        .button(.plain)
     }
 
     public static var borderlessButton: Self {
-        .styledButton(.borderless)
+        .button(.borderless)
+    }
+}
+
+// ButtonStyle
+
+extension PresentationMethod.Trigger {
+    public static func button<S>(_ style: S) -> Self where S: ButtonStyle {
+        .button(style: AnyButtonStyle(style: style))
+    }
+
+    public static var scaleButton: Self {
+        .button(.scaleEffect)
+    }
+
+    public static var fillButton: Self {
+        .button(.fill)
+    }
+
+    public static var outlineButton: Self {
+        .button(.outline)
+    }
+
+    public static var gradientButton: Self {
+        .button(.gradient)
     }
 }

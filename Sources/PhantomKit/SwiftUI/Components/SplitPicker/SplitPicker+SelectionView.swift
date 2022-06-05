@@ -12,7 +12,7 @@ extension SplitPicker {
     struct SelectionView: View {
         @Environment(\.appTheme) private var theme
         @Environment(\.defaultShortLabelWidth) private var labelWidth
-        @Environment(\.presentationMode) private var presentationMode
+        @Environment(\.dismiss) private var dismiss
         @Binding private var selection: Selection
         private let items: [Item]
         private var showMultiLabels: Bool
@@ -43,7 +43,7 @@ extension SplitPicker.SelectionView {
     private func itemView(item: SplitPicker.Item) -> some View {
         Button {
             selection = item.selection
-            presentationMode.wrappedValue.dismiss()
+            dismiss()
         } label: {
             HStack {
                 if showMultiLabels {

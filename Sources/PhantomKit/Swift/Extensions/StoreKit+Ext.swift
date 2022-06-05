@@ -7,6 +7,7 @@
 //
 
 import StoreKit
+import Xcore
 
 // MARK: - SKStoreReviewController
 

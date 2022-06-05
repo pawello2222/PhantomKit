@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+/// A progress view in a shape of a circle that spins continuously.
 public struct ContinuousProgressViewStyle: ProgressViewStyle {
     @Environment(\.appTheme) private var theme
     @State private var trimStart: CGFloat = 0
@@ -36,17 +37,7 @@ public struct ContinuousProgressViewStyle: ProgressViewStyle {
             startAnimation()
         }
     }
-}
 
-extension ContinuousProgressViewStyle {
-    private func trimmedCircleView(from: CGFloat, to: CGFloat) -> some Shape {
-        Circle()
-            .trim(from: from, to: to)
-            .stroke(style: .init(lineWidth: size.width / 13, lineCap: .round, lineJoin: .round))
-    }
-}
-
-extension ContinuousProgressViewStyle {
     private var gradient: LinearGradient {
         .init(
             gradient: .init(colors: theme.buttonBackgroundGradientColors()),
@@ -54,24 +45,45 @@ extension ContinuousProgressViewStyle {
             endPoint: .leading
         )
     }
+
+    private func trimmedCircleView(from: CGFloat, to: CGFloat) -> some Shape {
+        Circle()
+            .trim(from: from, to: to)
+            .stroke(style: .init(
+                lineWidth: size.width / 13,
+                lineCap: .round,
+                lineJoin: .round
+            ))
+    }
 }
+
+// MARK: - Animation
 
 extension ContinuousProgressViewStyle {
     private func startAnimation() {
-        withAnimation(Animation.easeInOut(duration: cycleInterval)) {
+        withAnimation(.easeInOut(duration: cycleInterval)) {
             trimEnd = 1
         }
-        Async.main(after: cycleInterval) {
-            withAnimation(Animation.easeInOut(duration: cycleInterval)) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + cycleInterval) {
+            withAnimation(.easeInOut(duration: cycleInterval)) {
                 trimStart = 1
             }
         }
-        Async.main(after: cycleInterval * 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + cycleInterval * 2) {
             trimStart = 0
             trimEnd = 0
-            withAnimation(Animation.easeInOut(duration: cycleInterval)) {
+            withAnimation(.easeInOut(duration: cycleInterval)) {
                 startAnimation()
             }
         }
+    }
+}
+
+// MARK: - Dot Syntax Support
+
+extension ProgressViewStyle where Self == ContinuousProgressViewStyle {
+    /// A progress view in a shape of a circle that spins continuously.
+    public static var continuous: Self {
+        .init()
     }
 }

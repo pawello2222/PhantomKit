@@ -48,21 +48,28 @@ extension View {
     }
 }
 
-// MARK: - Color
+// MARK: - Background
 
 extension View {
-    @inlinable public func accentUIColor(_ uiColor: UIColor) -> some View {
-        accentColor(.init(uiColor))
+    public func expandingBackground<V>(
+        _ background: @autoclosure @escaping () -> V,
+        ignoresSafeAreaEdges edges: Edge.Set = .all
+    ) -> some View where V: View {
+        expandingBackground(
+            ignoresSafeAreaEdges: edges,
+            background: background
+        )
     }
+}
 
-    public func expandingBackgroundUIColor(_ uiColor: UIColor, edgesIgnoringSafeArea: Edge.Set = .all) -> some View {
-        expandingBackgroundColor(.init(uiColor), edgesIgnoringSafeArea: edgesIgnoringSafeArea)
-    }
-
-    public func expandingBackgroundColor(_ color: Color, edgesIgnoringSafeArea: Edge.Set = .all) -> some View {
+extension View {
+    public func expandingBackground<V>(
+        ignoresSafeAreaEdges edges: Edge.Set = .all,
+        @ViewBuilder background: @escaping () -> V
+    ) -> some View where V: View {
         ZStack {
-            color
-                .edgesIgnoringSafeArea(edgesIgnoringSafeArea)
+            background()
+                .ignoresSafeArea(.all, edges: edges)
             self
         }
     }
@@ -97,13 +104,16 @@ extension View {
 
 extension View {
     public func embedInNavigation(title: String) -> some View {
-        navigationTitle(title)
-            .embedInNavigation()
+        NavigationView {
+            self.navigationTitle(title)
+        }
     }
 
     public func embedInStackNavigation() -> some View {
-        embedInNavigation()
-            .navigationViewStyle(StackNavigationViewStyle())
+        NavigationView {
+            self
+        }
+        .navigationViewStyle(.stack)
     }
 }
 

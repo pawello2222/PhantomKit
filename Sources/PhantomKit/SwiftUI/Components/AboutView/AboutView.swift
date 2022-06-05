@@ -8,98 +8,77 @@
 
 import SwiftUI
 
-public struct AboutView: View {
-    @Environment(\.presentationMode) private var presentationMode
-    private let sections: [Section]
-    private let image: () -> Image
+public struct AboutView<
+    Content: View,
+    Header: View,
+    Footer: View
+>: View {
+    @Environment(\.dismiss) private var dismiss
+
+    private let content: () -> Content
+    private let header: () -> Header
+    private let footer: () -> Footer
 
     public init(
-        sections: [Section] = [],
-        @ViewBuilder image: @escaping () -> Image
+        @ViewBuilder content: @escaping () -> Content,
+        @ViewBuilder header: @escaping () -> Header,
+        @ViewBuilder footer: @escaping () -> Footer
     ) {
-        self.sections = sections
-        self.image = image
+        self.content = content
+        self.header = header
+        self.footer = footer
     }
 
     public var body: some View {
-        VStack(spacing: .s6) {
-            imageView
-            sectionsView
+        ZStack {
+            VStack {
+                header()
+                Spacer()
+                footer()
+            }
+            VStack(spacing: .s6) {
+                content()
+            }
         }
         .padding(.s6)
         .navigationBarHidden(true)
         .maxContentFrame()
         .action(triggeredBy: .tap) {
-            presentationMode.wrappedValue.dismiss()
-        }
-    }
-
-    private var imageView: some View {
-        image()
-            .resizable()
-            .scaledToFit()
-            .padding()
-    }
-
-    private var sectionsView: some View {
-        ForEach(sections, id: \.title) {
-            Section.ContentView(section: $0)
+            dismiss()
         }
     }
 }
 
 // MARK: - Convenience
 
-extension AboutView {
+extension AboutView where Header == EmptyView {
     public init(
-        image: ImageAssetIdentifier,
-        sections: [Section] = []
+        @ViewBuilder content: @escaping () -> Content,
+        @ViewBuilder footer: @escaping () -> Footer
     ) {
-        self.sections = sections
-        self.image = { Image(assetIdentifier: image) }
+        header = { EmptyView() }
+        self.footer = footer
+        self.content = content
     }
 }
 
-extension AboutView {
+extension AboutView where Footer == EmptyView {
     public init(
-        imageName: String,
-        sections: [Section] = []
+        @ViewBuilder content: @escaping () -> Content,
+        @ViewBuilder header: @escaping () -> Header
     ) {
-        self.sections = sections
-        image = { Image(imageName) }
+        self.header = header
+        footer = { EmptyView() }
+        self.content = content
     }
 }
 
-// MARK: - Data
-
-extension AboutView.Section {
-    public static func appDesign(_ title: String, author: String, startYear: Int? = nil) -> Self {
-        .init(
-            title: title,
-            items: [.copyright(author: author, startYear: startYear)]
-        )
-    }
-}
-
-extension AboutView.Section {
-    public static func graphics(_ title: String, link: String, endpoint: WebEndpoint) -> Self {
-        .init(
-            title: title,
-            items: [.link(link, endpoint: endpoint)]
-        )
-    }
-}
-
-extension AboutView.Section.Item {
-    public static func copyright(author: String, startYear: Int? = nil) -> Self {
-        let endYear = Date().component(.year)
-        var components = ["©"]
-        if let startYear = startYear, startYear < endYear {
-            components.append("\(startYear)-\(endYear)")
-        } else {
-            components.append("\(endYear)")
-        }
-        components.append(author)
-        return .text(components.joined(separator: " "))
+extension AboutView where Header == EmptyView, Footer == EmptyView {
+    public init(
+        @ViewBuilder content: @escaping () -> Content
+    ) {
+        header = { EmptyView() }
+        footer = { EmptyView() }
+        self.content = content
     }
 }

@@ -53,9 +53,9 @@ extension WebView.Script {
         const hideElementsByClassName = className => {
             const elements = document.getElementsByClassName(className);
             if (!elements) { return; }
-            for (let e of elements) {
-                if (e.style) {
-                    e.style.display = 'none';
+            for (let element of elements) {
+                if (element.style) {
+                    element.style.display = 'none';
                 }
             }
         };

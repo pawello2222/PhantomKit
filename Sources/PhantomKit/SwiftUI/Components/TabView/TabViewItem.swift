@@ -7,58 +7,43 @@
 //
 
 import SwiftUI
+import Xcore
 
-public struct TabViewItem<Item>: ViewModifier where Item: Hashable {
-    @Environment(\.tabSelection) private var tabSelection
-    private let item: Item
-    private let title: String?
+public struct TabViewItem<Tag, Title>: ViewModifier where Tag: Hashable, Title: StringProtocol {
+    private let tag: Tag
+    private let title: Title
     private let imageName: String
 
-    public init(_ item: Item, title: String? = nil, imageName: String) {
-        self.item = item
+    public init(tag: Tag, title: Title, imageName: String) {
+        self.tag = tag
         self.title = title
         self.imageName = imageName
     }
 
     public func body(content: Content) -> some View {
         content
-            .tag(item)
+            .tag(tag)
             .tabItem {
-                image
-                if let title = title {
-                    Text(title)
-                }
+                Label(title, systemImage: imageName)
             }
-    }
-}
-
-extension TabViewItem {
-    private var image: some View {
-        guard
-            tabSelection?.hashValue == item.hashValue,
-            let uiImage = UIImage(systemName: imageName + ".fill")
-        else {
-            return Image(systemName: imageName)
-        }
-        return Image(uiImage: uiImage)
     }
 }
 
 // MARK: - View
 
 extension View {
-    public func tabItem<Item>(
-        _ item: Item,
-        title: String? = nil,
+    public func tabItem<Tag, Title>(
+        tag: Tag,
+        title: Title,
         systemImage: SystemAssetIdentifier
-    ) -> some View where Item: Hashable {
-        modifier(TabViewItem(item, title: title, imageName: systemImage.rawValue))
+    ) -> some View where Tag: Hashable, Title: StringProtocol {
+        modifier(TabViewItem(tag: tag, title: title, imageName: systemImage.rawValue))
     }
 
     public func tabItem<Item>(
         _ item: Item,
         systemImage: SystemAssetIdentifier
     ) -> some View where Item: Hashable & CustomStringConvertible {
-        modifier(TabViewItem(item, title: item.description, imageName: systemImage.rawValue))
+        modifier(TabViewItem(tag: item, title: item.description, imageName: systemImage.rawValue))
     }
 }
