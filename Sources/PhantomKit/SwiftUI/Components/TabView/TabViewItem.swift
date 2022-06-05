@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Xcore
 
 public struct TabViewItem<Tag, Title>: ViewModifier where Tag: Hashable, Title: StringProtocol {
     private let tag: Tag
