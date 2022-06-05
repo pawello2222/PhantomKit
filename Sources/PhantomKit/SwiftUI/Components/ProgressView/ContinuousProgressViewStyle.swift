@@ -6,6 +6,7 @@
 //  Copyright © 2021 Pawel Wiszenko. All rights reserved.
 //
 
+import Async
 import SwiftUI
 
 /// A progress view in a shape of a circle that spins continuously.
