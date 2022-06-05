@@ -60,10 +60,10 @@ extension Publisher {
 // Adopted from here: https://www.swiftbysundell.com/articles/connecting-async-await-with-other-swift-code/
 extension Publisher {
     public func ignoreResult() async throws {
-        var cancellable: AnyCancellable?
+        var cancellables = Set<AnyCancellable>()
 
         return try await withCheckedThrowingContinuation { continuation in
-            cancellable = sink(
+            sink(
                 receiveCompletion: { completion in
                     switch completion {
                     case .failure(let error):
@@ -74,6 +74,7 @@ extension Publisher {
                 },
                 receiveValue: { _ in }
             )
+            .store(in: &cancellables)
         }
     }
 }
