@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Xcore
 
 public struct GradientButtonStyle<S: InsettableShape>: ButtonStyle {
     private let id: ButtonIdentifier

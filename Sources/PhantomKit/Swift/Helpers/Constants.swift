@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Xcore
 
 extension AppConstants {
     public static var buttonCornerRadius: CGFloat = 25

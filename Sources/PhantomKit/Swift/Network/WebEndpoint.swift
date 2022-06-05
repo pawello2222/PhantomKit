@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Xcore
 
 public typealias WebEndpoint = AdaptiveURL
 

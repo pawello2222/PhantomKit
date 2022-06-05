@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Xcore
 
 /// A label style that displays the icon as a rounded rectangle badge.
 public struct IconBadgeLabelStyle: LabelStyle {

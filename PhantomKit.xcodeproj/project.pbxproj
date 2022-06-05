@@ -33,7 +33,6 @@
 		E5638B20265EBAC300E73B05 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5638B1F265EBAC300E73B05 /* StringTests.swift */; };
 		E5638B22265EBADB00E73B05 /* ComparableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5638B21265EBADB00E73B05 /* ComparableTests.swift */; };
 		E5638B24265EBDDF00E73B05 /* DateComponentsFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5638B23265EBDDF00E73B05 /* DateComponentsFormatterTests.swift */; };
-		E587B8F926430FC900F0F240 /* Imports.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8B226430FC900F0F240 /* Imports.swift */; };
 		E587B8FA26430FC900F0F240 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8B326430FC900F0F240 /* Bundle.swift */; };
 		E587B8FC26430FC900F0F240 /* WebEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8BB26430FC900F0F240 /* WebEndpoint.swift */; };
 		E587B8FF26430FC900F0F240 /* Set+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8BF26430FC900F0F240 /* Set+Ext.swift */; };
@@ -168,7 +167,6 @@
 		E5638B21265EBADB00E73B05 /* ComparableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparableTests.swift; sourceTree = "<group>"; };
 		E5638B23265EBDDF00E73B05 /* DateComponentsFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponentsFormatterTests.swift; sourceTree = "<group>"; };
 		E587B8A626430F4900F0F240 /* libPhantomKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPhantomKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E587B8B226430FC900F0F240 /* Imports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Imports.swift; sourceTree = "<group>"; };
 		E587B8B326430FC900F0F240 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		E587B8BB26430FC900F0F240 /* WebEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebEndpoint.swift; sourceTree = "<group>"; };
 		E587B8BF26430FC900F0F240 /* Set+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set+Ext.swift"; sourceTree = "<group>"; };
@@ -387,7 +385,6 @@
 			isa = PBXGroup;
 			children = (
 				E587B8B326430FC900F0F240 /* Bundle.swift */,
-				E587B8B226430FC900F0F240 /* Imports.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -885,7 +882,6 @@
 				E587B90E26430FC900F0F240 /* SplitPicker+SelectionView.swift in Sources */,
 				E587B92226430FC900F0F240 /* PresentationModifier.swift in Sources */,
 				E5888AE5265C612A00FC185E /* UserDefaults+Ext.swift in Sources */,
-				E587B8F926430FC900F0F240 /* Imports.swift in Sources */,
 				E5888A90265814D400FC185E /* UIImage+Ext.swift in Sources */,
 				E5CA106D2643576B008FD164 /* Defaults.swift in Sources */,
 				E5888ABE265C0C5E00FC185E /* Data+Ext.swift in Sources */,

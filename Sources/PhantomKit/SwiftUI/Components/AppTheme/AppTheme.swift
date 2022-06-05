@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Xcore
 
 @dynamicMemberLookup
 public struct AppTheme: MutableAppliable, UserInfoContainer {
