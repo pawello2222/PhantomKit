@@ -1,5 +1,5 @@
 //
-//  Set+Ext.swift
+//  Set+Extensions.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 21.04.2021.
@@ -9,11 +9,11 @@
 import Foundation
 
 extension Set {
-    public mutating func toggle(_ item: Element) {
-        if contains(item) {
-            remove(item)
+    public mutating func toggle(_ element: Element) {
+        if contains(element) {
+            remove(element)
         } else {
-            insert(item)
+            insert(element)
         }
     }
 }

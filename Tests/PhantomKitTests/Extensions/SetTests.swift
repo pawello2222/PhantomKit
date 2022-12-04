@@ -11,14 +11,11 @@ import XCTest
 @testable import PhantomKit
 
 class SetTests: XCTestCase {
-    override func setUpWithError() throws {}
-
-    override func tearDownWithError() throws {}
-
     func test_set_toggleExistingElement_shouldRemoveElement() throws {
         var set = Set([1, 2, 3])
 
         set.toggle(3)
+
         expect(set.contains(1)).to(beTrue())
         expect(set.contains(2)).to(beTrue())
         expect(set.contains(3)).to(beFalse())
@@ -29,6 +26,7 @@ class SetTests: XCTestCase {
         var set = Set([1, 2, 3])
 
         set.toggle(4)
+
         expect(set.contains(1)).to(beTrue())
         expect(set.contains(2)).to(beTrue())
         expect(set.contains(3)).to(beTrue())
