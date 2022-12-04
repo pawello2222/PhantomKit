@@ -46,7 +46,7 @@ class DateFormatterTests: XCTestCase {
         )
         let date = Date(year: 2000, month: 3, day: 24, hour: 16, minute: 14, second: 44)
 
-        expect(plFormatter.string(from: date)).to(equal("24.03.2000 o 16:14:44"))
+        expect(plFormatter.string(from: date)).to(equal("24.03.2000, 16:14:44"))
     }
 
     func test_dateFormatter_withFixedFormat_shouldFormatDate() throws {
