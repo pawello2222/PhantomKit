@@ -18,7 +18,7 @@ extension View {
         route: some Route
     ) -> some View {
         modifier(
-            PresentationModifier(
+            PresentationViewModifier(
                 presentation: presentation,
                 onTrigger: onTrigger,
                 onDismiss: onDismiss,

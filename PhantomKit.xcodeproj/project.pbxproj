@@ -65,8 +65,8 @@
 		E587B91A26430FC900F0F240 /* View+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8E226430FC900F0F240 /* View+Presentation.swift */; };
 		E587B92026430FC900F0F240 /* AlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8E926430FC900F0F240 /* AlertModifier.swift */; };
 		E587B92126430FC900F0F240 /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8EA26430FC900F0F240 /* Presentation.swift */; };
-		E587B92226430FC900F0F240 /* PresentationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8EB26430FC900F0F240 /* PresentationModifier.swift */; };
-		E587B92326430FC900F0F240 /* PresentationTriggerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8EC26430FC900F0F240 /* PresentationTriggerModifier.swift */; };
+		E587B92226430FC900F0F240 /* PresentationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8EB26430FC900F0F240 /* PresentationViewModifier.swift */; };
+		E587B92326430FC900F0F240 /* PresentationTriggerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8EC26430FC900F0F240 /* PresentationTriggerViewModifier.swift */; };
 		E587B92426430FC900F0F240 /* ActionSheetModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8ED26430FC900F0F240 /* ActionSheetModifier.swift */; };
 		E587B92526430FC900F0F240 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8F026430FC900F0F240 /* AboutView.swift */; };
 		E587B92626430FC900F0F240 /* AboutView+Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8F126430FC900F0F240 /* AboutView+Blocks.swift */; };
@@ -203,8 +203,8 @@
 		E587B8E226430FC900F0F240 /* View+Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Presentation.swift"; sourceTree = "<group>"; };
 		E587B8E926430FC900F0F240 /* AlertModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertModifier.swift; sourceTree = "<group>"; };
 		E587B8EA26430FC900F0F240 /* Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentation.swift; sourceTree = "<group>"; };
-		E587B8EB26430FC900F0F240 /* PresentationModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationModifier.swift; sourceTree = "<group>"; };
-		E587B8EC26430FC900F0F240 /* PresentationTriggerModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationTriggerModifier.swift; sourceTree = "<group>"; };
+		E587B8EB26430FC900F0F240 /* PresentationViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationViewModifier.swift; sourceTree = "<group>"; };
+		E587B8EC26430FC900F0F240 /* PresentationTriggerViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationTriggerViewModifier.swift; sourceTree = "<group>"; };
 		E587B8ED26430FC900F0F240 /* ActionSheetModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetModifier.swift; sourceTree = "<group>"; };
 		E587B8F026430FC900F0F240 /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		E587B8F126430FC900F0F240 /* AboutView+Blocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AboutView+Blocks.swift"; sourceTree = "<group>"; };
@@ -312,8 +312,8 @@
 			isa = PBXGroup;
 			children = (
 				E587B8EA26430FC900F0F240 /* Presentation.swift */,
-				E587B8EB26430FC900F0F240 /* PresentationModifier.swift */,
-				E587B8EC26430FC900F0F240 /* PresentationTriggerModifier.swift */,
+				E587B8EB26430FC900F0F240 /* PresentationViewModifier.swift */,
+				E587B8EC26430FC900F0F240 /* PresentationTriggerViewModifier.swift */,
 				E587B8E226430FC900F0F240 /* View+Presentation.swift */,
 			);
 			path = Presentation;
@@ -900,7 +900,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E587B92326430FC900F0F240 /* PresentationTriggerModifier.swift in Sources */,
+				E587B92326430FC900F0F240 /* PresentationTriggerViewModifier.swift in Sources */,
 				E587B92126430FC900F0F240 /* Presentation.swift in Sources */,
 				E587B90226430FC900F0F240 /* StoreKit+Ext.swift in Sources */,
 				E5EDC2C2264D92CE0088CDE8 /* View+Footer.swift in Sources */,
@@ -923,7 +923,7 @@
 				E587B90726430FC900F0F240 /* View+Helpers.swift in Sources */,
 				E587B90A26430FC900F0F240 /* View+Ext.swift in Sources */,
 				E587B90E26430FC900F0F240 /* SplitPicker+SelectionView.swift in Sources */,
-				E587B92226430FC900F0F240 /* PresentationModifier.swift in Sources */,
+				E587B92226430FC900F0F240 /* PresentationViewModifier.swift in Sources */,
 				E5888AE5265C612A00FC185E /* UserDefaults+Ext.swift in Sources */,
 				E5888A90265814D400FC185E /* UIImage+Ext.swift in Sources */,
 				E5CA106D2643576B008FD164 /* Defaults.swift in Sources */,

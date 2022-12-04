@@ -1,5 +1,5 @@
 //
-//  PresentationTriggerModifier.swift
+//  PresentationTriggerViewModifier.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 04.05.2021.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct PresentationTriggerModifier: ViewModifier {
+struct PresentationTriggerViewModifier: ViewModifier {
     let trigger: Presentation.Trigger
     @Binding var isActive: Bool
     var onTrigger: (() -> Void)?

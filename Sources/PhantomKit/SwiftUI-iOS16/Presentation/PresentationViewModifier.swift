@@ -1,5 +1,5 @@
 //
-//  PresentationModifier.swift
+//  PresentationViewModifier.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 26.04.2021.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-public struct PresentationModifier<R>: ViewModifier where R: Route {
+public struct PresentationViewModifier<R>: ViewModifier where R: Route {
     private let presentation: Presentation
     private let onTrigger: (() -> Void)?
     private let onDismiss: (() -> Void)?
@@ -33,7 +33,7 @@ public struct PresentationModifier<R>: ViewModifier where R: Route {
         transitionBody(
             content
                 .modifier(
-                    PresentationTriggerModifier(
+                    PresentationTriggerViewModifier(
                         trigger: presentation.trigger,
                         isActive: $isActive,
                         onTrigger: onTrigger
@@ -45,9 +45,9 @@ public struct PresentationModifier<R>: ViewModifier where R: Route {
 
 // MARK: - Transition Body
 
-extension PresentationModifier {
+extension PresentationViewModifier {
     @ViewBuilder
-    private func transitionBody<Content>(_ content: Content) -> some View where Content: View {
+    private func transitionBody(_ content: some View) -> some View {
         switch presentation.transition {
         case .link:
             content
