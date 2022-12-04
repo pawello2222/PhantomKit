@@ -21,7 +21,6 @@
 		E52A3134264C0C5900017D94 /* RefreshGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A3133264C0C5900017D94 /* RefreshGuardian.swift */; };
 		E52A3136264C27E500017D94 /* RefreshGuardianTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A3135264C27E500017D94 /* RefreshGuardianTests.swift */; };
 		E549C70C2645D526004388C4 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C70B2645D526004388C4 /* Logger.swift */; };
-		E549C70E2646BEDF004388C4 /* Error+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C70D2646BEDF004388C4 /* Error+Ext.swift */; };
 		E549C71C26475B89004388C4 /* libPhantomKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E587B8A626430F4900F0F240 /* libPhantomKit.a */; };
 		E549C72426475E05004388C4 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = E549C72326475E05004388C4 /* Nimble */; };
 		E549C7272647CA7F004388C4 /* LocalizedFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C7262647CA7F004388C4 /* LocalizedFormatter.swift */; };
@@ -31,7 +30,6 @@
 		E549C7312648515D004388C4 /* PercentFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C7302648515D004388C4 /* PercentFormatterTests.swift */; };
 		E549C73626487C8A004388C4 /* LocalizedDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C73526487C8A004388C4 /* LocalizedDateFormatter.swift */; };
 		E549C73A264895F4004388C4 /* DateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C739264895F4004388C4 /* DateFormatterTests.swift */; };
-		E553723B272DCBD600EB762C /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553723A272DCBD600EB762C /* Int+Ext.swift */; };
 		E55AB59B2649E9A5000D7441 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AB59A2649E9A5000D7441 /* String+Ext.swift */; };
 		E55AB59D264A7775000D7441 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AB59C264A7775000D7441 /* Date+Ext.swift */; };
 		E55AB59F264ADA2A000D7441 /* Equatable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AB59E264ADA2A000D7441 /* Equatable+Ext.swift */; };
@@ -157,7 +155,6 @@
 		E52A3133264C0C5900017D94 /* RefreshGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshGuardian.swift; sourceTree = "<group>"; };
 		E52A3135264C27E500017D94 /* RefreshGuardianTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshGuardianTests.swift; sourceTree = "<group>"; };
 		E549C70B2645D526004388C4 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		E549C70D2646BEDF004388C4 /* Error+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Ext.swift"; sourceTree = "<group>"; };
 		E549C71726475B89004388C4 /* PhantomKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhantomKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E549C71B26475B89004388C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E549C7262647CA7F004388C4 /* LocalizedFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedFormatter.swift; sourceTree = "<group>"; };
@@ -167,7 +164,6 @@
 		E549C7302648515D004388C4 /* PercentFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentFormatterTests.swift; sourceTree = "<group>"; };
 		E549C73526487C8A004388C4 /* LocalizedDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedDateFormatter.swift; sourceTree = "<group>"; };
 		E549C739264895F4004388C4 /* DateFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterTests.swift; sourceTree = "<group>"; };
-		E553723A272DCBD600EB762C /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
 		E55AB59A2649E9A5000D7441 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		E55AB59C264A7775000D7441 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		E55AB59E264ADA2A000D7441 /* Equatable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Equatable+Ext.swift"; sourceTree = "<group>"; };
@@ -510,10 +506,8 @@
 				E5638AE4265D6AD800E73B05 /* Comparable+Ext.swift */,
 				E5888ABD265C0C5E00FC185E /* Data+Ext.swift */,
 				E55AB59C264A7775000D7441 /* Date+Ext.swift */,
-				E549C70D2646BEDF004388C4 /* Error+Ext.swift */,
 				E55AB59E264ADA2A000D7441 /* Equatable+Ext.swift */,
 				E5888ABF265C18E900FC185E /* FileManager+Ext.swift */,
-				E553723A272DCBD600EB762C /* Int+Ext.swift */,
 				E587B8C426430FC900F0F240 /* NotificationCenter+Ext.swift */,
 				E549C72A2647ED5F004388C4 /* NSDecimalNumber+Ext.swift */,
 				E587B8C026430FC900F0F240 /* Published+Ext.swift */,
@@ -973,9 +967,7 @@
 				E587B92A26430FC900F0F240 /* WebView+Script.swift in Sources */,
 				E5E7C4CA2649ADB00045596E /* LocalizedFormatter+Precision.swift in Sources */,
 				E587B90326430FC900F0F240 /* Array+Ext.swift in Sources */,
-				E549C70E2646BEDF004388C4 /* Error+Ext.swift in Sources */,
 				E5ABD81A2676A3FC00082241 /* NetworkImage.swift in Sources */,
-				E553723B272DCBD600EB762C /* Int+Ext.swift in Sources */,
 				E587B90926430FC900F0F240 /* Alert+Button+Ext.swift in Sources */,
 				E5ABD7682672CAE400082241 /* PersistentStore.swift in Sources */,
 				E5ABD7422667E28100082241 /* AppEnvironment.swift in Sources */,
