@@ -13,6 +13,9 @@
 		E521E218293D0B5700E7E865 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E217293D0B5700E7E865 /* Route.swift */; };
 		E521E21E293D18CC00E7E865 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E21D293D18CC00E7E865 /* Router.swift */; };
 		E521E23A293D203F00E7E865 /* RoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E239293D203F00E7E865 /* RoutingView.swift */; };
+		E521E24B293D403F00E7E865 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E24A293D403F00E7E865 /* APIEndpoint.swift */; };
+		E521E24D293D40C600E7E865 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E24C293D40C600E7E865 /* APIError.swift */; };
+		E521E24F293D416E00E7E865 /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E24E293D416E00E7E865 /* Error+Extensions.swift */; };
 		E52A3130264AE27B00017D94 /* RequestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A312F264AE27B00017D94 /* RequestState.swift */; };
 		E52A3132264B01A300017D94 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A3131264B01A300017D94 /* ToastView.swift */; };
 		E52A3134264C0C5900017D94 /* RefreshGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A3133264C0C5900017D94 /* RefreshGuardian.swift */; };
@@ -107,7 +110,7 @@
 		E5CA108026459820008FD164 /* Moya.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA107F26459820008FD164 /* Moya.swift */; };
 		E5CA1083264598B0008FD164 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA1082264598B0008FD164 /* Moya */; };
 		E5CA1085264598B0008FD164 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA1084264598B0008FD164 /* CombineMoya */; };
-		E5CA108726459A7D008FD164 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA108626459A7D008FD164 /* APIError.swift */; };
+		E5CA108726459A7D008FD164 /* APIErrorold.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA108626459A7D008FD164 /* APIErrorold.swift */; };
 		E5E7C4C6264944290045596E /* DismissButtonToolbarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C5264944290045596E /* DismissButtonToolbarModifier.swift */; };
 		E5E7C4C8264995600045596E /* LocalizedFormatter+Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C7264995600045596E /* LocalizedFormatter+Sign.swift */; };
 		E5E7C4CA2649ADB00045596E /* LocalizedFormatter+Precision.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C92649ADB00045596E /* LocalizedFormatter+Precision.swift */; };
@@ -146,6 +149,9 @@
 		E521E217293D0B5700E7E865 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		E521E21D293D18CC00E7E865 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		E521E239293D203F00E7E865 /* RoutingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingView.swift; sourceTree = "<group>"; };
+		E521E24A293D403F00E7E865 /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
+		E521E24C293D40C600E7E865 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		E521E24E293D416E00E7E865 /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
 		E52A312F264AE27B00017D94 /* RequestState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestState.swift; sourceTree = "<group>"; };
 		E52A3131264B01A300017D94 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		E52A3133264C0C5900017D94 /* RefreshGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshGuardian.swift; sourceTree = "<group>"; };
@@ -238,7 +244,7 @@
 		E5CA106C2643576B008FD164 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		E5CA1070264406B9008FD164 /* Publisher+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Ext.swift"; sourceTree = "<group>"; };
 		E5CA107F26459820008FD164 /* Moya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moya.swift; sourceTree = "<group>"; };
-		E5CA108626459A7D008FD164 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		E5CA108626459A7D008FD164 /* APIErrorold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorold.swift; sourceTree = "<group>"; };
 		E5CA108A26459D00008FD164 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		E5E7C4C5264944290045596E /* DismissButtonToolbarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButtonToolbarModifier.swift; sourceTree = "<group>"; };
 		E5E7C4C7264995600045596E /* LocalizedFormatter+Sign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedFormatter+Sign.swift"; sourceTree = "<group>"; };
@@ -318,6 +324,7 @@
 		E521E236293D1E5E00E7E865 /* Swift-iOS16 */ = {
 			isa = PBXGroup;
 			children = (
+				E521E249293D402D00E7E865 /* Network */,
 				E521E237293D1E6B00E7E865 /* Components */,
 				E521E238293D1F0600E7E865 /* Extensions */,
 			);
@@ -335,8 +342,18 @@
 		E521E238293D1F0600E7E865 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E521E24E293D416E00E7E865 /* Error+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E521E249293D402D00E7E865 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E521E24A293D403F00E7E865 /* APIEndpoint.swift */,
+				E521E24C293D40C600E7E865 /* APIError.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		E538EB372708FBAE00B1ADC2 /* PhantomKit */ = {
@@ -476,7 +493,7 @@
 		E587B8BA26430FC900F0F240 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				E5CA108626459A7D008FD164 /* APIError.swift */,
+				E5CA108626459A7D008FD164 /* APIErrorold.swift */,
 				E5EDC2BE264D82620088CDE8 /* Network+Protocols.swift */,
 				E52A3133264C0C5900017D94 /* RefreshGuardian.swift */,
 				E52A312F264AE27B00017D94 /* RequestState.swift */,
@@ -919,6 +936,7 @@
 				E5888A0C2653F9E000FC185E /* EnvironmentValues+Ext.swift in Sources */,
 				E5C7EBB2264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift in Sources */,
 				E5E7C4C6264944290045596E /* DismissButtonToolbarModifier.swift in Sources */,
+				E521E24F293D416E00E7E865 /* Error+Extensions.swift in Sources */,
 				E5CA108026459820008FD164 /* Moya.swift in Sources */,
 				E587B92526430FC900F0F240 /* AboutView.swift in Sources */,
 				E5888AC0265C18E900FC185E /* FileManager+Ext.swift in Sources */,
@@ -948,6 +966,7 @@
 				E5888A982658591900FC185E /* AppTheme.swift in Sources */,
 				E587B90026430FC900F0F240 /* Published+Ext.swift in Sources */,
 				E5888A8E26580FA600FC185E /* ByteCountFormatter+Ext.swift in Sources */,
+				E521E24D293D40C600E7E865 /* APIError.swift in Sources */,
 				E5888AB1265ADF7600FC185E /* UIApplication+Ext.swift in Sources */,
 				E521E218293D0B5700E7E865 /* Route.swift in Sources */,
 				E5ABD6D826604FE800082241 /* SearchBar.swift in Sources */,
@@ -974,10 +993,11 @@
 				E521E23A293D203F00E7E865 /* RoutingView.swift in Sources */,
 				E587B91A26430FC900F0F240 /* View+Presentation.swift in Sources */,
 				E5ABD76A2672CB1A00082241 /* CoreDataStack.swift in Sources */,
-				E5CA108726459A7D008FD164 /* APIError.swift in Sources */,
+				E5CA108726459A7D008FD164 /* APIErrorold.swift in Sources */,
 				E5888A9426581FFA00FC185E /* Binding+Extensions.swift in Sources */,
 				E587B92826430FC900F0F240 /* WebView.swift in Sources */,
 				E5888A082653CA5D00FC185E /* Button+Ext.swift in Sources */,
+				E521E24B293D403F00E7E865 /* APIEndpoint.swift in Sources */,
 				E5EDC2C5264D956B0088CDE8 /* ToastView+Theme.swift in Sources */,
 				E5ABD6F926614A4800082241 /* SentimentColorModifier.swift in Sources */,
 				E55AB59F264ADA2A000D7441 /* Equatable+Ext.swift in Sources */,
