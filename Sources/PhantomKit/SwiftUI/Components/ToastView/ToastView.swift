@@ -30,7 +30,7 @@ public struct ToastView<Content>: View where Content: View {
                 .padding()
         }
         .fixedSize(.vertical)
-        .aligned(.top)
+        .alignment(vertical: .top)
         .transition(.move(edge: .top))
         .animation(.spring(), value: isAnimating)
         .onAppear {

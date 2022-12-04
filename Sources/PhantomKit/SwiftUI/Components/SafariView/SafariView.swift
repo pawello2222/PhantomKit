@@ -25,8 +25,6 @@ public struct SafariView: View {
 // MARK: - Representable
 
 public struct SafariViewRepresentable: UIViewControllerRepresentable {
-    @Environment(\.appTheme) private var theme
-
     private let url: URL
 
     public init(url: URL) {
@@ -34,46 +32,8 @@ public struct SafariViewRepresentable: UIViewControllerRepresentable {
     }
 
     public func makeUIViewController(context: Context) -> SFSafariViewController {
-        SFSafariViewController(url: url).apply {
-            $0.preferredControlTintColor = .init(theme.accentColor)
-        }
+        SFSafariViewController(url: url)
     }
 
     public func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {}
-}
-
-// MARK: - View
-
-extension View {
-    public func safariView(
-        openedAs method: PresentationMethod = .fullScreen,
-        url: URL?
-    ) -> some View {
-        unwrap(url) { content, url in
-            content.presentation(method: method) {
-                SafariView(url: url)
-            }
-        }
-    }
-
-    public func safariView(
-        openedAs method: PresentationMethod = .fullScreen,
-        endpoint: WebEndpoint
-    ) -> some View {
-        safariView(openedAs: method, url: endpoint.url)
-    }
-
-    public func safariView(
-        triggeredBy trigger: PresentationMethod.Trigger,
-        url: URL?
-    ) -> some View {
-        safariView(openedAs: .fullScreen(trigger: trigger), url: url)
-    }
-
-    public func safariView(
-        triggeredBy trigger: PresentationMethod.Trigger,
-        endpoint: WebEndpoint
-    ) -> some View {
-        safariView(triggeredBy: trigger, url: endpoint.url)
-    }
 }
