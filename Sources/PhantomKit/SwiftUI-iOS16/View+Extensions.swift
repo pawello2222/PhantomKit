@@ -22,6 +22,7 @@ extension View {
     /// - Parameters:
     ///   - condition: The condition to evaluate.
     ///   - transform: The transform to apply to this `View`.
+    ///
     /// - Returns: The transformed view if the condition is satisfied,
     ///   otherwise the unmodified original view.
     @ViewBuilder
@@ -42,6 +43,7 @@ extension View {
     /// - Parameters:
     ///   - value: The value to unwrap.
     ///   - transform: The transform to apply to this `View`.
+    ///
     /// - Returns: The transformed view if the value is non-`nil`,
     ///   otherwise the unmodified original view.
     @ViewBuilder
@@ -53,6 +55,26 @@ extension View {
             transform(self, value)
         } else {
             self
+        }
+    }
+}
+
+// MARK: - Fixed Size
+
+extension View {
+    /// Fixes this view at its ideal size on the given axis.
+    ///
+    /// - Parameters:
+    ///   - axis: A Boolean value that indicates on which axis to fix the size
+    ///     of the view.
+    ///
+    /// - Returns: A view that fixes this view at its ideal size on the given `axis`.
+    public func fixedSize(_ axis: Axis) -> some View {
+        switch axis {
+        case .horizontal:
+            return fixedSize(horizontal: true, vertical: false)
+        case .vertical:
+            return fixedSize(horizontal: false, vertical: true)
         }
     }
 }
@@ -80,8 +102,9 @@ extension View {
     /// Defines the default rectangular content shape for this view.
     ///
     /// - Parameters:
-    ///   - expanding: Specifies whether the frame should expand taking
-    ///   as much place possible.
+    ///   - expanding: A Boolean that indicates whether the frame should expand
+    ///   taking as much place possible.
+    ///
     /// - Returns: A view with the rectangular content shape that is expanded
     ///   if specified.
     public func contentFrame(expanding: Bool = true) -> some View {
