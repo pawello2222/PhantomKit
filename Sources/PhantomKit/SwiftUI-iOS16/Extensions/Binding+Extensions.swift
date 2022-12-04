@@ -1,5 +1,5 @@
 //
-//  Binding+Ext.swift
+//  Binding+Extensions.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 21.05.2021.
@@ -7,20 +7,6 @@
 //
 
 import SwiftUI
-
-extension Binding {
-    public func onSet(_ action: @escaping (Value) -> Void) -> Self {
-        .init(
-            get: {
-                wrappedValue
-            },
-            set: {
-                wrappedValue = $0
-                action(wrappedValue)
-            }
-        )
-    }
-}
 
 // MARK: - Operators
 

@@ -2,7 +2,7 @@
 //  View+ScrollTo.swift
 //  PhantomKit
 //
-//  Created by Pawel Wiszenko on 04/12/2022.
+//  Created by Pawel Wiszenko on 04.12.2022.
 //  Copyright © 2022 Pawel Wiszenko. All rights reserved.
 //
 

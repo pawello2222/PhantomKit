@@ -8,26 +8,24 @@
 
 import SwiftUI
 
-public struct PresentationModifier<Destination>: ViewModifier where Destination: View {
-    @Environment(\.appTheme) private var theme
-
-    private let method: PresentationMethod
+public struct PresentationModifier<R>: ViewModifier where R: Route {
+    private let presentation: Presentation
     private let onTrigger: (() -> Void)?
     private let onDismiss: (() -> Void)?
-    private let content: () -> Destination
+    private let route: R
 
     @State private var isActive = false
 
     public init(
-        method: PresentationMethod = .link,
+        presentation: Presentation = .link,
         onTrigger: (() -> Void)? = nil,
         onDismiss: (() -> Void)? = nil,
-        @ViewBuilder content: @escaping () -> Destination
+        route: R
     ) {
-        self.method = method
+        self.presentation = presentation
         self.onTrigger = onTrigger
         self.onDismiss = onDismiss
-        self.content = content
+        self.route = route
     }
 
     @ViewBuilder
@@ -36,7 +34,7 @@ public struct PresentationModifier<Destination>: ViewModifier where Destination:
             content
                 .modifier(
                     PresentationTriggerModifier(
-                        trigger: method.trigger,
+                        trigger: presentation.trigger,
                         isActive: $isActive,
                         onTrigger: onTrigger
                     )
@@ -50,22 +48,16 @@ public struct PresentationModifier<Destination>: ViewModifier where Destination:
 extension PresentationModifier {
     @ViewBuilder
     private func transitionBody<Content>(_ content: Content) -> some View where Content: View {
-        switch method.transition {
+        switch presentation.transition {
         case .link:
             content
-                .background(NavigationLink("", destination: destination(), isActive: $isActive).hidden())
+                .background(NavigationLink("", destination: route.resolve(), isActive: $isActive).hidden())
         case .sheet:
             content
-                .sheet(isPresented: $isActive, onDismiss: onDismiss, content: destination)
+                .sheet(isPresented: $isActive, onDismiss: onDismiss, content: route.resolve)
         case .fullScreen:
             content
-                .fullScreenCover(isPresented: $isActive, onDismiss: onDismiss, content: destination)
+                .fullScreenCover(isPresented: $isActive, onDismiss: onDismiss, content: route.resolve)
         }
-    }
-
-    @ViewBuilder
-    private func destination() -> some View {
-        content()
-            .appearance(theme: theme)
     }
 }

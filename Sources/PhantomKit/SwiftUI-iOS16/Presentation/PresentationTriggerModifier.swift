@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct PresentationTriggerModifier: ViewModifier {
-    let trigger: PresentationMethod.Trigger
+    let trigger: Presentation.Trigger
     @Binding var isActive: Bool
     var onTrigger: (() -> Void)?
 
@@ -22,22 +22,14 @@ struct PresentationTriggerModifier: ViewModifier {
                     onTrigger?()
                     isActive = true
                 }
-        case .button(let style):
-            buttonBody(content)
-                .buttonStyle(style)
-        case .primitiveButton(let style):
-            buttonBody(content)
-                .buttonStyle(style)
-        }
-    }
-
-    private func buttonBody(_ content: Content) -> some View {
-        Button {
-            onTrigger?()
-            isActive = true
-        } label: {
-            content
-                .contentShape(Rectangle())
+        case .button:
+            Button {
+                onTrigger?()
+                isActive = true
+            } label: {
+                content
+                    .contentShape(Rectangle())
+            }
         }
     }
 }
