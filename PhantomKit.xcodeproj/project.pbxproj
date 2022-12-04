@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E521E210293C144000E7E865 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E20F293C144000E7E865 /* View+Extensions.swift */; };
+		E521E212293C179600E7E865 /* View+Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E211293C179600E7E865 /* View+Alignment.swift */; };
 		E52A3130264AE27B00017D94 /* RequestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A312F264AE27B00017D94 /* RequestState.swift */; };
 		E52A3132264B01A300017D94 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A3131264B01A300017D94 /* ToastView.swift */; };
 		E52A3134264C0C5900017D94 /* RefreshGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A3133264C0C5900017D94 /* RefreshGuardian.swift */; };
@@ -140,6 +142,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E521E20F293C144000E7E865 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		E521E211293C179600E7E865 /* View+Alignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Alignment.swift"; sourceTree = "<group>"; };
 		E52A312F264AE27B00017D94 /* RequestState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestState.swift; sourceTree = "<group>"; };
 		E52A3131264B01A300017D94 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		E52A3133264C0C5900017D94 /* RefreshGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshGuardian.swift; sourceTree = "<group>"; };
@@ -273,9 +277,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E521E20E293C142000E7E865 /* SwiftUI-iOS16 */ = {
+			isa = PBXGroup;
+			children = (
+				E521E211293C179600E7E865 /* View+Alignment.swift */,
+				E521E20F293C144000E7E865 /* View+Extensions.swift */,
+			);
+			path = "SwiftUI-iOS16";
+			sourceTree = "<group>";
+		};
 		E538EB372708FBAE00B1ADC2 /* PhantomKit */ = {
 			isa = PBXGroup;
 			children = (
+				E521E20E293C142000E7E865 /* SwiftUI-iOS16 */,
 				E587B8B926430FC900F0F240 /* Swift */,
 				E587B8C826430FC900F0F240 /* SwiftUI */,
 				E5CA106B26435753008FD164 /* ThirdParty */,
@@ -913,6 +927,7 @@
 				E587B8FA26430FC900F0F240 /* Bundle.swift in Sources */,
 				E587B91426430FC900F0F240 /* AnyButtonStyle.swift in Sources */,
 				E587B91126430FC900F0F240 /* AnimatableHeightModifier.swift in Sources */,
+				E521E210293C144000E7E865 /* View+Extensions.swift in Sources */,
 				E587B8FF26430FC900F0F240 /* Set+Ext.swift in Sources */,
 				E52A3134264C0C5900017D94 /* RefreshGuardian.swift in Sources */,
 				E55AB59B2649E9A5000D7441 /* String+Ext.swift in Sources */,
@@ -933,6 +948,7 @@
 				E587B92026430FC900F0F240 /* AlertModifier.swift in Sources */,
 				E55AB59F264ADA2A000D7441 /* Equatable+Ext.swift in Sources */,
 				E5888A0A2653DF7500FC185E /* AnimatedButton.swift in Sources */,
+				E521E212293C179600E7E865 /* View+Alignment.swift in Sources */,
 				E587B90526430FC900F0F240 /* URL+Ext.swift in Sources */,
 				E587B90B26430FC900F0F240 /* CSSColor.swift in Sources */,
 				E587B92926430FC900F0F240 /* WebView+ViewModel.swift in Sources */,
