@@ -8,6 +8,17 @@
 
 import SwiftUI
 
+// MARK: - AnyView
+
+extension View {
+    /// Wraps this view with a type eraser.
+    ///
+    /// - Returns: An `AnyView` wrapping this view.
+    public func eraseToAnyView() -> AnyView {
+        AnyView(self)
+    }
+}
+
 // MARK: - Apply
 
 extension View {
@@ -59,7 +70,7 @@ extension View {
     }
 }
 
-// MARK: - Fixed Size
+// MARK: - FixedSize
 
 extension View {
     /// Fixes this view at its ideal size on the given axis.

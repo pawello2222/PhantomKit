@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E521E210293C144000E7E865 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E20F293C144000E7E865 /* View+Extensions.swift */; };
 		E521E212293C179600E7E865 /* View+Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E211293C179600E7E865 /* View+Alignment.swift */; };
+		E521E214293CACE600E7E865 /* View+ScrollTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E213293CACE600E7E865 /* View+ScrollTo.swift */; };
 		E52A3130264AE27B00017D94 /* RequestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A312F264AE27B00017D94 /* RequestState.swift */; };
 		E52A3132264B01A300017D94 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A3131264B01A300017D94 /* ToastView.swift */; };
 		E52A3134264C0C5900017D94 /* RefreshGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A3133264C0C5900017D94 /* RefreshGuardian.swift */; };
@@ -144,6 +145,7 @@
 /* Begin PBXFileReference section */
 		E521E20F293C144000E7E865 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		E521E211293C179600E7E865 /* View+Alignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Alignment.swift"; sourceTree = "<group>"; };
+		E521E213293CACE600E7E865 /* View+ScrollTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ScrollTo.swift"; sourceTree = "<group>"; };
 		E52A312F264AE27B00017D94 /* RequestState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestState.swift; sourceTree = "<group>"; };
 		E52A3131264B01A300017D94 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		E52A3133264C0C5900017D94 /* RefreshGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshGuardian.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 			children = (
 				E521E211293C179600E7E865 /* View+Alignment.swift */,
 				E521E20F293C144000E7E865 /* View+Extensions.swift */,
+				E521E213293CACE600E7E865 /* View+ScrollTo.swift */,
 			);
 			path = "SwiftUI-iOS16";
 			sourceTree = "<group>";
@@ -879,6 +882,7 @@
 				E5EDC2C2264D92CE0088CDE8 /* View+Footer.swift in Sources */,
 				E5AB538E264EE08600D993AE /* ContinuousProgressViewStyle.swift in Sources */,
 				E55AB59D264A7775000D7441 /* Date+Ext.swift in Sources */,
+				E521E214293CACE600E7E865 /* View+ScrollTo.swift in Sources */,
 				E587B91226430FC900F0F240 /* IconBadgeLabelStyle.swift in Sources */,
 				E5ABD7F02676574400082241 /* CapsuleTextField.swift in Sources */,
 				E5888A0C2653F9E000FC185E /* EnvironmentValues+Ext.swift in Sources */,
