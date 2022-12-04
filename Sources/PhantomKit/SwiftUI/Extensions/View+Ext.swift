@@ -8,18 +8,6 @@
 
 import SwiftUI
 
-// MARK: - Border
-
-extension View {
-    @inlinable public func borderColor(_ color: Color, width: CGFloat = 1) -> some View {
-        border(color, width: width)
-    }
-
-    @inlinable public func borderUIColor(_ uiColor: UIColor, width: CGFloat = 1) -> some View {
-        borderColor(.init(uiColor), width: width)
-    }
-}
-
 // MARK: - Background
 
 extension View {
@@ -73,17 +61,5 @@ extension View {
         overlay(
             content(InvisibleShape())
         )
-    }
-}
-
-// MARK: - Toolbar
-
-extension View {
-    public func toolbar<Content>(
-        _ content: @autoclosure () -> Content
-    ) -> some View where Content: ToolbarContent {
-        toolbar {
-            content()
-        }
     }
 }
