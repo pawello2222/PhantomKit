@@ -26,7 +26,7 @@
 		E549C72426475E05004388C4 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = E549C72326475E05004388C4 /* Nimble */; };
 		E549C7272647CA7F004388C4 /* LocalizedFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C7262647CA7F004388C4 /* LocalizedFormatter.swift */; };
 		E549C7292647CB00004388C4 /* DecimalFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C7282647CB00004388C4 /* DecimalFormatterTests.swift */; };
-		E549C72C2647F4FA004388C4 /* NSDecimalNumber+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C72A2647ED5F004388C4 /* NSDecimalNumber+Ext.swift */; };
+		E549C72C2647F4FA004388C4 /* NSDecimalNumber+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C72A2647ED5F004388C4 /* NSDecimalNumber+Extensions.swift */; };
 		E549C72F26484DFA004388C4 /* CurrencyFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C72E26484DFA004388C4 /* CurrencyFormatterTests.swift */; };
 		E549C7312648515D004388C4 /* PercentFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C7302648515D004388C4 /* PercentFormatterTests.swift */; };
 		E549C73626487C8A004388C4 /* LocalizedDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C73526487C8A004388C4 /* LocalizedDateFormatter.swift */; };
@@ -161,7 +161,7 @@
 		E549C71B26475B89004388C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E549C7262647CA7F004388C4 /* LocalizedFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedFormatter.swift; sourceTree = "<group>"; };
 		E549C7282647CB00004388C4 /* DecimalFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFormatterTests.swift; sourceTree = "<group>"; };
-		E549C72A2647ED5F004388C4 /* NSDecimalNumber+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDecimalNumber+Ext.swift"; sourceTree = "<group>"; };
+		E549C72A2647ED5F004388C4 /* NSDecimalNumber+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDecimalNumber+Extensions.swift"; sourceTree = "<group>"; };
 		E549C72E26484DFA004388C4 /* CurrencyFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatterTests.swift; sourceTree = "<group>"; };
 		E549C7302648515D004388C4 /* PercentFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentFormatterTests.swift; sourceTree = "<group>"; };
 		E549C73526487C8A004388C4 /* LocalizedDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedDateFormatter.swift; sourceTree = "<group>"; };
@@ -333,7 +333,7 @@
 			children = (
 				E549C7252647CA6E004388C4 /* Formatters */,
 				E521E249293D402D00E7E865 /* Network */,
-				E521E250293D47ED00E7E865 /* Appliable.swift */,
+				E521E252293D499600E7E865 /* Protocols */,
 				E549C70B2645D526004388C4 /* Logger.swift */,
 			);
 			path = Components;
@@ -343,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				E521E24E293D416E00E7E865 /* Error+Extensions.swift */,
+				E549C72A2647ED5F004388C4 /* NSDecimalNumber+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -354,6 +355,14 @@
 				E521E24C293D40C600E7E865 /* APIError.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		E521E252293D499600E7E865 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E521E250293D47ED00E7E865 /* Appliable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		E538EB372708FBAE00B1ADC2 /* PhantomKit */ = {
@@ -512,7 +521,6 @@
 				E55AB59E264ADA2A000D7441 /* Equatable+Ext.swift */,
 				E5888ABF265C18E900FC185E /* FileManager+Ext.swift */,
 				E587B8C426430FC900F0F240 /* NotificationCenter+Ext.swift */,
-				E549C72A2647ED5F004388C4 /* NSDecimalNumber+Ext.swift */,
 				E587B8C026430FC900F0F240 /* Published+Ext.swift */,
 				E5CA1070264406B9008FD164 /* Publisher+Ext.swift */,
 				E587B8BF26430FC900F0F240 /* Set+Ext.swift */,
@@ -1007,7 +1015,7 @@
 				E587B92626430FC900F0F240 /* AboutView+Blocks.swift in Sources */,
 				E5EDC2BF264D82620088CDE8 /* Network+Protocols.swift in Sources */,
 				E587B90F26430FC900F0F240 /* SplitPicker+Item.swift in Sources */,
-				E549C72C2647F4FA004388C4 /* NSDecimalNumber+Ext.swift in Sources */,
+				E549C72C2647F4FA004388C4 /* NSDecimalNumber+Extensions.swift in Sources */,
 				E587B8FC26430FC900F0F240 /* WebEndpoint.swift in Sources */,
 				E549C73626487C8A004388C4 /* LocalizedDateFormatter.swift in Sources */,
 				E5ABD7192662F32300082241 /* PopupView.swift in Sources */,

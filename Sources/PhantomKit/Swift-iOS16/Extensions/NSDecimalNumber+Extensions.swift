@@ -1,5 +1,5 @@
 //
-//  NSDecimalNumber+Ext.swift
+//  NSDecimalNumber+Extensions.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 09.05.2021.
