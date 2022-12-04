@@ -8,10 +8,8 @@
 
 import Foundation
 
-private class PhantomKitMarker {}
-
 extension Bundle {
     public static var phantomKit: Bundle {
-        .init(for: PhantomKitMarker.self)
+        .init(for: Self.self)
     }
 }
