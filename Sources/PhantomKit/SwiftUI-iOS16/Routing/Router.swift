@@ -8,46 +8,44 @@
 
 import SwiftUI
 
-class Router<R>: ObservableObject where R: Route {
-    @Published private(set) var content: R
-    @Published private(set) var overlay: R?
-    @Published var path = NavigationPath()
+public class Router<R>: ObservableObject where R: Route {
+    @Published public var content: R
+    @Published public var overlay: R?
+    @Published public var path = NavigationPath()
 
-    @Published var sheet: R?
-
-    init(content: R) {
+    public init(content: R) {
         self.content = content
     }
 
     // MARK: - Content
 
-    func show(content: R) {
+    public func show(content: R) {
         popToRoot()
         self.content = content
     }
 
     // MARK: - Overlay
 
-    func show(overlay: R) {
+    public func show(overlay: R) {
         self.overlay = overlay
     }
 
-    func hideOverlay() {
+    public func hideOverlay() {
         overlay = nil
     }
 
     // MARK: - Path Navigation
 
-    func navigate(to route: R) {
+    public func navigate(to route: R) {
         path.append(route)
     }
 
-    func replace(last: Int = 1, with route: R) {
+    public func replace(last: Int = 1, with route: R) {
         path.removeLast()
         path.append(route)
     }
 
-    func popToRoot() {
+    public func popToRoot() {
         path.removeLast(path.count)
     }
 }
