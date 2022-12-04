@@ -30,7 +30,7 @@ extension CoreDataStack: PersistentStore {
         do {
             return try mainContext.fetch(request).compactMap(map)
         } catch {
-            Logger.error(error.nsErrorDescription, category: .coreData)
+            Logger.error(error.description, category: .coreData)
             return []
         }
     }
@@ -39,7 +39,7 @@ extension CoreDataStack: PersistentStore {
         do {
             try mainContext.execute(request)
         } catch {
-            Logger.error(error.nsErrorDescription, category: .coreData)
+            Logger.error(error.description, category: .coreData)
         }
     }
 
@@ -48,7 +48,7 @@ extension CoreDataStack: PersistentStore {
         do {
             try operation(context)
         } catch {
-            Logger.error(error.nsErrorDescription, category: .coreData)
+            Logger.error(error.description, category: .coreData)
         }
         saveWorkingContext(context: context)
     }
@@ -70,7 +70,7 @@ extension CoreDataStack {
         container.loadPersistentStores { storeDescription, error in
             container.viewContext.automaticallyMergesChangesFromParent = true
             if let error = error {
-                Logger.error(error.nsErrorDescription, category: .coreData)
+                Logger.error(error.description, category: .coreData)
             } else {
                 Logger.debug("Init: \(storeDescription)", category: .coreData)
             }
@@ -124,7 +124,7 @@ extension CoreDataStack {
                 do {
                     try mainContext.save()
                 } catch {
-                    Logger.error(error.nsErrorDescription, category: .coreData)
+                    Logger.error(error.description, category: .coreData)
                 }
             }
         }
@@ -135,7 +135,7 @@ extension CoreDataStack {
             try context.save()
             saveMainContext()
         } catch {
-            Logger.error(error.nsErrorDescription, category: .coreData)
+            Logger.error(error.description, category: .coreData)
         }
     }
 }

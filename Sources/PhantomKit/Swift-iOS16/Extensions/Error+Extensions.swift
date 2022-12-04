@@ -18,7 +18,7 @@ extension Error {
         return nsError.userInfo[NSUnderlyingErrorKey] as? Error
     }
 
-    public var underlyingDescription: String {
+    public var description: String {
         let nsError = self as NSError
         return nsError.description
     }
