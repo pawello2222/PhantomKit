@@ -11,16 +11,6 @@ import XCTest
 @testable import PhantomKit
 
 class StringTests: XCTestCase {
-    override func setUpWithError() throws {}
-
-    override func tearDownWithError() throws {}
-
-    func test_string_inParentheses_shouldAddParentheses() throws {
-        expect("123".inParentheses()).to(equal("(123)"))
-        expect("()".inParentheses()).to(equal("(())"))
-        expect("".inParentheses()).to(equal("()"))
-    }
-
     func test_string_isHexNumber_shouldRecognizeHexNumbers() throws {
         expect("123".isHexNumber).to(beTrue())
         expect("aa32".isHexNumber).to(beTrue())

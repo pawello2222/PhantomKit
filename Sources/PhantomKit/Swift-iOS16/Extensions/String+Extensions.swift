@@ -1,5 +1,5 @@
 //
-//  String+Ext.swift
+//  String+Extensions.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 11.05.2021.
@@ -9,13 +9,7 @@
 import Foundation
 
 extension String {
-    public func inParentheses() -> String {
-        "(\(self))"
-    }
-}
-
-extension String {
     public var isHexNumber: Bool {
-        filter(\.isHexDigit).count == count
+        allSatisfy(\.isHexDigit)
     }
 }
