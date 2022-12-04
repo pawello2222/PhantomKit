@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Xcore
 
 public class LocalizedFormatter: Appliable {
     public init() {}
@@ -40,7 +39,7 @@ public class LocalizedFormatter: Appliable {
 extension LocalizedFormatter {
     public static func makeCurrencyFormatter(
         locale: Locale = .current,
-        currencyCode: String = Locale.current.currencyCode ?? "USD"
+        currencyCode: String = Locale.current.currency?.identifier ?? "USD"
     ) -> LocalizedFormatter {
         LocalizedFormatter().apply {
             $0.formatter.numberStyle = .currency

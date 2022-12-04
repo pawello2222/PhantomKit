@@ -16,6 +16,7 @@
 		E521E24B293D403F00E7E865 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E24A293D403F00E7E865 /* APIEndpoint.swift */; };
 		E521E24D293D40C600E7E865 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E24C293D40C600E7E865 /* APIError.swift */; };
 		E521E24F293D416E00E7E865 /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E24E293D416E00E7E865 /* Error+Extensions.swift */; };
+		E521E251293D47ED00E7E865 /* Appliable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E250293D47ED00E7E865 /* Appliable.swift */; };
 		E52A3130264AE27B00017D94 /* RequestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A312F264AE27B00017D94 /* RequestState.swift */; };
 		E52A3132264B01A300017D94 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A3131264B01A300017D94 /* ToastView.swift */; };
 		E52A3134264C0C5900017D94 /* RefreshGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A3133264C0C5900017D94 /* RefreshGuardian.swift */; };
@@ -150,6 +151,7 @@
 		E521E24A293D403F00E7E865 /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		E521E24C293D40C600E7E865 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		E521E24E293D416E00E7E865 /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
+		E521E250293D47ED00E7E865 /* Appliable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appliable.swift; sourceTree = "<group>"; };
 		E52A312F264AE27B00017D94 /* RequestState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestState.swift; sourceTree = "<group>"; };
 		E52A3131264B01A300017D94 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		E52A3133264C0C5900017D94 /* RefreshGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshGuardian.swift; sourceTree = "<group>"; };
@@ -320,7 +322,6 @@
 		E521E236293D1E5E00E7E865 /* Swift-iOS16 */ = {
 			isa = PBXGroup;
 			children = (
-				E521E249293D402D00E7E865 /* Network */,
 				E521E237293D1E6B00E7E865 /* Components */,
 				E521E238293D1F0600E7E865 /* Extensions */,
 			);
@@ -330,6 +331,9 @@
 		E521E237293D1E6B00E7E865 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E549C7252647CA6E004388C4 /* Formatters */,
+				E521E249293D402D00E7E865 /* Network */,
+				E521E250293D47ED00E7E865 /* Appliable.swift */,
 				E549C70B2645D526004388C4 /* Logger.swift */,
 			);
 			path = Components;
@@ -477,7 +481,6 @@
 			children = (
 				E5EDC2C0264D8E0A0088CDE8 /* Components */,
 				E587B8BD26430FC900F0F240 /* Extensions */,
-				E549C7252647CA6E004388C4 /* Formatters */,
 				E587B8C626430FC900F0F240 /* Helpers */,
 				E587B8BA26430FC900F0F240 /* Network */,
 				E5ABD7642672CA5700082241 /* Persistence */,
@@ -969,6 +972,7 @@
 				E587B90326430FC900F0F240 /* Array+Ext.swift in Sources */,
 				E5ABD81A2676A3FC00082241 /* NetworkImage.swift in Sources */,
 				E587B90926430FC900F0F240 /* Alert+Button+Ext.swift in Sources */,
+				E521E251293D47ED00E7E865 /* Appliable.swift in Sources */,
 				E5ABD7682672CAE400082241 /* PersistentStore.swift in Sources */,
 				E5ABD7422667E28100082241 /* AppEnvironment.swift in Sources */,
 				E587B8FA26430FC900F0F240 /* Bundle.swift in Sources */,
