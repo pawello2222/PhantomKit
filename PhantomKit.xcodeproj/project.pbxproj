@@ -12,6 +12,7 @@
 		E521E214293CACE600E7E865 /* View+ScrollTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E213293CACE600E7E865 /* View+ScrollTo.swift */; };
 		E521E218293D0B5700E7E865 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E217293D0B5700E7E865 /* Route.swift */; };
 		E521E21E293D18CC00E7E865 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E21D293D18CC00E7E865 /* Router.swift */; };
+		E521E23A293D203F00E7E865 /* RoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E239293D203F00E7E865 /* RoutingView.swift */; };
 		E52A3130264AE27B00017D94 /* RequestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A312F264AE27B00017D94 /* RequestState.swift */; };
 		E52A3132264B01A300017D94 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A3131264B01A300017D94 /* ToastView.swift */; };
 		E52A3134264C0C5900017D94 /* RefreshGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A3133264C0C5900017D94 /* RefreshGuardian.swift */; };
@@ -144,6 +145,7 @@
 		E521E213293CACE600E7E865 /* View+ScrollTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ScrollTo.swift"; sourceTree = "<group>"; };
 		E521E217293D0B5700E7E865 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		E521E21D293D18CC00E7E865 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		E521E239293D203F00E7E865 /* RoutingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingView.swift; sourceTree = "<group>"; };
 		E52A312F264AE27B00017D94 /* RequestState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestState.swift; sourceTree = "<group>"; };
 		E52A3131264B01A300017D94 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		E52A3133264C0C5900017D94 /* RefreshGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshGuardian.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			children = (
 				E521E217293D0B5700E7E865 /* Route.swift */,
 				E521E21D293D18CC00E7E865 /* Router.swift */,
+				E521E239293D203F00E7E865 /* RoutingView.swift */,
 			);
 			path = Routing;
 			sourceTree = "<group>";
@@ -968,6 +971,7 @@
 				E549C7272647CA7F004388C4 /* LocalizedFormatter.swift in Sources */,
 				E56211E8284D5EB00048FDAB /* Task+Ext.swift in Sources */,
 				E5CA1071264406B9008FD164 /* Publisher+Ext.swift in Sources */,
+				E521E23A293D203F00E7E865 /* RoutingView.swift in Sources */,
 				E587B91A26430FC900F0F240 /* View+Presentation.swift in Sources */,
 				E5ABD76A2672CB1A00082241 /* CoreDataStack.swift in Sources */,
 				E5CA108726459A7D008FD164 /* APIError.swift in Sources */,
