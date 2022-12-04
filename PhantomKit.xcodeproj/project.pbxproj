@@ -51,7 +51,6 @@
 		E587B90926430FC900F0F240 /* Alert+Button+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8CC26430FC900F0F240 /* Alert+Button+Ext.swift */; };
 		E587B90A26430FC900F0F240 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8CD26430FC900F0F240 /* View+Ext.swift */; };
 		E587B90B26430FC900F0F240 /* CSSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8CE26430FC900F0F240 /* CSSColor.swift */; };
-		E587B90C26430FC900F0F240 /* View+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8CF26430FC900F0F240 /* View+Action.swift */; };
 		E587B90D26430FC900F0F240 /* Section+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8D026430FC900F0F240 /* Section+Ext.swift */; };
 		E587B90E26430FC900F0F240 /* SplitPicker+SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8D326430FC900F0F240 /* SplitPicker+SelectionView.swift */; };
 		E587B90F26430FC900F0F240 /* SplitPicker+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8D426430FC900F0F240 /* SplitPicker+Item.swift */; };
@@ -63,11 +62,9 @@
 		E587B91626430FC900F0F240 /* SpacedLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8DC26430FC900F0F240 /* SpacedLabelStyle.swift */; };
 		E587B91726430FC900F0F240 /* TabViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8DE26430FC900F0F240 /* TabViewItem.swift */; };
 		E587B91A26430FC900F0F240 /* View+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8E226430FC900F0F240 /* View+Presentation.swift */; };
-		E587B92026430FC900F0F240 /* AlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8E926430FC900F0F240 /* AlertModifier.swift */; };
 		E587B92126430FC900F0F240 /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8EA26430FC900F0F240 /* Presentation.swift */; };
 		E587B92226430FC900F0F240 /* PresentationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8EB26430FC900F0F240 /* PresentationViewModifier.swift */; };
 		E587B92326430FC900F0F240 /* PresentationTriggerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8EC26430FC900F0F240 /* PresentationTriggerViewModifier.swift */; };
-		E587B92426430FC900F0F240 /* ActionSheetModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8ED26430FC900F0F240 /* ActionSheetModifier.swift */; };
 		E587B92526430FC900F0F240 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8F026430FC900F0F240 /* AboutView.swift */; };
 		E587B92626430FC900F0F240 /* AboutView+Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8F126430FC900F0F240 /* AboutView+Blocks.swift */; };
 		E587B92826430FC900F0F240 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8F426430FC900F0F240 /* WebView.swift */; };
@@ -116,8 +113,6 @@
 		E5EDC2C2264D92CE0088CDE8 /* View+Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDC2C1264D92CE0088CDE8 /* View+Footer.swift */; };
 		E5EDC2C5264D956B0088CDE8 /* ToastView+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDC2C4264D956B0088CDE8 /* ToastView+Theme.swift */; };
 		E5FA3D30271732AA000D1ABA /* AppTheme+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA3D2F271732AA000D1ABA /* AppTheme+Default.swift */; };
-		E5FA3D3927176B47000D1ABA /* PrimitiveButtonStyle+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA3D3827176B47000D1ABA /* PrimitiveButtonStyle+Ext.swift */; };
-		E5FA3D3D271B8B96000D1ABA /* ConfirmationDialogModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA3D3C271B8B96000D1ABA /* ConfirmationDialogModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,7 +184,6 @@
 		E587B8CC26430FC900F0F240 /* Alert+Button+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alert+Button+Ext.swift"; sourceTree = "<group>"; };
 		E587B8CD26430FC900F0F240 /* View+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		E587B8CE26430FC900F0F240 /* CSSColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSSColor.swift; sourceTree = "<group>"; };
-		E587B8CF26430FC900F0F240 /* View+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Action.swift"; sourceTree = "<group>"; };
 		E587B8D026430FC900F0F240 /* Section+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Section+Ext.swift"; sourceTree = "<group>"; };
 		E587B8D326430FC900F0F240 /* SplitPicker+SelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SplitPicker+SelectionView.swift"; sourceTree = "<group>"; };
 		E587B8D426430FC900F0F240 /* SplitPicker+Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SplitPicker+Item.swift"; sourceTree = "<group>"; };
@@ -201,11 +195,9 @@
 		E587B8DC26430FC900F0F240 /* SpacedLabelStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacedLabelStyle.swift; sourceTree = "<group>"; };
 		E587B8DE26430FC900F0F240 /* TabViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewItem.swift; sourceTree = "<group>"; };
 		E587B8E226430FC900F0F240 /* View+Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Presentation.swift"; sourceTree = "<group>"; };
-		E587B8E926430FC900F0F240 /* AlertModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertModifier.swift; sourceTree = "<group>"; };
 		E587B8EA26430FC900F0F240 /* Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentation.swift; sourceTree = "<group>"; };
 		E587B8EB26430FC900F0F240 /* PresentationViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationViewModifier.swift; sourceTree = "<group>"; };
 		E587B8EC26430FC900F0F240 /* PresentationTriggerViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationTriggerViewModifier.swift; sourceTree = "<group>"; };
-		E587B8ED26430FC900F0F240 /* ActionSheetModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetModifier.swift; sourceTree = "<group>"; };
 		E587B8F026430FC900F0F240 /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		E587B8F126430FC900F0F240 /* AboutView+Blocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AboutView+Blocks.swift"; sourceTree = "<group>"; };
 		E587B8F426430FC900F0F240 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
@@ -251,8 +243,6 @@
 		E5EDC2C1264D92CE0088CDE8 /* View+Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Footer.swift"; sourceTree = "<group>"; };
 		E5EDC2C4264D956B0088CDE8 /* ToastView+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToastView+Theme.swift"; sourceTree = "<group>"; };
 		E5FA3D2F271732AA000D1ABA /* AppTheme+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppTheme+Default.swift"; sourceTree = "<group>"; };
-		E5FA3D3827176B47000D1ABA /* PrimitiveButtonStyle+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrimitiveButtonStyle+Ext.swift"; sourceTree = "<group>"; };
-		E5FA3D3C271B8B96000D1ABA /* ConfirmationDialogModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialogModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -506,7 +496,6 @@
 				E587B8D126430FC900F0F240 /* Components */,
 				E587B8C926430FC900F0F240 /* Extensions */,
 				E5FA3D31271765D3000D1ABA /* Helpers */,
-				E587B8E126430FC900F0F240 /* Routing */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -518,9 +507,7 @@
 				E5888A072653CA5D00FC185E /* Button+Ext.swift */,
 				E5888A0B2653F9E000FC185E /* EnvironmentValues+Ext.swift */,
 				E5888AAA265AB4BC00FC185E /* Image+Ext.swift */,
-				E5FA3D3827176B47000D1ABA /* PrimitiveButtonStyle+Ext.swift */,
 				E587B8D026430FC900F0F240 /* Section+Ext.swift */,
-				E587B8CF26430FC900F0F240 /* View+Action.swift */,
 				E587B8CD26430FC900F0F240 /* View+Ext.swift */,
 				E587B8CA26430FC900F0F240 /* View+Helpers.swift */,
 			);
@@ -567,16 +554,6 @@
 				E587B8DE26430FC900F0F240 /* TabViewItem.swift */,
 			);
 			path = TabView;
-			sourceTree = "<group>";
-		};
-		E587B8E126430FC900F0F240 /* Routing */ = {
-			isa = PBXGroup;
-			children = (
-				E587B8ED26430FC900F0F240 /* ActionSheetModifier.swift */,
-				E587B8E926430FC900F0F240 /* AlertModifier.swift */,
-				E5FA3D3C271B8B96000D1ABA /* ConfirmationDialogModifier.swift */,
-			);
-			path = Routing;
 			sourceTree = "<group>";
 		};
 		E587B8EF26430FC900F0F240 /* AboutView */ = {
@@ -951,7 +928,6 @@
 				E553723B272DCBD600EB762C /* Int+Ext.swift in Sources */,
 				E587B90926430FC900F0F240 /* Alert+Button+Ext.swift in Sources */,
 				E5ABD7682672CAE400082241 /* PersistentStore.swift in Sources */,
-				E5FA3D3927176B47000D1ABA /* PrimitiveButtonStyle+Ext.swift in Sources */,
 				E5ABD7422667E28100082241 /* AppEnvironment.swift in Sources */,
 				E587B8FA26430FC900F0F240 /* Bundle.swift in Sources */,
 				E587B91126430FC900F0F240 /* AnimatableHeightModifier.swift in Sources */,
@@ -968,19 +944,16 @@
 				E5ABD76A2672CB1A00082241 /* CoreDataStack.swift in Sources */,
 				E5CA108726459A7D008FD164 /* APIError.swift in Sources */,
 				E5888A9426581FFA00FC185E /* Binding+Extensions.swift in Sources */,
-				E5FA3D3D271B8B96000D1ABA /* ConfirmationDialogModifier.swift in Sources */,
 				E587B92826430FC900F0F240 /* WebView.swift in Sources */,
 				E5888A082653CA5D00FC185E /* Button+Ext.swift in Sources */,
 				E5EDC2C5264D956B0088CDE8 /* ToastView+Theme.swift in Sources */,
 				E5ABD6F926614A4800082241 /* SentimentColorModifier.swift in Sources */,
-				E587B92026430FC900F0F240 /* AlertModifier.swift in Sources */,
 				E55AB59F264ADA2A000D7441 /* Equatable+Ext.swift in Sources */,
 				E5888A0A2653DF7500FC185E /* AnimatedButton.swift in Sources */,
 				E521E212293C179600E7E865 /* View+Alignment.swift in Sources */,
 				E587B90526430FC900F0F240 /* URL+Ext.swift in Sources */,
 				E587B90B26430FC900F0F240 /* CSSColor.swift in Sources */,
 				E587B92926430FC900F0F240 /* WebView+ViewModel.swift in Sources */,
-				E587B90C26430FC900F0F240 /* View+Action.swift in Sources */,
 				E549C70C2645D526004388C4 /* Logger.swift in Sources */,
 				E587B90626430FC900F0F240 /* Constants.swift in Sources */,
 				E587B92626430FC900F0F240 /* AboutView+Blocks.swift in Sources */,
@@ -993,7 +966,6 @@
 				E5ABD7662672CA8100082241 /* ManagedEntity.swift in Sources */,
 				E587B91726430FC900F0F240 /* TabViewItem.swift in Sources */,
 				E587B91026430FC900F0F240 /* SplitPicker.swift in Sources */,
-				E587B92426430FC900F0F240 /* ActionSheetModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
