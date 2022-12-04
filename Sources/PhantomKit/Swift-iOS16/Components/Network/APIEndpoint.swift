@@ -20,10 +20,10 @@ extension APIEndpoint {
         guard let url = URL(string: baseURL + path) else {
             throw APIError.invalidURL
         }
-        var request = URLRequest(url: url)
-        request.httpMethod = method
-        request.allHTTPHeaderFields = headers
-        request.httpBody = try body()
-        return request
+        return try URLRequest(url: url).applying {
+            $0.httpMethod = method
+            $0.allHTTPHeaderFields = headers
+            $0.httpBody = try body()
+        }
     }
 }

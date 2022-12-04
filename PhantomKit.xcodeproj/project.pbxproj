@@ -104,9 +104,7 @@
 		E5ABD81A2676A3FC00082241 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD8192676A3FC00082241 /* NetworkImage.swift */; };
 		E5C7EBB2264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBB1264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift */; };
 		E5CA106A2643573E008FD164 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA10692643573E008FD164 /* Defaults */; };
-		E5CA106D2643576B008FD164 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA106C2643576B008FD164 /* Defaults.swift */; };
 		E5CA1071264406B9008FD164 /* Publisher+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA1070264406B9008FD164 /* Publisher+Ext.swift */; };
-		E5CA108026459820008FD164 /* Moya.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA107F26459820008FD164 /* Moya.swift */; };
 		E5CA1083264598B0008FD164 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA1082264598B0008FD164 /* Moya */; };
 		E5CA1085264598B0008FD164 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA1084264598B0008FD164 /* CombineMoya */; };
 		E5CA108726459A7D008FD164 /* APIErrorold.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA108626459A7D008FD164 /* APIErrorold.swift */; };
@@ -239,9 +237,7 @@
 		E5ABD7EF2676574400082241 /* CapsuleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleTextField.swift; sourceTree = "<group>"; };
 		E5ABD8192676A3FC00082241 /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
 		E5C7EBB1264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedFormatter+Abbreviation.swift"; sourceTree = "<group>"; };
-		E5CA106C2643576B008FD164 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		E5CA1070264406B9008FD164 /* Publisher+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Ext.swift"; sourceTree = "<group>"; };
-		E5CA107F26459820008FD164 /* Moya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moya.swift; sourceTree = "<group>"; };
 		E5CA108626459A7D008FD164 /* APIErrorold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorold.swift; sourceTree = "<group>"; };
 		E5CA108A26459D00008FD164 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		E5E7C4C5264944290045596E /* DismissButtonToolbarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButtonToolbarModifier.swift; sourceTree = "<group>"; };
@@ -374,7 +370,6 @@
 				E521E20E293C142000E7E865 /* SwiftUI-iOS16 */,
 				E587B8B926430FC900F0F240 /* Swift */,
 				E587B8C826430FC900F0F240 /* SwiftUI */,
-				E5CA106B26435753008FD164 /* ThirdParty */,
 				E587B8B126430FC900F0F240 /* Resources */,
 			);
 			path = PhantomKit;
@@ -644,15 +639,6 @@
 				E5ABD7672672CAE400082241 /* PersistentStore.swift */,
 			);
 			path = Persistence;
-			sourceTree = "<group>";
-		};
-		E5CA106B26435753008FD164 /* ThirdParty */ = {
-			isa = PBXGroup;
-			children = (
-				E5CA106C2643576B008FD164 /* Defaults.swift */,
-				E5CA107F26459820008FD164 /* Moya.swift */,
-			);
-			path = ThirdParty;
 			sourceTree = "<group>";
 		};
 		E5EDC2C0264D8E0A0088CDE8 /* Components */ = {
@@ -942,7 +928,6 @@
 				E5C7EBB2264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift in Sources */,
 				E5E7C4C6264944290045596E /* DismissButtonToolbarModifier.swift in Sources */,
 				E521E24F293D416E00E7E865 /* Error+Extensions.swift in Sources */,
-				E5CA108026459820008FD164 /* Moya.swift in Sources */,
 				E587B92526430FC900F0F240 /* AboutView.swift in Sources */,
 				E5888AC0265C18E900FC185E /* FileManager+Ext.swift in Sources */,
 				E587B90D26430FC900F0F240 /* Section+Ext.swift in Sources */,
@@ -957,7 +942,6 @@
 				E587B92226430FC900F0F240 /* PresentationViewModifier.swift in Sources */,
 				E5888AE5265C612A00FC185E /* UserDefaults+Ext.swift in Sources */,
 				E5888A90265814D400FC185E /* UIImage+Ext.swift in Sources */,
-				E5CA106D2643576B008FD164 /* Defaults.swift in Sources */,
 				E5888ABE265C0C5E00FC185E /* Data+Ext.swift in Sources */,
 				E5ABD74526682EC500082241 /* LoaderView.swift in Sources */,
 				E5FA3D30271732AA000D1ABA /* AppTheme+Default.swift in Sources */,

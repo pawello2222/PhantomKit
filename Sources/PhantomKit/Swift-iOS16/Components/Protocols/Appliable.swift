@@ -28,3 +28,34 @@ extension Appliable {
         return self
     }
 }
+
+// MARK: - MutableAppliable
+
+public protocol MutableAppliable {}
+
+extension MutableAppliable {
+    /// Applies the given transform to this object.
+    ///
+    /// - Parameter transform: The transform to apply.
+    @discardableResult
+    public func applying(_ transform: (inout Self) throws -> Void) rethrows -> Self {
+        var object = self
+        try transform(&object)
+        return object
+    }
+
+    /// Applies the given transform to this object.
+    ///
+    /// - Parameter transform: The transform to apply.
+    public mutating func apply(_ transform: (inout Self) throws -> Void) rethrows {
+        var object = self
+        try transform(&object)
+        self = object
+    }
+}
+
+// MARK: - Extensions
+
+extension NSObject: Appliable {}
+
+extension URLRequest: MutableAppliable {}
