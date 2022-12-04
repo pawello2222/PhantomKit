@@ -11,7 +11,7 @@ import XCTest
 @testable import PhantomKit
 
 class CurrencyFormatterTests: XCTestCase {
-    let usFormatter = LocalizedFormatter.makeCurrencyFormatter(
+    let usFormatter = LocalizedFormatter.currency(
         locale: .init(identifier: "en_US"),
         currencyCode: "USD"
     )
@@ -35,7 +35,7 @@ class CurrencyFormatterTests: XCTestCase {
     }
 
     func test_currencyFormatter_withLocalePLPL_shouldFormatAmountsToPLN() throws {
-        let plFormatter = LocalizedFormatter.makeCurrencyFormatter(
+        let plFormatter = LocalizedFormatter.currency(
             locale: .init(identifier: "pl_PL"),
             currencyCode: "PLN"
         )
@@ -47,7 +47,7 @@ class CurrencyFormatterTests: XCTestCase {
     }
 
     func test_currencyFormatter_withLocaleENPL_shouldFormatAmountsToPLN() throws {
-        let plFormatter = LocalizedFormatter.makeCurrencyFormatter(
+        let plFormatter = LocalizedFormatter.currency(
             locale: .init(identifier: "en_PL"),
             currencyCode: "PLN"
         )
@@ -59,7 +59,7 @@ class CurrencyFormatterTests: XCTestCase {
     }
 
     func test_currencyFormatter_withLocalePLPL_shouldFormatNegativeAmountsToPLN() throws {
-        let plFormatter = LocalizedFormatter.makeCurrencyFormatter(
+        let plFormatter = LocalizedFormatter.currency(
             locale: .init(identifier: "pl_PL"),
             currencyCode: "PLN"
         )
@@ -71,7 +71,7 @@ class CurrencyFormatterTests: XCTestCase {
     }
 
     func test_currencyFormatter_withCurrencyCodePLN_shouldFormatNegativeAmountsToPLN() throws {
-        let plFormatter = LocalizedFormatter.makeCurrencyFormatter(
+        let plFormatter = LocalizedFormatter.currency(
             locale: .init(identifier: "en_US"),
             currencyCode: "PLN"
         )

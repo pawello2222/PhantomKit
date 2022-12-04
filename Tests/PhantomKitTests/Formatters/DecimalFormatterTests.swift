@@ -11,7 +11,7 @@ import XCTest
 @testable import PhantomKit
 
 class DecimalFormatterTests: XCTestCase {
-    let usFormatter = LocalizedFormatter.makeDecimalFormatter(locale: .init(identifier: "en_US"))
+    let usFormatter = LocalizedFormatter.decimal(locale: .init(identifier: "en_US"))
 
     override func setUpWithError() throws {}
 
@@ -25,7 +25,7 @@ class DecimalFormatterTests: XCTestCase {
     }
 
     func test_decimalFormatter_withLocalePL_shouldFormatIntegers() throws {
-        let plFormatter = LocalizedFormatter.makeDecimalFormatter(locale: .init(identifier: "pl_PL"))
+        let plFormatter = LocalizedFormatter.decimal(locale: .init(identifier: "pl_PL"))
 
         expect(plFormatter.string(from: 1)).to(equal("1"))
         expect(plFormatter.string(from: 432)).to(equal("432"))
@@ -64,7 +64,7 @@ class DecimalFormatterTests: XCTestCase {
     }
 
     func test_decimalFormatter_withLocalePL_shouldFormatDecimals() throws {
-        let plFormatter = LocalizedFormatter.makeDecimalFormatter(locale: .init(identifier: "pl_PL"))
+        let plFormatter = LocalizedFormatter.decimal(locale: .init(identifier: "pl_PL"))
 
         expect(plFormatter.string(from: 0.648723)).to(equal("0,65"))
         expect(plFormatter.string(from: 12.53)).to(equal("12,53"))
@@ -122,7 +122,7 @@ class DecimalFormatterTests: XCTestCase {
     }
 
     func test_decimalFormatter_usesSignForZero_shouldFormatZero() throws {
-        let usFormatter = LocalizedFormatter.makeDecimalFormatter(locale: Locale(identifier: "en_US")).apply {
+        let usFormatter = LocalizedFormatter.decimal(locale: Locale(identifier: "en_US")).apply {
             $0.usesSignForZero = true
         }
         let all: LocalizedFormatter.Sign = .init(plus: .custom("▲"), minus: .custom("▼"), zero: .custom("="))
@@ -162,7 +162,7 @@ class DecimalFormatterTests: XCTestCase {
     }
 
     func test_decimalFormatter_shouldSetGroupingSeparator() throws {
-        let usFormatter = LocalizedFormatter.makeDecimalFormatter(locale: Locale(identifier: "en_US"))
+        let usFormatter = LocalizedFormatter.decimal(locale: Locale(identifier: "en_US"))
         expect(usFormatter.string(from: 123_456)).to(equal("123,456"))
 
         usFormatter.usesGroupingSeparator = false
@@ -170,15 +170,15 @@ class DecimalFormatterTests: XCTestCase {
     }
 
     func test_decimalFormatter_shouldHaveCorrectDecimalSeparators() throws {
-        let usFormatter = LocalizedFormatter.makeDecimalFormatter(locale: Locale(identifier: "en_US"))
+        let usFormatter = LocalizedFormatter.decimal(locale: Locale(identifier: "en_US"))
         expect(usFormatter.decimalSeparator).to(equal("."))
 
-        let plFormatter = LocalizedFormatter.makeDecimalFormatter(locale: Locale(identifier: "pl_PL"))
+        let plFormatter = LocalizedFormatter.decimal(locale: Locale(identifier: "pl_PL"))
         expect(plFormatter.decimalSeparator).to(equal(","))
     }
 
     func test_decimalFormatter_shouldReadNumberFromString() throws {
-        let usFormatter = LocalizedFormatter.makeDecimalFormatter(locale: Locale(identifier: "en_US"))
+        let usFormatter = LocalizedFormatter.decimal(locale: Locale(identifier: "en_US"))
 
         expect(usFormatter.number(from: "1")).to(equal(NSNumber(1)))
         expect(usFormatter.number(from: "-1")).to(equal(NSNumber(-1)))

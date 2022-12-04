@@ -36,8 +36,10 @@ public class LocalizedFormatter: Appliable {
     }
 }
 
+// MARK: - Convenience
+
 extension LocalizedFormatter {
-    public static func makeCurrencyFormatter(
+    public static func currency(
         locale: Locale = .current,
         currencyCode: String = Locale.current.currency?.identifier ?? "USD"
     ) -> LocalizedFormatter {
@@ -48,14 +50,14 @@ extension LocalizedFormatter {
         }
     }
 
-    public static func makeDecimalFormatter(locale: Locale = .current) -> LocalizedFormatter {
+    public static func decimal(locale: Locale = .current) -> LocalizedFormatter {
         LocalizedFormatter().apply {
             $0.formatter.numberStyle = .decimal
             $0.formatter.locale = locale
         }
     }
 
-    public static func makePercentFormatter(locale: Locale = .current) -> LocalizedFormatter {
+    public static func percent(locale: Locale = .current) -> LocalizedFormatter {
         LocalizedFormatter().apply {
             $0.formatter.numberStyle = .percent
             $0.formatter.locale = locale
@@ -253,9 +255,9 @@ extension LocalizedFormatter {
 // MARK: - Convenience
 
 extension LocalizedFormatter {
-    public static var currency = makeCurrencyFormatter()
+    public static var currency = currency()
 
-    public static var decimal = makeDecimalFormatter()
+    public static var decimal = decimal()
 
-    public static var percent = makePercentFormatter()
+    public static var percent = percent()
 }

@@ -17,8 +17,10 @@ public class LocalizedDateFormatter: Appliable {
     public var invalidValueString = "--"
 }
 
+// MARK: - Convenience
+
 extension LocalizedDateFormatter {
-    public static func makeDateFormatter(
+    public static func date(
         locale: Locale = .current,
         format: String
     ) -> LocalizedDateFormatter {
@@ -28,7 +30,7 @@ extension LocalizedDateFormatter {
         }
     }
 
-    public static func makeDateFormatter(
+    public static func date(
         locale: Locale = .current,
         localizedFormat: String = "yyyyMMdd"
     ) -> LocalizedDateFormatter {
@@ -37,10 +39,8 @@ extension LocalizedDateFormatter {
             $0.dateFormatter.setLocalizedDateFormatFromTemplate(localizedFormat)
         }
     }
-}
 
-extension LocalizedDateFormatter {
-    public static func makeDateComponentsFormatter(
+    public static func dateComponents(
         locale: Locale = .current,
         allowedUnits: NSCalendar.Unit = [.hour, .minute, .second],
         unitsStyle: DateComponentsFormatter.UnitsStyle = .full
@@ -100,21 +100,21 @@ extension LocalizedDateFormatter {
 // MARK: - Convenience
 
 extension LocalizedDateFormatter {
-    public static var date = makeDateFormatter(localizedFormat: "yyyyMMdd")
+    public static var date = date(localizedFormat: "yyyyMMdd")
 
-    public static var time = makeDateFormatter(localizedFormat: "jjmmss")
+    public static var time = date(localizedFormat: "jjmmss")
 
-    public static var datetime = makeDateFormatter(localizedFormat: "yyyyMMddjjmmss")
+    public static var datetime = date(localizedFormat: "yyyyMMddjjmmss")
 
-    public static var dateComponents = makeDateComponentsFormatter(
+    public static var dateComponents = dateComponents(
         allowedUnits: [.year, .month, .day]
     )
 
-    public static var timeComponents = makeDateComponentsFormatter(
+    public static var timeComponents = dateComponents(
         allowedUnits: [.hour, .minute, .second]
     )
 
-    public static var datetimeComponents = makeDateComponentsFormatter(
+    public static var datetimeComponents = dateComponents(
         allowedUnits: [.year, .month, .day, .hour, .minute, .second]
     )
 }

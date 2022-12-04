@@ -11,7 +11,7 @@ import XCTest
 @testable import PhantomKit
 
 class PercentFormatterTests: XCTestCase {
-    let usFormatter = LocalizedFormatter.makePercentFormatter(locale: .init(identifier: "en_US"))
+    let usFormatter = LocalizedFormatter.percent(locale: .init(identifier: "en_US"))
 
     override func setUpWithError() throws {}
 
