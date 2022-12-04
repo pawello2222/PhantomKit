@@ -312,9 +312,34 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		E521E236293D1E5E00E7E865 /* Swift-iOS16 */ = {
+			isa = PBXGroup;
+			children = (
+				E521E237293D1E6B00E7E865 /* Components */,
+				E521E238293D1F0600E7E865 /* Extensions */,
+			);
+			path = "Swift-iOS16";
+			sourceTree = "<group>";
+		};
+		E521E237293D1E6B00E7E865 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E549C70B2645D526004388C4 /* Logger.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E521E238293D1F0600E7E865 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		E538EB372708FBAE00B1ADC2 /* PhantomKit */ = {
 			isa = PBXGroup;
 			children = (
+				E521E236293D1E5E00E7E865 /* Swift-iOS16 */,
 				E521E20E293C142000E7E865 /* SwiftUI-iOS16 */,
 				E587B8B926430FC900F0F240 /* Swift */,
 				E587B8C826430FC900F0F240 /* SwiftUI */,
@@ -609,7 +634,6 @@
 			isa = PBXGroup;
 			children = (
 				E5ABD7412667E28100082241 /* AppEnvironment.swift */,
-				E549C70B2645D526004388C4 /* Logger.swift */,
 				E5ABD6DC2661024100082241 /* Message.swift */,
 			);
 			path = Components;
