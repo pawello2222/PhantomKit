@@ -12,7 +12,7 @@
 		E521E214293CACE600E7E865 /* View+ScrollTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E213293CACE600E7E865 /* View+ScrollTo.swift */; };
 		E521E218293D0B5700E7E865 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E217293D0B5700E7E865 /* Route.swift */; };
 		E521E21E293D18CC00E7E865 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E21D293D18CC00E7E865 /* Router.swift */; };
-		E521E23A293D203F00E7E865 /* RoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E239293D203F00E7E865 /* RoutingView.swift */; };
+		E521E23A293D203F00E7E865 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E239293D203F00E7E865 /* RouterView.swift */; };
 		E521E24B293D403F00E7E865 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E24A293D403F00E7E865 /* APIEndpoint.swift */; };
 		E521E24D293D40C600E7E865 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E24C293D40C600E7E865 /* APIError.swift */; };
 		E521E24F293D416E00E7E865 /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E24E293D416E00E7E865 /* Error+Extensions.swift */; };
@@ -103,10 +103,7 @@
 		E5ABD7F02676574400082241 /* CapsuleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD7EF2676574400082241 /* CapsuleTextField.swift */; };
 		E5ABD81A2676A3FC00082241 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD8192676A3FC00082241 /* NetworkImage.swift */; };
 		E5C7EBB2264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBB1264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift */; };
-		E5CA106A2643573E008FD164 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA10692643573E008FD164 /* Defaults */; };
 		E5CA1071264406B9008FD164 /* Publisher+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA1070264406B9008FD164 /* Publisher+Ext.swift */; };
-		E5CA1083264598B0008FD164 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA1082264598B0008FD164 /* Moya */; };
-		E5CA1085264598B0008FD164 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA1084264598B0008FD164 /* CombineMoya */; };
 		E5CA108726459A7D008FD164 /* APIErrorold.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA108626459A7D008FD164 /* APIErrorold.swift */; };
 		E5E7C4C6264944290045596E /* DismissButtonToolbarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C5264944290045596E /* DismissButtonToolbarModifier.swift */; };
 		E5E7C4C8264995600045596E /* LocalizedFormatter+Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C7264995600045596E /* LocalizedFormatter+Sign.swift */; };
@@ -145,7 +142,7 @@
 		E521E213293CACE600E7E865 /* View+ScrollTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ScrollTo.swift"; sourceTree = "<group>"; };
 		E521E217293D0B5700E7E865 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		E521E21D293D18CC00E7E865 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		E521E239293D203F00E7E865 /* RoutingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingView.swift; sourceTree = "<group>"; };
+		E521E239293D203F00E7E865 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
 		E521E24A293D403F00E7E865 /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		E521E24C293D40C600E7E865 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		E521E24E293D416E00E7E865 /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
@@ -263,10 +260,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5CA106A2643573E008FD164 /* Defaults in Frameworks */,
 				E587B92E2643102C00F0F240 /* Xcore in Frameworks */,
-				E5CA1085264598B0008FD164 /* CombineMoya in Frameworks */,
-				E5CA1083264598B0008FD164 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +270,7 @@
 		E521E20E293C142000E7E865 /* SwiftUI-iOS16 */ = {
 			isa = PBXGroup;
 			children = (
+				E521E253293D52B600E7E865 /* Components */,
 				E521E219293D0BBB00E7E865 /* Presentation */,
 				E521E216293D019E00E7E865 /* Routing */,
 				E521E215293D018D00E7E865 /* Extensions */,
@@ -299,7 +294,7 @@
 			children = (
 				E521E217293D0B5700E7E865 /* Route.swift */,
 				E521E21D293D18CC00E7E865 /* Router.swift */,
-				E521E239293D203F00E7E865 /* RoutingView.swift */,
+				E521E239293D203F00E7E865 /* RouterView.swift */,
 			);
 			path = Routing;
 			sourceTree = "<group>";
@@ -361,6 +356,13 @@
 				E521E250293D47ED00E7E865 /* Appliable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E521E253293D52B600E7E865 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		E538EB372708FBAE00B1ADC2 /* PhantomKit */ = {
@@ -810,9 +812,6 @@
 			name = PhantomKit;
 			packageProductDependencies = (
 				E587B92D2643102C00F0F240 /* Xcore */,
-				E5CA10692643573E008FD164 /* Defaults */,
-				E5CA1082264598B0008FD164 /* Moya */,
-				E5CA1084264598B0008FD164 /* CombineMoya */,
 			);
 			productName = PhantomKit;
 			productReference = E587B8A626430F4900F0F240 /* libPhantomKit.a */;
@@ -847,8 +846,6 @@
 			mainGroup = E587B89D26430F4900F0F240;
 			packageReferences = (
 				E587B92C2643102C00F0F240 /* XCRemoteSwiftPackageReference "xcore" */,
-				E5CA10682643573E008FD164 /* XCRemoteSwiftPackageReference "Defaults" */,
-				E5CA1081264598B0008FD164 /* XCRemoteSwiftPackageReference "Moya" */,
 				E549C72226475E05004388C4 /* XCRemoteSwiftPackageReference "Nimble" */,
 			);
 			productRefGroup = E587B8A726430F4900F0F240 /* Products */;
@@ -978,7 +975,7 @@
 				E549C7272647CA7F004388C4 /* LocalizedFormatter.swift in Sources */,
 				E56211E8284D5EB00048FDAB /* Task+Ext.swift in Sources */,
 				E5CA1071264406B9008FD164 /* Publisher+Ext.swift in Sources */,
-				E521E23A293D203F00E7E865 /* RoutingView.swift in Sources */,
+				E521E23A293D203F00E7E865 /* RouterView.swift in Sources */,
 				E587B91A26430FC900F0F240 /* View+Presentation.swift in Sources */,
 				E5ABD76A2672CB1A00082241 /* CoreDataStack.swift in Sources */,
 				E5CA108726459A7D008FD164 /* APIErrorold.swift in Sources */,
@@ -1247,22 +1244,6 @@
 				version = "0.0.5-main";
 			};
 		};
-		E5CA10682643573E008FD164 /* XCRemoteSwiftPackageReference "Defaults" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sindresorhus/Defaults";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		E5CA1081264598B0008FD164 /* XCRemoteSwiftPackageReference "Moya" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 15.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1275,21 +1256,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E587B92C2643102C00F0F240 /* XCRemoteSwiftPackageReference "xcore" */;
 			productName = Xcore;
-		};
-		E5CA10692643573E008FD164 /* Defaults */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E5CA10682643573E008FD164 /* XCRemoteSwiftPackageReference "Defaults" */;
-			productName = Defaults;
-		};
-		E5CA1082264598B0008FD164 /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E5CA1081264598B0008FD164 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = Moya;
-		};
-		E5CA1084264598B0008FD164 /* CombineMoya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E5CA1081264598B0008FD164 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = CombineMoya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

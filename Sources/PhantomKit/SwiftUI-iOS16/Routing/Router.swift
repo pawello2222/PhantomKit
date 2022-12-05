@@ -9,19 +9,18 @@
 import SwiftUI
 
 public class Router<R>: ObservableObject where R: Route {
-    @Published public var main: R
+    @Published public var content: R
     @Published public var overlay: R?
     @Published public var path = NavigationPath()
 
-    public init(main: R) {
-        self.main = main
+    public init(content: R) {
+        self.content = content
     }
 
     // MARK: - Content
 
-    public func show(main: R) {
-        popToRoot()
-        self.main = main
+    public func show(content: R) {
+        self.content = content
     }
 
     // MARK: - Overlay

@@ -51,13 +51,13 @@ extension PresentationViewModifier {
         switch presentation.transition {
         case .link:
             content
-                .background(NavigationLink("", destination: route.resolve(), isActive: $isActive).hidden())
+                .background(NavigationLink("", destination: route.view(), isActive: $isActive).hidden())
         case .sheet:
             content
-                .sheet(isPresented: $isActive, onDismiss: onDismiss, content: route.resolve)
+                .sheet(isPresented: $isActive, onDismiss: onDismiss, content: route.view)
         case .fullScreen:
             content
-                .fullScreenCover(isPresented: $isActive, onDismiss: onDismiss, content: route.resolve)
+                .fullScreenCover(isPresented: $isActive, onDismiss: onDismiss, content: route.view)
         }
     }
 }

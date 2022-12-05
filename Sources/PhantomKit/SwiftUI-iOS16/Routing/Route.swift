@@ -12,5 +12,5 @@ public protocol Route: Hashable, Identifiable {
     associatedtype Destination: View
 
     @ViewBuilder
-    func resolve() -> Destination
+    func view() -> Destination
 }
