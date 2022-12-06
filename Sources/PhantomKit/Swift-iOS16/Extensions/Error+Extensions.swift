@@ -28,7 +28,7 @@ extension Error {
 
 // MARK: - Blocks
 
-public func withErrorDescription<Result>(
+public func withErrorLogging<Result>(
     category: Logger.Category = .default,
     _ body: () throws -> Result
 ) rethrows -> Result {
@@ -40,7 +40,7 @@ public func withErrorDescription<Result>(
     }
 }
 
-public func withErrorDescription<Result>(
+public func withErrorLogging<Result>(
     category: Logger.Category = .default,
     _ body: () async throws -> Result
 ) async rethrows -> Result {
