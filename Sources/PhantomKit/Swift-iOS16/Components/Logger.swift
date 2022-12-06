@@ -6,6 +6,7 @@
 //  Copyright © 2021 Pawel Wiszenko. All rights reserved.
 //
 
+import Foundation
 import os.log
 
 public enum Logger {
@@ -30,4 +31,12 @@ public enum Logger {
     public static func fault(_ message: String, category: OSLog) {
         log(message, category: category, type: .fault)
     }
+}
+
+// MARK: - Categories
+
+extension OSLog {
+    private static let subsystem = Bundle.phantomKit.identifier
+
+    static let network = OSLog(subsystem: subsystem, category: "Network")
 }

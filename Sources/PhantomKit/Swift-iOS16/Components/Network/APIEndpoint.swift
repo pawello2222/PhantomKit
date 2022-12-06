@@ -18,8 +18,7 @@ public protocol APIEndpoint {
 
 extension APIEndpoint {
     public func urlRequest() throws -> URLRequest {
-        #warning("TODO: append path")
-        guard let url = URL(string: baseURL + path) else {
+        guard let url = URL(string: baseURL.appendingPathComponent(path)) else {
             throw APIError.invalidURL
         }
         return try URLRequest(url: url).applying {

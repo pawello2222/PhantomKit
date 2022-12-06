@@ -22,9 +22,11 @@ extension WebRepository {
         let request = try endpoint.urlRequest()
         let (data, response) = try await session.data(for: request)
         guard let code = (response as? HTTPURLResponse)?.statusCode else {
+            Logger.debug(response.description, category: .network)
             throw APIError.unexpectedResponse
         }
         guard httpCodes.contains(code) else {
+            Logger.debug(response.description, category: .network)
             throw APIError.httpCode(code)
         }
         return data
