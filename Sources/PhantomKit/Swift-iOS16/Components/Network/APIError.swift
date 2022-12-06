@@ -12,7 +12,6 @@ public enum APIError: Error {
     case invalidURL
     case httpCode(HTTPCode)
     case unexpectedResponse
-    case imageDeserialization
 }
 
 extension APIError: LocalizedError {
@@ -24,8 +23,6 @@ extension APIError: LocalizedError {
             return "Unexpected HTTP code: \(code)"
         case .unexpectedResponse:
             return "Unexpected response from the server"
-        case .imageDeserialization:
-            return "Cannot deserialize image from Data"
         }
     }
 }

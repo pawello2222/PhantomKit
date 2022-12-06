@@ -25,3 +25,23 @@ extension Error {
         nsError.description
     }
 }
+
+// MARK: - Blocks
+
+public func withErrorDescription<Result>(_ body: () throws -> Result) rethrows -> Result {
+    do {
+        return try body()
+    } catch {
+        Logger.error(error.description, category: .default)
+        throw error
+    }
+}
+
+public func withErrorDescription<Result>(_ body: () async throws -> Result) async rethrows -> Result {
+    do {
+        return try await body()
+    } catch {
+        Logger.error(error.description, category: .default)
+        throw error
+    }
+}
