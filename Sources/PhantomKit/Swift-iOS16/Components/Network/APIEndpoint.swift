@@ -9,6 +9,7 @@
 import Foundation
 
 public protocol APIEndpoint {
+    var baseURL: String { get }
     var path: String { get }
     var method: String { get }
     var headers: [String: String]? { get }
@@ -16,7 +17,8 @@ public protocol APIEndpoint {
 }
 
 extension APIEndpoint {
-    public func urlRequest(baseURL: String) throws -> URLRequest {
+    public func urlRequest() throws -> URLRequest {
+        #warning("TODO: append path")
         guard let url = URL(string: baseURL + path) else {
             throw APIError.invalidURL
         }
@@ -26,4 +28,18 @@ extension APIEndpoint {
             $0.httpBody = try body()
         }
     }
+}
+
+// MARK: - Mock
+
+public enum MockEndpoint {
+    case empty
+}
+
+extension MockEndpoint: APIEndpoint {
+    public var baseURL: String { "" }
+    public var path: String { "" }
+    public var method: String { "" }
+    public var headers: [String: String]? { nil }
+    public func body() throws -> Data? { nil }
 }

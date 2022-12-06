@@ -9,29 +9,54 @@
 import Foundation
 
 public protocol WebRepository {
-    var session: URLSession { get }
-    var baseURL: String { get }
-}
+    associatedtype Endpoint: APIEndpoint
 
-// MARK: - Async
+    var session: URLSession { get }
+}
 
 extension WebRepository {
     public func call(
-        endpoint: APIEndpoint,
+        endpoint: Endpoint,
         httpCodes: HTTPCodes = .success
     ) async throws -> Data {
-        let request = try endpoint.urlRequest(baseURL: baseURL)
-        let result = try await session.data(for: request)
-        guard let code = (result.1 as? HTTPURLResponse)?.statusCode else {
+        let request = try endpoint.urlRequest()
+        let (data, response) = try await session.data(for: request)
+        guard let code = (response as? HTTPURLResponse)?.statusCode else {
             throw APIError.unexpectedResponse
         }
         guard httpCodes.contains(code) else {
             throw APIError.httpCode(code)
         }
-        return result.0
+        return data
     }
 
-    public func decode<Value>(data: Data) throws -> Value where Value: Decodable {
-        try JSONDecoder().decode(Value.self, from: data)
+    public func call<Response>(
+        endpoint: Endpoint,
+        httpCodes: HTTPCodes = .success,
+        decoding type: Response.Type
+    ) async throws -> Response where Response: Decodable {
+        let data = try await call(endpoint: endpoint, httpCodes: httpCodes)
+        return try JSONDecoder().decode(Response.self, from: data)
+    }
+}
+
+// MARK: - Mock
+
+public protocol MockWebRepository: WebRepository where Endpoint == MockEndpoint {
+    var fileManager: FileManager { get }
+}
+
+extension MockWebRepository {
+    public func mockCall(filename: String, in bundle: Bundle) async throws -> Data {
+        try fileManager.loadData(filename: filename, in: bundle)
+    }
+
+    public func mockCall<Response>(
+        filename: String,
+        in bundle: Bundle,
+        decoding type: Response.Type
+    ) async throws -> Response where Response: Decodable {
+        let data = try await mockCall(filename: filename, in: bundle)
+        return try JSONDecoder().decode(Response.self, from: data)
     }
 }

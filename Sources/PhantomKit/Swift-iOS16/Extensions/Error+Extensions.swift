@@ -9,17 +9,19 @@
 import Foundation
 
 extension Error {
+    public var nsError: NSError {
+        self as NSError
+    }
+
     public var underlyingError: Error? {
-        let nsError = self as NSError
 //        if nsError.domain == NSURLErrorDomain && nsError.code == -1009 {
 //            // "The Internet connection appears to be offline."
 //            return self
 //        }
-        return nsError.userInfo[NSUnderlyingErrorKey] as? Error
+        nsError.userInfo[NSUnderlyingErrorKey] as? Error
     }
 
     public var description: String {
-        let nsError = self as NSError
-        return nsError.description
+        nsError.description
     }
 }

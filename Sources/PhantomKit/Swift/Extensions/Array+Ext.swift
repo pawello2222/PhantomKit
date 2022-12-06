@@ -16,7 +16,6 @@ extension Array {
         guard indices.contains(index) else {
             return nil
         }
-        ServiceLocator
         let nextIndex = self.index(after: index)
         guard nextIndex != endIndex else {
             return looped ? first : nil
