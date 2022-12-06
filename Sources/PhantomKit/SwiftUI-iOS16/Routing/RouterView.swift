@@ -9,10 +9,10 @@
 import SwiftUI
 
 public struct RouterView<R>: View where R: Route {
-    @StateObject private var router: Router<R>
+    @ObservedObject private var router: Router<R>
 
     public init(router: Router<R>) {
-        _router = .init(wrappedValue: router)
+        self.router = router
     }
 
     public var body: some View {

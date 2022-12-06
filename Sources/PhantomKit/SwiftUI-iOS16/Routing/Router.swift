@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-public class Router<R>: ObservableObject where R: Route {
+public final class Router<R>: ObservableObject where R: Route {
     @Published public var content: R
     @Published public var overlay: R?
     @Published public var path = NavigationPath()
