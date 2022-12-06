@@ -28,20 +28,26 @@ extension Error {
 
 // MARK: - Blocks
 
-public func withErrorDescription<Result>(_ body: () throws -> Result) rethrows -> Result {
+public func withErrorDescription<Result>(
+    category: Logger.Category = .default,
+    _ body: () throws -> Result
+) rethrows -> Result {
     do {
         return try body()
     } catch {
-        Logger.error(error.description, category: .default)
+        Logger.error(error.description, category: category)
         throw error
     }
 }
 
-public func withErrorDescription<Result>(_ body: () async throws -> Result) async rethrows -> Result {
+public func withErrorDescription<Result>(
+    category: Logger.Category = .default,
+    _ body: () async throws -> Result
+) async rethrows -> Result {
     do {
         return try await body()
     } catch {
-        Logger.error(error.description, category: .default)
+        Logger.error(error.description, category: category)
         throw error
     }
 }

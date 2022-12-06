@@ -20,6 +20,7 @@ extension WebRepository {
         httpCodes: HTTPCodes = .success
     ) async throws -> Data {
         let request = try endpoint.urlRequest()
+        Logger.debug(request.description, category: .network)
         let (data, response) = try await session.data(for: request)
         guard let code = (response as? HTTPURLResponse)?.statusCode else {
             Logger.debug(response.description, category: .network)

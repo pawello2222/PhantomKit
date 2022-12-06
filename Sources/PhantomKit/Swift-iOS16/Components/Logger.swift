@@ -10,33 +10,35 @@ import Foundation
 import os.log
 
 public enum Logger {
-    public static func log(_ message: String, category: OSLog, type: OSLogType) {
+    public typealias Category = OSLog
+
+    public static func log(_ message: String, category: Category, type: OSLogType) {
         #if DEBUG
         os_log("%@", log: category, type: type, message)
         #endif
     }
 
-    public static func debug(_ message: String, category: OSLog) {
+    public static func debug(_ message: String, category: Category) {
         log(message, category: category, type: .debug)
     }
 
-    public static func info(_ message: String, category: OSLog) {
+    public static func info(_ message: String, category: Category) {
         log(message, category: category, type: .info)
     }
 
-    public static func error(_ message: String, category: OSLog) {
+    public static func error(_ message: String, category: Category) {
         log(message, category: category, type: .error)
     }
 
-    public static func fault(_ message: String, category: OSLog) {
+    public static func fault(_ message: String, category: Category) {
         log(message, category: category, type: .fault)
     }
 }
 
 // MARK: - Categories
 
-extension OSLog {
+extension Logger.Category {
     private static let subsystem = Bundle.phantomKit.identifier
 
-    static let network = OSLog(subsystem: subsystem, category: "Network")
+    public static let network = Logger.Category(subsystem: subsystem, category: "Network")
 }
