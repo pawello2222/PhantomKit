@@ -18,7 +18,8 @@
 		E521E24F293D416E00E7E865 /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E24E293D416E00E7E865 /* Error+Extensions.swift */; };
 		E521E251293D47ED00E7E865 /* Appliable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E250293D47ED00E7E865 /* Appliable.swift */; };
 		E521E25A293E9BD500E7E865 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E259293E9BD500E7E865 /* Dependencies.swift */; };
-		E521E268293F320A00E7E865 /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E267293F320A00E7E865 /* WebRepository.swift */; };
+		E521E268293F320A00E7E865 /* NetworkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E267293F320A00E7E865 /* NetworkDataSource.swift */; };
+		E521E2B629432A9E00E7E865 /* Button+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E2B529432A9E00E7E865 /* Button+Extensions.swift */; };
 		E52A3130264AE27B00017D94 /* RequestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A312F264AE27B00017D94 /* RequestState.swift */; };
 		E52A3132264B01A300017D94 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A3131264B01A300017D94 /* ToastView.swift */; };
 		E52A3134264C0C5900017D94 /* RefreshGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52A3133264C0C5900017D94 /* RefreshGuardian.swift */; };
@@ -150,7 +151,8 @@
 		E521E24E293D416E00E7E865 /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
 		E521E250293D47ED00E7E865 /* Appliable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appliable.swift; sourceTree = "<group>"; };
 		E521E259293E9BD500E7E865 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
-		E521E267293F320A00E7E865 /* WebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRepository.swift; sourceTree = "<group>"; };
+		E521E267293F320A00E7E865 /* NetworkDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataSource.swift; sourceTree = "<group>"; };
+		E521E2B529432A9E00E7E865 /* Button+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extensions.swift"; sourceTree = "<group>"; };
 		E52A312F264AE27B00017D94 /* RequestState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestState.swift; sourceTree = "<group>"; };
 		E52A3131264B01A300017D94 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		E52A3133264C0C5900017D94 /* RefreshGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshGuardian.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				E521E211293C179600E7E865 /* View+Alignment.swift */,
 				E521E20F293C144000E7E865 /* View+Extensions.swift */,
 				E521E213293CACE600E7E865 /* View+ScrollTo.swift */,
+				E521E2B529432A9E00E7E865 /* Button+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -352,7 +355,7 @@
 			children = (
 				E521E24A293D403F00E7E865 /* APIEndpoint.swift */,
 				E521E24C293D40C600E7E865 /* APIError.swift */,
-				E521E267293F320A00E7E865 /* WebRepository.swift */,
+				E521E267293F320A00E7E865 /* NetworkDataSource.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -963,6 +966,7 @@
 				E5ABD6DD2661024100082241 /* Message.swift in Sources */,
 				E587B90426430FC900F0F240 /* NotificationCenter+Ext.swift in Sources */,
 				E5ABD7602670238F00082241 /* SafariView.swift in Sources */,
+				E521E2B629432A9E00E7E865 /* Button+Extensions.swift in Sources */,
 				E5888A982658591900FC185E /* AppTheme.swift in Sources */,
 				E587B90026430FC900F0F240 /* Published+Ext.swift in Sources */,
 				E5888A8E26580FA600FC185E /* ByteCountFormatter+Ext.swift in Sources */,
@@ -1009,7 +1013,7 @@
 				E549C70C2645D526004388C4 /* Logger.swift in Sources */,
 				E587B90626430FC900F0F240 /* Constants.swift in Sources */,
 				E587B92626430FC900F0F240 /* AboutView+Blocks.swift in Sources */,
-				E521E268293F320A00E7E865 /* WebRepository.swift in Sources */,
+				E521E268293F320A00E7E865 /* NetworkDataSource.swift in Sources */,
 				E5EDC2BF264D82620088CDE8 /* Network+Protocols.swift in Sources */,
 				E587B90F26430FC900F0F240 /* SplitPicker+Item.swift in Sources */,
 				E549C72C2647F4FA004388C4 /* NSDecimalNumber+Extensions.swift in Sources */,

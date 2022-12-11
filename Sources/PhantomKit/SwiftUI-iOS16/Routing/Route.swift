@@ -1,16 +1,16 @@
+////
+////  Route.swift
+////  PhantomKit
+////
+////  Created by Pawel Wiszenko on 04/12/2022.
+////  Copyright © 2022 Pawel Wiszenko. All rights reserved.
+////
 //
-//  Route.swift
-//  PhantomKit
+//import SwiftUI
 //
-//  Created by Pawel Wiszenko on 04/12/2022.
-//  Copyright © 2022 Pawel Wiszenko. All rights reserved.
-//
-
-import SwiftUI
-
-public protocol Route: Hashable, Identifiable {
-    associatedtype Destination: View
-
-    @ViewBuilder
-    func view() -> Destination
-}
+//public protocol Route: Hashable, Identifiable {
+////    associatedtype Destination: View
+////
+////    @ViewBuilder
+////    func view() -> Destination
+//}

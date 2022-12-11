@@ -57,5 +57,6 @@ extension MutableAppliable {
 // MARK: - Extensions
 
 extension NSObject: Appliable {}
+extension DependencyContainer: Appliable {}
 
 extension URLRequest: MutableAppliable {}
