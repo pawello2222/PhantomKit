@@ -59,4 +59,5 @@ extension MutableAppliable {
 extension NSObject: Appliable {}
 extension DependencyContainer: Appliable {}
 
+extension Calendar: MutableAppliable {}
 extension URLRequest: MutableAppliable {}

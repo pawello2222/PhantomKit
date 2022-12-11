@@ -54,12 +54,12 @@ extension View {
 
 // MARK: - Overlay
 
-extension View {
-    public func invisibleOverlay<Content>(
-        content: @escaping (InvisibleShape) -> Content
-    ) -> some View where Content: View {
-        overlay(
-            content(InvisibleShape())
-        )
-    }
-}
+//extension View {
+//    public func invisibleOverlay<Content>(
+//        content: @escaping (InvisibleShape) -> Content
+//    ) -> some View where Content: View {
+//        overlay(
+//            content(InvisibleShape())
+//        )
+//    }
+//}

@@ -9,6 +9,10 @@
 import Foundation
 
 extension Comparable {
+    public func clamped(to bounds: ClosedRange<Self>) -> Self {
+        max(min(self, bounds.upperBound), bounds.lowerBound)
+    }
+
     public func clamped(to bounds: PartialRangeFrom<Self>) -> Self {
         max(self, bounds.lowerBound)
     }

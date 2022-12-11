@@ -1,18 +1,17 @@
+////
+////  Constants.swift
+////  PhantomKit
+////
+////  Created by Pawel Wiszenko on 02.05.2021.
+////  Copyright © 2021 Pawel Wiszenko. All rights reserved.
+////
 //
-//  Constants.swift
-//  PhantomKit
+//import UIKit
 //
-//  Created by Pawel Wiszenko on 02.05.2021.
-//  Copyright © 2021 Pawel Wiszenko. All rights reserved.
+//extension AppConstants {
+//    public static var buttonCornerRadius: CGFloat = 25
+//}
 //
-
-import UIKit
-import Xcore
-
-extension AppConstants {
-    public static var buttonCornerRadius: CGFloat = 25
-}
-
-extension Double {
-    public static let minimumOpacity = 0.0001
-}
+//extension Double {
+//    public static let minimumOpacity = 0.0001
+//}
