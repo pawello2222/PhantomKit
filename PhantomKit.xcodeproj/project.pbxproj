@@ -288,7 +288,6 @@
 			isa = PBXGroup;
 			children = (
 				E5888A9326581FFA00FC185E /* Binding+Extensions.swift */,
-				E521E211293C179600E7E865 /* View+Alignment.swift */,
 				E521E20F293C144000E7E865 /* View+Extensions.swift */,
 				E521E213293CACE600E7E865 /* View+ScrollTo.swift */,
 				E521E2B529432A9E00E7E865 /* Button+Extensions.swift */,
@@ -387,10 +386,12 @@
 		E538EB372708FBAE00B1ADC2 /* PhantomKit */ = {
 			isa = PBXGroup;
 			children = (
+				E59ADA132A3C610300FF6ED4 /* Swift */,
+				E59ADA142A3C610A00FF6ED4 /* SwiftUI */,
 				E521E236293D1E5E00E7E865 /* Swift-iOS16 */,
 				E521E20E293C142000E7E865 /* SwiftUI-iOS16 */,
-				E587B8B926430FC900F0F240 /* Swift */,
-				E587B8C826430FC900F0F240 /* SwiftUI */,
+				E587B8B926430FC900F0F240 /* Swift-old */,
+				E587B8C826430FC900F0F240 /* SwiftUI-old */,
 				E587B8B126430FC900F0F240 /* Resources */,
 			);
 			path = PhantomKit;
@@ -503,7 +504,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		E587B8B926430FC900F0F240 /* Swift */ = {
+		E587B8B926430FC900F0F240 /* Swift-old */ = {
 			isa = PBXGroup;
 			children = (
 				E5EDC2C0264D8E0A0088CDE8 /* Components */,
@@ -513,7 +514,7 @@
 				E5ABD7642672CA5700082241 /* Persistence */,
 				E59B58E02783A245003E2CA0 /* PropertyWrappers */,
 			);
-			path = Swift;
+			path = "Swift-old";
 			sourceTree = "<group>";
 		};
 		E587B8BA26430FC900F0F240 /* Network */ = {
@@ -558,14 +559,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		E587B8C826430FC900F0F240 /* SwiftUI */ = {
+		E587B8C826430FC900F0F240 /* SwiftUI-old */ = {
 			isa = PBXGroup;
 			children = (
 				E587B8D126430FC900F0F240 /* Components */,
 				E587B8C926430FC900F0F240 /* Extensions */,
 				E5FA3D31271765D3000D1ABA /* Helpers */,
 			);
-			path = SwiftUI;
+			path = "SwiftUI-old";
 			sourceTree = "<group>";
 		};
 		E587B8C926430FC900F0F240 /* Extensions */ = {
@@ -641,6 +642,29 @@
 				E587B8F626430FC900F0F240 /* WebView+Script.swift */,
 			);
 			path = WebView;
+			sourceTree = "<group>";
+		};
+		E59ADA132A3C610300FF6ED4 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		E59ADA142A3C610A00FF6ED4 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				E59ADA152A3C61AA00FF6ED4 /* Extensions */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		E59ADA152A3C61AA00FF6ED4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E521E211293C179600E7E865 /* View+Alignment.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E59B58E02783A245003E2CA0 /* PropertyWrappers */ = {
@@ -840,9 +864,10 @@
 		E587B89E26430F4900F0F240 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
-				ORGANIZATIONNAME = "Pawel Wiszenko";
+				LastUpgradeCheck = 1500;
+				ORGANIZATIONNAME = Tersacore;
 				TargetAttributes = {
 					E549C71626475B89004388C4 = {
 						CreatedOnToolsVersion = 12.5;
@@ -1077,6 +1102,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1110,6 +1136,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1138,6 +1165,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1171,6 +1199,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

@@ -109,17 +109,4 @@ extension View {
     public func frame(max: CGFloat, alignment: Alignment = .center) -> some View {
         frame(maxWidth: max, maxHeight: max, alignment: alignment)
     }
-
-//    /// Defines the default rectangular content shape for this view.
-//    ///
-//    /// - Parameters:
-//    ///   - expanding: A Boolean that indicates whether the frame should expand
-//    ///   taking as much place possible.
-//    ///
-//    /// - Returns: A view with the rectangular content shape that is expanded
-//    ///   if specified.
-//    public func contentFrame(expanding: Bool = true) -> some View {
-//        frame(max: expanding ? .infinity : nil)
-//            .contentShape(Rectangle())
-//    }
 }

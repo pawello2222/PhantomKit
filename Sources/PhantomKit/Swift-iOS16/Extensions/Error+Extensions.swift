@@ -14,10 +14,6 @@ extension Error {
     }
 
     public var underlyingError: Error? {
-//        if nsError.domain == NSURLErrorDomain && nsError.code == -1009 {
-//            // "The Internet connection appears to be offline."
-//            return self
-//        }
         nsError.userInfo[NSUnderlyingErrorKey] as? Error
     }
 
