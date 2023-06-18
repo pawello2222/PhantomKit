@@ -1,23 +1,23 @@
+////
+////  Comparable+Ext.swift
+////  PhantomKit
+////
+////  Created by Pawel Wiszenko on 25.05.2021.
+////  Copyright © 2021 Pawel Wiszenko. All rights reserved.
+////
 //
-//  Comparable+Ext.swift
-//  PhantomKit
+//import Foundation
 //
-//  Created by Pawel Wiszenko on 25.05.2021.
-//  Copyright © 2021 Pawel Wiszenko. All rights reserved.
+//extension Comparable {
+//    public func clamped(to bounds: ClosedRange<Self>) -> Self {
+//        max(min(self, bounds.upperBound), bounds.lowerBound)
+//    }
 //
-
-import Foundation
-
-extension Comparable {
-    public func clamped(to bounds: ClosedRange<Self>) -> Self {
-        max(min(self, bounds.upperBound), bounds.lowerBound)
-    }
-
-    public func clamped(to bounds: PartialRangeFrom<Self>) -> Self {
-        max(self, bounds.lowerBound)
-    }
-
-    public func clamped(to bounds: PartialRangeThrough<Self>) -> Self {
-        min(self, bounds.upperBound)
-    }
-}
+//    public func clamped(to bounds: PartialRangeFrom<Self>) -> Self {
+//        max(self, bounds.lowerBound)
+//    }
+//
+//    public func clamped(to bounds: PartialRangeThrough<Self>) -> Self {
+//        min(self, bounds.upperBound)
+//    }
+//}

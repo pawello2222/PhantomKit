@@ -1,49 +1,49 @@
+////
+////  Error+Extensions.swift
+////  PhantomKit
+////
+////  Created by Pawel Wiszenko on 04/12/2022.
+////  Copyright © 2022 Pawel Wiszenko. All rights reserved.
+////
 //
-//  Error+Extensions.swift
-//  PhantomKit
+//import Foundation
 //
-//  Created by Pawel Wiszenko on 04/12/2022.
-//  Copyright © 2022 Pawel Wiszenko. All rights reserved.
+//extension Error {
+//    public var nsError: NSError {
+//        self as NSError
+//    }
 //
-
-import Foundation
-
-extension Error {
-    public var nsError: NSError {
-        self as NSError
-    }
-
-    public var underlyingError: Error? {
-        nsError.userInfo[NSUnderlyingErrorKey] as? Error
-    }
-
-    public var description: String {
-        nsError.description
-    }
-}
-
-// MARK: - Blocks
-
-public func withErrorLogging<Result>(
-    category: Logger.Category = .default,
-    _ body: () throws -> Result
-) rethrows -> Result {
-    do {
-        return try body()
-    } catch {
-        Logger.error(error.description, category: category)
-        throw error
-    }
-}
-
-public func withErrorLogging<Result>(
-    category: Logger.Category = .default,
-    _ body: () async throws -> Result
-) async rethrows -> Result {
-    do {
-        return try await body()
-    } catch {
-        Logger.error(error.description, category: category)
-        throw error
-    }
-}
+//    public var underlyingError: Error? {
+//        nsError.userInfo[NSUnderlyingErrorKey] as? Error
+//    }
+//
+//    public var description: String {
+//        nsError.description
+//    }
+//}
+//
+//// MARK: - Blocks
+//
+//public func withErrorLogging<Result>(
+//    category: Logger.Category = .default,
+//    _ body: () throws -> Result
+//) rethrows -> Result {
+//    do {
+//        return try body()
+//    } catch {
+//        Logger.error(error.description, category: category)
+//        throw error
+//    }
+//}
+//
+//public func withErrorLogging<Result>(
+//    category: Logger.Category = .default,
+//    _ body: () async throws -> Result
+//) async rethrows -> Result {
+//    do {
+//        return try await body()
+//    } catch {
+//        Logger.error(error.description, category: category)
+//        throw error
+//    }
+//}

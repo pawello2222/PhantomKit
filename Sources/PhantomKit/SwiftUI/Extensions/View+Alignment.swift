@@ -3,7 +3,7 @@
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 04.12.2022.
-//  Copyright © 2022 Pawel Wiszenko. All rights reserved.
+//  Copyright © 2022 Tersacore. All rights reserved.
 //
 
 import SwiftUI

@@ -1,35 +1,35 @@
+////
+////  AnimatableHeightModifier.swift
+////  PhantomKit
+////
+////  Created by Pawel Wiszenko on 28.04.2021.
+////  Copyright © 2021 Pawel Wiszenko. All rights reserved.
+////
 //
-//  AnimatableHeightModifier.swift
-//  PhantomKit
+//import SwiftUI
 //
-//  Created by Pawel Wiszenko on 28.04.2021.
-//  Copyright © 2021 Pawel Wiszenko. All rights reserved.
+//public struct AnimatableHeightModifier: AnimatableModifier {
+//    private var height: CGFloat
 //
-
-import SwiftUI
-
-public struct AnimatableHeightModifier: AnimatableModifier {
-    private var height: CGFloat
-
-    public init(_ height: CGFloat) {
-        self.height = height
-    }
-
-    public var animatableData: CGFloat {
-        get { height }
-        set { height = newValue }
-    }
-
-    public func body(content: Content) -> some View {
-        content
-            .frame(height: height)
-    }
-}
-
-// MARK: - View
-
-extension View {
-    public func animatableHeight(_ height: CGFloat = 0) -> some View {
-        modifier(AnimatableHeightModifier(height))
-    }
-}
+//    public init(_ height: CGFloat) {
+//        self.height = height
+//    }
+//
+//    public var animatableData: CGFloat {
+//        get { height }
+//        set { height = newValue }
+//    }
+//
+//    public func body(content: Content) -> some View {
+//        content
+//            .frame(height: height)
+//    }
+//}
+//
+//// MARK: - View
+//
+//extension View {
+//    public func animatableHeight(_ height: CGFloat = 0) -> some View {
+//        modifier(AnimatableHeightModifier(height))
+//    }
+//}

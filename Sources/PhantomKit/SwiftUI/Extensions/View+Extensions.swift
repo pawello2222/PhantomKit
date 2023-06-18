@@ -3,7 +3,7 @@
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 04.12.2022.
-//  Copyright © 2022 Pawel Wiszenko. All rights reserved.
+//  Copyright © 2022 Tersacore. All rights reserved.
 //
 
 import SwiftUI
@@ -94,7 +94,7 @@ extension View {
 
 extension View {
     /// Positions this view within an invisible frame with the specified size.
-    public func frame(_ size: CGFloat, alignment: Alignment = .center) -> some View {
+    public func frame(size: CGFloat, alignment: Alignment = .center) -> some View {
         frame(width: size, height: size, alignment: alignment)
     }
 
