@@ -70,6 +70,33 @@ extension View {
     }
 }
 
+// MARK: - Background
+
+extension View {
+    public func expandingBackground<V>(
+        _ background: @autoclosure @escaping () -> V,
+        ignoresSafeAreaEdges edges: Edge.Set = .all
+    ) -> some View where V: View {
+        expandingBackground(
+            ignoresSafeAreaEdges: edges,
+            background: background
+        )
+    }
+}
+
+extension View {
+    public func expandingBackground<V>(
+        ignoresSafeAreaEdges edges: Edge.Set = .all,
+        @ViewBuilder background: @escaping () -> V
+    ) -> some View where V: View {
+        ZStack {
+            background()
+                .ignoresSafeArea(.all, edges: edges)
+            self
+        }
+    }
+}
+
 // MARK: - FixedSize
 
 extension View {
