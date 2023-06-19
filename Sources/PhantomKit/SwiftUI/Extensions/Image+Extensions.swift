@@ -1,9 +1,9 @@
 //
-//  Image+Ext.swift
+//  Image+Extensions.swift
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 23.05.2021.
-//  Copyright © 2021 Pawel Wiszenko. All rights reserved.
+//  Copyright © 2021 Tersacore. All rights reserved.
 //
 
 import SwiftUI

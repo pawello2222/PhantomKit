@@ -42,3 +42,18 @@ extension Date {
         self = dateComponent.date!
     }
 }
+
+extension Date {
+    public func dateComponents(
+        _ components: Set<Calendar.Component>,
+        in calendar: Calendar = .current
+    ) -> DateComponents {
+        calendar.dateComponents(components, from: self)
+    }
+}
+
+extension Date {
+    public func localizedString(formatter: LocalizedDateFormatter = .date) -> String {
+        formatter.string(from: self)
+    }
+}

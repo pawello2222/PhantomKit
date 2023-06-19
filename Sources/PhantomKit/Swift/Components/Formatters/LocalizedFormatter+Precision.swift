@@ -3,7 +3,7 @@
 //  PhantomKit
 //
 //  Created by Pawel Wiszenko on 10.05.2021.
-//  Copyright © 2021 Pawel Wiszenko. All rights reserved.
+//  Copyright © 2021 Tersacore. All rights reserved.
 //
 
 import Foundation
