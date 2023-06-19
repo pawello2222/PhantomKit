@@ -36,7 +36,7 @@ class DateFormatterTests: XCTestCase {
         )
         let date = Date(year: 2000, month: 3, day: 24, hour: 16, minute: 14, second: 44)
 
-        expect(usFormatter.string(from: date)).to(equal("03/24/2000, 4:14:44 PM"))
+        expect(usFormatter.string(from: date)).to(equal("03/24/2000, 4:14:44 PM"))
     }
 
     func test_dateFormatter_withLocalePL_shouldFormatDateTime() throws {

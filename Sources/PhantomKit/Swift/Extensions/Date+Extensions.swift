@@ -44,6 +44,64 @@ extension Date {
 }
 
 extension Date {
+    /// Adjusts the receiver's given component by the given offset in set calendar.
+    ///
+    /// - Parameters:
+    ///   - component: Component to adjust.
+    ///   - offset: Offset to use for adjustment.
+    ///   - calendar: The calendar to use for adjustment.
+    public func adjusting(_ component: Calendar.Component, by offset: Int, in calendar: Calendar = .current) -> Date {
+        var dateComponent = DateComponents()
+
+        switch component {
+        case .nanosecond:
+            dateComponent.nanosecond = offset
+        case .second:
+            dateComponent.second = offset
+        case .minute:
+            dateComponent.minute = offset
+        case .hour:
+            dateComponent.hour = offset
+        case .day:
+            dateComponent.day = offset
+        case .weekday:
+            dateComponent.weekday = offset
+        case .weekdayOrdinal:
+            dateComponent.weekdayOrdinal = offset
+        case .weekOfYear:
+            dateComponent.weekOfYear = offset
+        case .month:
+            dateComponent.month = offset
+        case .year:
+            dateComponent.year = offset
+        case .era:
+            dateComponent.era = offset
+        case .quarter:
+            dateComponent.quarter = offset
+        case .weekOfMonth:
+            dateComponent.weekOfMonth = offset
+        case .yearForWeekOfYear:
+            dateComponent.yearForWeekOfYear = offset
+        case .calendar, .timeZone, .isLeapMonth:
+            fatalError("Unsupported type \(component)")
+        @unknown default:
+            fatalError("Unsupported type \(component)")
+        }
+
+        return adjusting(dateComponent, in: calendar)
+    }
+
+    /// Adjusts the receiver by given date components.
+    ///
+    /// - Parameters:
+    ///   - components: DateComponents object that contains adjustment values.
+    ///   - calendar: The calendar to use for adjustment.
+    public func adjusting(_ components: DateComponents, in calendar: Calendar = .current) -> Date {
+        calendar.date(byAdding: components, to: self)!
+    }
+}
+
+extension Date {
     public func dateComponents(
         _ components: Set<Calendar.Component>,
         in calendar: Calendar = .current

@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "PhantomKit",
-    platforms: [.iOS(.v17)],
+    platforms: [.iOS(.v17), .macOS(.v15)],
     products: [
         .library(name: "PhantomKit", targets: ["PhantomKit"]),
     ],
