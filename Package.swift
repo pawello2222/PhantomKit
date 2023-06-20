@@ -9,7 +9,7 @@ let package = Package(
         .library(name: "PhantomKit", targets: ["PhantomKit"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "10.0.0"))
+        .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "10.0.0")),
     ],
     targets: [
         .target(

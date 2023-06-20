@@ -121,8 +121,13 @@ extension View {
 
 extension View {
     /// Positions this view within an invisible frame with the specified size.
-    public func frame(size: CGFloat, alignment: Alignment = .center) -> some View {
-        frame(width: size, height: size, alignment: alignment)
+    public func frame(size: CGSize, alignment: Alignment = .center) -> some View {
+        frame(width: size.width, height: size.height, alignment: alignment)
+    }
+
+    /// Positions this view within an invisible frame with the specified size.
+    public func frame(length: CGFloat, alignment: Alignment = .center) -> some View {
+        frame(width: length, height: length, alignment: alignment)
     }
 
     /// Positions this view within an invisible frame having the specified size
@@ -135,5 +140,39 @@ extension View {
     /// constraints.
     public func frame(max: CGFloat, alignment: Alignment = .center) -> some View {
         frame(maxWidth: max, maxHeight: max, alignment: alignment)
+    }
+}
+
+// MARK: - Hidden
+
+extension View {
+    /// Hide or show the view based on a boolean value.
+    ///
+    /// Example for visibility:
+    ///
+    /// ```swift
+    /// Text("Label")
+    ///     .hidden(true)
+    /// ```
+    ///
+    /// Example for complete removal:
+    ///
+    /// ```swift
+    /// Text("Label")
+    ///     .hidden(true, remove: true)
+    /// ```
+    ///
+    /// - Parameters:
+    ///   - hidden: Set to `false` to show the view. Set to `true` to hide the view.
+    ///   - remove: Boolean value indicating whether or not to remove the view.
+    @ViewBuilder
+    public func hidden(_ hidden: Bool, remove: Bool = false) -> some View {
+        if hidden {
+            if !remove {
+                self.hidden()
+            }
+        } else {
+            self
+        }
     }
 }

@@ -19,7 +19,7 @@ extension UIImage {
 }
 
 extension UIImage {
-    public func jpegData(quality: JPEGQuality) -> Data? {
+    public func jpegData(quality: JPEGQuality = .highest) -> Data? {
         jpegData(compressionQuality: quality.rawValue)
     }
 }

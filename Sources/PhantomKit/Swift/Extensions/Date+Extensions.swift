@@ -21,8 +21,8 @@ extension Date {
     ///   - calendar: Calendar to set on the Date.
     public init(
         year: Int,
-        month: Int,
-        day: Int,
+        month: Int = 1,
+        day: Int = 1,
         hour: Int? = nil,
         minute: Int? = nil,
         second: Int? = nil,
