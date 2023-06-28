@@ -8,6 +8,16 @@
 
 import SwiftUI
 
+// MARK: - Actions
+
+extension View {
+    /// Adds an action to perform when this view recognizes a tap gesture.
+    public func onTap(count: Int = 1, perform action: @escaping () -> Void) -> some View {
+        contentShape(.rect)
+            .onTapGesture(count: count, perform: action)
+    }
+}
+
 // MARK: - AnyView
 
 extension View {
