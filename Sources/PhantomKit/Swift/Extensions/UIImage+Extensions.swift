@@ -11,10 +11,10 @@ import UIKit
 extension UIImage {
     public enum JPEGQuality: CGFloat, CaseIterable {
         case lowest = 0.1
-        case low = 0.3
-        case medium = 0.5
-        case high = 0.7
-        case highest = 0.9
+        case low = 0.5
+        case medium = 0.6
+        case high = 0.65
+        case highest = 0.8
     }
 }
 
