@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5044F802A557DE4007E0150 /* PDFViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5044F7F2A557DE4007E0150 /* PDFViewRepresentable.swift */; };
 		E521E210293C144000E7E865 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E20F293C144000E7E865 /* View+Extensions.swift */; };
 		E521E212293C179600E7E865 /* View+Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521E211293C179600E7E865 /* View+Alignment.swift */; };
 		E5328C762A3FC0300019F4A6 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5328C752A3FC0300019F4A6 /* Date+Extensions.swift */; };
@@ -35,7 +36,6 @@
 		E5638B24265EBDDF00E73B05 /* DateComponentsFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5638B23265EBDDF00E73B05 /* DateComponentsFormatterTests.swift */; };
 		E587B8FF26430FC900F0F240 /* Set+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B8BF26430FC900F0F240 /* Set+Extensions.swift */; };
 		E5888A8E26580FA600FC185E /* ByteCountFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888A8D26580FA600FC185E /* ByteCountFormatter+Extensions.swift */; };
-		E5888A90265814D400FC185E /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888A8F265814D400FC185E /* UIImage+Extensions.swift */; };
 		E5888A9426581FFA00FC185E /* Binding+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888A9326581FFA00FC185E /* Binding+Extensions.swift */; };
 		E5888AAB265AB4BC00FC185E /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888AAA265AB4BC00FC185E /* Image+Extensions.swift */; };
 		E5ABD7602670238F00082241 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD75F2670238F00082241 /* SafariView.swift */; };
@@ -45,6 +45,7 @@
 		E5C7EBB2264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBB1264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift */; };
 		E5E7C4C8264995600045596E /* LocalizedFormatter+Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C7264995600045596E /* LocalizedFormatter+Sign.swift */; };
 		E5E7C4CA2649ADB00045596E /* LocalizedFormatter+Precision.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C92649ADB00045596E /* LocalizedFormatter+Precision.swift */; };
+		E5FC0A6E2A51F383006B4DA3 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FC0A6D2A51F383006B4DA3 /* Array+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E5044F7F2A557DE4007E0150 /* PDFViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewRepresentable.swift; sourceTree = "<group>"; };
 		E521E20F293C144000E7E865 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		E521E211293C179600E7E865 /* View+Alignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Alignment.swift"; sourceTree = "<group>"; };
 		E5328C752A3FC0300019F4A6 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
@@ -100,7 +102,6 @@
 		E587B8A626430F4900F0F240 /* libPhantomKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPhantomKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E587B8BF26430FC900F0F240 /* Set+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set+Extensions.swift"; sourceTree = "<group>"; };
 		E5888A8D26580FA600FC185E /* ByteCountFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ByteCountFormatter+Extensions.swift"; sourceTree = "<group>"; };
-		E5888A8F265814D400FC185E /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		E5888A9326581FFA00FC185E /* Binding+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extensions.swift"; sourceTree = "<group>"; };
 		E5888AAA265AB4BC00FC185E /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
 		E5ABD75F2670238F00082241 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 		E5CA108A26459D00008FD164 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		E5E7C4C7264995600045596E /* LocalizedFormatter+Sign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedFormatter+Sign.swift"; sourceTree = "<group>"; };
 		E5E7C4C92649ADB00045596E /* LocalizedFormatter+Precision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedFormatter+Precision.swift"; sourceTree = "<group>"; };
+		E5FC0A6D2A51F383006B4DA3 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,9 +135,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E5044F7E2A557DDB007E0150 /* PDFView */ = {
+			isa = PBXGroup;
+			children = (
+				E5044F7F2A557DE4007E0150 /* PDFViewRepresentable.swift */,
+			);
+			path = PDFView;
+			sourceTree = "<group>";
+		};
 		E5328C742A3FC0240019F4A6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E5FC0A6D2A51F383006B4DA3 /* Array+Extensions.swift */,
 				E5888A8D26580FA600FC185E /* ByteCountFormatter+Extensions.swift */,
 				E5328C842A40561A0019F4A6 /* Calendar+Extensions.swift */,
 				E5328C8E2A406C6A0019F4A6 /* CGSize+Extensions.swift */,
@@ -148,7 +159,6 @@
 				E55AB59A2649E9A5000D7441 /* String+Extensions.swift */,
 				E5B996C42A4C6DE500ABD816 /* TimeInterval+Extensions.swift */,
 				E5328C862A40566E0019F4A6 /* TimeZone+Extensions.swift */,
-				E5888A8F265814D400FC185E /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -166,6 +176,7 @@
 		E5328C782A3FC1BE0019F4A6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E5044F7E2A557DDB007E0150 /* PDFView */,
 				E5328C792A3FC1C90019F4A6 /* SafariView */,
 			);
 			path = Components;
@@ -455,7 +466,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5C7EBB2264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift in Sources */,
-				E5888A90265814D400FC185E /* UIImage+Extensions.swift in Sources */,
 				E5328C872A40566E0019F4A6 /* TimeZone+Extensions.swift in Sources */,
 				E5E7C4C8264995600045596E /* LocalizedFormatter+Sign.swift in Sources */,
 				E5888AAB265AB4BC00FC185E /* Image+Extensions.swift in Sources */,
@@ -467,12 +477,14 @@
 				E5E7C4CA2649ADB00045596E /* LocalizedFormatter+Precision.swift in Sources */,
 				E5ABD7682672CAE400082241 /* PersistentStore.swift in Sources */,
 				E521E210293C144000E7E865 /* View+Extensions.swift in Sources */,
+				E5044F802A557DE4007E0150 /* PDFViewRepresentable.swift in Sources */,
 				E5328C7B2A404B8F0019F4A6 /* Comparable+Extensions.swift in Sources */,
 				E587B8FF26430FC900F0F240 /* Set+Extensions.swift in Sources */,
 				E55AB59B2649E9A5000D7441 /* String+Extensions.swift in Sources */,
 				E549C7272647CA7F004388C4 /* LocalizedFormatter.swift in Sources */,
 				E5328C852A40561A0019F4A6 /* Calendar+Extensions.swift in Sources */,
 				E5888A9426581FFA00FC185E /* Binding+Extensions.swift in Sources */,
+				E5FC0A6E2A51F383006B4DA3 /* Array+Extensions.swift in Sources */,
 				E5328C8F2A406C6A0019F4A6 /* CGSize+Extensions.swift in Sources */,
 				E5328C812A4054CB0019F4A6 /* Equatable+Extensions.swift in Sources */,
 				E521E212293C179600E7E865 /* View+Alignment.swift in Sources */,
