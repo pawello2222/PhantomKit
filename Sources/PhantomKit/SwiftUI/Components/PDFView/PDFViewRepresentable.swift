@@ -19,6 +19,7 @@ public struct PDFViewRepresentable: UIViewRepresentable {
     public func makeUIView(context: Context) -> PDFView {
         .init().apply {
             $0.document = .init(url: url)
+            $0.autoScales = true
         }
     }
 
