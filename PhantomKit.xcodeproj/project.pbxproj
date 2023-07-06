@@ -43,6 +43,7 @@
 		E5ABD7682672CAE400082241 /* PersistentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABD7672672CAE400082241 /* PersistentStore.swift */; };
 		E5B996C52A4C6DE500ABD816 /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B996C42A4C6DE500ABD816 /* TimeInterval+Extensions.swift */; };
 		E5B9A8DF2A5634A2000D3CE7 /* LinkViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B9A8DE2A5634A2000D3CE7 /* LinkViewModifier.swift */; };
+		E5B9A8ED2A56CFEB000D3CE7 /* SheetViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B9A8EC2A56CFEB000D3CE7 /* SheetViewModifier.swift */; };
 		E5C7EBB2264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7EBB1264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift */; };
 		E5E7C4C8264995600045596E /* LocalizedFormatter+Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C7264995600045596E /* LocalizedFormatter+Sign.swift */; };
 		E5E7C4CA2649ADB00045596E /* LocalizedFormatter+Precision.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C4C92649ADB00045596E /* LocalizedFormatter+Precision.swift */; };
@@ -110,6 +111,7 @@
 		E5ABD7672672CAE400082241 /* PersistentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStore.swift; sourceTree = "<group>"; };
 		E5B996C42A4C6DE500ABD816 /* TimeInterval+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extensions.swift"; sourceTree = "<group>"; };
 		E5B9A8DE2A5634A2000D3CE7 /* LinkViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewModifier.swift; sourceTree = "<group>"; };
+		E5B9A8EC2A56CFEB000D3CE7 /* SheetViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetViewModifier.swift; sourceTree = "<group>"; };
 		E5C7EBB1264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedFormatter+Abbreviation.swift"; sourceTree = "<group>"; };
 		E5CA108A26459D00008FD164 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		E5E7C4C7264995600045596E /* LocalizedFormatter+Sign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedFormatter+Sign.swift"; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				E5B9A8DE2A5634A2000D3CE7 /* LinkViewModifier.swift */,
+				E5B9A8EC2A56CFEB000D3CE7 /* SheetViewModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5C7EBB2264C7F5100E74EEF /* LocalizedFormatter+Abbreviation.swift in Sources */,
+				E5B9A8ED2A56CFEB000D3CE7 /* SheetViewModifier.swift in Sources */,
 				E5328C872A40566E0019F4A6 /* TimeZone+Extensions.swift in Sources */,
 				E5E7C4C8264995600045596E /* LocalizedFormatter+Sign.swift in Sources */,
 				E5888AAB265AB4BC00FC185E /* Image+Extensions.swift in Sources */,
