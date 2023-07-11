@@ -33,10 +33,6 @@ public struct MultiColumnList<Content, Left, Right>: View where Content: View, L
         }
         .scrollIndicators(.hidden)
     }
-
-    private var isCompact: Bool {
-        horizontalSizeClass == .compact
-    }
 }
 
 // MARK: Content
@@ -70,6 +66,14 @@ extension MultiColumnList {
                 right()
             }
         }
+    }
+}
+
+// MARK: Helpers
+
+extension MultiColumnList {
+    private var isCompact: Bool {
+        horizontalSizeClass == .compact
     }
 }
 

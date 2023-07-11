@@ -18,6 +18,7 @@
 		E5328C852A40561A0019F4A6 /* Calendar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5328C842A40561A0019F4A6 /* Calendar+Extensions.swift */; };
 		E5328C872A40566E0019F4A6 /* TimeZone+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5328C862A40566E0019F4A6 /* TimeZone+Extensions.swift */; };
 		E5328C8F2A406C6A0019F4A6 /* CGSize+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5328C8E2A406C6A0019F4A6 /* CGSize+Extensions.swift */; };
+		E5401F802A5D6F2100250E9D /* FullScreenViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5401F7F2A5D6F2100250E9D /* FullScreenViewModifier.swift */; };
 		E549C71C26475B89004388C4 /* libPhantomKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E587B8A626430F4900F0F240 /* libPhantomKit.a */; };
 		E549C72426475E05004388C4 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = E549C72326475E05004388C4 /* Nimble */; };
 		E549C7272647CA7F004388C4 /* LocalizedFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549C7262647CA7F004388C4 /* LocalizedFormatter.swift */; };
@@ -85,6 +86,7 @@
 		E5328C842A40561A0019F4A6 /* Calendar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Extensions.swift"; sourceTree = "<group>"; };
 		E5328C862A40566E0019F4A6 /* TimeZone+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeZone+Extensions.swift"; sourceTree = "<group>"; };
 		E5328C8E2A406C6A0019F4A6 /* CGSize+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Extensions.swift"; sourceTree = "<group>"; };
+		E5401F7F2A5D6F2100250E9D /* FullScreenViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewModifier.swift; sourceTree = "<group>"; };
 		E549C71726475B89004388C4 /* PhantomKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhantomKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E549C71B26475B89004388C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E549C7262647CA7F004388C4 /* LocalizedFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedFormatter.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 			children = (
 				E5B9A8DE2A5634A2000D3CE7 /* LinkViewModifier.swift */,
 				E5B9A8EC2A56CFEB000D3CE7 /* SheetViewModifier.swift */,
+				E5401F7F2A5D6F2100250E9D /* FullScreenViewModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				E5044F802A557DE4007E0150 /* PDFViewRepresentable.swift in Sources */,
 				E5328C7B2A404B8F0019F4A6 /* Comparable+Extensions.swift in Sources */,
 				E587B8FF26430FC900F0F240 /* Set+Extensions.swift in Sources */,
+				E5401F802A5D6F2100250E9D /* FullScreenViewModifier.swift in Sources */,
 				E55AB59B2649E9A5000D7441 /* String+Extensions.swift in Sources */,
 				E549C7272647CA7F004388C4 /* LocalizedFormatter.swift in Sources */,
 				E5328C852A40561A0019F4A6 /* Calendar+Extensions.swift in Sources */,
