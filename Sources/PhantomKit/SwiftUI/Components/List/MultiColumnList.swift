@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+/// A container that is a single List in compact widths
+/// or a three-column List in regular widths.
 public struct MultiColumnList<Content, Left, Right>: View
     where Content: View, Left: View, Right: View
 {
