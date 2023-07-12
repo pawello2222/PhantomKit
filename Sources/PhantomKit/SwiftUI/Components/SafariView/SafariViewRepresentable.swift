@@ -8,6 +8,7 @@
 import SafariServices
 import SwiftUI
 
+/// A view that encapsulates the functionality of `SFSafariViewController`.
 public struct SafariViewRepresentable: UIViewControllerRepresentable {
     private let url: URL
     private let tintColor: Color
@@ -18,7 +19,7 @@ public struct SafariViewRepresentable: UIViewControllerRepresentable {
     }
 
     public func makeUIViewController(context: Context) -> SFSafariViewController {
-        SFSafariViewController(url: url).apply {
+        .init(url: url).apply {
             $0.preferredControlTintColor = .init(tintColor)
         }
     }

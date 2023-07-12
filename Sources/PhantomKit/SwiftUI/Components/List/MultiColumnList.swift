@@ -8,7 +8,9 @@
 
 import SwiftUI
 
-public struct MultiColumnList<Content, Left, Right>: View where Content: View, Left: View, Right: View {
+public struct MultiColumnList<Content, Left, Right>: View
+    where Content: View, Left: View, Right: View
+{
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
     private let content: () -> Content
@@ -35,7 +37,7 @@ public struct MultiColumnList<Content, Left, Right>: View where Content: View, L
     }
 }
 
-// MARK: Content
+// MARK: - Content
 
 extension MultiColumnList {
     private var contentView: some View {
@@ -69,7 +71,7 @@ extension MultiColumnList {
     }
 }
 
-// MARK: Helpers
+// MARK: - Helpers
 
 extension MultiColumnList {
     private var isCompact: Bool {
@@ -77,7 +79,7 @@ extension MultiColumnList {
     }
 }
 
-// MARK: Convenience
+// MARK: - Convenience
 
 extension MultiColumnList where Left == EmptyView {
     public init(

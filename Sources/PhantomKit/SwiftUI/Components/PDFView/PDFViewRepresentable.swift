@@ -9,6 +9,7 @@
 import PDFKit
 import SwiftUI
 
+/// A view that encapsulates the functionality of `PDFView`.
 public struct PDFViewRepresentable: UIViewRepresentable {
     private let url: URL
 
