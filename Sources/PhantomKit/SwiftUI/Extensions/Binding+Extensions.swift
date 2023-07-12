@@ -15,9 +15,6 @@ extension Binding {
     /// This can be useful when using a ``PreviewProvider`` to see how a view
     /// represents different values.
     ///
-    ///     // Example of binding to an immutable value.
-    ///     PlayButton(isPlaying: Binding.c(true))
-    ///
     /// - Parameter value: An immutable value.
     public static func c(_ value: Value) -> Self {
         constant(value)
@@ -26,6 +23,7 @@ extension Binding {
 
 // MARK: - Operators
 
+/// Created a binding by unwrapping a given value and providing a default value.
 public func ?? <T>(lhs: Binding<T?>, rhs: T) -> Binding<T> {
     .init(
         get: { lhs.wrappedValue ?? rhs },
