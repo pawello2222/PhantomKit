@@ -84,6 +84,7 @@ class NSDecimalNumberTests: XCTestCase {
         XCTAssertTrue(a <= b)
         XCTAssertTrue(b < c)
         XCTAssertTrue(b <= c)
+
         XCTAssertFalse(a > b)
         XCTAssertFalse(a >= b)
         XCTAssertFalse(b > c)
