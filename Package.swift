@@ -11,17 +11,13 @@ let package = Package(
             targets: ["PhantomKit"]
         ),
     ],
-    dependencies: [
-        .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "10.0.0")),
-    ],
     targets: [
         .target(
             name: "PhantomKit"
         ),
         .testTarget(
             name: "PhantomKitTests",
-            dependencies: ["PhantomKit", "Nimble"],
-            exclude: ["Resources/Info.plist"]
+            dependencies: ["PhantomKit"]
         ),
     ],
     swiftLanguageVersions: [.v5]
