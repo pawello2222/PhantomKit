@@ -9,6 +9,8 @@
 import Foundation
 
 extension Equatable {
+    /// A Boolean value indicating whether this element is contained
+    /// in the given array.
     public func isContained(in array: [Self]) -> Bool {
         array.contains(self)
     }

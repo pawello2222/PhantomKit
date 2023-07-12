@@ -9,6 +9,8 @@
 import Foundation
 
 extension Set {
+    /// Removes the element if it's present in the set
+    /// or inserts it otherwise.
     public mutating func toggle(_ element: Element) {
         if contains(element) {
             remove(element)

@@ -50,7 +50,11 @@ extension Date {
     ///   - component: Component to adjust.
     ///   - offset: Offset to use for adjustment.
     ///   - calendar: The calendar to use for adjustment.
-    public func adjusting(_ component: Calendar.Component, by offset: Int, in calendar: Calendar = .current) -> Date {
+    public func adjusting(
+        _ component: Calendar.Component,
+        by offset: Int,
+        in calendar: Calendar = .current
+    ) -> Date {
         var dateComponent = DateComponents()
 
         switch component {
@@ -105,32 +109,6 @@ extension Date {
     /// - Parameters:
     ///   - component: Component to get the value for.
     ///   - calendar: The calendar to use for retrieval.
-    ///
-    /// **Usage**
-    ///
-    /// ```swift
-    /// let date = Date(year: 2020, month: 2, day: 1, hour: 3, minute: 41, second: 22)
-    ///
-    /// // Example in default calendar
-    /// let year = date.component(.year)
-    /// let month = date.component(.month)
-    /// let day = date.component(.day)
-    ///
-    /// print(year)  // 2020
-    /// print(month) // 2
-    /// print(day)   // 1
-    ///
-    /// // Example in different calendar
-    /// let year = date.component(.year, in: .usEastern)
-    /// let month = date.component(.month, in: .usEastern)
-    /// let day = date.component(.day, in: .usEastern)
-    /// let hour = date.component(.hour, in: .usEastern)
-    ///
-    /// print(year)  // 2020
-    /// print(month) // 1
-    /// print(day)   // 31
-    /// print(hour)  // 22
-    /// ```
     public func component(_ component: Calendar.Component, in calendar: Calendar = .current) -> Int {
         calendar.component(component, from: self)
     }

@@ -19,6 +19,10 @@ extension String {
 // MARK: - NSString
 
 extension String {
+    private var nsString: NSString {
+        self as NSString
+    }
+
     /// The last path component of the receiver.
     public var lastPathComponent: String {
         nsString.lastPathComponent
@@ -40,13 +44,5 @@ extension String {
     /// as a path.
     public var pathExtension: String {
         nsString.pathExtension
-    }
-}
-
-// MARK: - Private
-
-extension String {
-    private var nsString: NSString {
-        self as NSString
     }
 }

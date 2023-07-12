@@ -25,7 +25,7 @@ extension Array {
 
 extension Array where Element: Equatable {
     /// Removes the element if it's present in the array
-    /// or appends it if it's not present.
+    /// or appends it otherwise.
     public mutating func toggle(_ element: Element) {
         if let index = firstIndex(where: { $0 == element }) {
             remove(at: index)
