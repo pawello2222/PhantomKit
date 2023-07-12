@@ -61,7 +61,12 @@ extension LocalizedFormatter {
         sign: Sign = .default,
         precision: Precision? = nil
     ) -> String {
-        string(from: NSDecimalNumber(value: value), abbreviation: abbreviation, sign: sign, precision: precision)
+        string(
+            from: NSDecimalNumber(value: value),
+            abbreviation: abbreviation,
+            sign: sign,
+            precision: precision
+        )
     }
 
     public func string(
@@ -70,7 +75,12 @@ extension LocalizedFormatter {
         sign: Sign = .default,
         precision: Precision? = nil
     ) -> String {
-        string(from: NSDecimalNumber(value: value), abbreviation: abbreviation, sign: sign, precision: precision)
+        string(
+            from: NSDecimalNumber(value: value),
+            abbreviation: abbreviation,
+            sign: sign,
+            precision: precision
+        )
     }
 
     public func string(
@@ -79,7 +89,12 @@ extension LocalizedFormatter {
         sign: Sign = .default,
         precision: Precision? = nil
     ) -> String {
-        string(from: NSDecimalNumber(value: value), abbreviation: abbreviation, sign: sign, precision: precision)
+        string(
+            from: NSDecimalNumber(value: value),
+            abbreviation: abbreviation,
+            sign: sign,
+            precision: precision
+        )
     }
 
     public func string(
@@ -88,7 +103,12 @@ extension LocalizedFormatter {
         sign: Sign = .default,
         precision: Precision? = nil
     ) -> String {
-        string(from: NSDecimalNumber(decimal: value), abbreviation: abbreviation, sign: sign, precision: precision)
+        string(
+            from: NSDecimalNumber(decimal: value),
+            abbreviation: abbreviation,
+            sign: sign,
+            precision: precision
+        )
     }
 
     public func string(
@@ -97,9 +117,10 @@ extension LocalizedFormatter {
         sign: Sign = .default,
         precision: Precision? = nil
     ) -> String {
-        var roundedValue = value
-        if let places = precision?.maximum ?? defaultPrecision.maximum {
-            roundedValue = value.rounded(toPlaces: places)
+        let roundedValue = if let places = precision?.maximum ?? defaultPrecision.maximum {
+            value.rounded(toPlaces: places)
+        } else {
+            value
         }
         guard roundedValue != .zero else {
             if usesSignForZero {
@@ -121,7 +142,10 @@ extension LocalizedFormatter {
         }
     }
 
-    private func abbreviatedString(from value: NSDecimalNumber, abbreviation: Abbreviation) -> String {
+    private func abbreviatedString(
+        from value: NSDecimalNumber,
+        abbreviation: Abbreviation
+    ) -> String {
         for (suffix, threshold) in abbreviation.items where value.absValue >= threshold {
             return with(abbreviationSuffix: suffix) {
                 string(from: value / threshold)
