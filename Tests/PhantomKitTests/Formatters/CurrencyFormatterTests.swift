@@ -10,7 +10,7 @@ import XCTest
 @testable import PhantomKit
 
 class CurrencyFormatterTests: XCTestCase {
-    let usFormatter = LocalizedFormatter.currency(
+    private let usFormatter = LocalizedFormatter.currency(
         locale: .init(identifier: "en_US"),
         currencyCode: "USD"
     )

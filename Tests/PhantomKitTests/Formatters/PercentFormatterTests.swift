@@ -6,20 +6,15 @@
 //  Copyright © 2021 Tersacore. All rights reserved.
 //
 
-import Nimble
 import XCTest
 @testable import PhantomKit
 
 class PercentFormatterTests: XCTestCase {
-    let usFormatter = LocalizedFormatter.percent(locale: .init(identifier: "en_US"))
-
-    override func setUpWithError() throws {}
-
-    override func tearDownWithError() throws {}
+    private let usFormatter = LocalizedFormatter.percent(locale: .init(identifier: "en_US"))
 
     func test_percentFormatter_shouldFormatPercent() throws {
-        expect(self.usFormatter.string(from: 0.032)).to(equal("0.03%"))
-        expect(self.usFormatter.string(from: 23)).to(equal("23%"))
-        expect(self.usFormatter.string(from: 122.54)).to(equal("122.54%"))
+        XCTAssertEqual(usFormatter.string(from: 0.032), "0.03%")
+        XCTAssertEqual(usFormatter.string(from: 23), "23%")
+        XCTAssertEqual(usFormatter.string(from: 122.54), "122.54%")
     }
 }
