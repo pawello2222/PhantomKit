@@ -7,8 +7,6 @@
 //
 
 import Foundation
-
-import Nimble
 import XCTest
 @testable import PhantomKit
 
@@ -26,10 +24,10 @@ class NSDecimalNumberTests: XCTestCase {
         let rhs = NSDecimalNumber(string: "3.41")
         let result = NSDecimalNumber(string: "4.64")
 
-        expect(lhs + rhs).to(equal(result))
+        XCTAssertEqual(lhs + rhs, result)
 
         lhs += rhs
-        expect(lhs).to(equal(result))
+        XCTAssertEqual(lhs, result)
     }
 
     func test_nsDecimalNumber_shouldSubtractNumbers() throws {
@@ -37,10 +35,10 @@ class NSDecimalNumberTests: XCTestCase {
         let rhs = NSDecimalNumber(string: "3.41")
         let result = NSDecimalNumber(string: "-2.18")
 
-        expect(lhs - rhs).to(equal(result))
+        XCTAssertEqual(lhs - rhs, result)
 
         lhs -= rhs
-        expect(lhs).to(equal(result))
+        XCTAssertEqual(lhs, result)
     }
 
     func test_nsDecimalNumber_shouldMultiplyNumbers() throws {
@@ -48,10 +46,10 @@ class NSDecimalNumberTests: XCTestCase {
         let rhs = NSDecimalNumber(string: "3.41")
         let result = NSDecimalNumber(string: "4.1943")
 
-        expect(lhs * rhs).to(equal(result))
+        XCTAssertEqual(lhs * rhs, result)
 
         lhs *= rhs
-        expect(lhs).to(equal(result))
+        XCTAssertEqual(lhs, result)
     }
 
     func test_nsDecimalNumber_shouldDivideNumbers() throws {
@@ -59,10 +57,10 @@ class NSDecimalNumberTests: XCTestCase {
         let rhs = NSDecimalNumber(string: "3.41")
         let result = NSDecimalNumber(string: "0.36070381")
 
-        expect(lhs / rhs).to(equal(result))
+        XCTAssertEqual(lhs / rhs, result)
 
         lhs /= rhs
-        expect(lhs).to(equal(result))
+        XCTAssertEqual(lhs, result)
     }
 
     func test_nsDecimalNumber_onDivideByZero_shouldNotRaise() throws {
@@ -70,10 +68,10 @@ class NSDecimalNumberTests: XCTestCase {
         let rhs = NSDecimalNumber(string: "0")
         let result = NSDecimalNumber.notANumber
 
-        expect(lhs / rhs).to(equal(result))
+        XCTAssertEqual(lhs / rhs, result)
 
         lhs /= rhs
-        expect(lhs).to(equal(result))
+        XCTAssertEqual(lhs, result)
     }
 
     // swiftlint:disable identifier_name
@@ -82,27 +80,27 @@ class NSDecimalNumberTests: XCTestCase {
         let b = NSDecimalNumber(string: "0.437")
         let c = NSDecimalNumber(string: "9.992")
 
-        expect(a < b).to(beTrue())
-        expect(a <= b).to(beTrue())
-        expect(b < c).to(beTrue())
-        expect(b <= c).to(beTrue())
-        expect(a > b).to(beFalse())
-        expect(a >= b).to(beFalse())
-        expect(b > c).to(beFalse())
-        expect(b >= c).to(beFalse())
-        expect(a == c).to(beFalse())
-        expect(b == c).to(beFalse())
+        XCTAssertTrue(a < b)
+        XCTAssertTrue(a <= b)
+        XCTAssertTrue(b < c)
+        XCTAssertTrue(b <= c)
+        XCTAssertFalse(a > b)
+        XCTAssertFalse(a >= b)
+        XCTAssertFalse(b > c)
+        XCTAssertFalse(b >= c)
+        XCTAssertFalse(a == c)
+        XCTAssertFalse(b == c)
     }
 
     func test_nsDecimalNumber_shouldRoundZero() throws {
         let number = NSDecimalNumber(string: "-123.456789")
 
-        expect(number.rounded(toPlaces: 4)).to(equal(NSDecimalNumber(string: "-123.4568")))
+        XCTAssertEqual(number.rounded(toPlaces: 4), NSDecimalNumber(string: "-123.4568"))
     }
 
     func test_nsDecimalNumber_shouldReturnAbsoluteValue() throws {
         let number = NSDecimalNumber(string: "-123.456789")
 
-        expect(number.absValue).to(equal(NSDecimalNumber(string: "123.456789")))
+        XCTAssertEqual(number.absValue, NSDecimalNumber(string: "123.456789"))
     }
 }

@@ -6,25 +6,20 @@
 //  Copyright © 2021 Tersacore. All rights reserved.
 //
 
-import Nimble
 import XCTest
 @testable import PhantomKit
 
 class ComparableTests: XCTestCase {
-    override func setUpWithError() throws {}
-
-    override func tearDownWithError() throws {}
-
     func test_comparable_shouldClampToBounds() throws {
-        expect(1.clamped(to: 0...)).to(equal(1))
-        expect(1.clamped(to: 1...)).to(equal(1))
-        expect(1.clamped(to: 2...)).to(equal(2))
-        expect(1.clamped(to: ...0)).to(equal(0))
-        expect(1.clamped(to: ...1)).to(equal(1))
-        expect(1.clamped(to: ...2)).to(equal(1))
-        expect(1.clamped(to: 0 ... 2)).to(equal(1))
-        expect(1.clamped(to: 2 ... 3)).to(equal(2))
-        expect(1.clamped(to: -1 ... 0)).to(equal(0))
-        expect(1.clamped(to: 1 ... 1)).to(equal(1))
+        XCTAssertEqual(1.clamped(to: 0...), 1)
+        XCTAssertEqual(1.clamped(to: 1...), 1)
+        XCTAssertEqual(1.clamped(to: 2...), 2)
+        XCTAssertEqual(1.clamped(to: ...0), 0)
+        XCTAssertEqual(1.clamped(to: ...1), 1)
+        XCTAssertEqual(1.clamped(to: ...2), 1)
+        XCTAssertEqual(1.clamped(to: 0 ... 2), 1)
+        XCTAssertEqual(1.clamped(to: 2 ... 3), 2)
+        XCTAssertEqual(1.clamped(to: -1 ... 0), 0)
+        XCTAssertEqual(1.clamped(to: 1 ... 1), 1)
     }
 }
