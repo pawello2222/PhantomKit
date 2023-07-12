@@ -8,14 +8,14 @@
 
 import Foundation
 
-// MARK: - Precision
-
 extension LocalizedFormatter {
     public struct Precision {
         public let minimum: Int?
         public let maximum: Int?
     }
 }
+
+// MARK: - Initialization
 
 extension LocalizedFormatter.Precision {
     public init() {

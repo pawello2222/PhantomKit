@@ -8,8 +8,6 @@
 
 import Foundation
 
-// MARK: - Abbreviation
-
 extension LocalizedFormatter {
     public struct Abbreviation {
         public typealias Item = (suffix: String, threshold: NSDecimalNumber)
@@ -22,6 +20,8 @@ extension LocalizedFormatter {
         }
     }
 }
+
+// MARK: - Computed Properties
 
 extension LocalizedFormatter.Abbreviation {
     public var capitalized: Self {
@@ -36,10 +36,12 @@ extension LocalizedFormatter.Abbreviation {
 // MARK: - Convenience
 
 extension LocalizedFormatter.Abbreviation {
-    public static var `default`: Self = .init([
-        ("m", 1_000_000),
-        ("k", 1000),
-    ])
+    public static var `default`: Self = .init(
+        [
+            ("m", 1_000_000),
+            ("k", 1000),
+        ]
+    )
 
     public static var none: Self = .init()
 

@@ -8,8 +8,6 @@
 
 import Foundation
 
-// MARK: - Sign
-
 extension LocalizedFormatter {
     public struct Sign {
         public let plus: Style
