@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "PhantomKit",
-    platforms: [.iOS(.v17), .macOS(.v15)],
+    platforms: [.iOS(.v17), .macOS(.v14)],
     products: [
         .library(name: "PhantomKit", targets: ["PhantomKit"]),
     ],
@@ -13,8 +13,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "PhantomKit",
-            dependencies: ["Xcore"]
+            name: "PhantomKit"
         ),
         .testTarget(
             name: "PhantomKitTests",
