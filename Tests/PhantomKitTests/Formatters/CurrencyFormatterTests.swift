@@ -6,7 +6,6 @@
 //  Copyright © 2021 Tersacore. All rights reserved.
 //
 
-import Nimble
 import XCTest
 @testable import PhantomKit
 
@@ -16,22 +15,18 @@ class CurrencyFormatterTests: XCTestCase {
         currencyCode: "USD"
     )
 
-    override func setUpWithError() throws {}
-
-    override func tearDownWithError() throws {}
-
     func test_currencyFormatter_shouldFormatAmounts() throws {
-        expect(self.usFormatter.string(from: 1)).to(equal("$1.00"))
-        expect(self.usFormatter.string(from: 432)).to(equal("$432.00"))
-        expect(self.usFormatter.string(from: 1000)).to(equal("$1,000.00"))
-        expect(self.usFormatter.string(from: 48_729_432)).to(equal("$48,729,432.00"))
+        XCTAssertEqual(usFormatter.string(from: 1), "$1.00")
+        XCTAssertEqual(usFormatter.string(from: 432), "$432.00")
+        XCTAssertEqual(usFormatter.string(from: 1000), "$1,000.00")
+        XCTAssertEqual(usFormatter.string(from: 48_729_432), "$48,729,432.00")
     }
 
     func test_currencyFormatter_shouldFormatNegativeAmounts() throws {
-        expect(self.usFormatter.string(from: -1)).to(equal("-$1.00"))
-        expect(self.usFormatter.string(from: -432)).to(equal("-$432.00"))
-        expect(self.usFormatter.string(from: -1000)).to(equal("-$1,000.00"))
-        expect(self.usFormatter.string(from: -48_729_432)).to(equal("-$48,729,432.00"))
+        XCTAssertEqual(usFormatter.string(from: -1), "-$1.00")
+        XCTAssertEqual(usFormatter.string(from: -432), "-$432.00")
+        XCTAssertEqual(usFormatter.string(from: -1000), "-$1,000.00")
+        XCTAssertEqual(usFormatter.string(from: -48_729_432), "-$48,729,432.00")
     }
 
     func test_currencyFormatter_withLocalePLPL_shouldFormatAmountsToPLN() throws {
@@ -40,10 +35,10 @@ class CurrencyFormatterTests: XCTestCase {
             currencyCode: "PLN"
         )
 
-        expect(plFormatter.string(from: 1)).to(equal("1,00 zł"))
-        expect(plFormatter.string(from: 432)).to(equal("432,00 zł"))
-        expect(plFormatter.string(from: 1000)).to(equal("1000,00 zł"))
-        expect(plFormatter.string(from: 48_729_432)).to(equal("48 729 432,00 zł"))
+        XCTAssertEqual(plFormatter.string(from: 1), "1,00 zł")
+        XCTAssertEqual(plFormatter.string(from: 432), "432,00 zł")
+        XCTAssertEqual(plFormatter.string(from: 1000), "1000,00 zł")
+        XCTAssertEqual(plFormatter.string(from: 48_729_432), "48 729 432,00 zł")
     }
 
     func test_currencyFormatter_withLocaleENPL_shouldFormatAmountsToPLN() throws {
@@ -52,10 +47,10 @@ class CurrencyFormatterTests: XCTestCase {
             currencyCode: "PLN"
         )
 
-        expect(plFormatter.string(from: 1)).to(equal("1,00 PLN"))
-        expect(plFormatter.string(from: 432)).to(equal("432,00 PLN"))
-        expect(plFormatter.string(from: 1000)).to(equal("1 000,00 PLN"))
-        expect(plFormatter.string(from: 48_729_432)).to(equal("48 729 432,00 PLN"))
+        XCTAssertEqual(plFormatter.string(from: 1), "1,00 PLN")
+        XCTAssertEqual(plFormatter.string(from: 432), "432,00 PLN")
+        XCTAssertEqual(plFormatter.string(from: 1000), "1 000,00 PLN")
+        XCTAssertEqual(plFormatter.string(from: 48_729_432), "48 729 432,00 PLN")
     }
 
     func test_currencyFormatter_withLocalePLPL_shouldFormatNegativeAmountsToPLN() throws {
@@ -64,10 +59,10 @@ class CurrencyFormatterTests: XCTestCase {
             currencyCode: "PLN"
         )
 
-        expect(plFormatter.string(from: -1)).to(equal("-1,00 zł"))
-        expect(plFormatter.string(from: -432)).to(equal("-432,00 zł"))
-        expect(plFormatter.string(from: -1000)).to(equal("-1000,00 zł"))
-        expect(plFormatter.string(from: -48_729_432)).to(equal("-48 729 432,00 zł"))
+        XCTAssertEqual(plFormatter.string(from: -1), "-1,00 zł")
+        XCTAssertEqual(plFormatter.string(from: -432), "-432,00 zł")
+        XCTAssertEqual(plFormatter.string(from: -1000), "-1000,00 zł")
+        XCTAssertEqual(plFormatter.string(from: -48_729_432), "-48 729 432,00 zł")
     }
 
     func test_currencyFormatter_withCurrencyCodePLN_shouldFormatNegativeAmountsToPLN() throws {
@@ -76,28 +71,28 @@ class CurrencyFormatterTests: XCTestCase {
             currencyCode: "PLN"
         )
 
-        expect(plFormatter.string(from: -1)).to(equal("-PLN1.00"))
-        expect(plFormatter.string(from: -432)).to(equal("-PLN432.00"))
-        expect(plFormatter.string(from: -1000)).to(equal("-PLN1,000.00"))
-        expect(plFormatter.string(from: -48_729_432)).to(equal("-PLN48,729,432.00"))
+        XCTAssertEqual(plFormatter.string(from: -1), "-PLN1.00")
+        XCTAssertEqual(plFormatter.string(from: -432), "-PLN432.00")
+        XCTAssertEqual(plFormatter.string(from: -1000), "-PLN1,000.00")
+        XCTAssertEqual(plFormatter.string(from: -48_729_432), "-PLN48,729,432.00")
     }
 
     func test_currencyFormatter_withAbbreviation_shouldFormatAmounts() throws {
-        expect(self.usFormatter.string(from: 326.09734, abbreviation: .default)).to(equal("$326.10"))
-        expect(self.usFormatter.string(from: 1432.99, abbreviation: .default)).to(equal("$1.43k"))
-        expect(self.usFormatter.string(from: 100_081, abbreviation: .default)).to(equal("$100.08k"))
-        expect(self.usFormatter.string(from: 48_729_432, abbreviation: .default)).to(equal("$48.73m"))
-        expect(self.usFormatter.string(from: -42.8111, abbreviation: .default)).to(equal("-$42.81"))
-        expect(self.usFormatter.string(from: -4239.8111, abbreviation: .default)).to(equal("-$4.24k"))
+        XCTAssertEqual(usFormatter.string(from: 326.09734, abbreviation: .default), "$326.10")
+        XCTAssertEqual(usFormatter.string(from: 1432.99, abbreviation: .default), "$1.43k")
+        XCTAssertEqual(usFormatter.string(from: 100_081, abbreviation: .default), "$100.08k")
+        XCTAssertEqual(usFormatter.string(from: 48_729_432, abbreviation: .default), "$48.73m")
+        XCTAssertEqual(usFormatter.string(from: -42.8111, abbreviation: .default), "-$42.81")
+        XCTAssertEqual(usFormatter.string(from: -4239.8111, abbreviation: .default), "-$4.24k")
     }
 
     func test_currencyFormatter_withLocalizedSign_shouldFormatAmounts() throws {
-        expect(self.usFormatter.string(from: 123.456, sign: .none)).to(equal("$123.46"))
-        expect(self.usFormatter.string(from: 123.456, sign: .default)).to(equal("$123.46"))
-        expect(self.usFormatter.string(from: 123.456, sign: .both)).to(equal("+$123.46"))
-        expect(self.usFormatter.string(from: -123.456, sign: .none)).to(equal("$123.46"))
-        expect(self.usFormatter.string(from: -123.456, sign: .default)).to(equal("-$123.46"))
-        expect(self.usFormatter.string(from: -123.456, sign: .both)).to(equal("-$123.46"))
+        XCTAssertEqual(usFormatter.string(from: 123.456, sign: .none), "$123.46")
+        XCTAssertEqual(usFormatter.string(from: 123.456, sign: .default), "$123.46")
+        XCTAssertEqual(usFormatter.string(from: 123.456, sign: .both), "+$123.46")
+        XCTAssertEqual(usFormatter.string(from: -123.456, sign: .none), "$123.46")
+        XCTAssertEqual(usFormatter.string(from: -123.456, sign: .default), "-$123.46")
+        XCTAssertEqual(usFormatter.string(from: -123.456, sign: .both), "-$123.46")
     }
 
     func test_currencyFormatter_withCustomSign_shouldFormatAmounts() throws {
@@ -108,11 +103,11 @@ class CurrencyFormatterTests: XCTestCase {
         let minusOnly: LocalizedFormatter.Sign = .init(plus: .none, minus: minus)
         let both: LocalizedFormatter.Sign = .init(plus: plus, minus: minus)
 
-        expect(self.usFormatter.string(from: 123.456, sign: plusOnly)).to(equal("▲$123.46"))
-        expect(self.usFormatter.string(from: -123.456, sign: plusOnly)).to(equal("$123.46"))
-        expect(self.usFormatter.string(from: 123.456, sign: minusOnly)).to(equal("$123.46"))
-        expect(self.usFormatter.string(from: -123.456, sign: minusOnly)).to(equal("▼$123.46"))
-        expect(self.usFormatter.string(from: 123.456, sign: both)).to(equal("▲$123.46"))
-        expect(self.usFormatter.string(from: -123.456, sign: both)).to(equal("▼$123.46"))
+        XCTAssertEqual(usFormatter.string(from: 123.456, sign: plusOnly), "▲$123.46")
+        XCTAssertEqual(usFormatter.string(from: -123.456, sign: plusOnly), "$123.46")
+        XCTAssertEqual(usFormatter.string(from: 123.456, sign: minusOnly), "$123.46")
+        XCTAssertEqual(usFormatter.string(from: -123.456, sign: minusOnly), "▼$123.46")
+        XCTAssertEqual(usFormatter.string(from: 123.456, sign: both), "▲$123.46")
+        XCTAssertEqual(usFormatter.string(from: -123.456, sign: both), "▼$123.46")
     }
 }
