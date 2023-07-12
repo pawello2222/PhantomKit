@@ -11,8 +11,12 @@ import SwiftUI
 // MARK: - Actions
 
 extension View {
-    /// Adds an action to perform when this view recognizes a tap gesture.
-    public func onTap(count: Int = 1, perform action: @escaping () -> Void) -> some View {
+    /// Creates a rectangular content shape and adds an action to perform
+    /// when this view recognizes a tap gesture.
+    public func onTap(
+        count: Int = 1,
+        perform action: @escaping () -> Void
+    ) -> some View {
         contentShape(.rect)
             .onTapGesture(count: count, perform: action)
     }
@@ -22,10 +26,8 @@ extension View {
 
 extension View {
     /// Wraps this view with a type eraser.
-    ///
-    /// - Returns: An `AnyView` wrapping this view.
     public func eraseToAnyView() -> AnyView {
-        AnyView(self)
+        .init(self)
     }
 }
 
@@ -83,6 +85,7 @@ extension View {
 // MARK: - Background
 
 extension View {
+    /// Wraps this view in an `ZStack` and puts the background behind it.
     public func expandingBackground<V>(
         _ background: @autoclosure @escaping () -> V,
         ignoresSafeAreaEdges edges: Edge.Set = .all
@@ -95,6 +98,7 @@ extension View {
 }
 
 extension View {
+    /// Wraps this view in an `ZStack` and puts the background behind it.
     public func expandingBackground<V>(
         ignoresSafeAreaEdges edges: Edge.Set = .all,
         @ViewBuilder background: @escaping () -> V
@@ -157,20 +161,6 @@ extension View {
 
 extension View {
     /// Hide or show the view based on a boolean value.
-    ///
-    /// Example for visibility:
-    ///
-    /// ```swift
-    /// Text("Label")
-    ///     .hidden(true)
-    /// ```
-    ///
-    /// Example for complete removal:
-    ///
-    /// ```swift
-    /// Text("Label")
-    ///     .hidden(true, remove: true)
-    /// ```
     ///
     /// - Parameters:
     ///   - hidden: Set to `false` to show the view. Set to `true` to hide the view.
