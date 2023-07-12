@@ -9,11 +9,7 @@
 import Foundation
 
 public class LocalizedFormatter: Appliable {
-    public init() {}
-
-    private lazy var formatter = NumberFormatter()
-
-    // Properties
+    // MARK: Public Properties
 
     public var usesGroupingSeparator = false {
         didSet {
@@ -22,51 +18,26 @@ public class LocalizedFormatter: Appliable {
     }
 
     public var defaultPrecision: Precision = .default
-
     public var maximumAllowedFractionDigits = 16
-
     public var usesSignForZero = false
-
     public var invalidValueString = "--"
 
-    // Computed properties
+    // MARK: Internal Properties
 
-    public var decimalSeparator: String {
+    internal var decimalSeparator: String {
         formatter.decimalSeparator
     }
+
+    // MARK: Private Properties
+
+    private lazy var formatter = NumberFormatter()
+
+    // MARK: Initialization
+
+    public init() {}
 }
 
-// MARK: - Convenience
-
-extension LocalizedFormatter {
-    public static func currency(
-        locale: Locale = .current,
-        currencyCode: String = Locale.current.currency?.identifier ?? "USD"
-    ) -> LocalizedFormatter {
-        LocalizedFormatter().apply {
-            $0.formatter.numberStyle = .currency
-            $0.formatter.locale = .init(identifier: "\(locale.identifier)@currency=\(currencyCode)")
-            $0.defaultPrecision = .constant(2)
-        }
-    }
-
-    public static func decimal(locale: Locale = .current) -> LocalizedFormatter {
-        LocalizedFormatter().apply {
-            $0.formatter.numberStyle = .decimal
-            $0.formatter.locale = locale
-        }
-    }
-
-    public static func percent(locale: Locale = .current) -> LocalizedFormatter {
-        LocalizedFormatter().apply {
-            $0.formatter.numberStyle = .percent
-            $0.formatter.locale = locale
-            $0.formatter.multiplier = 1
-        }
-    }
-}
-
-// MARK: - Read
+// MARK: - Format to Number
 
 extension LocalizedFormatter {
     public func number(from string: String) -> NSNumber? {
@@ -81,7 +52,7 @@ extension LocalizedFormatter {
     }
 }
 
-// MARK: - Format
+// MARK: - Format to String
 
 extension LocalizedFormatter {
     public func string(
@@ -194,7 +165,7 @@ extension LocalizedFormatter {
         let existingPositivePrefix = formatter.positivePrefix
         let existingNegativePrefix = formatter.negativePrefix
 
-        var newPlusSign: String!
+        var newPlusSign: String
         switch sign.plus {
         case .none:
             newPlusSign = ""
@@ -210,7 +181,7 @@ extension LocalizedFormatter {
             formatter.positivePrefix = newPlusSign + formatter.positivePrefix
         }
 
-        var newMinusSign: String!
+        var newMinusSign: String
         switch sign.minus {
         case .none:
             newMinusSign = ""
@@ -236,7 +207,7 @@ extension LocalizedFormatter {
     private func with<T>(zeroSign: Sign.Style, _ block: () -> T) -> T {
         let existingPositivePrefix = formatter.positivePrefix
 
-        var newZeroSign: String!
+        var newZeroSign: String
         switch zeroSign {
         case .custom(let zeroSign):
             newZeroSign = zeroSign
@@ -253,6 +224,34 @@ extension LocalizedFormatter {
 }
 
 // MARK: - Convenience
+
+extension LocalizedFormatter {
+    public static func currency(
+        locale: Locale = .current,
+        currencyCode: String = Locale.current.currency?.identifier ?? "USD"
+    ) -> LocalizedFormatter {
+        LocalizedFormatter().apply {
+            $0.formatter.numberStyle = .currency
+            $0.formatter.locale = .init(identifier: "\(locale.identifier)@currency=\(currencyCode)")
+            $0.defaultPrecision = .constant(2)
+        }
+    }
+
+    public static func decimal(locale: Locale = .current) -> LocalizedFormatter {
+        LocalizedFormatter().apply {
+            $0.formatter.numberStyle = .decimal
+            $0.formatter.locale = locale
+        }
+    }
+
+    public static func percent(locale: Locale = .current) -> LocalizedFormatter {
+        LocalizedFormatter().apply {
+            $0.formatter.numberStyle = .percent
+            $0.formatter.locale = locale
+            $0.formatter.multiplier = 1
+        }
+    }
+}
 
 extension LocalizedFormatter {
     public static var currency = currency()
