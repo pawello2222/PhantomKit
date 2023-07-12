@@ -149,11 +149,21 @@ class DecimalFormatterTests: XCTestCase {
 
     func test_decimalFormatter_withAbbreviationAndSignAndPrecision_shouldFormatDecimals() throws {
         XCTAssertEqual(
-            usFormatter.string(from: -123.123456789, abbreviation: .default, sign: .arrow, precision: .constant(4)),
+            usFormatter.string(
+                from: -123.123456789,
+                abbreviation: .default,
+                sign: .arrow,
+                precision: .constant(4)
+            ),
             "▼123.1235"
         )
         XCTAssertEqual(
-            usFormatter.string(from: 123_456_789.123456789, abbreviation: .default, sign: .arrow, precision: .constant(4)),
+            usFormatter.string(
+                from: 123_456_789.123456789,
+                abbreviation: .default,
+                sign: .arrow,
+                precision: .constant(4)
+            ),
             "▲123.4568m"
         )
     }
