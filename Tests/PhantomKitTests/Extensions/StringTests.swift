@@ -6,16 +6,15 @@
 //  Copyright © 2021 Tersacore. All rights reserved.
 //
 
-import Nimble
 import XCTest
 @testable import PhantomKit
 
 class StringTests: XCTestCase {
     func test_string_isHexNumber_shouldRecognizeHexNumbers() throws {
-        expect("123".isHexNumber).to(beTrue())
-        expect("aa32".isHexNumber).to(beTrue())
-        expect("AD1".isHexNumber).to(beTrue())
-        expect("FFG".isHexNumber).to(beFalse())
-        expect("text1".isHexNumber).to(beFalse())
+        XCTAssertTrue("123".isHexNumber)
+        XCTAssertTrue("aa32".isHexNumber)
+        XCTAssertTrue("AD1".isHexNumber)
+        XCTAssertFalse("FFG".isHexNumber)
+        XCTAssertFalse("text1".isHexNumber)
     }
 }
