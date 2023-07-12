@@ -24,7 +24,8 @@ public struct LinkViewModifier: ViewModifier {
             content
         }
         .fullScreenCover(isPresented: $isPresented) {
-            SafariView(url: url)
+            SafariViewRepresentable(url: url)
+                .ignoresSafeArea()
         }
     }
 }
