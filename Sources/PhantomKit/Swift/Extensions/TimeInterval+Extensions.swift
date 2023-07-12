@@ -13,7 +13,7 @@ extension TimeInterval {
     public static var ultraFast: Self = 0.1
 
     /// The duration of `0.2` seconds.
-    public static var fast: Self = 0.15
+    public static var fast: Self = 0.2
 
     /// The duration of `0.3` seconds.
     public static var `default`: Self = 0.3

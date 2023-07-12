@@ -43,6 +43,8 @@ extension String {
     }
 }
 
+// MARK: - Private
+
 extension String {
     private var nsString: NSString {
         self as NSString
