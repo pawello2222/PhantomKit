@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+/// A view modifier that creates a button that presents a modal view
+/// that covers as much of the screen as possible
 public struct FullScreenViewModifier<Destination>: ViewModifier where Destination: View {
     @State private var isPresented = false
 
@@ -32,6 +34,8 @@ public struct FullScreenViewModifier<Destination>: ViewModifier where Destinatio
 // MARK: - Convenience
 
 extension View {
+    /// Creates a button that presents a modal view that covers
+    /// as much of the screen as possible.
     public func fullScreen<Destination>(
         @ViewBuilder _ destination: @escaping () -> Destination
     ) -> some View where Destination: View {

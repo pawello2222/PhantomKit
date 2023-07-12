@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+/// A view modifier that creates a button that presents a Safari view
+/// as a modal view that covers as much of the screen as possible.
 public struct LinkViewModifier: ViewModifier {
     @State private var isPresented = false
 
@@ -33,6 +35,8 @@ public struct LinkViewModifier: ViewModifier {
 // MARK: - Convenience
 
 extension View {
+    /// Creates a button that presents a Safari view as a modal view
+    /// that covers as much of the screen as possible.
     @ViewBuilder
     public func link(url: URL?) -> some View {
         if let url {

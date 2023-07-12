@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+/// A view modifier that creates a button that presents a sheet.
 public struct SheetViewModifier<Destination>: ViewModifier where Destination: View {
     @State private var isPresented = false
 
@@ -32,6 +33,7 @@ public struct SheetViewModifier<Destination>: ViewModifier where Destination: Vi
 // MARK: - Convenience
 
 extension View {
+    /// Creates a button that presents a sheet.
     public func sheet<Destination>(
         @ViewBuilder _ destination: @escaping () -> Destination
     ) -> some View where Destination: View {
