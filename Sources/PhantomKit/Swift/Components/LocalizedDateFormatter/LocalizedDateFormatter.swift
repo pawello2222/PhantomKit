@@ -6,9 +6,10 @@
 //  Copyright © 2021 Tersacore. All rights reserved.
 //
 
+import Appliable
 import Foundation
 
-public class LocalizedDateFormatter: Appliable {
+public class LocalizedDateFormatter: ObjectAppliable {
     // MARK: Public Properties
 
     public var invalidValueString = "--"

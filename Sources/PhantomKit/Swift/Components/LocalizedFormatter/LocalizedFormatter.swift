@@ -6,9 +6,10 @@
 //  Copyright © 2021 Tersacore. All rights reserved.
 //
 
+import Appliable
 import Foundation
 
-public class LocalizedFormatter: Appliable {
+public class LocalizedFormatter: ObjectAppliable {
     // MARK: Public Properties
 
     public var usesGroupingSeparator = false {

@@ -11,9 +11,13 @@ let package = Package(
             targets: ["PhantomKit"]
         ),
     ],
+    dependencies: [
+        .package(url: "https://github.com/pawello2222/Appliable", from: "1.0.0"),
+    ],
     targets: [
         .target(
-            name: "PhantomKit"
+            name: "PhantomKit",
+            dependencies: ["Appliable"]
         ),
         .testTarget(
             name: "PhantomKitTests",
