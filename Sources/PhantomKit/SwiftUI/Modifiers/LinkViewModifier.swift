@@ -22,9 +22,28 @@
 
 import SwiftUI
 
+/// A view modifier that creates a button that opens a given link in an external browser.
+public struct ExternalLinkViewModifier: ViewModifier {
+    @Environment(\.openURL) private var openURL
+
+    private let url: URL
+
+    public init(url: URL) {
+        self.url = url
+    }
+
+    public func body(content: Content) -> some View {
+        Button {
+            openURL(url)
+        } label: {
+            content
+        }
+    }
+}
+
+#if os(iOS)
 /// A view modifier that creates a button that presents a Safari view
 /// as a modal view that covers as much of the screen as possible.
-#if os(iOS) || os(tvOS)
 public struct LinkViewModifier: ViewModifier {
     @State private var isPresented = false
 
@@ -46,38 +65,46 @@ public struct LinkViewModifier: ViewModifier {
         }
     }
 }
-
-#elseif os(macOS)
-public struct LinkViewModifier: ViewModifier {
-    @Environment(\.openURL) private var openURL
-
-    private let url: URL
-
-    public init(url: URL) {
-        self.url = url
-    }
-
-    public func body(content: Content) -> some View {
-        Button {
-            openURL(url)
-        } label: {
-            content
-        }
-    }
-}
 #endif
 
 // MARK: - Convenience
 
 extension View {
-    /// Creates a button that presents a Safari view as a modal view
-    /// that covers as much of the screen as possible.
+    /// Creates a button that presents a URL according to the provided options.
     @ViewBuilder
-    public func link(url: URL?) -> some View {
+    public func link(url: URL?, openedAs method: LinkOpenMethod = .default) -> some View {
         if let url {
-            modifier(LinkViewModifier(url: url))
+            switch method {
+            case .external:
+                modifier(ExternalLinkViewModifier(url: url))
+            #if os(iOS)
+            case .fullscreen:
+                modifier(LinkViewModifier(url: url))
+            #endif
+            }
         } else {
             self
         }
     }
+}
+
+// MARK: - LinkOpenMethod
+
+public enum LinkOpenMethod {
+    /// Opens a link in an external browser.
+    case external
+
+    #if os(iOS)
+    /// Opens a link in a Safari view presented as a modal view
+    /// that covers as much of the screen as possible.
+    case fullscreen
+    #endif
+}
+
+extension LinkOpenMethod {
+    #if os(iOS)
+    public static var `default`: Self = .fullscreen
+    #elseif os(macOS)
+    public static var `default`: Self = .external
+    #endif
 }

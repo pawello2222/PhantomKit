@@ -133,7 +133,6 @@ extension View {
     /// - Parameters:
     ///   - axis: A Boolean value that indicates on which axis to fix the size
     ///     of the view.
-    ///
     /// - Returns: A view that fixes this view at its ideal size on the given `axis`.
     public func fixedSize(_ axis: Axis) -> some View {
         switch axis {

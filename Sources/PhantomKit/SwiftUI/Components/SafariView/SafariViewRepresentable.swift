@@ -23,7 +23,7 @@
 import SafariServices
 import SwiftUI
 
-#if os(iOS) || os(tvOS)
+#if os(iOS)
 /// A view that encapsulates the functionality of `SFSafariViewController`.
 public struct SafariViewRepresentable: ViewControllerRepresentable {
     private let url: URL

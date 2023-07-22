@@ -29,7 +29,7 @@ public typealias PlatformView = NSView
 public typealias PlatformViewRepresentable = NSViewRepresentable
 #endif
 
-/// Implementers get automatic `UIViewRepresentable` conformance on iOS
+/// Adds `UIViewRepresentable` conformance on iOS
 /// and `NSViewRepresentable` conformance on macOS.
 public protocol ViewRepresentable: PlatformViewRepresentable {
     associatedtype PlatformViewType

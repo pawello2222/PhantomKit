@@ -29,7 +29,7 @@ public typealias PlatformViewController = NSViewController
 public typealias PlatformViewControllerRepresentable = NSViewControllerRepresentable
 #endif
 
-/// Implementers get automatic `UIViewControllerRepresentable` conformance on iOS
+/// Adds `UIViewControllerRepresentable` conformance on iOS
 /// and `NSViewControllerRepresentable` conformance on macOS.
 public protocol ViewControllerRepresentable: PlatformViewControllerRepresentable {
     associatedtype PlatformViewControllerType

@@ -22,9 +22,9 @@
 
 import SwiftUI
 
-#if os(iOS) || os(tvOS)
+#if os(iOS)
 /// A view modifier that creates a button that presents a modal view
-/// that covers as much of the screen as possible
+/// that covers as much of the screen as possible.
 public struct FullScreenViewModifier<Destination>: ViewModifier where Destination: View {
     @State private var isPresented = false
 
