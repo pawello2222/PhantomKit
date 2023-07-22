@@ -20,43 +20,28 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import Foundation
+import SwiftUI
 
-extension String {
-    /// A Boolean value indicating whether all characters
-    /// in this string represent a hexadecimal digit.
-    public var isHexNumber: Bool {
-        allSatisfy(\.isHexDigit)
+struct PrefersTabNavigationEnvironmentKey: EnvironmentKey {
+    static var defaultValue = false
+}
+
+extension EnvironmentValues {
+    public var prefersTabNavigation: Bool {
+        get { self[PrefersTabNavigationEnvironmentKey.self] }
+        set { self[PrefersTabNavigationEnvironmentKey.self] = newValue }
     }
 }
 
-// MARK: - NSString
+// MARK: - UITraitBridgedEnvironmentKey
 
-extension String {
-    private var nsString: NSString {
-        self as NSString
+#if os(iOS)
+extension PrefersTabNavigationEnvironmentKey: UITraitBridgedEnvironmentKey {
+    static func read(from traitCollection: UITraitCollection) -> Bool {
+        traitCollection.userInterfaceIdiom == .phone
+            || traitCollection.userInterfaceIdiom == .tv
     }
 
-    /// The last path component of the receiver.
-    public var lastPathComponent: String {
-        nsString.lastPathComponent
-    }
-
-    /// A new string made by deleting the last path component
-    /// from the receiver, along with any final path separator.
-    public var deletingLastPathComponent: String {
-        nsString.deletingLastPathComponent
-    }
-
-    /// A new string made by deleting the extension
-    /// (if any, and only the last) from the receiver.
-    public var deletingPathExtension: String {
-        nsString.deletingPathExtension
-    }
-
-    /// The path extension, if any, of the string as interpreted
-    /// as a path.
-    public var pathExtension: String {
-        nsString.pathExtension
-    }
+    static func write(to mutableTraits: inout UIMutableTraits, value: Bool) {}
 }
+#endif
