@@ -22,11 +22,12 @@
 
 import SwiftUI
 
-struct PrefersTabNavigationEnvironmentKey: EnvironmentKey {
-    static var defaultValue = false
-}
-
 extension EnvironmentValues {
+    fileprivate struct PrefersTabNavigationEnvironmentKey: EnvironmentKey {
+        static var defaultValue = false
+    }
+
+    /// A Boolean value indicating the preferred navigation style.
     public var prefersTabNavigation: Bool {
         get { self[PrefersTabNavigationEnvironmentKey.self] }
         set { self[PrefersTabNavigationEnvironmentKey.self] = newValue }
@@ -37,7 +38,7 @@ extension EnvironmentValues {
 
 #if os(iOS)
 @available(iOS 17, *)
-extension PrefersTabNavigationEnvironmentKey: UITraitBridgedEnvironmentKey {
+extension EnvironmentValues.PrefersTabNavigationEnvironmentKey: UITraitBridgedEnvironmentKey {
     static func read(from traitCollection: UITraitCollection) -> Bool {
         [.phone, .tv].contains(traitCollection.userInterfaceIdiom)
     }
