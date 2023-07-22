@@ -24,21 +24,21 @@ import XCTest
 @testable import PhantomKit
 
 class DateFormatterTests: XCTestCase {
-    func test_dateFormatter_shouldFormatDate() throws {
+    func test_shouldFormatDate() throws {
         let usFormatter = LocalizedDateFormatter.date(locale: .init(identifier: "en_US"))
         let date = Date(year: 2000, month: 3, day: 24)
 
         XCTAssertEqual(usFormatter.string(from: date), "03/24/2000")
     }
 
-    func test_dateFormatter_withLocalePL_shouldFormatDate() throws {
+    func test_withLocalePL_shouldFormatDate() throws {
         let plFormatter = LocalizedDateFormatter.date(locale: .init(identifier: "pl_PL"))
         let date = Date(year: 2000, month: 3, day: 24)
 
         XCTAssertEqual(plFormatter.string(from: date), "24.03.2000")
     }
 
-    func test_dateFormatter_shouldFormatDateTime() throws {
+    func test_shouldFormatDateTime() throws {
         let usFormatter = LocalizedDateFormatter.date(
             locale: .init(identifier: "en_US"),
             localizedFormat: "yyyyMMddjjmmss"
@@ -55,7 +55,7 @@ class DateFormatterTests: XCTestCase {
         XCTAssertTrue(expectations.contains(result))
     }
 
-    func test_dateFormatter_withLocalePL_shouldFormatDateTime() throws {
+    func test_withLocalePL_shouldFormatDateTime() throws {
         let plFormatter = LocalizedDateFormatter.date(
             locale: .init(identifier: "pl_PL"),
             localizedFormat: "yyyyMMddjjmmss"
@@ -65,7 +65,7 @@ class DateFormatterTests: XCTestCase {
         XCTAssertEqual(plFormatter.string(from: date), "24.03.2000, 16:14:44")
     }
 
-    func test_dateFormatter_withFixedFormat_shouldFormatDate() throws {
+    func test_withFixedFormat_shouldFormatDate() throws {
         let usFormatter = LocalizedDateFormatter.date(
             locale: .usPosix,
             format: "yyyy-MM-dd"
@@ -75,7 +75,7 @@ class DateFormatterTests: XCTestCase {
         XCTAssertEqual(usFormatter.string(from: date), "2000-03-24")
     }
 
-    func test_dateFormatter_withCustomTimeZone_shouldParseDate() throws {
+    func test_withCustomTimeZone_shouldParseDate() throws {
         let usFormatter = LocalizedDateFormatter.date(
             locale: .usPosix,
             format: "HH:mm:ss"

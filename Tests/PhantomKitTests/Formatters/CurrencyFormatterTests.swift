@@ -29,21 +29,21 @@ class CurrencyFormatterTests: XCTestCase {
         currencyCode: "USD"
     )
 
-    func test_currencyFormatter_shouldFormatAmounts() throws {
+    func test_shouldFormatAmounts() throws {
         XCTAssertEqual(usFormatter.string(from: 1), "$1.00")
         XCTAssertEqual(usFormatter.string(from: 432), "$432.00")
         XCTAssertEqual(usFormatter.string(from: 1000), "$1,000.00")
         XCTAssertEqual(usFormatter.string(from: 48_729_432), "$48,729,432.00")
     }
 
-    func test_currencyFormatter_shouldFormatNegativeAmounts() throws {
+    func test_shouldFormatNegativeAmounts() throws {
         XCTAssertEqual(usFormatter.string(from: -1), "-$1.00")
         XCTAssertEqual(usFormatter.string(from: -432), "-$432.00")
         XCTAssertEqual(usFormatter.string(from: -1000), "-$1,000.00")
         XCTAssertEqual(usFormatter.string(from: -48_729_432), "-$48,729,432.00")
     }
 
-    func test_currencyFormatter_withLocalePLPL_shouldFormatAmountsToPLN() throws {
+    func test_withLocalePLPL_shouldFormatAmountsToPLN() throws {
         let plFormatter = LocalizedFormatter.currency(
             locale: .init(identifier: "pl_PL"),
             currencyCode: "PLN"
@@ -55,7 +55,7 @@ class CurrencyFormatterTests: XCTestCase {
         XCTAssertEqual(plFormatter.string(from: 48_729_432), "48 729 432,00 zł")
     }
 
-    func test_currencyFormatter_withLocaleENPL_shouldFormatAmountsToPLN() throws {
+    func test_withLocaleENPL_shouldFormatAmountsToPLN() throws {
         let plFormatter = LocalizedFormatter.currency(
             locale: .init(identifier: "en_PL"),
             currencyCode: "PLN"
@@ -67,7 +67,7 @@ class CurrencyFormatterTests: XCTestCase {
         XCTAssertEqual(plFormatter.string(from: 48_729_432), "48 729 432,00 PLN")
     }
 
-    func test_currencyFormatter_withLocalePLPL_shouldFormatNegativeAmountsToPLN() throws {
+    func test_withLocalePLPL_shouldFormatNegativeAmountsToPLN() throws {
         let plFormatter = LocalizedFormatter.currency(
             locale: .init(identifier: "pl_PL"),
             currencyCode: "PLN"
@@ -79,7 +79,7 @@ class CurrencyFormatterTests: XCTestCase {
         XCTAssertEqual(plFormatter.string(from: -48_729_432), "-48 729 432,00 zł")
     }
 
-    func test_currencyFormatter_withCurrencyCodePLN_shouldFormatNegativeAmountsToPLN() throws {
+    func test_withCurrencyCodePLN_shouldFormatNegativeAmountsToPLN() throws {
         let plFormatter = LocalizedFormatter.currency(
             locale: .init(identifier: "en_US"),
             currencyCode: "PLN"
@@ -91,7 +91,7 @@ class CurrencyFormatterTests: XCTestCase {
         XCTAssertEqual(plFormatter.string(from: -48_729_432), "-PLN48,729,432.00")
     }
 
-    func test_currencyFormatter_withAbbreviation_shouldFormatAmounts() throws {
+    func test_withAbbreviation_shouldFormatAmounts() throws {
         XCTAssertEqual(usFormatter.string(from: 326.09734, abbreviation: .default), "$326.10")
         XCTAssertEqual(usFormatter.string(from: 1432.99, abbreviation: .default), "$1.43k")
         XCTAssertEqual(usFormatter.string(from: 100_081, abbreviation: .default), "$100.08k")
@@ -100,7 +100,7 @@ class CurrencyFormatterTests: XCTestCase {
         XCTAssertEqual(usFormatter.string(from: -4239.8111, abbreviation: .default), "-$4.24k")
     }
 
-    func test_currencyFormatter_withLocalizedSign_shouldFormatAmounts() throws {
+    func test_withLocalizedSign_shouldFormatAmounts() throws {
         XCTAssertEqual(usFormatter.string(from: 123.456, sign: .none), "$123.46")
         XCTAssertEqual(usFormatter.string(from: 123.456, sign: .default), "$123.46")
         XCTAssertEqual(usFormatter.string(from: 123.456, sign: .both), "+$123.46")
@@ -109,7 +109,7 @@ class CurrencyFormatterTests: XCTestCase {
         XCTAssertEqual(usFormatter.string(from: -123.456, sign: .both), "-$123.46")
     }
 
-    func test_currencyFormatter_withCustomSign_shouldFormatAmounts() throws {
+    func test_withCustomSign_shouldFormatAmounts() throws {
         let plus: LocalizedFormatter.Sign.Style = .custom("▲")
         let minus: LocalizedFormatter.Sign.Style = .custom("▼")
 

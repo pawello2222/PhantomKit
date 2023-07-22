@@ -24,7 +24,7 @@ import XCTest
 @testable import PhantomKit
 
 class ComparableTests: XCTestCase {
-    func test_values_shouldBeClampedToBounds() throws {
+    func test_shouldClampToBounds() throws {
         XCTAssertEqual(1.clamped(to: 0...), 1)
         XCTAssertEqual(1.clamped(to: 1...), 1)
         XCTAssertEqual(1.clamped(to: 2...), 2)

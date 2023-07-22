@@ -32,7 +32,7 @@ class NSDecimalNumberTests: XCTestCase {
         NSDecimalNumberHandler.default = .scaled(16)
     }
 
-    func test_nsDecimalNumber_shouldAddNumbers() throws {
+    func test_shouldAddNumbers() throws {
         var lhs = NSDecimalNumber(string: "1.23")
         let rhs = NSDecimalNumber(string: "3.41")
         let result = NSDecimalNumber(string: "4.64")
@@ -43,7 +43,7 @@ class NSDecimalNumberTests: XCTestCase {
         XCTAssertEqual(lhs, result)
     }
 
-    func test_nsDecimalNumber_shouldSubtractNumbers() throws {
+    func test_shouldSubtractNumbers() throws {
         var lhs = NSDecimalNumber(string: "1.23")
         let rhs = NSDecimalNumber(string: "3.41")
         let result = NSDecimalNumber(string: "-2.18")
@@ -54,7 +54,7 @@ class NSDecimalNumberTests: XCTestCase {
         XCTAssertEqual(lhs, result)
     }
 
-    func test_nsDecimalNumber_shouldMultiplyNumbers() throws {
+    func test_shouldMultiplyNumbers() throws {
         var lhs = NSDecimalNumber(string: "1.23")
         let rhs = NSDecimalNumber(string: "3.41")
         let result = NSDecimalNumber(string: "4.1943")
@@ -65,7 +65,7 @@ class NSDecimalNumberTests: XCTestCase {
         XCTAssertEqual(lhs, result)
     }
 
-    func test_nsDecimalNumber_shouldDivideNumbers() throws {
+    func test_shouldDivideNumbers() throws {
         var lhs = NSDecimalNumber(string: "1.23")
         let rhs = NSDecimalNumber(string: "3.41")
         let result = NSDecimalNumber(string: "0.36070381")
@@ -76,7 +76,7 @@ class NSDecimalNumberTests: XCTestCase {
         XCTAssertEqual(lhs, result)
     }
 
-    func test_nsDecimalNumber_onDivideByZero_shouldNotRaise() throws {
+    func test_onDivideByZero_shouldNotRaise() throws {
         var lhs = NSDecimalNumber(string: "1.23")
         let rhs = NSDecimalNumber(string: "0")
         let result = NSDecimalNumber.notANumber
@@ -87,7 +87,7 @@ class NSDecimalNumberTests: XCTestCase {
         XCTAssertEqual(lhs, result)
     }
 
-    func test_nsDecimalNumber_shouldCompareNumbers() throws {
+    func test_shouldCompareNumbers() throws {
         // swiftlint:disable identifier_name
         let a = NSDecimalNumber(string: "-1.23")
         let b = NSDecimalNumber(string: "0.437")
@@ -107,13 +107,13 @@ class NSDecimalNumberTests: XCTestCase {
         XCTAssertFalse(b == c)
     }
 
-    func test_nsDecimalNumber_shouldRoundZero() throws {
+    func test_shouldRoundZero() throws {
         let number = NSDecimalNumber(string: "-123.456789")
 
         XCTAssertEqual(number.rounded(toPlaces: 4), NSDecimalNumber(string: "-123.4568"))
     }
 
-    func test_nsDecimalNumber_shouldReturnAbsoluteValue() throws {
+    func test_shouldReturnAbsoluteValue() throws {
         let number = NSDecimalNumber(string: "-123.456789")
 
         XCTAssertEqual(number.absValue, NSDecimalNumber(string: "123.456789"))
