@@ -31,4 +31,12 @@ class StringTests: XCTestCase {
         XCTAssertFalse("FFG".isHexNumber)
         XCTAssertFalse("text1".isHexNumber)
     }
+
+    func test_shouldExtractLastPathComponent() throws {
+        XCTAssertEqual("/tmp/scratch.tiff".lastPathComponent, "scratch.tiff")
+        XCTAssertEqual("/tmp/scratch".lastPathComponent, "scratch")
+        XCTAssertEqual("/tmp/".lastPathComponent, "tmp")
+        XCTAssertEqual("scratch///".lastPathComponent, "scratch")
+        XCTAssertEqual("/".lastPathComponent, "/")
+    }
 }
