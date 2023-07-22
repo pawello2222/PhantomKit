@@ -101,7 +101,6 @@ extension Date {
         case .yearForWeekOfYear:
             dateComponent.yearForWeekOfYear = offset
         default:
-            print("Unsupported type \(component)")
             return self
         }
 

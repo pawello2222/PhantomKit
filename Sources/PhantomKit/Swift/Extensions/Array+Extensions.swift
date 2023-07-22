@@ -22,6 +22,34 @@
 
 import Foundation
 
+// MARK: Iterator
+
+extension Array {
+    public func next(
+        ofIndex index: Index,
+        looped: Bool = false
+    ) -> Element? where Element: Equatable {
+        guard indices.contains(index) else {
+            return nil
+        }
+        let nextIndex = self.index(after: index)
+        guard nextIndex != endIndex else {
+            return looped ? first : nil
+        }
+        return self[nextIndex]
+    }
+
+    public func next(
+        of element: Element,
+        looped: Bool = false
+    ) -> Element? where Element: Equatable {
+        guard let currentIndex = firstIndex(where: { $0 == element }) else {
+            return nil
+        }
+        return next(ofIndex: currentIndex, looped: looped)
+    }
+}
+
 // MARK: - Subscript
 
 extension Array {
@@ -32,6 +60,12 @@ extension Array {
             return nil
         }
         return self[index]
+    }
+
+    public subscript(safe bounds: Range<Int>) -> ArraySlice<Element> {
+        let lower = bounds.lowerBound.clamped(to: 0 ... count)
+        let upper = bounds.upperBound.clamped(to: 0 ... count)
+        return self[lower ..< upper]
     }
 }
 
