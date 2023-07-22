@@ -20,12 +20,23 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+import Appliable
 import Foundation
+
+extension LocalizedFormatter.Abbreviation {
+    public struct Item: Appliable {
+        public let suffix: String
+        public let threshold: NSDecimalNumber
+
+        public init(suffix: String, threshold: NSDecimalNumber) {
+            self.suffix = suffix
+            self.threshold = threshold
+        }
+    }
+}
 
 extension LocalizedFormatter {
     public struct Abbreviation {
-        public typealias Item = (suffix: String, threshold: NSDecimalNumber)
-
         public let items: [Item]
 
         public init(_ items: [Item] = []) {
@@ -43,7 +54,7 @@ extension LocalizedFormatter.Abbreviation {
     public var capitalized: Self {
         .init(
             items.map {
-                ($0.suffix.capitalized, $0.threshold)
+                .init(suffix: $0.suffix.capitalized, threshold: $0.threshold)
             }
         )
     }
@@ -54,8 +65,8 @@ extension LocalizedFormatter.Abbreviation {
 extension LocalizedFormatter.Abbreviation {
     public static var `default`: Self = .init(
         [
-            ("m", 1_000_000),
-            ("k", 1000)
+            .init(suffix: "m", threshold: 1_000_000),
+            .init(suffix: "k", threshold: 1000)
         ]
     )
 
