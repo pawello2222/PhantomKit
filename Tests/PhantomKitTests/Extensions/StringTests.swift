@@ -33,10 +33,19 @@ class StringTests: XCTestCase {
     }
 
     func test_shouldExtractLastPathComponent() throws {
-        XCTAssertEqual("/tmp/scratch.tiff".lastPathComponent, "scratch.tiff")
-        XCTAssertEqual("/tmp/scratch".lastPathComponent, "scratch")
+        XCTAssertEqual("/tmp/lock.tiff".lastPathComponent, "lock.tiff")
+        XCTAssertEqual("/tmp/lock".lastPathComponent, "lock")
         XCTAssertEqual("/tmp/".lastPathComponent, "tmp")
-        XCTAssertEqual("scratch///".lastPathComponent, "scratch")
+        XCTAssertEqual("lock///".lastPathComponent, "lock")
         XCTAssertEqual("/".lastPathComponent, "/")
+    }
+
+    func test_shouldDeleteLastPathComponent() throws {
+        XCTAssertEqual("/tmp/lock.tiff".deletingLastPathComponent, "/tmp")
+        XCTAssertEqual("/tmp/lock/".deletingLastPathComponent, "/tmp")
+        XCTAssertEqual("/tmp/".deletingLastPathComponent, "/")
+        XCTAssertEqual("/tmp".deletingLastPathComponent, "/")
+        XCTAssertEqual("/".deletingLastPathComponent, "/")
+        XCTAssertEqual("lock.tiff".deletingLastPathComponent, "")
     }
 }
