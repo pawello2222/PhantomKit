@@ -31,7 +31,7 @@ extension View {
         count: Int = 1,
         perform action: @escaping () -> Void
     ) -> some View {
-        contentShape(.rect)
+        contentShape(Rectangle())
             .onTapGesture(count: count, perform: action)
     }
 }
