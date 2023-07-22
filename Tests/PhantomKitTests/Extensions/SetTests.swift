@@ -24,7 +24,7 @@ import XCTest
 @testable import PhantomKit
 
 class SetTests: XCTestCase {
-    func test_set_toggleExistingElement_shouldRemoveElement() throws {
+    func test_toggleExistingElement_shouldRemoveElement() throws {
         var set = Set([1, 2, 3])
 
         set.toggle(3)
@@ -35,7 +35,7 @@ class SetTests: XCTestCase {
         XCTAssertFalse(set.contains(4))
     }
 
-    func test_set_toggleNonExistingElement_shouldAddElement() throws {
+    func test_toggleNonExistingElement_shouldAddElement() throws {
         var set = Set([1, 2, 3])
 
         set.toggle(4)

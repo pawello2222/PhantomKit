@@ -24,7 +24,7 @@ import XCTest
 @testable import PhantomKit
 
 class StringTests: XCTestCase {
-    func test_string_isHexNumber_shouldRecognizeHexNumbers() throws {
+    func test_isHexNumber_shouldRecognizeHexNumbers() throws {
         XCTAssertTrue("123".isHexNumber)
         XCTAssertTrue("aa32".isHexNumber)
         XCTAssertTrue("AD1".isHexNumber)

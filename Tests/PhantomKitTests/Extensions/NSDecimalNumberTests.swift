@@ -20,7 +20,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import Foundation
 import XCTest
 @testable import PhantomKit
 
@@ -88,11 +87,12 @@ class NSDecimalNumberTests: XCTestCase {
         XCTAssertEqual(lhs, result)
     }
 
-    // swiftlint:disable identifier_name
     func test_nsDecimalNumber_shouldCompareNumbers() throws {
+        // swiftlint:disable identifier_name
         let a = NSDecimalNumber(string: "-1.23")
         let b = NSDecimalNumber(string: "0.437")
         let c = NSDecimalNumber(string: "9.992")
+        // swiftlint:enable identifier_name
 
         XCTAssertTrue(a < b)
         XCTAssertTrue(a <= b)
