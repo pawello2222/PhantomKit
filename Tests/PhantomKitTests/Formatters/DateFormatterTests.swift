@@ -45,7 +45,14 @@ class DateFormatterTests: XCTestCase {
         )
         let date = Date(year: 2000, month: 3, day: 24, hour: 16, minute: 14, second: 44)
 
-        XCTAssertEqual(usFormatter.string(from: date), "03/24/2000, 4:14:44 PM")
+        // For some reason the space before `PM` is different
+        // depending on the platform
+        let result = usFormatter.string(from: date)
+        let expectations = [
+            "03/24/2000, 4:14:44 PM",
+            "03/24/2000, 4:14:44 PM"
+        ]
+        XCTAssertTrue(expectations.contains(result))
     }
 
     func test_dateFormatter_withLocalePL_shouldFormatDateTime() throws {
