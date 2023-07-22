@@ -20,26 +20,44 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import SafariServices
 import SwiftUI
+#if os(iOS) || os(tvOS)
+public typealias PlatformView = UIView
+public typealias PlatformViewRepresentable = UIViewRepresentable
+#elseif os(macOS)
+public typealias PlatformView = NSView
+public typealias PlatformViewRepresentable = NSViewRepresentable
+#endif
+
+/// Implementers get automatic `UIViewRepresentable` conformance on iOS
+/// and `NSViewRepresentable` conformance on macOS.
+public protocol ViewRepresentable: PlatformViewRepresentable {
+    associatedtype PlatformViewType
+    func makeView(context: Context) -> PlatformViewType
+    func updateView(_ view: PlatformViewType, context: Context)
+}
+
+// MARK: - Platform
 
 #if os(iOS) || os(tvOS)
-/// A view that encapsulates the functionality of `SFSafariViewController`.
-public struct SafariViewRepresentable: ViewControllerRepresentable {
-    private let url: URL
-    private let tintColor: Color
-
-    public init(url: URL, tintColor: Color = .accentColor) {
-        self.url = url
-        self.tintColor = tintColor
+extension ViewRepresentable where UIViewType == PlatformViewType {
+    public func makeUIView(context: Context) -> UIViewType {
+        makeView(context: context)
     }
 
-    public func makeViewController(context: Context) -> SFSafariViewController {
-        .init(url: url).apply {
-            $0.preferredControlTintColor = .init(tintColor)
-        }
+    public func updateUIView(_ uiView: UIViewType, context: Context) {
+        updateView(uiView, context: context)
+    }
+}
+
+#elseif os(macOS)
+extension ViewRepresentable where NSViewType == PlatformViewType {
+    public func makeNSView(context: Context) -> NSViewType {
+        makeView(context: context)
     }
 
-    public func updateViewController(_ viewController: SFSafariViewController, context: Context) {}
+    public func updateNSView(_ nsView: NSViewType, context: Context) {
+        updateView(nsView, context: context)
+    }
 }
 #endif

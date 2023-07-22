@@ -24,19 +24,19 @@ import PDFKit
 import SwiftUI
 
 /// A view that encapsulates the functionality of `PDFView`.
-public struct PDFViewRepresentable: UIViewRepresentable {
+public struct PDFViewRepresentable: ViewRepresentable {
     private let url: URL
 
     public init(url: URL) {
         self.url = url
     }
 
-    public func makeUIView(context: Context) -> PDFView {
+    public func makeView(context: Context) -> PDFView {
         .init().apply {
             $0.document = .init(url: url)
             $0.autoScales = true
         }
     }
 
-    public func updateUIView(_ uiView: PDFView, context: Context) {}
+    public func updateView(_ view: PDFView, context: Context) {}
 }

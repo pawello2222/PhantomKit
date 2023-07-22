@@ -24,6 +24,7 @@ import SwiftUI
 
 /// A view modifier that creates a button that presents a Safari view
 /// as a modal view that covers as much of the screen as possible.
+#if os(iOS) || os(tvOS)
 public struct LinkViewModifier: ViewModifier {
     @State private var isPresented = false
 
@@ -45,6 +46,26 @@ public struct LinkViewModifier: ViewModifier {
         }
     }
 }
+
+#elseif os(macOS)
+public struct LinkViewModifier: ViewModifier {
+    @Environment(\.openURL) private var openURL
+
+    private let url: URL
+
+    public init(url: URL) {
+        self.url = url
+    }
+
+    public func body(content: Content) -> some View {
+        Button {
+            openURL(url)
+        } label: {
+            content
+        }
+    }
+}
+#endif
 
 // MARK: - Convenience
 
