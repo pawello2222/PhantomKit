@@ -23,6 +23,10 @@ jobs:
   test:
     runs-on: macos-13
     steps:
+    - name: Install Swift
+      uses: slashmo/install-swift@v0.2.1
+      with:
+        version: 5.9
     - name: Checkout
       uses: actions/checkout@v3
     - name: Test
