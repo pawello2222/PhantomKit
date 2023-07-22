@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "F73A33EF-D29E-445C-BF6F-D2E1AF9FF708",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:",
+          "identifier" : "PhantomKit",
+          "name" : "PhantomKit"
+        }
+      ]
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "PhantomKitTests",
+        "name" : "PhantomKitTests"
+      }
+    }
+  ],
+  "version" : 1
+}
