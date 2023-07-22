@@ -1,14 +1,28 @@
 <p align="center">
-<img src="Resources/logo.svg" alt="PhantomKit logo" height=200>
+  <img src=".resources/Assets/logo.png" alt="PhantomKit logo" height=150>
 </p>
 <p align="center">
-  <a href="https://github.com/pawello2222/PhantomKit"><img src="https://img.shields.io/github/workflow/status/pawello2222/PhantomKit/build?logo=github" alt="Build"></a>
-  <a href="https://app.codecov.io/gh/pawello2222/PhantomKit"><img src="https://img.shields.io/codecov/c/github/pawello2222/PhantomKit?logo=codecov" alt="Code coverage"></a>
-  <a href="https://github.com/pawello2222/PhantomKit"><img src="https://img.shields.io/badge/language-swift-orange.svg" alt="Language"></a>
-  <a href="https://github.com/pawello2222/PhantomKit"><img src="https://img.shields.io/badge/platform-iOS-lightgrey" alt="Supported Platform"></a>
-  <a href="https://github.com/pawello2222/PhantomKit"><img src="https://img.shields.io/badge/SPM-compatible-brightgreen.svg" alt="Swift Package Manager"></a>
-  <a href="https://github.com/pawello2222/PhantomKit/releases"><img src="https://img.shields.io/github/v/release/pawello2222/PhantomKit" alt="Release version"></a>
-  <a href="https://github.com/pawello2222/PhantomKit/blob/main/LICENSE"><img src="https://img.shields.io/github/license/pawello2222/PhantomKit" alt="License"></a>
+  <a href="https://github.com/pawello2222/PhantomKit/actions?query=branch%3Amain">
+    <img src="https://img.shields.io/github/actions/workflow/status/pawello2222/PhantomKit/ci.yml?logo=github" alt="Build">
+  </a>
+  <a href="https://codecov.io/gh/pawello2222/PhantomKit">
+    <img src="https://codecov.io/gh/pawello2222/PhantomKit/branch/main/graph/badge.svg?token=TFHOHUXCVJ" alt="Code coverage">
+  </a>
+  <a href="https://github.com/pawello2222/PhantomKit">
+    <img src="https://img.shields.io/badge/language-swift-orange.svg" alt="Language">
+  </a>
+  <a href="https://github.com/pawello2222/PhantomKit#installation">
+    <img src="https://img.shields.io/badge/platform-iOS%20%7C%20macOS-lightgrey.svg" alt="Supported platforms">
+  </a>
+  <a href="https://github.com/pawello2222/PhantomKit#installation">
+    <img src="https://img.shields.io/badge/SPM-compatible-brightgreen.svg" alt="Swift Package Manager">
+  </a>
+  <a href="https://github.com/pawello2222/PhantomKit/releases">
+    <img src="https://img.shields.io/github/v/release/pawello2222/PhantomKit" alt="Release version">
+  </a>
+  <a href="https://github.com/pawello2222/PhantomKit/blob/main/LICENSE.md">
+    <img src="https://img.shields.io/github/license/pawello2222/PhantomKit" alt="License">
+  </a>
 </p>
 
 # PhantomKit
