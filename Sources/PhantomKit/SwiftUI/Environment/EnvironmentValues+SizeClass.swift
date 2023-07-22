@@ -23,6 +23,7 @@
 import SwiftUI
 
 #if os(macOS)
+/// A set of values that indicate the visual size available to the view.
 public enum UserInterfaceSizeClass {
     case compact
     case regular
@@ -35,6 +36,7 @@ extension EnvironmentValues {
         static let defaultValue: UserInterfaceSizeClass = .regular
     }
 
+    /// The horizontal size class of this environment.
     public var horizontalSizeClass: UserInterfaceSizeClass {
         get { self[HorizontalSizeClassEnvironmentKey.self] }
         set { self[HorizontalSizeClassEnvironmentKey.self] = newValue }
@@ -48,6 +50,7 @@ extension EnvironmentValues {
         static let defaultValue: UserInterfaceSizeClass = .regular
     }
 
+    /// The vertical size class of this environment.
     public var verticalSizeClass: UserInterfaceSizeClass {
         get { self[VerticalSizeClassEnvironmentKey.self] }
         set { self[VerticalSizeClassEnvironmentKey.self] = newValue }
