@@ -25,6 +25,7 @@ import Foundation
 
 public typealias XDateFormatter = LocalizedDateFormatter
 
+/// A formatter that converts between dates and their textual representations.
 public class LocalizedDateFormatter: ObjectAppliable {
     // MARK: Public Properties
 

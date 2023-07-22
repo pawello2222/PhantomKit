@@ -25,6 +25,7 @@ import Foundation
 
 public typealias XFormatter = LocalizedFormatter
 
+/// A formatter that converts between numeric values and their textual representations.
 public class LocalizedFormatter: ObjectAppliable {
     // MARK: Public Properties
 
