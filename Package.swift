@@ -12,10 +12,10 @@ let package = Package(
         .library(
             name: "PhantomKit",
             targets: ["PhantomKit"]
-        ),
+        )
     ],
     dependencies: [
-        .package(url: "https://github.com/pawello2222/Appliable", from: "1.0.0"),
+        .package(url: "https://github.com/pawello2222/Appliable", from: "1.0.0")
     ],
     targets: [
         .target(
@@ -25,6 +25,6 @@ let package = Package(
         .testTarget(
             name: "PhantomKitTests",
             dependencies: ["PhantomKit"]
-        ),
+        )
     ]
 )

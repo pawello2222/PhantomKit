@@ -28,9 +28,11 @@ extension LocalizedFormatter {
 
         public let items: [Item]
 
-        /// Items have to be in descending order - highest threshold first.
         public init(_ items: [Item] = []) {
             self.items = items
+                .sorted {
+                    $0.threshold > $1.threshold
+                }
         }
     }
 }
@@ -53,7 +55,7 @@ extension LocalizedFormatter.Abbreviation {
     public static var `default`: Self = .init(
         [
             ("m", 1_000_000),
-            ("k", 1000),
+            ("k", 1000)
         ]
     )
 

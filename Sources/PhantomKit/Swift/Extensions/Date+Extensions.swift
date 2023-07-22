@@ -51,6 +51,7 @@ extension Date {
 
 // MARK: - Adjusting
 
+// swiftlint:disable cyclomatic_complexity
 extension Date {
     /// Returns a new `Date` representing the date calculated
     /// by adjusting a given component of a date.
@@ -106,6 +107,7 @@ extension Date {
         calendar.date(byAdding: components, to: self)!
     }
 }
+// swiftlint:enable cyclomatic_complexity
 
 // MARK: - Components
 

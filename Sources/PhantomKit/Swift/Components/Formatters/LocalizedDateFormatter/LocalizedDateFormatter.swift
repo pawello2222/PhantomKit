@@ -64,8 +64,8 @@ extension LocalizedDateFormatter {
         dateComponentsFormatter.string(from: dateComponents) ?? invalidValueString
     }
 
-    public func string(from ti: TimeInterval) -> String {
-        dateComponentsFormatter.string(from: ti) ?? invalidValueString
+    public func string(from timeInterval: TimeInterval) -> String {
+        dateComponentsFormatter.string(from: timeInterval) ?? invalidValueString
     }
 
     public func string(from startDate: Date, to endDate: Date) -> String {
