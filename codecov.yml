@@ -1,0 +1,4 @@
+coverage:
+  ignore:
+    - "Sources/PhantomKit/SwiftUI"
+    - "Tests/PhantomKitTests"

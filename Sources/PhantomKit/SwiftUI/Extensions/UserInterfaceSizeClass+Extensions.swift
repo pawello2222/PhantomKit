@@ -31,7 +31,7 @@ public enum UserInterfaceSizeClass {
 // MARK: - HorizontalSizeClass
 
 extension EnvironmentValues {
-    struct HorizontalSizeClassEnvironmentKey: EnvironmentKey {
+    private struct HorizontalSizeClassEnvironmentKey: EnvironmentKey {
         static let defaultValue: UserInterfaceSizeClass = .regular
     }
 
@@ -44,7 +44,7 @@ extension EnvironmentValues {
 // MARK: - VerticalSizeClass
 
 extension EnvironmentValues {
-    struct VerticalSizeClassEnvironmentKey: EnvironmentKey {
+    private struct VerticalSizeClassEnvironmentKey: EnvironmentKey {
         static let defaultValue: UserInterfaceSizeClass = .regular
     }
 
