@@ -23,6 +23,20 @@
 import Foundation
 
 extension NSDecimalNumber {
+    public var absValue: NSDecimalNumber {
+        .init(decimal: decimalValue.magnitude)
+    }
+}
+
+extension NSDecimalNumber {
+    public func rounded(toPlaces decimals: Int) -> NSDecimalNumber {
+        rounding(accordingToBehavior: NSDecimalNumberHandler.scaled(decimals))
+    }
+}
+
+// MARK: - Operators
+
+extension NSDecimalNumber {
     public static func + (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> NSDecimalNumber {
         lhs.adding(rhs, withBehavior: NSDecimalNumberHandler.default)
     }
@@ -40,7 +54,6 @@ extension NSDecimalNumber {
     }
 }
 
-// swiftlint:disable shorthand_operator
 extension NSDecimalNumber {
     public static func += (lhs: inout NSDecimalNumber, rhs: NSDecimalNumber) {
         lhs = lhs + rhs
@@ -78,18 +91,6 @@ extension NSDecimalNumber {
 
     public static func >= (lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> Bool {
         lhs.compare(rhs).isContained(in: [.orderedDescending, .orderedSame])
-    }
-}
-
-extension NSDecimalNumber {
-    public func rounded(toPlaces decimals: Int) -> NSDecimalNumber {
-        rounding(accordingToBehavior: NSDecimalNumberHandler.scaled(decimals))
-    }
-}
-
-extension NSDecimalNumber {
-    public var absValue: NSDecimalNumber {
-        .init(decimal: decimalValue.magnitude)
     }
 }
 

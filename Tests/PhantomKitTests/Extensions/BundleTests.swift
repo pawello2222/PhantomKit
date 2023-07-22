@@ -24,7 +24,7 @@ import XCTest
 @testable import PhantomKit
 
 class BundleTests: XCTestCase {
-    func test_toggleExistingElement_shouldRemoveElement() throws {
+    func test_bundleProperties_shouldMatchInfoDictionary() throws {
         let bundle = self.bundle
         let infoDictionary = self.infoDictionary
 

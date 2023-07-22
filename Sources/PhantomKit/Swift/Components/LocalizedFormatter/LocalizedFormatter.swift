@@ -23,6 +23,8 @@
 import Appliable
 import Foundation
 
+public typealias XFormatter = LocalizedFormatter
+
 public class LocalizedFormatter: ObjectAppliable {
     // MARK: Public Properties
 

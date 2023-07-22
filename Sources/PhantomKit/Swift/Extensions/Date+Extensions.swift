@@ -22,17 +22,10 @@
 
 import Foundation
 
+// MARK: - Convenience
+
 extension Date {
-    /// Convenient initializer to create a `Date` object.
-    ///
-    /// - Parameters:
-    ///   - year: Year to set on the Date.
-    ///   - month: Month to set on the Date.
-    ///   - day: Date to set on the Date.
-    ///   - hour: Hour to set on the Date.
-    ///   - minute: Minute to set on the Date.
-    ///   - second: Second to set on the Date.
-    ///   - calendar: Calendar to set on the Date.
+    /// Returns a `Date` initialized from given components of a date.
     public init(
         year: Int,
         month: Int = 1,
@@ -42,7 +35,7 @@ extension Date {
         second: Int? = nil,
         calendar: Calendar = .current
     ) {
-        let dateComponent = DateComponents(
+        let dateComponents = DateComponents(
             calendar: calendar,
             timeZone: calendar.timeZone,
             year: year,
@@ -52,18 +45,15 @@ extension Date {
             minute: minute,
             second: second
         )
-
-        self = dateComponent.date!
+        self = dateComponents.date!
     }
 }
 
+// MARK: - Adjusting
+
 extension Date {
-    /// Adjusts the receiver's given component by the given offset in set calendar.
-    ///
-    /// - Parameters:
-    ///   - component: Component to adjust.
-    ///   - offset: Offset to use for adjustment.
-    ///   - calendar: The calendar to use for adjustment.
+    /// Returns a new `Date` representing the date calculated
+    /// by adjusting a given component of a date.
     public func adjusting(
         _ component: Calendar.Component,
         by offset: Int,
@@ -107,36 +97,32 @@ extension Date {
         return adjusting(dateComponent, in: calendar)
     }
 
-    /// Adjusts the receiver by given date components.
-    ///
-    /// - Parameters:
-    ///   - components: DateComponents object that contains adjustment values.
-    ///   - calendar: The calendar to use for adjustment.
-    public func adjusting(_ components: DateComponents, in calendar: Calendar = .current) -> Date {
+    /// Returns a new `Date` representing the date calculated
+    /// by adding components to a given date in a given calendar.
+    public func adjusting(
+        _ components: DateComponents,
+        in calendar: Calendar = .current
+    ) -> Date {
         calendar.date(byAdding: components, to: self)!
-    }
-
-    /// Retrieves the receiver's given component value.
-    ///
-    /// - Parameters:
-    ///   - component: Component to get the value for.
-    ///   - calendar: The calendar to use for retrieval.
-    public func component(_ component: Calendar.Component, in calendar: Calendar = .current) -> Int {
-        calendar.component(component, from: self)
     }
 }
 
+// MARK: - Components
+
 extension Date {
+    /// Returns the value for one component of a date in a given calendar.
+    public func component(
+        _ component: Calendar.Component,
+        in calendar: Calendar = .current
+    ) -> Int {
+        calendar.component(component, from: self)
+    }
+
+    /// Returns all the date components of a date in a given calendar.
     public func dateComponents(
         _ components: Set<Calendar.Component>,
         in calendar: Calendar = .current
     ) -> DateComponents {
         calendar.dateComponents(components, from: self)
-    }
-}
-
-extension Date {
-    public func localizedString(formatter: LocalizedDateFormatter = .date) -> String {
-        formatter.string(from: self)
     }
 }

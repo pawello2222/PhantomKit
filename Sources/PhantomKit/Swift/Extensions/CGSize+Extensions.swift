@@ -34,11 +34,18 @@ extension CGSize {
     }
 }
 
-extension CGSize {
-    public init(_ value: CGFloat) {
-        self = CGSize(width: value, height: value)
-    }
+// MARK: - Convenience
 
+extension CGSize {
+    /// Creates a new instance by assigning `length` to both width and height.
+    public init(length: CGFloat) {
+        self = CGSize(width: length, height: length)
+    }
+}
+
+// MARK: - Operators
+
+extension CGSize {
     public static func += (lhs: inout Self, rhs: Self) {
         lhs.width += rhs.width
         lhs.height += rhs.height

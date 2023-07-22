@@ -23,6 +23,8 @@
 import Appliable
 import Foundation
 
+public typealias XDateFormatter = LocalizedDateFormatter
+
 public class LocalizedDateFormatter: ObjectAppliable {
     // MARK: Public Properties
 
@@ -138,4 +140,12 @@ extension LocalizedDateFormatter {
     public static var datetimeComponents = dateComponents(
         allowedUnits: [.year, .month, .day, .hour, .minute, .second]
     )
+}
+
+// MARK: - Date
+
+extension Date {
+    public func localizedString(formatter: LocalizedDateFormatter = .date) -> String {
+        formatter.string(from: self)
+    }
 }

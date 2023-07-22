@@ -22,6 +22,8 @@
 
 import Foundation
 
+// MARK: - Mutations
+
 extension Set {
     /// Removes the element if it's present in the set
     /// or inserts it otherwise.

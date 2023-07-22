@@ -23,6 +23,7 @@
 import Foundation
 
 extension ByteCountFormatter {
+    /// Converts a byte count of data into a string.
     public func string(for data: Data) -> String {
         string(fromByteCount: Int64(data.count))
     }
