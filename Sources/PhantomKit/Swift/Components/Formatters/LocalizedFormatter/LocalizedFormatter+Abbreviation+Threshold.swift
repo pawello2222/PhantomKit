@@ -22,42 +22,14 @@
 
 import Foundation
 
-extension LocalizedFormatter {
-    public struct Abbreviation {
-        public let thresholds: [Threshold]
+extension LocalizedFormatter.Abbreviation {
+    public struct Threshold {
+        public let suffix: String
+        public let value: NSDecimalNumber
 
-        public init(_ thresholds: [Threshold] = []) {
-            self.thresholds = thresholds
-                .sorted {
-                    $0.value > $1.value
-                }
+        public init(suffix: String, value: NSDecimalNumber) {
+            self.suffix = suffix
+            self.value = value
         }
     }
-}
-
-// MARK: - Computed Properties
-
-extension LocalizedFormatter.Abbreviation {
-    public var capitalized: Self {
-        .init(
-            thresholds.map {
-                .init(suffix: $0.suffix.capitalized, value: $0.value)
-            }
-        )
-    }
-}
-
-// MARK: - Convenience
-
-extension LocalizedFormatter.Abbreviation {
-    public static var `default`: Self = .init(
-        [
-            .init(suffix: "m", value: 1_000_000),
-            .init(suffix: "k", value: 1000)
-        ]
-    )
-
-    public static var none: Self = .init()
-
-    public static var capitalized = Self.default.capitalized
 }

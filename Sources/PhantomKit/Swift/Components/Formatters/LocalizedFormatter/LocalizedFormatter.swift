@@ -164,9 +164,9 @@ extension LocalizedFormatter {
         from value: NSDecimalNumber,
         abbreviation: Abbreviation
     ) -> String {
-        for (suffix, threshold) in abbreviation.items where value.absValue >= threshold {
-            return with(abbreviationSuffix: suffix) {
-                string(from: value / threshold)
+        for threshold in abbreviation.thresholds where value.absValue >= threshold.value {
+            return with(abbreviationSuffix: threshold.suffix) {
+                string(from: value / threshold.value)
             }
         }
         return string(from: value)
