@@ -1,4 +1,0 @@
-coverage:
-  ignore:
-    - "Sources/PhantomKit/Swift/Helpers/Constants.swift"
-    - "Tests/PhantomKitTests"
