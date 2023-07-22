@@ -22,54 +22,7 @@
 
 import Foundation
 
-// MARK: Iterator
-
-extension Array {
-    public func next(
-        ofIndex index: Index,
-        looped: Bool = false
-    ) -> Element? where Element: Equatable {
-        guard indices.contains(index) else {
-            return nil
-        }
-        let nextIndex = self.index(after: index)
-        guard nextIndex != endIndex else {
-            return looped ? first : nil
-        }
-        return self[nextIndex]
-    }
-
-    public func next(
-        of element: Element,
-        looped: Bool = false
-    ) -> Element? where Element: Equatable {
-        guard let currentIndex = firstIndex(where: { $0 == element }) else {
-            return nil
-        }
-        return next(ofIndex: currentIndex, looped: looped)
-    }
-}
-
-// MARK: - Subscript
-
-extension Array {
-    /// Accesses the element at the specified position.
-    /// Returns `nil` if the index is out of bounds.
-    public subscript(safe index: Int) -> Element? {
-        guard 0 ..< count ~= index else {
-            return nil
-        }
-        return self[index]
-    }
-
-    public subscript(safe bounds: Range<Int>) -> ArraySlice<Element> {
-        let lower = bounds.lowerBound.clamped(to: 0 ... count)
-        let upper = bounds.upperBound.clamped(to: 0 ... count)
-        return self[lower ..< upper]
-    }
-}
-
-// MARK: Toggle
+// MARK: Mutations
 
 extension Array where Element: Equatable {
     /// Removes the element if it's present in the array
@@ -80,5 +33,26 @@ extension Array where Element: Equatable {
         } else {
             append(element)
         }
+    }
+}
+
+// MARK: - Subscripts
+
+extension Array {
+    /// Accesses the element at the specified position in a safe manner
+    /// by returning `nil` if the index is out of bounds.
+    public subscript(safe index: Int) -> Element? {
+        guard 0 ..< count ~= index else {
+            return nil
+        }
+        return self[index]
+    }
+
+    /// Accesses a contiguous subrange of the array's elements
+    /// in a safe manner by clamping the bounds.
+    public subscript(safe bounds: Range<Int>) -> ArraySlice<Element> {
+        let lower = bounds.lowerBound.clamped(to: 0 ... count)
+        let upper = bounds.upperBound.clamped(to: 0 ... count)
+        return self[lower ..< upper]
     }
 }

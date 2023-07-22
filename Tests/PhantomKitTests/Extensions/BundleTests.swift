@@ -20,43 +20,41 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import Foundation
+import XCTest
+@testable import PhantomKit
 
-extension Bundle {
-    /// The name of the executable in this bundle (if any).
-    public var executable: String {
-        info(forKey: kCFBundleExecutableKey)
-    }
+class BundleTests: XCTestCase {
+    func test_toggleExistingElement_shouldRemoveElement() throws {
+        let bundle = self.bundle
+        let infoDictionary = self.infoDictionary
 
-    /// The bundle identifier.
-    public var identifier: String {
-        info(forKey: kCFBundleIdentifierKey)
-    }
-
-    /// The version number of the bundle (e.g., `"1.0"`).
-    public var versionNumber: String {
-        info(forKey: "CFBundleShortVersionString")
-    }
-
-    /// The build number of the bundle (e.g., `"300"`).
-    public var buildNumber: String {
-        info(forKey: kCFBundleVersionKey)
-    }
-
-    /// The version and build number of the bundle (e.g., `"1.0 (300)"`).
-    public var versionBuildNumber: String {
-        "\(versionNumber) (\(buildNumber))"
+        XCTAssertEqual(
+            bundle.executable,
+            infoDictionary?["CFBundleExecutable"] as? String
+        )
+        XCTAssertEqual(
+            bundle.identifier,
+            infoDictionary?["CFBundleIdentifier"] as? String
+        )
+        XCTAssertEqual(
+            bundle.versionNumber,
+            infoDictionary?["CFBundleShortVersionString"] as? String
+        )
+        XCTAssertEqual(
+            bundle.buildNumber,
+            infoDictionary?["CFBundleVersion"] as? String
+        )
     }
 }
 
 // MARK: - Private
 
-extension Bundle {
-    private func info(forKey key: String) -> String {
-        infoDictionary?[key] as? String ?? ""
+extension BundleTests {
+    private var bundle: Bundle {
+        Bundle.main
     }
 
-    private func info(forKey key: CFString) -> String {
-        info(forKey: key as String)
+    private var infoDictionary: [String: Any]? {
+        bundle.infoDictionary
     }
 }
