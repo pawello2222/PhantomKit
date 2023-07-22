@@ -135,10 +135,11 @@ extension LocalizedFormatter {
         sign: Sign = .default,
         precision: Precision? = nil
     ) -> String {
-        let roundedValue = if let places = precision?.maximum ?? defaultPrecision.maximum {
-            value.rounded(toPlaces: places)
+        var roundedValue: NSDecimalNumber
+        if let places = precision?.maximum ?? defaultPrecision.maximum {
+            roundedValue = value.rounded(toPlaces: places)
         } else {
-            value
+            roundedValue = value
         }
         guard roundedValue != .zero else {
             if usesSignForZero {
