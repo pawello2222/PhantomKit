@@ -1,4 +1,9 @@
 coverage:
   ignore:
-    - "Sources/PhantomKit/Swift/Helpers/Constants.swift"
-    - "Tests/PhantomKitTests"
+    - "Sources/PhantomKit/SwiftUI"
+    - "Tests"
+  status:
+    project:
+      default:
+        target: 95%
+        threshold: 3%
