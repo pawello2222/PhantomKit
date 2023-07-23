@@ -22,7 +22,7 @@
 
 import Foundation
 
-extension LocalizedFormatter {
+extension XFormatter {
     public struct Sign {
         public let plus: Style
         public let minus: Style
@@ -38,7 +38,7 @@ extension LocalizedFormatter {
 
 // MARK: - Style
 
-extension LocalizedFormatter.Sign {
+extension XFormatter.Sign {
     public enum Style {
         case none
         case localized
@@ -48,7 +48,7 @@ extension LocalizedFormatter.Sign {
 
 // MARK: - Convenience
 
-extension LocalizedFormatter.Sign {
+extension XFormatter.Sign {
     public static var `default`: Self {
         .init(plus: .none, minus: .localized)
     }

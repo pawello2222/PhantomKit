@@ -22,7 +22,7 @@
 
 import Foundation
 
-extension LocalizedFormatter {
+extension XFormatter {
     public struct Precision {
         public let minimum: Int?
         public let maximum: Int?
@@ -31,7 +31,7 @@ extension LocalizedFormatter {
 
 // MARK: - Initialization
 
-extension LocalizedFormatter.Precision {
+extension XFormatter.Precision {
     public init() {
         minimum = nil
         maximum = nil
@@ -59,7 +59,7 @@ extension LocalizedFormatter.Precision {
 
 // MARK: - Convenience
 
-extension LocalizedFormatter.Precision {
+extension XFormatter.Precision {
     public static var `default`: Self {
         .init(...2)
     }

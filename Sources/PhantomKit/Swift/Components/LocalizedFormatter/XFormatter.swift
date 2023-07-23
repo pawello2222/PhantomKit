@@ -23,10 +23,8 @@
 import Appliable
 import Foundation
 
-public typealias XFormatter = LocalizedFormatter
-
 /// A formatter that converts between numeric values and their textual representations.
-public class LocalizedFormatter: ObjectAppliable {
+public class XFormatter: ObjectAppliable {
     // MARK: Public Properties
 
     public var usesGroupingSeparator = false {
@@ -57,7 +55,7 @@ public class LocalizedFormatter: ObjectAppliable {
 
 // MARK: - Format to Number
 
-extension LocalizedFormatter {
+extension XFormatter {
     public func number(from string: String) -> NSNumber? {
         formatter.number(from: string)
     }
@@ -72,7 +70,7 @@ extension LocalizedFormatter {
 
 // MARK: - Format to String
 
-extension LocalizedFormatter {
+extension XFormatter {
     public func string(
         from value: Int,
         abbreviation: Abbreviation = .none,
@@ -180,7 +178,7 @@ extension LocalizedFormatter {
 
 // MARK: - Helpers
 
-extension LocalizedFormatter {
+extension XFormatter {
     private func with<T>(abbreviationSuffix: String, _ block: () -> T) -> T {
         let existingPositiveSuffix = formatter.positiveSuffix
         let existingNegativeSuffix = formatter.negativeSuffix
@@ -268,27 +266,27 @@ extension LocalizedFormatter {
 
 // MARK: - Convenience
 
-extension LocalizedFormatter {
+extension XFormatter {
     public static func currency(
         locale: Locale = .current,
         currencyCode: String = Locale.current.currency?.identifier ?? "USD"
-    ) -> LocalizedFormatter {
-        LocalizedFormatter().apply {
+    ) -> XFormatter {
+        XFormatter().apply {
             $0.formatter.numberStyle = .currency
             $0.formatter.locale = .init(identifier: "\(locale.identifier)@currency=\(currencyCode)")
             $0.defaultPrecision = .constant(2)
         }
     }
 
-    public static func decimal(locale: Locale = .current) -> LocalizedFormatter {
-        LocalizedFormatter().apply {
+    public static func decimal(locale: Locale = .current) -> XFormatter {
+        XFormatter().apply {
             $0.formatter.numberStyle = .decimal
             $0.formatter.locale = locale
         }
     }
 
-    public static func percent(locale: Locale = .current) -> LocalizedFormatter {
-        LocalizedFormatter().apply {
+    public static func percent(locale: Locale = .current) -> XFormatter {
+        XFormatter().apply {
             $0.formatter.numberStyle = .percent
             $0.formatter.locale = locale
             $0.formatter.multiplier = 1
@@ -296,7 +294,7 @@ extension LocalizedFormatter {
     }
 }
 
-extension LocalizedFormatter {
+extension XFormatter {
     public static var currency = currency()
 
     public static var decimal = decimal()

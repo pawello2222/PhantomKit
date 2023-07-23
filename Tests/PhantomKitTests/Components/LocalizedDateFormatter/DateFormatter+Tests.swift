@@ -25,21 +25,21 @@ import XCTest
 
 class DateFormatterTests: XCTestCase {
     func test_shouldFormatDate() throws {
-        let usFormatter = LocalizedFormatter.date(locale: .init(identifier: "en_US"))
+        let usFormatter = XFormatter.date(locale: .init(identifier: "en_US"))
         let date = Date(year: 2000, month: 3, day: 24)
 
         XCTAssertEqual(usFormatter.string(from: date), "03/24/2000")
     }
 
     func test_withLocalePL_shouldFormatDate() throws {
-        let plFormatter = LocalizedFormatter.date(locale: .init(identifier: "pl_PL"))
+        let plFormatter = XFormatter.date(locale: .init(identifier: "pl_PL"))
         let date = Date(year: 2000, month: 3, day: 24)
 
         XCTAssertEqual(plFormatter.string(from: date), "24.03.2000")
     }
 
     func test_shouldFormatDateTime() throws {
-        let usFormatter = LocalizedFormatter.date(
+        let usFormatter = XFormatter.date(
             locale: .init(identifier: "en_US"),
             localizedFormat: "yyyyMMddjjmmss"
         )
@@ -56,7 +56,7 @@ class DateFormatterTests: XCTestCase {
     }
 
     func test_withLocalePL_shouldFormatDateTime() throws {
-        let plFormatter = LocalizedFormatter.date(
+        let plFormatter = XFormatter.date(
             locale: .init(identifier: "pl_PL"),
             localizedFormat: "yyyyMMddjjmmss"
         )
@@ -66,7 +66,7 @@ class DateFormatterTests: XCTestCase {
     }
 
     func test_withFixedFormat_shouldFormatDate() throws {
-        let usFormatter = LocalizedFormatter.date(
+        let usFormatter = XFormatter.date(
             locale: .usPosix,
             format: "yyyy-MM-dd"
         )
@@ -76,7 +76,7 @@ class DateFormatterTests: XCTestCase {
     }
 
     func test_withCustomTimeZone_shouldParseDate() throws {
-        let usFormatter = LocalizedFormatter.date(
+        let usFormatter = XFormatter.date(
             locale: .usPosix,
             format: "HH:mm:ss"
         )
@@ -87,7 +87,7 @@ class DateFormatterTests: XCTestCase {
     }
 
     func test_date_localizedString_shouldFormatDate() throws {
-        let usFormatter = LocalizedFormatter.date(locale: .init(identifier: "en_US"))
+        let usFormatter = XFormatter.date(locale: .init(identifier: "en_US"))
         let date = Date(year: 2000, month: 3, day: 24)
 
         XCTAssertEqual(date.localizedString(formatter: usFormatter), "03/24/2000")

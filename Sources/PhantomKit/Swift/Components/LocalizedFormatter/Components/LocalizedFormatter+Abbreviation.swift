@@ -22,7 +22,7 @@
 
 import Foundation
 
-extension LocalizedFormatter {
+extension XFormatter {
     public struct Abbreviation {
         public let thresholds: [Threshold]
 
@@ -37,7 +37,7 @@ extension LocalizedFormatter {
 
 // MARK: - Computed Properties
 
-extension LocalizedFormatter.Abbreviation {
+extension XFormatter.Abbreviation {
     public var capitalized: Self {
         .init(
             thresholds.map {
@@ -49,7 +49,7 @@ extension LocalizedFormatter.Abbreviation {
 
 // MARK: - Convenience
 
-extension LocalizedFormatter.Abbreviation {
+extension XFormatter.Abbreviation {
     public static var `default`: Self = .init(
         [
             .init(suffix: "m", value: 1_000_000),

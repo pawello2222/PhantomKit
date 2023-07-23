@@ -25,7 +25,7 @@ import Foundation
 
 // MARK: - Format to Date
 
-extension LocalizedFormatter {
+extension XFormatter {
     public func date(from string: String, timeZone: TimeZone? = nil) -> Date? {
         with(timeZone: timeZone) {
             dateFormatter.date(from: string)
@@ -35,13 +35,13 @@ extension LocalizedFormatter {
 
 // MARK: - Format to String
 
-extension LocalizedFormatter {
+extension XFormatter {
     public func string(from date: Date) -> String {
         dateFormatter.string(from: date)
     }
 }
 
-extension LocalizedFormatter {
+extension XFormatter {
     public func string(from dateComponents: DateComponents) -> String {
         dateComponentsFormatter.string(from: dateComponents) ?? invalidValueString
     }
@@ -57,7 +57,7 @@ extension LocalizedFormatter {
 
 // MARK: - Helpers
 
-extension LocalizedFormatter {
+extension XFormatter {
     private func with<T>(timeZone: TimeZone?, _ block: () -> T) -> T {
         let existingTimeZone = dateFormatter.timeZone
         dateFormatter.timeZone = timeZone
@@ -69,12 +69,12 @@ extension LocalizedFormatter {
 
 // MARK: - Convenience
 
-extension LocalizedFormatter {
+extension XFormatter {
     public static func date(
         locale: Locale = .current,
         format: String
-    ) -> LocalizedFormatter {
-        LocalizedFormatter().apply {
+    ) -> XFormatter {
+        XFormatter().apply {
             $0.dateFormatter.locale = locale
             $0.dateFormatter.dateFormat = format
         }
@@ -83,8 +83,8 @@ extension LocalizedFormatter {
     public static func date(
         locale: Locale = .current,
         localizedFormat: String = "yyyyMMdd"
-    ) -> LocalizedFormatter {
-        LocalizedFormatter().apply {
+    ) -> XFormatter {
+        XFormatter().apply {
             $0.dateFormatter.locale = locale
             $0.dateFormatter.setLocalizedDateFormatFromTemplate(localizedFormat)
         }
@@ -94,8 +94,8 @@ extension LocalizedFormatter {
         locale: Locale = .current,
         allowedUnits: NSCalendar.Unit = [.hour, .minute, .second],
         unitsStyle: DateComponentsFormatter.UnitsStyle = .full
-    ) -> LocalizedFormatter {
-        LocalizedFormatter().apply {
+    ) -> XFormatter {
+        XFormatter().apply {
             $0.dateComponentsFormatter.calendar = Calendar.current.applying {
                 $0.locale = locale
             }
@@ -105,7 +105,7 @@ extension LocalizedFormatter {
     }
 }
 
-extension LocalizedFormatter {
+extension XFormatter {
     public static var date = date(localizedFormat: "yyyyMMdd")
 
     public static var time = date(localizedFormat: "jjmmss")
@@ -128,7 +128,7 @@ extension LocalizedFormatter {
 // MARK: - Date
 
 extension Date {
-    public func localizedString(formatter: LocalizedFormatter = .date) -> String {
+    public func localizedString(formatter: XFormatter = .date) -> String {
         formatter.string(from: self)
     }
 }

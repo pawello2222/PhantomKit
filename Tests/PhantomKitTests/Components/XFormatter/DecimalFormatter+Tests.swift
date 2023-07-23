@@ -24,7 +24,7 @@ import XCTest
 @testable import PhantomKit
 
 class DecimalFormatterTests: XCTestCase {
-    let usFormatter = LocalizedFormatter.decimal(locale: .init(identifier: "en_US"))
+    let usFormatter = XFormatter.decimal(locale: .init(identifier: "en_US"))
 
     func test_shouldFormatIntegers() throws {
         XCTAssertEqual(usFormatter.string(from: 1), "1")
@@ -34,7 +34,7 @@ class DecimalFormatterTests: XCTestCase {
     }
 
     func test_withLocalePL_shouldFormatIntegers() throws {
-        let plFormatter = LocalizedFormatter.decimal(locale: .init(identifier: "pl_PL"))
+        let plFormatter = XFormatter.decimal(locale: .init(identifier: "pl_PL"))
 
         XCTAssertEqual(plFormatter.string(from: 1), "1")
         XCTAssertEqual(plFormatter.string(from: 432), "432")
@@ -73,7 +73,7 @@ class DecimalFormatterTests: XCTestCase {
     }
 
     func test_withLocalePL_shouldFormatDecimals() throws {
-        let plFormatter = LocalizedFormatter.decimal(locale: .init(identifier: "pl_PL"))
+        let plFormatter = XFormatter.decimal(locale: .init(identifier: "pl_PL"))
 
         XCTAssertEqual(plFormatter.string(from: 0.648723), "0,65")
         XCTAssertEqual(plFormatter.string(from: 12.53), "12,53")
@@ -105,12 +105,12 @@ class DecimalFormatterTests: XCTestCase {
     }
 
     func test_withCustomSign_shouldFormatDecimals() throws {
-        let plus: LocalizedFormatter.Sign.Style = .custom("▲")
-        let minus: LocalizedFormatter.Sign.Style = .custom("▼")
+        let plus: XFormatter.Sign.Style = .custom("▲")
+        let minus: XFormatter.Sign.Style = .custom("▼")
 
-        let plusOnly: LocalizedFormatter.Sign = .init(plus: plus, minus: .none)
-        let minusOnly: LocalizedFormatter.Sign = .init(plus: .none, minus: minus)
-        let both: LocalizedFormatter.Sign = .init(plus: plus, minus: minus)
+        let plusOnly: XFormatter.Sign = .init(plus: plus, minus: .none)
+        let minusOnly: XFormatter.Sign = .init(plus: .none, minus: minus)
+        let both: XFormatter.Sign = .init(plus: plus, minus: minus)
 
         XCTAssertEqual(usFormatter.string(from: 123.456, sign: plusOnly), "▲123.46")
         XCTAssertEqual(usFormatter.string(from: -123.456, sign: plusOnly), "123.46")
@@ -131,10 +131,10 @@ class DecimalFormatterTests: XCTestCase {
     }
 
     func test_usesSignForZero_shouldFormatZero() throws {
-        let usFormatter = LocalizedFormatter.decimal(locale: Locale(identifier: "en_US")).apply {
+        let usFormatter = XFormatter.decimal(locale: Locale(identifier: "en_US")).apply {
             $0.usesSignForZero = true
         }
-        let all: LocalizedFormatter.Sign = .init(plus: .custom("▲"), minus: .custom("▼"), zero: .custom("="))
+        let all: XFormatter.Sign = .init(plus: .custom("▲"), minus: .custom("▼"), zero: .custom("="))
 
         XCTAssertEqual(usFormatter.string(from: 0, sign: .arrow), "0")
         XCTAssertEqual(usFormatter.string(from: 0, sign: all), "=0")
@@ -183,7 +183,7 @@ class DecimalFormatterTests: XCTestCase {
     }
 
     func test_shouldSetGroupingSeparator() throws {
-        let usFormatter = LocalizedFormatter.decimal(locale: Locale(identifier: "en_US"))
+        let usFormatter = XFormatter.decimal(locale: Locale(identifier: "en_US"))
         XCTAssertEqual(usFormatter.string(from: 123_456), "123,456")
 
         usFormatter.usesGroupingSeparator = false
@@ -191,15 +191,15 @@ class DecimalFormatterTests: XCTestCase {
     }
 
     func test_shouldHaveCorrectDecimalSeparators() throws {
-        let usFormatter = LocalizedFormatter.decimal(locale: Locale(identifier: "en_US"))
+        let usFormatter = XFormatter.decimal(locale: Locale(identifier: "en_US"))
         XCTAssertEqual(usFormatter.decimalSeparator, ".")
 
-        let plFormatter = LocalizedFormatter.decimal(locale: Locale(identifier: "pl_PL"))
+        let plFormatter = XFormatter.decimal(locale: Locale(identifier: "pl_PL"))
         XCTAssertEqual(plFormatter.decimalSeparator, ",")
     }
 
     func test_shouldReadNumberFromString() throws {
-        let usFormatter = LocalizedFormatter.decimal(locale: Locale(identifier: "en_US"))
+        let usFormatter = XFormatter.decimal(locale: Locale(identifier: "en_US"))
 
         XCTAssertEqual(usFormatter.number(from: "1"), NSNumber(1))
         XCTAssertEqual(usFormatter.number(from: "-1"), NSNumber(-1))

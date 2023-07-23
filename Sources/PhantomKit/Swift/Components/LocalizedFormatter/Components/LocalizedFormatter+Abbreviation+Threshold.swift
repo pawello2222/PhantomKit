@@ -22,7 +22,7 @@
 
 import Foundation
 
-extension LocalizedFormatter.Abbreviation {
+extension XFormatter.Abbreviation {
     public struct Threshold {
         public let suffix: String
         public let value: NSDecimalNumber
