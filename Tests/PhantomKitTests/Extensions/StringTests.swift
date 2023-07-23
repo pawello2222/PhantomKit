@@ -24,7 +24,7 @@ import XCTest
 @testable import PhantomKit
 
 class StringTests: XCTestCase {
-    func test_shouldRecognizeHexNumbers() throws {
+    func test_isHexNumber_shouldRecognizeHexNumbers() throws {
         XCTAssertTrue("123".isHexNumber)
         XCTAssertTrue("aa32".isHexNumber)
         XCTAssertTrue("AD1".isHexNumber)
@@ -32,7 +32,7 @@ class StringTests: XCTestCase {
         XCTAssertFalse("text1".isHexNumber)
     }
 
-    func test_shouldExtractLastPathComponent() throws {
+    func test_lastPathComponent_shouldReturnLastPathComponent() throws {
         XCTAssertEqual("/tmp/lock.tiff".lastPathComponent, "lock.tiff")
         XCTAssertEqual("/tmp/lock".lastPathComponent, "lock")
         XCTAssertEqual("/tmp/".lastPathComponent, "tmp")
@@ -40,12 +40,29 @@ class StringTests: XCTestCase {
         XCTAssertEqual("/".lastPathComponent, "/")
     }
 
-    func test_shouldDeleteLastPathComponent() throws {
+    func test_deletingLastPathComponent_shouldDeleteLastPathComponent() throws {
         XCTAssertEqual("/tmp/lock.tiff".deletingLastPathComponent, "/tmp")
         XCTAssertEqual("/tmp/lock/".deletingLastPathComponent, "/tmp")
         XCTAssertEqual("/tmp/".deletingLastPathComponent, "/")
         XCTAssertEqual("/tmp".deletingLastPathComponent, "/")
         XCTAssertEqual("/".deletingLastPathComponent, "/")
         XCTAssertEqual("lock.tiff".deletingLastPathComponent, "")
+    }
+
+    func test_deletingPathExtension_shouldDeletePathExtension() throws {
+        XCTAssertEqual("/tmp/lock.tiff".deletingPathExtension, "/tmp/lock")
+        XCTAssertEqual("/tmp/".deletingPathExtension, "/tmp")
+        XCTAssertEqual("lock.bundle/".deletingPathExtension, "lock")
+        XCTAssertEqual("lock..tiff".deletingPathExtension, "lock.")
+        XCTAssertEqual(".tiff".deletingPathExtension, ".tiff")
+        XCTAssertEqual("/".deletingPathExtension, "/")
+    }
+
+    func test_pathExtension_shouldReturnPathExtension() throws {
+        XCTAssertEqual("/tmp/lock.tiff".pathExtension, "tiff")
+        XCTAssertEqual(".lock.tiff".pathExtension, "tiff")
+        XCTAssertEqual("/tmp/lock".pathExtension, "")
+        XCTAssertEqual("/tmp/".pathExtension, "")
+        XCTAssertEqual("/tmp/lock..tiff".pathExtension, "tiff")
     }
 }
