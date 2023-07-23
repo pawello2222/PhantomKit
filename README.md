@@ -14,6 +14,8 @@
   <a href="https://github.com/pawello2222/PhantomKit#installation">
     <img src="https://img.shields.io/badge/platform-iOS%20%7C%20macOS-lightgrey.svg" alt="Supported platforms">
   </a>
+</p>
+<p align="center">
   <a href="https://github.com/pawello2222/PhantomKit#installation">
     <img src="https://img.shields.io/badge/SPM-compatible-brightgreen.svg" alt="Swift Package Manager">
   </a>
