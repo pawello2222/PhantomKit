@@ -56,7 +56,7 @@ PhantomKit is available as a Swift Package.
 .package(url: "https://github.com/pawello2222/PhantomKit.git", .upToNextMajor(from: "1.0.0"))
 ```
 
-#### Tip
+### Tip
 
 To make PhantomKit _truly invisible_ add the below line in the main file:
 ```swift
@@ -65,7 +65,107 @@ To make PhantomKit _truly invisible_ add the below line in the main file:
 
 ## Highlights <a name="highlights"></a>
 
+### Swift extensions
 
+#### Appliable
+
+```swift
+let button = UIButton().apply {
+    $0.isUserInteractionEnabled = false
+}
+```
+
+```swift
+UserDefaults.standard.apply {
+    $0.set("Value 1", forKey: "Key 1")
+    $0.set("Value 2", forKey: "Key 2")
+    $0.set("Value 3", forKey: "Key 3")
+}
+```
+
+#### Date
+
+```swift
+let date = Date(year: 2023, month: 4, day: 1)
+
+let newDate = date.adjusting(.minute, by: 1)
+```
+
+#### Localized formatters
+
+```swift
+let formatter = XFormatter.currency(
+    locale: .init(identifier: "en_US"),
+    currencyCode: "USD"
+)
+
+XCTAssertEqual(formatter.string(from: 326.097, abbreviation: .default), "$326.10")
+XCTAssertEqual(formatter.string(from: 1432.99, abbreviation: .default), "$1.43k")
+XCTAssertEqual(formatter.string(from: 100_081, abbreviation: .default), "$100.08k")
+XCTAssertEqual(formatter.string(from: 4_729_432, abbreviation: .default), "$4.73m")
+XCTAssertEqual(formatter.string(from: -42.811, abbreviation: .default), "-$42.81")
+XCTAssertEqual(formatter.string(from: -4239.81, abbreviation: .default), "-$4.24k")
+```
+
+### SwiftUI extensions
+
+#### Convenience methods
+
+```swift
+Text("PhantomKit")
+    .fixedSize(.horizontal)
+    .frame(max: .infinity)
+    .onTap {
+        print("PhantomKit tapped")
+    }
+```
+
+#### Links
+
+```swift
+extension URL {
+    static let home = URL(string: "https://tersacore.com")!
+}
+```
+```swift
+Text("Link")
+    .link(url: .home, openedAs: .fullscreen)
+```
+```swift
+Text("Link")
+    .link(url: .home, openedAs: .external)
+```
+
+#### Presentation
+
+```swift
+Text("Open sheet view")
+    .sheet {
+        Text("Sheet view")
+    }
+```
+```swift
+Text("Open fullscreen view")
+    .fullScreenCover {
+        Text("Sheet view")
+    }
+```
+
+#### View alignment
+
+```swift
+Text("PhantomKit")
+    .alignment(horizontal: .trailing)
+```
+
+instead of:
+
+```swift
+HStack {
+    Spacer()
+    Text("PhantomKit")
+}
+```
 
 ## License <a name="license"></a>
 

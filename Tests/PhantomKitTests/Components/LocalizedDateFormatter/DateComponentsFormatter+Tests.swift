@@ -46,7 +46,7 @@ class DateComponentsFormatterTests: XCTestCase {
     func test_shouldFormatDateComponents() throws {
         let usFormatter = LocalizedDateFormatter.dateComponents(locale: .init(identifier: "en_US"))
         let date = Date(year: 2000, month: 3, day: 24, hour: 16, minute: 14, second: 44)
-        let components = date.dateComponents([.hour, .minute])
+        let components = date.components([.hour, .minute])
         XCTAssertEqual(usFormatter.string(from: components), "16 hours, 14 minutes")
     }
 

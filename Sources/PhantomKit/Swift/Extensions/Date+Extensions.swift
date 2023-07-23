@@ -121,7 +121,7 @@ extension Date {
     }
 
     /// Returns all the date components of a date in a given calendar.
-    public func dateComponents(
+    public func components(
         _ components: Set<Calendar.Component>,
         in calendar: Calendar = .current
     ) -> DateComponents {
