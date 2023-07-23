@@ -47,6 +47,8 @@ PhantomKit is a collection of many useful Swift and SwiftUI extensions and compo
 ### Requirements
 * iOS 16.0+
 * macOS 13.0+
+* watchOS 9.0+
+* tvOS 16.0+
 
 ### Swift Package Manager
 
