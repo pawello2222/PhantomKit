@@ -37,9 +37,8 @@ PhantomKit is a collection of many useful Swift and SwiftUI extensions and compo
   </summary>
 
   1. [Installation](#installation)
-  2. [Swift extensions](#swift)
-  3. [SwiftUI extensions](#swiftui)
-  4. [License](#license)
+  2. [Highlights](#highlights)
+  3. [License](#license)
 
 </details>
 
@@ -66,7 +65,7 @@ To make PhantomKit _truly invisible_ add the below line in the main file:
 
 ## Highlights <a name="highlights"></a>
 
-### Swift extensions <a name="swift"></a>
+### Swift extensions
 
 #### Appliable
 
@@ -92,7 +91,7 @@ let date = Date(year: 2023, month: 4, day: 1)
 let newDate = date.adjusting(.minute, by: 1)
 ```
 
-### SwiftUI extensions <a name="swiftui"></a>
+### SwiftUI extensions
 
 #### Convenience methods
 
