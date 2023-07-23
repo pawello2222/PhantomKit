@@ -46,9 +46,9 @@ public class LocalizedFormatter: ObjectAppliable {
         formatter.decimalSeparator
     }
 
-    // MARK: Private Properties
-
-    private lazy var formatter = NumberFormatter()
+    lazy var formatter = NumberFormatter()
+    lazy var dateFormatter = DateFormatter()
+    lazy var dateComponentsFormatter = DateComponentsFormatter()
 
     // MARK: Initialization
 

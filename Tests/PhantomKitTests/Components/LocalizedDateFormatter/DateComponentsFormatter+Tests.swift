@@ -25,40 +25,40 @@ import XCTest
 
 class DateComponentsFormatterTests: XCTestCase {
     func test_shouldFormatTimeInterval() throws {
-        let usFormatter = LocalizedDateFormatter.dateComponents(locale: .init(identifier: "en_US"))
+        let usFormatter = LocalizedFormatter.dateComponents(locale: .init(identifier: "en_US"))
 
-        XCTAssertEqual(usFormatter.string(from: TimeInterval(10)), "10 seconds")
+        XCTAssertEqual(usFormatter.string(fromTimeInterval: 10), "10 seconds")
     }
 
     func test_withLocalePL_shouldFormatTimeInterval() throws {
-        let plFormatter = LocalizedDateFormatter.dateComponents(locale: .init(identifier: "pl_PL"))
+        let plFormatter = LocalizedFormatter.dateComponents(locale: .init(identifier: "pl_PL"))
 
-        XCTAssertEqual(plFormatter.string(from: TimeInterval(10)), "10 sekund")
+        XCTAssertEqual(plFormatter.string(fromTimeInterval: 10), "10 sekund")
     }
 
     func test_shouldFormatDateFromTo() throws {
-        let usFormatter = LocalizedDateFormatter.dateComponents(locale: .init(identifier: "en_US"))
+        let usFormatter = LocalizedFormatter.dateComponents(locale: .init(identifier: "en_US"))
         let now = Date()
         let future = now.adjusting(.minute, by: 5)
         XCTAssertEqual(usFormatter.string(from: now, to: future), "5 minutes")
     }
 
     func test_shouldFormatDateComponents() throws {
-        let usFormatter = LocalizedDateFormatter.dateComponents(locale: .init(identifier: "en_US"))
+        let usFormatter = LocalizedFormatter.dateComponents(locale: .init(identifier: "en_US"))
         let date = Date(year: 2000, month: 3, day: 24, hour: 16, minute: 14, second: 44)
         let components = date.components([.hour, .minute])
         XCTAssertEqual(usFormatter.string(from: components), "16 hours, 14 minutes")
     }
 
     func test_withUnitsDate_shouldFormatDateFromTo() throws {
-        let usFormatter = LocalizedDateFormatter.dateComponents(locale: .init(identifier: "en_US"))
+        let usFormatter = LocalizedFormatter.dateComponents(locale: .init(identifier: "en_US"))
         let now = Date()
         XCTAssertEqual(usFormatter.string(from: now, to: now.adjusting(.day, by: 2)), "48 hours")
         XCTAssertEqual(usFormatter.string(from: now, to: now.adjusting(.minute, by: 5)), "5 minutes")
     }
 
     func test_withUnitsDatetime_shouldFormatDateFromTo() throws {
-        let usFormatter = LocalizedDateFormatter.dateComponents(locale: .init(identifier: "en_US"))
+        let usFormatter = LocalizedFormatter.dateComponents(locale: .init(identifier: "en_US"))
         let now = Date()
         let future = now.adjusting(.minute, by: 5)
         XCTAssertEqual(usFormatter.string(from: now, to: future), "5 minutes")

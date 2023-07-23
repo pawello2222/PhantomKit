@@ -23,27 +23,9 @@
 import Appliable
 import Foundation
 
-public typealias XDateFormatter = LocalizedDateFormatter
-
-/// A formatter that converts between dates and their textual representations.
-public class LocalizedDateFormatter: ObjectAppliable {
-    // MARK: Public Properties
-
-    public var invalidValueString = "--"
-
-    // MARK: Private Properties
-
-    private lazy var dateFormatter = DateFormatter()
-    private lazy var dateComponentsFormatter = DateComponentsFormatter()
-
-    // MARK: Initialization
-
-    public init() {}
-}
-
 // MARK: - Format to Date
 
-extension LocalizedDateFormatter {
+extension LocalizedFormatter {
     public func date(from string: String, timeZone: TimeZone? = nil) -> Date? {
         with(timeZone: timeZone) {
             dateFormatter.date(from: string)
@@ -53,18 +35,18 @@ extension LocalizedDateFormatter {
 
 // MARK: - Format to String
 
-extension LocalizedDateFormatter {
+extension LocalizedFormatter {
     public func string(from date: Date) -> String {
         dateFormatter.string(from: date)
     }
 }
 
-extension LocalizedDateFormatter {
+extension LocalizedFormatter {
     public func string(from dateComponents: DateComponents) -> String {
         dateComponentsFormatter.string(from: dateComponents) ?? invalidValueString
     }
 
-    public func string(from timeInterval: TimeInterval) -> String {
+    public func string(fromTimeInterval timeInterval: TimeInterval) -> String {
         dateComponentsFormatter.string(from: timeInterval) ?? invalidValueString
     }
 
@@ -75,7 +57,7 @@ extension LocalizedDateFormatter {
 
 // MARK: - Helpers
 
-extension LocalizedDateFormatter {
+extension LocalizedFormatter {
     private func with<T>(timeZone: TimeZone?, _ block: () -> T) -> T {
         let existingTimeZone = dateFormatter.timeZone
         dateFormatter.timeZone = timeZone
@@ -87,12 +69,12 @@ extension LocalizedDateFormatter {
 
 // MARK: - Convenience
 
-extension LocalizedDateFormatter {
+extension LocalizedFormatter {
     public static func date(
         locale: Locale = .current,
         format: String
-    ) -> LocalizedDateFormatter {
-        LocalizedDateFormatter().apply {
+    ) -> LocalizedFormatter {
+        LocalizedFormatter().apply {
             $0.dateFormatter.locale = locale
             $0.dateFormatter.dateFormat = format
         }
@@ -101,8 +83,8 @@ extension LocalizedDateFormatter {
     public static func date(
         locale: Locale = .current,
         localizedFormat: String = "yyyyMMdd"
-    ) -> LocalizedDateFormatter {
-        LocalizedDateFormatter().apply {
+    ) -> LocalizedFormatter {
+        LocalizedFormatter().apply {
             $0.dateFormatter.locale = locale
             $0.dateFormatter.setLocalizedDateFormatFromTemplate(localizedFormat)
         }
@@ -112,8 +94,8 @@ extension LocalizedDateFormatter {
         locale: Locale = .current,
         allowedUnits: NSCalendar.Unit = [.hour, .minute, .second],
         unitsStyle: DateComponentsFormatter.UnitsStyle = .full
-    ) -> LocalizedDateFormatter {
-        LocalizedDateFormatter().apply {
+    ) -> LocalizedFormatter {
+        LocalizedFormatter().apply {
             $0.dateComponentsFormatter.calendar = Calendar.current.applying {
                 $0.locale = locale
             }
@@ -123,7 +105,7 @@ extension LocalizedDateFormatter {
     }
 }
 
-extension LocalizedDateFormatter {
+extension LocalizedFormatter {
     public static var date = date(localizedFormat: "yyyyMMdd")
 
     public static var time = date(localizedFormat: "jjmmss")
@@ -146,7 +128,7 @@ extension LocalizedDateFormatter {
 // MARK: - Date
 
 extension Date {
-    public func localizedString(formatter: LocalizedDateFormatter = .date) -> String {
+    public func localizedString(formatter: LocalizedFormatter = .date) -> String {
         formatter.string(from: self)
     }
 }
