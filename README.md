@@ -86,9 +86,14 @@ UserDefaults.standard.apply {
 #### Date
 
 ```swift
-let date = Date(year: 2023, month: 4, day: 1)
+let date = Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 5)
 
-let newDate = date.adjusting(.minute, by: 1)
+XCTAssertEqual(date.adjusting(\.second, by: 1).component(.second), 6)
+XCTAssertEqual(date.adjusting(\.minute, by: 1).component(.minute), 5)
+XCTAssertEqual(date.adjusting(\.hour, by: 1).component(.hour), 4)
+XCTAssertEqual(date.adjusting(\.day, by: 1).component(.day), 3)
+XCTAssertEqual(date.adjusting(\.month, by: 1).component(.month), 2)
+XCTAssertEqual(date.adjusting(\.year, by: 1).component(.year), 2001)
 ```
 
 ### SwiftUI extensions

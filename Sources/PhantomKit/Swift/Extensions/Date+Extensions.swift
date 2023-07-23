@@ -51,63 +51,19 @@ extension Date {
 
 // MARK: - Adjusting
 
-// swiftlint:disable cyclomatic_complexity
 extension Date {
     /// Returns a new `Date` representing the date calculated
     /// by adjusting a given component of a date.
     public func adjusting(
-        _ component: Calendar.Component,
+        _ component: WritableKeyPath<DateComponents, Int?>,
         by offset: Int,
         in calendar: Calendar = .current
     ) -> Date {
-        var dateComponent = DateComponents()
-
-        switch component {
-        case .nanosecond:
-            dateComponent.nanosecond = offset
-        case .second:
-            dateComponent.second = offset
-        case .minute:
-            dateComponent.minute = offset
-        case .hour:
-            dateComponent.hour = offset
-        case .day:
-            dateComponent.day = offset
-        case .weekday:
-            dateComponent.weekday = offset
-        case .weekdayOrdinal:
-            dateComponent.weekdayOrdinal = offset
-        case .weekOfYear:
-            dateComponent.weekOfYear = offset
-        case .month:
-            dateComponent.month = offset
-        case .year:
-            dateComponent.year = offset
-        case .era:
-            dateComponent.era = offset
-        case .quarter:
-            dateComponent.quarter = offset
-        case .weekOfMonth:
-            dateComponent.weekOfMonth = offset
-        case .yearForWeekOfYear:
-            dateComponent.yearForWeekOfYear = offset
-        default:
-            return self
-        }
-
-        return adjusting(dateComponent, in: calendar)
-    }
-
-    /// Returns a new `Date` representing the date calculated
-    /// by adding components to a given date in a given calendar.
-    public func adjusting(
-        _ components: DateComponents,
-        in calendar: Calendar = .current
-    ) -> Date {
-        calendar.date(byAdding: components, to: self)!
+        var components = DateComponents()
+        components[keyPath: component] = offset
+        return calendar.date(byAdding: components, to: self)!
     }
 }
-// swiftlint:enable cyclomatic_complexity
 
 // MARK: - Components
 
