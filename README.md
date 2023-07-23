@@ -39,8 +39,7 @@ PhantomKit is a collection of many useful Swift and SwiftUI extensions and compo
   1. [Installation](#installation)
   2. [Swift extensions](#swift)
   3. [SwiftUI extensions](#swiftui)
-  4. [Localized formatters](#formatters)
-  5. [License](#license)
+  4. [License](#license)
 
 </details>
 
@@ -67,7 +66,7 @@ To make PhantomKit _truly invisible_ add the below line in the main file:
 
 ## Highlights <a name="highlights"></a>
 
-### Swift extensions
+### Swift extensions <a name="swift"></a>
 
 #### Appliable
 
@@ -93,7 +92,7 @@ let date = Date(year: 2023, month: 4, day: 1)
 let newDate = date.adjusting(.minute, by: 1)
 ```
 
-### SwiftUI extensions
+### SwiftUI extensions <a name="swiftui"></a>
 
 #### Convenience methods
 
@@ -151,79 +150,6 @@ HStack {
     Spacer()
     Text("PhantomKit")
 }
-```
-
-### Localized formatters
-
-
-#### Currency
-
-```swift
-let formatter = XFormatter.currency(
-    locale: .init(identifier: "en_US"),
-    currencyCode: "USD"
-)
-
-XCTAssertEqual(formatter.string(from: 326.097, abbreviation: .default), "$326.10")
-XCTAssertEqual(formatter.string(from: 1432.99, abbreviation: .default), "$1.43k")
-XCTAssertEqual(formatter.string(from: 100_081, abbreviation: .default), "$100.08k")
-XCTAssertEqual(formatter.string(from: 4_729_432, abbreviation: .default), "$4.73m")
-XCTAssertEqual(formatter.string(from: -42.811, abbreviation: .default), "-$42.81")
-XCTAssertEqual(formatter.string(from: -4239.81, abbreviation: .default), "-$4.24k")
-XCTAssertEqual(formatter.string(from: 123.456, sign: .arrow), "▲$123.46")
-```
-
-#### Decimal
-
-```swift
-let formatter = XFormatter.decimal(
-    locale: .init(identifier: "en_US")
-)
-
-XCTAssertEqual(formatter.string(from: -1000), "-1,000")
-XCTAssertEqual(formatter.string(from: 1000, abbreviation: .default), "1k")
-XCTAssertEqual(formatter.string(from: 1000, abbreviation: .capitalized), "1K")
-XCTAssertEqual(formatter.string(from: 123.456, sign: .both), "+123.46")
-XCTAssertEqual(formatter.string(from: -123.456, sign: .spacedArrow), "▼ 123.46")
-XCTAssertEqual(formatter.string(from: 0.123456789, precision: .default), "0.12")
-XCTAssertEqual(formatter.string(from: 0.12, precision: .init(3...)), "0.120")
-```
-
-#### Date
-
-```swift
-let formatter = XDateFormatter.date(
-    locale: .init(identifier: "pl_PL"),
-    localizedFormat: "yyyyMMddjjmmss"
-)
-
-let date = Date(year: 2000, month: 3, day: 24, hour: 16, minute: 14, second: 44)
-
-XCTAssertEqual(formatter.string(from: date), "24.03.2000, 16:14:44")
-```
-
-#### Date components
-
-```swift
-let formatter = XDateFormatter.dateComponents(
-    locale: .init(identifier: "en_US")
-)
-
-let now = Date()
-let future = now.adjusting(.day, by: 2)
-
-XCTAssertEqual(formatter.string(from: now, to: future), "48 hours")
-```
-
-```swift
-let formatter = XDateFormatter.dateComponents(
-    locale: .init(identifier: "en_US")
-)
-
-let date = Date(year: 2000, month: 3, day: 24, hour: 16, minute: 14, second: 44)
-let components = date.components([.hour, .minute])
-
-XCTAssertEqual(formatter.string(from: components), "16 hours, 14 minutes")
 ```
 
 ## License <a name="license"></a>
