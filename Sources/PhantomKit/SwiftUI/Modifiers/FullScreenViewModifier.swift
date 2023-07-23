@@ -22,9 +22,10 @@
 
 import SwiftUI
 
-#if os(iOS)
 /// A view modifier that creates a button that presents a modal view
 /// that covers as much of the screen as possible.
+@available(iOS 14.0, tvOS 14.0, watchOS 7.0, *)
+@available(macOS, unavailable)
 public struct FullScreenViewModifier<Destination>: ViewModifier where Destination: View {
     @State private var isPresented = false
 
@@ -48,6 +49,8 @@ public struct FullScreenViewModifier<Destination>: ViewModifier where Destinatio
 
 // MARK: - Convenience
 
+@available(iOS 14.0, tvOS 14.0, watchOS 7.0, *)
+@available(macOS, unavailable)
 extension View {
     /// Creates a button that presents a modal view that covers
     /// as much of the screen as possible.
@@ -57,4 +60,3 @@ extension View {
         modifier(FullScreenViewModifier(destination: destination))
     }
 }
-#endif

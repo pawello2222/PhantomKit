@@ -41,7 +41,8 @@ public struct ExternalLinkViewModifier: ViewModifier {
     }
 }
 
-#if os(iOS)
+#if os(iOS) || os(tvOS)
+
 /// A view modifier that creates a button that presents a Safari view
 /// as a modal view that covers as much of the screen as possible.
 public struct LinkViewModifier: ViewModifier {
@@ -65,6 +66,7 @@ public struct LinkViewModifier: ViewModifier {
         }
     }
 }
+
 #endif
 
 // MARK: - Convenience
@@ -77,7 +79,7 @@ extension View {
             switch method {
             case .external:
                 modifier(ExternalLinkViewModifier(url: url))
-            #if os(iOS)
+            #if os(iOS) || os(tvOS)
             case .fullscreen:
                 modifier(LinkViewModifier(url: url))
             #endif
@@ -94,7 +96,7 @@ public enum LinkOpenMethod {
     /// Opens a link in an external browser.
     case external
 
-    #if os(iOS)
+    #if os(iOS) || os(tvOS)
     /// Opens a link in a Safari view presented as a modal view
     /// that covers as much of the screen as possible.
     case fullscreen
@@ -102,9 +104,9 @@ public enum LinkOpenMethod {
 }
 
 extension LinkOpenMethod {
-    #if os(iOS)
+    #if os(iOS) || os(tvOS)
     public static var `default`: Self = .fullscreen
-    #elseif os(macOS)
+    #else
     public static var `default`: Self = .external
     #endif
 }

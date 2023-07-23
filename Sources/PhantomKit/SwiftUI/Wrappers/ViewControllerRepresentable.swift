@@ -29,6 +29,7 @@ public typealias PlatformViewController = NSViewController
 public typealias PlatformViewControllerRepresentable = NSViewControllerRepresentable
 #endif
 
+#if os(iOS) || os(macOS) || os(tvOS)
 /// Adds `UIViewControllerRepresentable` conformance on iOS
 /// and `NSViewControllerRepresentable` conformance on macOS.
 public protocol ViewControllerRepresentable: PlatformViewControllerRepresentable {
@@ -36,6 +37,7 @@ public protocol ViewControllerRepresentable: PlatformViewControllerRepresentable
     func makeViewController(context: Context) -> PlatformViewControllerType
     func updateViewController(_ viewController: PlatformViewControllerType, context: Context)
 }
+#endif
 
 // MARK: - Platform
 

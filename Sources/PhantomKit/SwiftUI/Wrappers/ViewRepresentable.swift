@@ -29,6 +29,7 @@ public typealias PlatformView = NSView
 public typealias PlatformViewRepresentable = NSViewRepresentable
 #endif
 
+#if os(iOS) || os(macOS) || os(tvOS)
 /// Adds `UIViewRepresentable` conformance on iOS
 /// and `NSViewRepresentable` conformance on macOS.
 public protocol ViewRepresentable: PlatformViewRepresentable {
@@ -36,6 +37,7 @@ public protocol ViewRepresentable: PlatformViewRepresentable {
     func makeView(context: Context) -> PlatformViewType
     func updateView(_ view: PlatformViewType, context: Context)
 }
+#endif
 
 // MARK: - Platform
 

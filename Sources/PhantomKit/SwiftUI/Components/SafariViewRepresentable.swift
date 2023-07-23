@@ -20,10 +20,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+#if os(iOS) || os(tvOS)
+
 import SafariServices
 import SwiftUI
 
-#if os(iOS)
 /// A view that encapsulates the functionality of `SFSafariViewController`.
 public struct SafariViewRepresentable: ViewControllerRepresentable {
     private let url: URL
@@ -42,4 +43,5 @@ public struct SafariViewRepresentable: ViewControllerRepresentable {
 
     public func updateViewController(_ viewController: SFSafariViewController, context: Context) {}
 }
+
 #endif

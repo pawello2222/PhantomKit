@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+#if canImport(PDFKit)
+
 import PDFKit
 import SwiftUI
 
@@ -40,3 +42,5 @@ public struct PDFViewRepresentable: ViewRepresentable {
 
     public func updateView(_ view: PDFView, context: Context) {}
 }
+
+#endif

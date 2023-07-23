@@ -36,8 +36,9 @@ extension EnvironmentValues {
 
 // MARK: - UITraitBridgedEnvironmentKey
 
-#if os(iOS)
-@available(iOS 17, *)
+#if os(iOS) || os(tvOS)
+
+@available(iOS 17.0, tvOS 17.0, *)
 extension EnvironmentValues.PrefersTabNavigationEnvironmentKey: UITraitBridgedEnvironmentKey {
     static func read(from traitCollection: UITraitCollection) -> Bool {
         [.phone, .tv].contains(traitCollection.userInterfaceIdiom)
@@ -45,4 +46,5 @@ extension EnvironmentValues.PrefersTabNavigationEnvironmentKey: UITraitBridgedEn
 
     static func write(to mutableTraits: inout UIMutableTraits, value: Bool) {}
 }
+
 #endif
