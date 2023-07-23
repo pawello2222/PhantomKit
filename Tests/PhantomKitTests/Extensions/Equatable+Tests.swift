@@ -23,17 +23,14 @@
 import XCTest
 @testable import PhantomKit
 
-class ComparableTests: XCTestCase {
-    func test_clamped_shouldClampToBounds() throws {
-        XCTAssertEqual(1.clamped(to: 0...), 1)
-        XCTAssertEqual(1.clamped(to: 1...), 1)
-        XCTAssertEqual(1.clamped(to: 2...), 2)
-        XCTAssertEqual(1.clamped(to: ...0), 0)
-        XCTAssertEqual(1.clamped(to: ...1), 1)
-        XCTAssertEqual(1.clamped(to: ...2), 1)
-        XCTAssertEqual(1.clamped(to: 0 ... 2), 1)
-        XCTAssertEqual(1.clamped(to: 2 ... 3), 2)
-        XCTAssertEqual(1.clamped(to: -1 ... 0), 0)
-        XCTAssertEqual(1.clamped(to: 1 ... 1), 1)
+class EquatableTests: XCTestCase {
+    func test_isContained_shouldReturnTrueIfContainedInArray() throws {
+        let numbers = [1, 3, 5]
+
+        XCTAssertTrue(1.isContained(in: numbers))
+        XCTAssertTrue(3.isContained(in: numbers))
+        XCTAssertTrue(5.isContained(in: numbers))
+        XCTAssertFalse(2.isContained(in: numbers))
+        XCTAssertFalse(4.isContained(in: numbers))
     }
 }
