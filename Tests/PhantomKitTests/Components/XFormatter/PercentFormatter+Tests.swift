@@ -24,7 +24,7 @@ import XCTest
 @testable import PhantomKit
 
 class PercentFormatterTests: XCTestCase {
-    private let usFormatter = LocalizedFormatter.percent(locale: .init(identifier: "en_US"))
+    private let usFormatter = XFormatter.percent(locale: .init(identifier: "en_US"))
 
     func test_shouldFormatPercent() throws {
         XCTAssertEqual(usFormatter.string(from: 0.032), "0.03%")

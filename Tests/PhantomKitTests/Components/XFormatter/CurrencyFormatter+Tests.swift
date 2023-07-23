@@ -24,7 +24,7 @@ import XCTest
 @testable import PhantomKit
 
 class CurrencyFormatterTests: XCTestCase {
-    private let usFormatter = LocalizedFormatter.currency(
+    private let usFormatter = XFormatter.currency(
         locale: .init(identifier: "en_US"),
         currencyCode: "USD"
     )
@@ -44,7 +44,7 @@ class CurrencyFormatterTests: XCTestCase {
     }
 
     func test_withLocalePLPL_shouldFormatAmountsToPLN() throws {
-        let plFormatter = LocalizedFormatter.currency(
+        let plFormatter = XFormatter.currency(
             locale: .init(identifier: "pl_PL"),
             currencyCode: "PLN"
         )
@@ -56,7 +56,7 @@ class CurrencyFormatterTests: XCTestCase {
     }
 
     func test_withLocaleENPL_shouldFormatAmountsToPLN() throws {
-        let plFormatter = LocalizedFormatter.currency(
+        let plFormatter = XFormatter.currency(
             locale: .init(identifier: "en_PL"),
             currencyCode: "PLN"
         )
@@ -68,7 +68,7 @@ class CurrencyFormatterTests: XCTestCase {
     }
 
     func test_withLocalePLPL_shouldFormatNegativeAmountsToPLN() throws {
-        let plFormatter = LocalizedFormatter.currency(
+        let plFormatter = XFormatter.currency(
             locale: .init(identifier: "pl_PL"),
             currencyCode: "PLN"
         )
@@ -80,7 +80,7 @@ class CurrencyFormatterTests: XCTestCase {
     }
 
     func test_withCurrencyCodePLN_shouldFormatNegativeAmountsToPLN() throws {
-        let plFormatter = LocalizedFormatter.currency(
+        let plFormatter = XFormatter.currency(
             locale: .init(identifier: "en_US"),
             currencyCode: "PLN"
         )
@@ -110,12 +110,12 @@ class CurrencyFormatterTests: XCTestCase {
     }
 
     func test_withCustomSign_shouldFormatAmounts() throws {
-        let plus: LocalizedFormatter.Sign.Style = .custom("▲")
-        let minus: LocalizedFormatter.Sign.Style = .custom("▼")
+        let plus: XFormatter.Sign.Style = .custom("▲")
+        let minus: XFormatter.Sign.Style = .custom("▼")
 
-        let plusOnly: LocalizedFormatter.Sign = .init(plus: plus, minus: .none)
-        let minusOnly: LocalizedFormatter.Sign = .init(plus: .none, minus: minus)
-        let both: LocalizedFormatter.Sign = .init(plus: plus, minus: minus)
+        let plusOnly: XFormatter.Sign = .init(plus: plus, minus: .none)
+        let minusOnly: XFormatter.Sign = .init(plus: .none, minus: minus)
+        let both: XFormatter.Sign = .init(plus: plus, minus: minus)
 
         XCTAssertEqual(usFormatter.string(from: 123.456, sign: plusOnly), "▲$123.46")
         XCTAssertEqual(usFormatter.string(from: -123.456, sign: plusOnly), "$123.46")
