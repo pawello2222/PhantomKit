@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/badge/language-swift-orange.svg" alt="Language">
   </a>
   <a href="https://github.com/pawello2222/PhantomKit#installation">
-    <img src="https://img.shields.io/badge/platform-iOS%20%7C%20macOS-lightgrey.svg" alt="Supported platforms">
+    <img src="https://img.shields.io/badge/platform-iOS%20%7C%20macOS%20%7C%20watchOS%20%7C%20tvOS-lightgrey.svg" alt="Supported platforms">
   </a>
 </p>
 <p align="center">
