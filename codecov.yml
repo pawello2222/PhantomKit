@@ -1,7 +1,7 @@
 coverage:
   ignore:
-    - "Sources/PhantomKit/SwiftUI"
-    - "Tests/PhantomKitTests"
+    - "*/SwiftUI"
+    - "Tests"
   status:
     project:
       default:
