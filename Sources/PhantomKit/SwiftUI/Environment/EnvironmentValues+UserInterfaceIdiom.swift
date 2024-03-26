@@ -22,6 +22,8 @@
 
 import SwiftUI
 
+#if os(iOS) || os(tvOS)
+
 extension EnvironmentValues {
     fileprivate struct UserInterfaceIdiomEnvironmentKey: EnvironmentKey {
         static var defaultValue: UIUserInterfaceIdiom = .phone
@@ -34,8 +36,6 @@ extension EnvironmentValues {
 }
 
 // MARK: - UITraitBridgedEnvironmentKey
-
-#if os(iOS) || os(tvOS)
 
 @available(iOS 17.0, tvOS 17.0, *)
 extension EnvironmentValues.UserInterfaceIdiomEnvironmentKey: UITraitBridgedEnvironmentKey {

@@ -25,7 +25,9 @@ import SwiftUI
 /// Specifies when the list should be displayed in the compact mode.
 public enum MultiColumnListInCompactMode {
     case horizontalSizeClass
+    #if os(iOS) || os(tvOS)
     case userInterfaceIdiom
+    #endif
 }
 
 /// A container that is a single List in compact widths
@@ -34,7 +36,9 @@ public struct MultiColumnList<
     Content, Left, Right
 >: View where Content: View, Left: View, Right: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    #if os(iOS) || os(tvOS)
     @Environment(\.userInterfaceIdiom) private var userInterfaceIdiom
+    #endif
 
     private let mode: MultiColumnListInCompactMode
     private let content: () -> Content
@@ -104,8 +108,10 @@ extension MultiColumnList {
         switch mode {
         case .horizontalSizeClass:
             horizontalSizeClass == .compact
+        #if os(iOS) || os(tvOS)
         case .userInterfaceIdiom:
             userInterfaceIdiom == .phone
+        #endif
         }
     }
 }
