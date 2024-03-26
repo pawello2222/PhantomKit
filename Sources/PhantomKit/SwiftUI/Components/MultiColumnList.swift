@@ -22,22 +22,32 @@
 
 import SwiftUI
 
+/// Specifies when the list should be displayed in the compact mode.
+public enum MultiColumnListInCompactMode {
+    case horizontalSizeClass
+    case userInterfaceIdiom
+}
+
 /// A container that is a single List in compact widths
 /// or a three-column List in regular widths.
 public struct MultiColumnList<
     Content, Left, Right
 >: View where Content: View, Left: View, Right: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.userInterfaceIdiom) private var userInterfaceIdiom
 
+    private let mode: MultiColumnListInCompactMode
     private let content: () -> Content
     private let left: () -> Left
     private let right: () -> Right
 
     public init(
+        mode: MultiColumnListInCompactMode = .horizontalSizeClass,
         @ViewBuilder content: @escaping () -> Content,
         @ViewBuilder left: @escaping () -> Left,
         @ViewBuilder right: @escaping () -> Right
     ) {
+        self.mode = mode
         self.content = content
         self.left = left
         self.right = right
@@ -91,7 +101,12 @@ extension MultiColumnList {
 
 extension MultiColumnList {
     private var isCompact: Bool {
-        horizontalSizeClass == .compact
+        switch mode {
+        case .horizontalSizeClass:
+            horizontalSizeClass == .compact
+        case .userInterfaceIdiom:
+            userInterfaceIdiom == .phone
+        }
     }
 }
 
@@ -99,9 +114,11 @@ extension MultiColumnList {
 
 extension MultiColumnList where Left == EmptyView {
     public init(
+        mode: MultiColumnListInCompactMode = .horizontalSizeClass,
         @ViewBuilder content: @escaping () -> Content,
         @ViewBuilder right: @escaping () -> Right
     ) {
+        self.mode = mode
         self.content = content
         self.right = right
         left = {
@@ -112,9 +129,11 @@ extension MultiColumnList where Left == EmptyView {
 
 extension MultiColumnList where Right == EmptyView {
     public init(
+        mode: MultiColumnListInCompactMode = .horizontalSizeClass,
         @ViewBuilder content: @escaping () -> Content,
         @ViewBuilder left: @escaping () -> Left
     ) {
+        self.mode = mode
         self.content = content
         self.left = left
         right = {
@@ -124,7 +143,11 @@ extension MultiColumnList where Right == EmptyView {
 }
 
 extension MultiColumnList where Left == EmptyView, Right == EmptyView {
-    public init(@ViewBuilder content: @escaping () -> Content) {
+    public init(
+        mode: MultiColumnListInCompactMode = .horizontalSizeClass,
+        @ViewBuilder content: @escaping () -> Content
+    ) {
+        self.mode = mode
         self.content = content
         left = {
             EmptyView()
