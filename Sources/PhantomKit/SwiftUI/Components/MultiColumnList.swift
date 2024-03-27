@@ -36,9 +36,6 @@ public struct MultiColumnList<
     Content, Left, Right
 >: View where Content: View, Left: View, Right: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    #if os(iOS) || os(tvOS)
-    @Environment(\.userInterfaceIdiom) private var userInterfaceIdiom
-    #endif
 
     private let mode: MultiColumnListInCompactMode
     private let content: () -> Content
@@ -110,7 +107,7 @@ extension MultiColumnList {
             horizontalSizeClass == .compact
         #if os(iOS) || os(tvOS)
         case .userInterfaceIdiom:
-            userInterfaceIdiom == .phone
+            UIDevice.current.userInterfaceIdiom == .phone
         #endif
         }
     }
