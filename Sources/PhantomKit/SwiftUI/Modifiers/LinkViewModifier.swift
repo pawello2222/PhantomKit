@@ -49,9 +49,11 @@ public struct LinkViewModifier: ViewModifier {
     @State private var isPresented = false
 
     private let url: URL
+    private let tintColor: Color
 
-    public init(url: URL) {
+    public init(url: URL, tintColor: Color = .accentColor) {
         self.url = url
+        self.tintColor = tintColor
     }
 
     public func body(content: Content) -> some View {
@@ -61,7 +63,7 @@ public struct LinkViewModifier: ViewModifier {
             content
         }
         .fullScreenCover(isPresented: $isPresented) {
-            SafariViewRepresentable(url: url)
+            SafariViewRepresentable(url: url, tintColor: tintColor)
                 .ignoresSafeArea()
         }
     }
@@ -74,14 +76,18 @@ public struct LinkViewModifier: ViewModifier {
 extension View {
     /// Creates a button that presents a URL according to the provided options.
     @ViewBuilder
-    public func link(url: URL?, openedAs method: LinkOpenMethod = .default) -> some View {
+    public func link(
+        url: URL?,
+        openedAs method: LinkOpenMethod = .default,
+        tintColor: Color = .accentColor
+    ) -> some View {
         if let url {
             switch method {
             case .external:
                 modifier(ExternalLinkViewModifier(url: url))
             #if os(iOS)
             case .fullscreen:
-                modifier(LinkViewModifier(url: url))
+                modifier(LinkViewModifier(url: url, tintColor: tintColor))
             #endif
             }
         } else {
