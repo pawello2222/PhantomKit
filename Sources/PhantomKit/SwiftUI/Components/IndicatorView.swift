@@ -12,5 +12,6 @@ public struct IndicatorView: View {
             .imageScale(.small)
             .font(.body.weight(.medium))
             .foregroundColor(.secondary)
+            .opacity(0.55)
     }
 }
