@@ -85,11 +85,15 @@ extension SplitPicker {
 
 extension SplitPicker {
     private var selectionView: some View {
-        SelectionView(
-            selection: $selection,
-            items: items,
-            showMultiLabels: showMultiLabels
-        )
+        Form {
+            ForEach(items, id: \.self) { item in
+                SelectionItemView(
+                    selection: $selection,
+                    item: item,
+                    showMultiLabels: showMultiLabels
+                )
+            }
+        }
     }
 }
 

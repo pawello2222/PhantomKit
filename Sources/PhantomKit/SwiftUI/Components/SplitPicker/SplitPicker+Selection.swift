@@ -23,60 +23,48 @@
 import SwiftUI
 
 extension SplitPicker {
-    struct SelectionView: View {
+    struct SelectionItemView: View {
         @Environment(\.shortLabelWidth) private var labelWidth
         @Environment(\.dismiss) private var dismiss
 
         @Binding var selection: Selection
-        let items: [Item]
+        let item: Item
         var showMultiLabels = false
 
         var body: some View {
-            Form {
-                ForEach(items, id: \.self) { item in
-                    itemView(item: item)
-                }
+            Button {
+                selection = item.selection
+            } label: {
+                labelView
             }
+            .tint(.primary)
         }
-    }
-}
-
-// MARK: - Item
-
-extension SplitPicker.SelectionView {
-    private func itemView(item: SplitPicker.Item) -> some View {
-        Button {
-            onSelect(item: item)
-        } label: {
-            labelView(item: item)
-        }
-        .tint(.primary)
     }
 }
 
 // MARK: - Label
 
-extension SplitPicker.SelectionView {
-    private func labelView(item: SplitPicker.Item) -> some View {
+extension SplitPicker.SelectionItemView {
+    private var labelView: some View {
         HStack {
             if showMultiLabels {
-                multiLabelView(item: item)
+                multiLabelView
             } else {
-                singleLabelView(item: item)
+                singleLabelView
             }
             Spacer()
-            checkmarkView(item: item)
+            checkmarkView
         }
         .contentShape(.rect)
     }
 
-    private func singleLabelView(item: SplitPicker.Item) -> some View {
+    private var singleLabelView: some View {
         Text(String(item.longValue))
             .foregroundStyle(.primary)
             .alignment(.leading)
     }
 
-    private func multiLabelView(item: SplitPicker.Item) -> some View {
+    private var multiLabelView: some View {
         HStack {
             Text(String(item.shortValue))
                 .allowsTightening(true)
@@ -92,22 +80,13 @@ extension SplitPicker.SelectionView {
 
 // MARK: - Components
 
-extension SplitPicker.SelectionView {
+extension SplitPicker.SelectionItemView {
     @ViewBuilder
-    private func checkmarkView(item: SplitPicker.Item) -> some View {
-        if item == items.first(where: { $0.selection == selection }) {
+    private var checkmarkView: some View {
+        if item.selection == selection {
             Image(systemName: "checkmark")
                 .font(.body.weight(.semibold))
                 .tint(.accentColor)
         }
-    }
-}
-
-// MARK: - Action
-
-extension SplitPicker.SelectionView {
-    private func onSelect(item: SplitPicker.Item) {
-        selection = item.selection
-        dismiss()
     }
 }
