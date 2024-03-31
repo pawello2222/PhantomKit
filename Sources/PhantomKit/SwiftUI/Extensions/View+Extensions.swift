@@ -144,6 +144,20 @@ extension View {
     }
 }
 
+// MARK: - Footer
+
+extension View {
+    public func pinnedFooter<Content>(
+        @ViewBuilder content: () -> Content
+    ) -> some View where Content: View {
+        VStack {
+            self
+            content()
+                .frame(maxWidth: .infinity)
+        }
+    }
+}
+
 // MARK: - Frame
 
 extension View {

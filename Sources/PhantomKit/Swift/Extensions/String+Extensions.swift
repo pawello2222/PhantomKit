@@ -30,6 +30,18 @@ extension String {
     }
 }
 
+extension String {
+    /// Returns a new string created by replacing all characters in the string not
+    /// in the specified set with percent encoded characters.
+    ///
+    /// The default value is `.urlQueryAllowed`.
+    ///
+    /// - Parameter allowedCharacters: The allowed character set.
+    public func urlEscaped(allowed allowedCharacters: CharacterSet = .urlQueryAllowed) -> String? {
+        addingPercentEncoding(withAllowedCharacters: allowedCharacters)
+    }
+}
+
 // MARK: - NSString
 
 extension String {
