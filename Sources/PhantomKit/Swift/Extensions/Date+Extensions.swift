@@ -63,6 +63,76 @@ extension Date {
         components[keyPath: component] = offset
         return calendar.date(byAdding: components, to: self)!
     }
+
+    /// Returns a new `Date` representing the date calculated
+    /// by adjusting to the start of a given component of a date.
+    public func startOf(_ component: Calendar.Component, in calendar: Calendar = .current) -> Date {
+        #if DEBUG
+        calendar.dateInterval(of: component, for: self)!.start
+        #else
+        calendar.dateInterval(of: component, for: self)?.start ?? self
+        #endif
+    }
+
+    /// Returns a new `Date` representing the date calculated
+    /// by adjusting to the end of a given component of a date.
+    public func endOf(_ component: Calendar.Component, in calendar: Calendar = .current) -> Date {
+        #if DEBUG
+        let date = calendar.dateInterval(of: component, for: self)!.end
+        #else
+        let date = calendar.dateInterval(of: component, for: self)?.end ?? self
+        #endif
+
+        return Date(timeInterval: -0.001, since: date)
+    }
+}
+
+// MARK: - Comparison
+
+extension Date {
+    /// Compares whether the date is before, after or equal to the given `date`
+    /// based on the granularity of their components.
+    public func compare(
+        to date: Date,
+        granularity: Calendar.Component,
+        in calendar: Calendar = .current
+    ) -> ComparisonResult {
+        calendar.compare(self, to: date, toGranularity: granularity)
+    }
+
+    /// Returns `true` if the date is equal to the given `date`
+    /// based on the granularity of their components.
+    public func isSame(
+        _ date: Date,
+        granularity: Calendar.Component,
+        in calendar: Calendar = .current
+    ) -> Bool {
+        compare(to: date, granularity: granularity, in: calendar) == .orderedSame
+    }
+
+    /// Returns `true` if the date is before the given `date`
+    /// based on the granularity of their components.
+    public func isBefore(
+        _ date: Date,
+        orEqual: Bool = false,
+        granularity: Calendar.Component,
+        in calendar: Calendar = .current
+    ) -> Bool {
+        let result = compare(to: date, granularity: granularity, in: calendar)
+        return orEqual ? (result == .orderedSame || result == .orderedAscending) : result == .orderedAscending
+    }
+
+    /// Returns `true` if the date is after the given `date`
+    /// based on the granularity of their components.
+    public func isAfter(
+        _ date: Date,
+        orEqual: Bool = false,
+        granularity: Calendar.Component,
+        in calendar: Calendar = .current
+    ) -> Bool {
+        let result = compare(to: date, granularity: granularity, in: calendar)
+        return orEqual ? (result == .orderedSame || result == .orderedDescending) : result == .orderedDescending
+    }
 }
 
 // MARK: - Components
