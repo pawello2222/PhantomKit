@@ -148,9 +148,10 @@ extension View {
 
 extension View {
     public func pinnedFooter<Content>(
+        spacing: CGFloat? = nil,
         @ViewBuilder content: () -> Content
     ) -> some View where Content: View {
-        VStack {
+        VStack(spacing: spacing) {
             self
             content()
                 .frame(maxWidth: .infinity)
