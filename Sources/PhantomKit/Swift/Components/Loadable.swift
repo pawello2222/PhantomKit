@@ -83,4 +83,33 @@ extension Loadable {
     public mutating func setIsLoading() {
         self = .isLoading(previous: value)
     }
+
+    public mutating func cancelLoading() {
+        if let value {
+            self = .loaded(value: value)
+        } else {
+            self = .notRequested
+        }
+    }
+}
+
+// MARK: - Map
+
+extension Loadable {
+    public func map<T>(_ transform: (Value) -> T) -> Loadable<T> {
+        switch self {
+        case .notRequested:
+            return .notRequested
+        case .isLoading(let previous):
+            if let previous {
+                return .isLoading(previous: transform(previous))
+            } else {
+                return .isLoading(previous: nil)
+            }
+        case .loaded(let value):
+            return .loaded(value: transform(value))
+        case .failed(let error):
+            return .failed(error: error)
+        }
+    }
 }
