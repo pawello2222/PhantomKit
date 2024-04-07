@@ -20,16 +20,22 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import SwiftUI
+import Appliable
+import Foundation
 
-public struct IndicatorView: View {
-    public init() {}
+public enum AuthorizationType: String {
+    case basic = "Basic"
+    case bearer = "Bearer"
+}
 
-    public var body: some View {
-        Image(systemName: "chevron.right")
-            .imageScale(.small)
-            .font(.body.weight(.medium))
-            .foregroundColor(.secondary)
-            .opacity(0.55)
+// MARK: - URLRequest
+
+extension URLRequest: Appliable {}
+
+extension URLRequest {
+    public func withAuthorization(token: String, type: AuthorizationType = .bearer) -> Self {
+        applying {
+            $0.addValue("\(type.rawValue) \(token)", forHTTPHeaderField: "Authorization")
+        }
     }
 }

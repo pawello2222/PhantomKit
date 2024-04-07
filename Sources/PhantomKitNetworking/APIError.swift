@@ -20,16 +20,23 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import SwiftUI
+import Foundation
 
-public struct IndicatorView: View {
-    public init() {}
+public enum APIError: Error {
+    case connectionError
+    case invalidURL
+    case httpCode(HTTPCode, message: String?)
+    case unexpectedResponse(URLResponse?)
+}
 
-    public var body: some View {
-        Image(systemName: "chevron.right")
-            .imageScale(.small)
-            .font(.body.weight(.medium))
-            .foregroundColor(.secondary)
-            .opacity(0.55)
+// MARK: - Equatable
+
+extension APIError: Equatable {}
+
+// MARK: - Convenience
+
+extension APIError {
+    public static func unauthorized(message: String? = nil) -> Self {
+        .httpCode(401, message: message)
     }
 }

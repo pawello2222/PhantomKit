@@ -20,16 +20,23 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import SwiftUI
+import Foundation
 
-public struct IndicatorView: View {
-    public init() {}
+public protocol NetworkSession {
+    func data(
+        for urlRequest: URLRequest,
+        delegate: URLSessionTaskDelegate?
+    ) async throws -> (Data, URLResponse)
+}
 
-    public var body: some View {
-        Image(systemName: "chevron.right")
-            .imageScale(.small)
-            .font(.body.weight(.medium))
-            .foregroundColor(.secondary)
-            .opacity(0.55)
+// MARK: - Common
+
+extension NetworkSession {
+    public func data(for request: URLRequest) async throws -> (Data, URLResponse) {
+        try await data(for: request, delegate: nil)
     }
 }
+
+// MARK: - URLSession
+
+extension URLSession: NetworkSession {}

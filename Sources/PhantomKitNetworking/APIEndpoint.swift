@@ -20,16 +20,28 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import SwiftUI
+import Foundation
+import PhantomKit
 
-public struct IndicatorView: View {
-    public init() {}
+public protocol APIEndpoint {
+    var baseURL: String { get }
+    var path: String { get }
+    var method: APIMethod { get }
+    var headers: [String: String]? { get }
+    func body() throws -> Data?
+}
 
-    public var body: some View {
-        Image(systemName: "chevron.right")
-            .imageScale(.small)
-            .font(.body.weight(.medium))
-            .foregroundColor(.secondary)
-            .opacity(0.55)
+// MARK: - Common
+
+extension APIEndpoint {
+    public func urlRequest() throws -> URLRequest {
+        guard let url = URL(string: baseURL.appendingPathComponent(path)) else {
+            throw APIError.invalidURL
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = method.rawValue
+        request.allHTTPHeaderFields = headers
+        request.httpBody = try body()
+        return request
     }
 }

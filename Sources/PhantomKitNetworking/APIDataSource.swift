@@ -20,16 +20,20 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import SwiftUI
+import Foundation
 
-public struct IndicatorView: View {
-    public init() {}
+public protocol APIDataSource: NetworkDataSource {
+    associatedtype Endpoint: APIEndpoint
+}
 
-    public var body: some View {
-        Image(systemName: "chevron.right")
-            .imageScale(.small)
-            .font(.body.weight(.medium))
-            .foregroundColor(.secondary)
-            .opacity(0.55)
+// MARK: - Common
+
+extension APIDataSource {
+    public func call(
+        endpoint: Endpoint,
+        allowedHTTPCodes: HTTPCodes = .success
+    ) async throws -> Data {
+        let request = try endpoint.urlRequest()
+        return try await call(request: request, allowedHTTPCodes: allowedHTTPCodes)
     }
 }

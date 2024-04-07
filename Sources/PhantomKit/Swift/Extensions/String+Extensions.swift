@@ -67,6 +67,13 @@ extension String {
     public var pathExtension: String {
         nsString.pathExtension
     }
+
+    public func appendingPathComponent(_ component: Any?) -> String {
+        guard let component else {
+            return self
+        }
+        return nsString.appendingPathComponent(String(describing: component))
+    }
 }
 
 // MARK: - Private

@@ -20,16 +20,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import SwiftUI
+import Foundation
 
-public struct IndicatorView: View {
-    public init() {}
+public typealias HTTPCode = Int
+public typealias HTTPCodes = Range<HTTPCode>
 
-    public var body: some View {
-        Image(systemName: "chevron.right")
-            .imageScale(.small)
-            .font(.body.weight(.medium))
-            .foregroundColor(.secondary)
-            .opacity(0.55)
-    }
+extension HTTPCodes {
+    public static let success = 200 ..< 300
+    public static let all = 100 ..< 600
 }
