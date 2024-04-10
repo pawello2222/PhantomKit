@@ -16,6 +16,10 @@ let package = Package(
             targets: ["PhantomKit"]
         ),
         .library(
+            name: "PhantomKitLogger",
+            targets: ["PhantomKitLogger"]
+        ),
+        .library(
             name: "PhantomKitNetworking",
             targets: ["PhantomKitNetworking"]
         )
@@ -29,8 +33,12 @@ let package = Package(
             dependencies: ["Appliable"]
         ),
         .target(
-            name: "PhantomKitNetworking",
+            name: "PhantomKitLogger",
             dependencies: ["PhantomKit"]
+        ),
+        .target(
+            name: "PhantomKitNetworking",
+            dependencies: ["PhantomKit", "PhantomKitLogger"]
         ),
         .testTarget(
             name: "PhantomKitTests",

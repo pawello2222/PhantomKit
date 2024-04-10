@@ -26,7 +26,7 @@ public enum Loadable<Value> {
     case notRequested
     case isLoading(previous: Value?)
     case loaded(value: Value)
-    case failed(error: String)
+    case failed(error: String?)
 }
 
 // MARK: - Equatable
@@ -74,6 +74,15 @@ extension Loadable {
     public var isLoading: Bool {
         switch self {
         case .isLoading:
+            return true
+        default:
+            return false
+        }
+    }
+
+    public var isFailed: Bool {
+        switch self {
+        case .failed:
             return true
         default:
             return false
