@@ -28,6 +28,8 @@ public protocol Logger {
     func log(level: LogLevel, _ message: @autoclosure @escaping () -> String, category: String?)
 }
 
+// MARK: - Convenience
+
 extension Logger {
     public func trace(_ message: @autoclosure @escaping () -> String, category: String) {
         log(level: .trace, message(), category: category)
@@ -55,99 +57,5 @@ extension Logger {
 
     public func critical(_ message: @autoclosure @escaping () -> String, category: String) {
         log(level: .critical, message(), category: category)
-    }
-}
-
-// MARK: - LogCategory
-
-public enum LogCategory: String {
-    case application
-    case presentation
-    case domain
-    case data
-    case persistence
-    case network
-}
-
-extension LogCategory {
-    var icon: String {
-        switch self {
-        case .application: "⬜"
-        case .presentation: "🟦"
-        case .domain: "🟩"
-        case .data: "🟥"
-        case .persistence: "🟫"
-        case .network: "🟨"
-        }
-    }
-}
-
-extension Logger {
-    public func log(level: LogLevel, _ message: @autoclosure @escaping () -> String, category: LogCategory) {
-        log(level: level, message(), category: category.rawValue)
-    }
-
-    public func trace(_ message: @autoclosure @escaping () -> String, category: LogCategory) {
-        log(level: .trace, message(), category: category)
-    }
-
-    public func debug(_ message: @autoclosure @escaping () -> String, category: LogCategory) {
-        log(level: .debug, message(), category: category)
-    }
-
-    public func info(_ message: @autoclosure @escaping () -> String, category: LogCategory) {
-        log(level: .info, message(), category: category)
-    }
-
-    public func notice(_ message: @autoclosure @escaping () -> String, category: LogCategory) {
-        log(level: .notice, message(), category: category)
-    }
-
-    public func warning(_ message: @autoclosure @escaping () -> String, category: LogCategory) {
-        log(level: .warning, message(), category: category)
-    }
-
-    public func error(_ message: @autoclosure @escaping () -> String, category: LogCategory) {
-        log(level: .error, message(), category: category)
-    }
-
-    public func critical(_ message: @autoclosure @escaping () -> String, category: LogCategory) {
-        log(level: .critical, message(), category: category)
-    }
-}
-
-// MARK: - LogLevel
-
-public enum LogLevel: String, CaseIterable {
-    case trace
-    case debug
-    case info
-    case notice
-    case warning
-    case error
-    case critical
-}
-
-extension LogLevel {
-    var icon: String {
-        switch self {
-        case .trace: "⬜"
-        case .debug: "🟫"
-        case .info: "🟦"
-        case .notice: "🟩"
-        case .warning: "🟨"
-        case .error: "🟥"
-        case .critical: "🟪"
-        }
-    }
-}
-
-extension LogLevel: Comparable {
-    public static func < (lhs: Self, rhs: Self) -> Bool {
-        lhs.orderValue < rhs.orderValue
-    }
-
-    private var orderValue: Int {
-        Self.allCases.firstIndex(of: self)!
     }
 }

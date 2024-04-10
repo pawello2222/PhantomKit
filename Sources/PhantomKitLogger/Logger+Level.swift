@@ -22,38 +22,40 @@
 
 import Foundation
 
-public class ConsoleLogger {
-    public var level: LogLevel
-
-    public init(level: LogLevel = .info) {
-        self.level = level
-    }
+public enum LogLevel: String, CaseIterable {
+    case trace
+    case debug
+    case info
+    case notice
+    case warning
+    case error
+    case critical
 }
 
-// MARK: - Logger
+// MARK: - Properties
 
-extension ConsoleLogger: Logger {
-    public func log(level: LogLevel, _ message: @autoclosure @escaping () -> String, category: String?) {
-        #if DEBUG
-        guard level >= self.level else {
-            return
+extension LogLevel {
+    var icon: String {
+        switch self {
+        case .trace: "⬜"
+        case .debug: "🟫"
+        case .info: "🟦"
+        case .notice: "🟩"
+        case .warning: "🟨"
+        case .error: "🟥"
+        case .critical: "🟪"
         }
-        let logString = LogBuilder()
-            .append(date: .now, options: .tag)
-            .append(string: level.icon)
-            .append(string: category?.capitalized, options: .tag)
-            .append(string: message())
-            .separate(by: " ")
-            .build()
-        print(logString)
-        #endif
     }
 }
 
-// MARK: - Convenience
+// MARK: - Comparable
 
-extension Logger where Self == ConsoleLogger {
-    public static var console: Self {
-        ConsoleLogger()
+extension LogLevel: Comparable {
+    public static func < (lhs: Self, rhs: Self) -> Bool {
+        lhs.orderValue < rhs.orderValue
+    }
+
+    private var orderValue: Int {
+        Self.allCases.firstIndex(of: self)!
     }
 }

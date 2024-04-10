@@ -23,12 +23,6 @@
 import Foundation
 import OSLog
 
-extension Logger where Self == OSLogLogger {
-    public static var osLog: Self {
-        OSLogLogger()
-    }
-}
-
 public class OSLogLogger {
     private typealias InternalLogger = os.Logger
     private var subsystem: String
@@ -40,11 +34,9 @@ public class OSLogLogger {
         self.level = level
         self.subsystem = subsystem ?? Bundle.main.bundleIdentifier ?? ""
     }
-
-    private func logger(for category: String) -> InternalLogger {
-        loggers[category, default: .init(subsystem: subsystem, category: category)]
-    }
 }
+
+// MARK: - Logger
 
 extension OSLogLogger: Logger {
     public func log(level: LogLevel, _ message: @autoclosure @escaping () -> String, category: String?) {
@@ -55,5 +47,21 @@ extension OSLogLogger: Logger {
         let category = category?.capitalized ?? "Default"
         logger(for: category).log(level: .default, "\(message(), privacy: .private)")
         #endif
+    }
+}
+
+// MARK: - Helpers
+
+extension OSLogLogger {
+    private func logger(for category: String) -> InternalLogger {
+        loggers[category, default: .init(subsystem: subsystem, category: category)]
+    }
+}
+
+// MARK: - Convenience
+
+extension Logger where Self == OSLogLogger {
+    public static var osLog: Self {
+        OSLogLogger()
     }
 }
