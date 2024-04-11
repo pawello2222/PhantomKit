@@ -22,24 +22,7 @@
 
 import Foundation
 
-public enum LogLevel: String, CaseIterable {
-    case trace
-    case debug
-    case info
-    case notice
-    case warning
-    case error
-    case critical
-}
-
-// MARK: - Comparable
-
-extension LogLevel: Comparable {
-    public static func < (lhs: Self, rhs: Self) -> Bool {
-        lhs.orderValue < rhs.orderValue
-    }
-
-    private var orderValue: Int {
-        Self.allCases.firstIndex(of: self)!
-    }
+public protocol LogCategory {
+    var name: String { get }
+    var icon: String { get }
 }

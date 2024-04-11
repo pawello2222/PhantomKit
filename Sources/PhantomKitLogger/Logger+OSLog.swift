@@ -39,13 +39,13 @@ public class OSLogLogger {
 // MARK: - Logger
 
 extension OSLogLogger: Logger {
-    public func log(level: LogLevel, _ message: @autoclosure @escaping () -> String, category: String?) {
+    public func log(level: LogLevel, _ message: @autoclosure @escaping () -> String, category: LogCategory?) {
         #if DEBUG
         guard level >= self.level else {
             return
         }
-        let category = category?.capitalized ?? "Default"
-        logger(for: category).log(level: .default, "\(message(), privacy: .private)")
+        let category = category?.name.capitalized ?? "Default"
+        logger(for: category).log(level: level.osLogType, "\(message(), privacy: .private)")
         #endif
     }
 }
@@ -63,5 +63,24 @@ extension OSLogLogger {
 extension Logger where Self == OSLogLogger {
     public static var osLog: Self {
         OSLogLogger()
+    }
+}
+
+// MARK: - OSLogType
+
+extension LogLevel {
+    var osLogType: OSLogType {
+        switch self {
+        case .trace, .debug:
+            .debug
+        case .info:
+            .info
+        case .notice:
+            .default
+        case .warning, .error:
+            .error
+        case .critical:
+            .fault
+        }
     }
 }

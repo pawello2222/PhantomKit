@@ -25,37 +25,37 @@ import Foundation
 public protocol Logger {
     var level: LogLevel { get set }
 
-    func log(level: LogLevel, _ message: @autoclosure @escaping () -> String, category: String?)
+    func log(level: LogLevel, _ message: @autoclosure @escaping () -> String, category: LogCategory?)
 }
 
 // MARK: - Convenience
 
 extension Logger {
-    public func trace(_ message: @autoclosure @escaping () -> String, category: String) {
+    public func trace(_ message: @autoclosure @escaping () -> String, category: LogCategory? = nil) {
         log(level: .trace, message(), category: category)
     }
 
-    public func debug(_ message: @autoclosure @escaping () -> String, category: String) {
+    public func debug(_ message: @autoclosure @escaping () -> String, category: LogCategory? = nil) {
         log(level: .debug, message(), category: category)
     }
 
-    public func info(_ message: @autoclosure @escaping () -> String, category: String) {
+    public func info(_ message: @autoclosure @escaping () -> String, category: LogCategory? = nil) {
         log(level: .info, message(), category: category)
     }
 
-    public func notice(_ message: @autoclosure @escaping () -> String, category: String) {
+    public func notice(_ message: @autoclosure @escaping () -> String, category: LogCategory? = nil) {
         log(level: .notice, message(), category: category)
     }
 
-    public func warning(_ message: @autoclosure @escaping () -> String, category: String) {
+    public func warning(_ message: @autoclosure @escaping () -> String, category: LogCategory? = nil) {
         log(level: .warning, message(), category: category)
     }
 
-    public func error(_ message: @autoclosure @escaping () -> String, category: String) {
+    public func error(_ message: @autoclosure @escaping () -> String, category: LogCategory? = nil) {
         log(level: .error, message(), category: category)
     }
 
-    public func critical(_ message: @autoclosure @escaping () -> String, category: String) {
+    public func critical(_ message: @autoclosure @escaping () -> String, category: LogCategory? = nil) {
         log(level: .critical, message(), category: category)
     }
 }

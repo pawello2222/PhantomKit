@@ -25,6 +25,8 @@ import Foundation
 public class ConsoleLogger {
     public var level: LogLevel
 
+    public var displayDate = false
+
     public init(level: LogLevel = .info) {
         self.level = level
     }
@@ -33,15 +35,19 @@ public class ConsoleLogger {
 // MARK: - Logger
 
 extension ConsoleLogger: Logger {
-    public func log(level: LogLevel, _ message: @autoclosure @escaping () -> String, category: String?) {
+    public func log(
+        level: LogLevel,
+        _ message: @autoclosure @escaping () -> String,
+        category: LogCategory?
+    ) {
         #if DEBUG
         guard level >= self.level else {
             return
         }
-        let logString = LogBuilder()
+        let logString = LogBuilder(displayDate: displayDate)
             .append(date: .now, options: .tag)
-            .append(string: level.icon)
-            .append(string: category?.capitalized, options: .tag)
+            .append(string: category?.icon)
+            .append(string: category?.name.capitalized, options: .tag)
             .append(string: message())
             .separate(by: " ")
             .build()

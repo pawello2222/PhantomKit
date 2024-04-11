@@ -23,16 +23,33 @@
 import Foundation
 
 class LogBuilder {
+    private var separator = ""
+    private var items: [String] = []
+
+    private var displayDate: Bool
+
+    init(displayDate: Bool = false) {
+        self.displayDate = displayDate
+    }
+}
+
+// MARK: - Options
+
+extension LogBuilder {
     enum Options {
         case none
         case tag
     }
+}
 
-    private var separator = ""
-    private var items: [String] = []
+// MARK: - Builder
 
+extension LogBuilder {
     @discardableResult
     func append(date: Date, options: Options = .none) -> Self {
+        guard displayDate else {
+            return self
+        }
         let formattedDate = Self.dateFormatter.string(from: .now)
         items.append(formattedDate.with(options: options))
         return self
