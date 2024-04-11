@@ -39,13 +39,18 @@ public class OSLogLogger {
 // MARK: - Logger
 
 extension OSLogLogger: Logger {
-    public func log(level: LogLevel, _ message: @autoclosure @escaping () -> String, category: LogCategory?) {
+    public func log(
+        level: LogLevel,
+        _ message: @autoclosure @escaping () -> String,
+        category: LogCategory?
+    ) {
         #if DEBUG
         guard level >= self.level else {
             return
         }
         let category = category?.name.capitalized ?? "Default"
-        logger(for: category).log(level: level.osLogType, "\(message(), privacy: .private)")
+        logger(for: category)
+            .log(level: level.osLogType, "\(message(), privacy: .private)")
         #endif
     }
 }

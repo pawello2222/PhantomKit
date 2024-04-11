@@ -25,12 +25,6 @@ import Foundation
 class LogBuilder {
     private var separator = ""
     private var items: [String] = []
-
-    private var displayDate: Bool
-
-    init(displayDate: Bool = false) {
-        self.displayDate = displayDate
-    }
 }
 
 // MARK: - Options
@@ -47,9 +41,6 @@ extension LogBuilder {
 extension LogBuilder {
     @discardableResult
     func append(date: Date, options: Options = .none) -> Self {
-        guard displayDate else {
-            return self
-        }
         let formattedDate = Self.dateFormatter.string(from: .now)
         items.append(formattedDate.with(options: options))
         return self
@@ -72,6 +63,35 @@ extension LogBuilder {
 
     func build() -> String {
         items.joined(separator: separator)
+    }
+}
+
+// MARK: - Convenience
+
+extension LogBuilder {
+    @discardableResult
+    func apply(
+        if condition: Bool,
+        _ transform: (Self) -> Self
+    ) -> Self {
+        if condition {
+            transform(self)
+        } else {
+            self
+        }
+    }
+
+    @discardableResult
+    func apply(
+        if condition: Bool,
+        _ trueTransform: (Self) -> Self,
+        else falseTransform: (Self) -> Self
+    ) -> Self {
+        if condition {
+            trueTransform(self)
+        } else {
+            falseTransform(self)
+        }
     }
 }
 

@@ -43,3 +43,19 @@ extension LogLevel: Comparable {
         Self.allCases.firstIndex(of: self)!
     }
 }
+
+// MARK: - Icon
+
+extension LogLevel {
+    public var icon: String {
+        switch self {
+        case .trace: "⬜"
+        case .debug: "🟫"
+        case .info: "🟦"
+        case .notice: "🟩"
+        case .warning: "🟨"
+        case .error: "🟥"
+        case .critical: "🟪"
+        }
+    }
+}

@@ -22,9 +22,11 @@
 
 import Foundation
 import PhantomKit
+import PhantomKitLogger
 
 public protocol NetworkDataSource {
     var session: NetworkSession { get }
+    var logger: Logger { get }
 }
 
 // MARK: - Common
@@ -35,10 +37,12 @@ extension NetworkDataSource {
         allowedHTTPCodes: HTTPCodes = .success
     ) async throws -> Data {
         do {
+            log(request: request)
             let (data, response) = try await session.data(for: request)
             guard let response = response as? HTTPURLResponse else {
                 throw APIError.unexpectedResponse(response)
             }
+            log(request: request, response: response, data: data)
             guard allowedHTTPCodes ~= response.statusCode else {
                 throw APIError.httpCode(response.statusCode, message: nil)
             }
@@ -53,6 +57,27 @@ extension NetworkDataSource {
             return error
         }
         return APIError.connectionError
+    }
+}
+
+// MARK: - Logger
+
+extension NetworkDataSource {
+    private func log(request: URLRequest) {
+        let httpMethod = request.httpMethod ?? "?"
+        logger.debug(
+            "[\(httpMethod)] --> \(request)",
+            category: DefaultLogCategory.network
+        )
+    }
+
+    private func log(request: URLRequest, response: HTTPURLResponse, data: Data) {
+        let httpMethod = request.httpMethod ?? "?"
+        let body = String(data: data, encoding: .utf8) ?? ""
+        logger.debug(
+            "[\(httpMethod)] \(response.statusCode) \(request)\n\(body)",
+            category: DefaultLogCategory.network
+        )
     }
 }
 

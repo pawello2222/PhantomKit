@@ -24,11 +24,28 @@ import Foundation
 
 public class ConsoleLogger {
     public var level: LogLevel
+    public var options: Options
 
-    public var displayDate = false
-
-    public init(level: LogLevel = .info) {
+    public init(level: LogLevel = .info, options: Options = .init()) {
         self.level = level
+        self.options = options
+    }
+}
+
+// MARK: - Options
+
+extension ConsoleLogger {
+    public struct Options {
+        let displayDate: Bool
+        let displayIconForLevel: Bool
+
+        public init(
+            displayDate: Bool = false,
+            displayIconForLevel: Bool = false
+        ) {
+            self.displayDate = displayDate
+            self.displayIconForLevel = displayIconForLevel
+        }
     }
 }
 
@@ -44,9 +61,15 @@ extension ConsoleLogger: Logger {
         guard level >= self.level else {
             return
         }
-        let logString = LogBuilder(displayDate: displayDate)
-            .append(date: .now, options: .tag)
-            .append(string: category?.icon)
+        let logString = LogBuilder()
+            .apply(if: options.displayDate) {
+                $0.append(date: .now, options: .tag)
+            }
+            .apply(if: options.displayIconForLevel) {
+                $0.append(string: level.icon)
+            } else: {
+                $0.append(string: category?.icon)
+            }
             .append(string: category?.name.capitalized, options: .tag)
             .append(string: message())
             .separate(by: " ")

@@ -26,3 +26,23 @@ public protocol LogCategory {
     var name: String { get }
     var icon: String { get }
 }
+
+// MARK: - DefaultLogCategory
+
+public enum DefaultLogCategory: String {
+    case network
+}
+
+// MARK: - Helpers
+
+extension DefaultLogCategory: LogCategory {
+    public var name: String {
+        rawValue
+    }
+
+    public var icon: String {
+        switch self {
+        case .network: "🟦"
+        }
+    }
+}
