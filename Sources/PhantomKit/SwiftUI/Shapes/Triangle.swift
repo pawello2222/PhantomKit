@@ -22,31 +22,15 @@
 
 import SwiftUI
 
-extension Color {
-    public init(hex: Int, opacity: Double = 1) {
-        self.init(
-            .default,
-            red: .init((hex >> 16) & 0xFF) / 255,
-            green: .init((hex >> 08) & 0xFF) / 255,
-            blue: .init((hex >> 00) & 0xFF) / 255,
-            opacity: opacity
-        )
+public struct Triangle: Shape {
+    public init() {}
+
+    public func path(in rect: CGRect) -> Path {
+        var path = Path()
+        path.move(to: CGPoint(x: rect.midX, y: rect.minY))
+        path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY))
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
+        path.addLine(to: CGPoint(x: rect.midX, y: rect.minY))
+        return path
     }
-}
-
-extension Color {
-    public static func random(alpha: CGFloat = 1) -> Color {
-        let red = CGFloat.random(in: 0 ... 1)
-        let green = CGFloat.random(in: 0 ... 1)
-        let blue = CGFloat.random(in: 0 ... 1)
-        return .init(
-            uiColor: .init(red: red, green: green, blue: blue, alpha: alpha)
-        )
-    }
-}
-
-// MARK: - RGBColorSpace
-
-extension Color.RGBColorSpace {
-    public static var `default`: Self = .sRGB
 }
