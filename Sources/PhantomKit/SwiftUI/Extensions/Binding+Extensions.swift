@@ -35,6 +35,26 @@ extension Binding {
     }
 }
 
+extension Binding {
+    public static func convert<TInt, TFloat>(
+        from binding: Binding<TInt>
+    ) -> Binding<TFloat> where TInt: BinaryInteger, TFloat: BinaryFloatingPoint {
+        Binding<TFloat>(
+            get: { TFloat(binding.wrappedValue) },
+            set: { binding.wrappedValue = TInt($0) }
+        )
+    }
+
+    public static func convert<TFloat, TInt>(
+        from binding: Binding<TFloat>
+    ) -> Binding<TInt> where TFloat: BinaryFloatingPoint, TInt: BinaryInteger {
+        Binding<TInt>(
+            get: { TInt(binding.wrappedValue) },
+            set: { binding.wrappedValue = TFloat($0) }
+        )
+    }
+}
+
 // MARK: - Operators
 
 /// Created a binding by unwrapping a given value and providing a default value.
