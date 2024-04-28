@@ -38,3 +38,20 @@ extension Comparable {
         min(self, bounds.upperBound)
     }
 }
+
+extension Comparable {
+    /// Clamps `self` in place to the given bounds.
+    public mutating func clamp(to bounds: ClosedRange<Self>) {
+        self = clamped(to: bounds)
+    }
+
+    /// Clamps `self` in place to the given bounds.
+    public mutating func clamp(to bounds: PartialRangeFrom<Self>) {
+        self = clamped(to: bounds)
+    }
+
+    /// Clamps `self` in place to the given bounds.
+    public mutating func clamp(to bounds: PartialRangeThrough<Self>) {
+        self = clamped(to: bounds)
+    }
+}

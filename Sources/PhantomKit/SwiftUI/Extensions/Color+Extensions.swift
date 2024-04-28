@@ -22,6 +22,8 @@
 
 import SwiftUI
 
+#if os(iOS)
+
 extension Color {
     public init(hex: Int, opacity: Double = 1) {
         self.init(
@@ -91,3 +93,5 @@ extension Color {
 extension Color.RGBColorSpace {
     public static var `default`: Self = .sRGB
 }
+
+#endif
