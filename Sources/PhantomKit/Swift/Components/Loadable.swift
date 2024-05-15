@@ -35,15 +35,15 @@ extension Loadable: Equatable where Value: Equatable {
     public static func == (lhs: Self, rhs: Self) -> Bool {
         switch (lhs, rhs) {
         case (.notRequested, .notRequested):
-            return true
+            true
         case (.isLoading(let lhsPrevious), .isLoading(let rhsPrevious)):
-            return lhsPrevious == rhsPrevious
+            lhsPrevious == rhsPrevious
         case (.loaded(let lhsValue), .loaded(let rhsValue)):
-            return lhsValue == rhsValue
+            lhsValue == rhsValue
         case (.failed(let lhsError), .failed(let rhsError)):
-            return lhsError == rhsError
+            lhsError == rhsError
         default:
-            return false
+            false
         }
     }
 }
@@ -54,41 +54,45 @@ extension Loadable {
     public var value: Value? {
         switch self {
         case .loaded(let value):
-            return value
+            value
         case .isLoading(let previous):
-            return previous
+            previous
         default:
-            return nil
+            nil
         }
     }
 
     public var error: String? {
         switch self {
         case .failed(let error):
-            return error
+            error
         default:
-            return nil
+            nil
         }
     }
 
     public var isLoading: Bool {
         switch self {
         case .isLoading:
-            return true
+            true
         default:
-            return false
+            false
         }
     }
 
     public var isFailed: Bool {
         switch self {
         case .failed:
-            return true
+            true
         default:
-            return false
+            false
         }
     }
+}
 
+// MARK: - Actions
+
+extension Loadable {
     public mutating func setIsLoading() {
         self = .isLoading(previous: value)
     }
@@ -108,17 +112,17 @@ extension Loadable {
     public func map<T>(_ transform: (Value) -> T) -> Loadable<T> {
         switch self {
         case .notRequested:
-            return .notRequested
+            .notRequested
         case .isLoading(let previous):
             if let previous {
-                return .isLoading(previous: transform(previous))
+                .isLoading(previous: transform(previous))
             } else {
-                return .isLoading(previous: nil)
+                .isLoading(previous: nil)
             }
         case .loaded(let value):
-            return .loaded(value: transform(value))
+            .loaded(value: transform(value))
         case .failed(let error):
-            return .failed(error: error)
+            .failed(error: error)
         }
     }
 }
