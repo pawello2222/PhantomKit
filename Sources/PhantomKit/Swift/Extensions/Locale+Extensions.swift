@@ -28,6 +28,7 @@ extension Locale {
 }
 
 extension Locale {
+    /// Returns localized name of the current language
     public var localizedCurrentLanguageName: String? {
         guard let languageCode = language.languageCode?.identifier else {
             return nil

@@ -24,7 +24,7 @@ import Foundation
 
 extension NSDecimalNumber {
     public var absValue: NSDecimalNumber {
-        .init(decimal: decimalValue.magnitude)
+        abs(decimalValue) as NSDecimalNumber
     }
 }
 
