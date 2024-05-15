@@ -26,3 +26,12 @@ extension Locale {
     /// Returns `en_US_POSIX` locale.
     public static let usPosix = Locale(identifier: "en_US_POSIX")
 }
+
+extension Locale {
+    public var localizedCurrentLanguageName: String? {
+        guard let languageCode = language.languageCode?.identifier else {
+            return nil
+        }
+        return localizedString(forLanguageCode: languageCode)
+    }
+}
