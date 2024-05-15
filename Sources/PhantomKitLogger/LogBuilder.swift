@@ -20,6 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+import Appliable
 import Foundation
 
 class LogBuilder {
@@ -98,20 +99,18 @@ extension LogBuilder {
 // MARK: - Helpers
 
 extension LogBuilder {
-    private static var dateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        return formatter
-    }()
+    private static var dateFormatter = DateFormatter().apply {
+        $0.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    }
 }
 
 extension String {
     fileprivate func with(options: LogBuilder.Options) -> Self {
         switch options {
         case .none:
-            return self
+            self
         case .tag:
-            return "[\(self)]"
+            "[\(self)]"
         }
     }
 }

@@ -83,6 +83,6 @@ extension ConsoleLogger: Logger {
 
 extension Logger where Self == ConsoleLogger {
     public static var console: Self {
-        ConsoleLogger()
+        .init()
     }
 }

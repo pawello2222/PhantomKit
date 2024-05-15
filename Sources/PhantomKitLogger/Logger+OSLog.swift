@@ -25,6 +25,7 @@ import OSLog
 
 public class OSLogLogger {
     private typealias InternalLogger = os.Logger
+
     private var subsystem: String
     private var loggers: [String: InternalLogger] = [:]
 
@@ -49,8 +50,8 @@ extension OSLogLogger: Logger {
             return
         }
         let category = category?.name.capitalized ?? "Default"
-        logger(for: category)
-            .log(level: level.osLogType, "\(message(), privacy: .private)")
+        let level = level.osLogType
+        logger(for: category).log(level: level, "\(message(), privacy: .private)")
         #endif
     }
 }
@@ -67,14 +68,14 @@ extension OSLogLogger {
 
 extension Logger where Self == OSLogLogger {
     public static var osLog: Self {
-        OSLogLogger()
+        .init()
     }
 }
 
 // MARK: - OSLogType
 
 extension LogLevel {
-    var osLogType: OSLogType {
+    fileprivate var osLogType: OSLogType {
         switch self {
         case .trace, .debug:
             .debug
