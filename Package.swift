@@ -1,19 +1,19 @@
-// swift-tools-version: 5.7
+// swift-tools-version: 5.9
 
 import PackageDescription
 
 let package = Package(
     name: "PhantomKit",
     platforms: [
-        .iOS(.v16),
-        .macOS(.v13),
-        .watchOS(.v9),
-        .tvOS(.v16)
+        .iOS(.v17),
+        .macOS(.v14),
+        .watchOS(.v10),
+        .tvOS(.v17)
     ],
     products: [
         .library(
-            name: "PhantomKit",
-            targets: ["PhantomKit"]
+            name: "PhantomKitCore",
+            targets: ["PhantomKitCore"]
         ),
         .library(
             name: "PhantomKitLogger",
@@ -33,24 +33,24 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "PhantomKit",
+            name: "PhantomKitCore",
             dependencies: ["Appliable"]
         ),
         .target(
             name: "PhantomKitLogger",
-            dependencies: ["PhantomKit"]
+            dependencies: ["PhantomKitCore"]
         ),
         .target(
             name: "PhantomKitNetworking",
-            dependencies: ["PhantomKit", "PhantomKitLogger"]
+            dependencies: ["PhantomKitCore", "PhantomKitLogger"]
         ),
         .target(
             name: "PhantomKitUI",
-            dependencies: ["PhantomKit"]
+            dependencies: ["PhantomKitCore"]
         ),
         .testTarget(
-            name: "PhantomKitTests",
-            dependencies: ["PhantomKit"]
+            name: "PhantomKitCoreTests",
+            dependencies: ["PhantomKitCore"]
         )
     ]
 )

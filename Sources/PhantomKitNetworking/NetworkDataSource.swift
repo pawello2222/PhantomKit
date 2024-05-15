@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 import Foundation
-import PhantomKit
+import PhantomKitCore
 import PhantomKitLogger
 
 public protocol NetworkDataSource {

@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 import Foundation
-import PhantomKit
+import PhantomKitCore
 
 public protocol APIEndpoint {
     var baseURL: String { get }

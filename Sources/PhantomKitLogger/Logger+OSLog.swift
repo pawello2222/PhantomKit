@@ -22,6 +22,7 @@
 
 import Foundation
 import OSLog
+import PhantomKitCore
 
 public class OSLogLogger {
     private typealias InternalLogger = os.Logger
