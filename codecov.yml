@@ -1,6 +1,8 @@
 coverage:
   ignore:
-    - "Sources/PhantomKit/SwiftUI"
+    - "Sources/PhantomKitLogger"
+    - "Sources/PhantomKitNetworking"
+    - "Sources/PhantomKitUI"
     - "Tests"
   status:
     project:

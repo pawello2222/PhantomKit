@@ -22,6 +22,7 @@
 
 #if canImport(PDFKit)
 
+import Appliable
 import PDFKit
 import SwiftUI
 

@@ -22,7 +22,11 @@ let package = Package(
         .library(
             name: "PhantomKitNetworking",
             targets: ["PhantomKitNetworking"]
-        )
+        ),
+        .library(
+            name: "PhantomKitUI",
+            targets: ["PhantomKitUI"]
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/pawello2222/Appliable", from: "1.0.0")
@@ -39,6 +43,10 @@ let package = Package(
         .target(
             name: "PhantomKitNetworking",
             dependencies: ["PhantomKit", "PhantomKitLogger"]
+        ),
+        .target(
+            name: "PhantomKitUI",
+            dependencies: ["PhantomKit"]
         ),
         .testTarget(
             name: "PhantomKitTests",
