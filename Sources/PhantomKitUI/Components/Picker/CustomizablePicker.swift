@@ -22,28 +22,30 @@
 
 import SwiftUI
 
-public struct SplitPicker<
+/// A control for selecting from a set of mutually exclusive values
+/// allowing greater customization of labels than the default `Picker`.
+public struct CustomizablePicker<
     Label: View,
     Selection: Hashable,
     ShortValue: Hashable & LosslessStringConvertible,
     LongValue: Hashable & LosslessStringConvertible
 >: View {
-    public typealias Item = PickerItem<Selection, ShortValue, LongValue>
+    public typealias Item = CustomizablePickerItem<Selection, ShortValue, LongValue>
 
     @Binding private var selection: Selection
     private let items: [Item]
-    private var showMultiLabels: Bool
+    private let showExtendedLabels: Bool
     private let label: () -> Label
 
     public init(
         selection: Binding<Selection>,
         items: [Item],
-        showMultiLabels: Bool = false,
+        showExtendedLabels: Bool = false,
         @ViewBuilder label: @escaping () -> Label
     ) {
         _selection = selection
         self.items = items
-        self.showMultiLabels = showMultiLabels
+        self.showExtendedLabels = showExtendedLabels
         self.label = label
     }
 
@@ -58,7 +60,7 @@ public struct SplitPicker<
 
 // MARK: - Content
 
-extension SplitPicker {
+extension CustomizablePicker {
     private var contentView: some View {
         HStack {
             labelView
@@ -83,14 +85,14 @@ extension SplitPicker {
 
 // MARK: - Selection
 
-extension SplitPicker {
+extension CustomizablePicker {
     private var selectionView: some View {
         Form {
             ForEach(items, id: \.self) { item in
                 SelectionItemView(
                     selection: $selection,
                     item: item,
-                    showMultiLabels: showMultiLabels
+                    showExtendedLabels: showExtendedLabels
                 )
             }
         }
@@ -99,17 +101,17 @@ extension SplitPicker {
 
 // MARK: - Convenience
 
-extension SplitPicker {
+extension CustomizablePicker {
     public init(
         title: LocalizedStringResource,
         selection: Binding<Selection>,
         items: [Item],
-        showMultiLabels: Bool = false
+        showExtendedLabels: Bool = false
     ) where Label == Text {
         self.init(
             selection: selection,
             items: items,
-            showMultiLabels: showMultiLabels
+            showExtendedLabels: showExtendedLabels
         ) {
             Text(title)
         }
@@ -118,15 +120,15 @@ extension SplitPicker {
     public init(
         selection: Binding<Int>,
         range: ClosedRange<Int>,
-        showMultiLabels: Bool = false,
+        showExtendedLabels: Bool = false,
         @ViewBuilder label: @escaping () -> Label
     ) where Selection == Int, ShortValue == Int, LongValue == Int {
         self.init(
             selection: selection,
             items: Array(range).map {
-                PickerItem(selection: $0, shortValue: $0, longValue: $0)
+                CustomizablePickerItem(selection: $0, shortValue: $0, longValue: $0)
             },
-            showMultiLabels: showMultiLabels,
+            showExtendedLabels: showExtendedLabels,
             label: label
         )
     }
@@ -135,12 +137,12 @@ extension SplitPicker {
         title: LocalizedStringResource,
         selection: Binding<Int>,
         range: ClosedRange<Int>,
-        showMultiLabels: Bool = false
+        showExtendedLabels: Bool = false
     ) where Label == Text, Selection == Int, ShortValue == Int, LongValue == Int {
         self.init(
             selection: selection,
             range: range,
-            showMultiLabels: showMultiLabels
+            showExtendedLabels: showExtendedLabels
         ) {
             Text(title)
         }

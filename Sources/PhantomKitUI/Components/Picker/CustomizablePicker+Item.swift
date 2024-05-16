@@ -22,7 +22,7 @@
 
 import SwiftUI
 
-public struct PickerItem<
+public struct CustomizablePickerItem<
     Selection: Hashable,
     ShortValue: Hashable & LosslessStringConvertible,
     LongValue: Hashable & LosslessStringConvertible

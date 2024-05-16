@@ -29,6 +29,7 @@ extension EnvironmentValues {
         static var defaultValue: CGFloat = 50
     }
 
+    /// The width of the short label used e.g. in the `SplitPicker`.
     public var shortLabelWidth: CGFloat {
         get { self[ShortLabelWidthKey.self] }
         set { self[ShortLabelWidthKey.self] = newValue }

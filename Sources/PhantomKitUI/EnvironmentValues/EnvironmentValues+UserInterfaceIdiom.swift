@@ -29,6 +29,7 @@ extension EnvironmentValues {
         static var defaultValue: UIUserInterfaceIdiom = .phone
     }
 
+    /// The user interface idiom of this environment.
     public var userInterfaceIdiom: UIUserInterfaceIdiom {
         get { self[UserInterfaceIdiomEnvironmentKey.self] }
         set { self[UserInterfaceIdiomEnvironmentKey.self] = newValue }

@@ -22,14 +22,14 @@
 
 import SwiftUI
 
-extension SplitPicker {
+extension CustomizablePicker {
     struct SelectionItemView: View {
         @Environment(\.shortLabelWidth) private var labelWidth
         @Environment(\.dismiss) private var dismiss
 
         @Binding var selection: Selection
         let item: Item
-        var showMultiLabels = false
+        var showExtendedLabels = false
 
         var body: some View {
             Button {
@@ -44,10 +44,10 @@ extension SplitPicker {
 
 // MARK: - Label
 
-extension SplitPicker.SelectionItemView {
+extension CustomizablePicker.SelectionItemView {
     private var labelView: some View {
         HStack {
-            if showMultiLabels {
+            if showExtendedLabels {
                 multiLabelView
             } else {
                 singleLabelView
