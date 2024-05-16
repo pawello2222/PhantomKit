@@ -26,7 +26,7 @@ let package = Package(
         .library(
             name: "PhantomKitUI",
             targets: ["PhantomKitUI"]
-        ),
+        )
     ],
     dependencies: [
         .package(url: "https://github.com/pawello2222/Appliable", from: "1.0.0")

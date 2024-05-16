@@ -82,6 +82,7 @@ extension Color {
 // MARK: - Private
 
 extension Color {
+    // swiftlint:disable:next large_tuple
     private var components: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)? {
         var red: CGFloat = 0
         var green: CGFloat = 0
