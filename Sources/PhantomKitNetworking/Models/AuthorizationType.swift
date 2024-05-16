@@ -30,8 +30,6 @@ public enum AuthorizationType: String {
 
 // MARK: - URLRequest
 
-extension URLRequest: Appliable {}
-
 extension URLRequest {
     public func withAuthorization(token: String, type: AuthorizationType = .bearer) -> Self {
         applying {

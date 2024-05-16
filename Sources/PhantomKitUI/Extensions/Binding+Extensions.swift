@@ -22,17 +22,6 @@
 
 import SwiftUI
 
-// MARK: - Convenience
-
-extension Binding {
-    /// Creates a binding with an immutable value.
-    public static func c(_ value: Value) -> Self {
-        constant(value)
-    }
-}
-
-// MARK: - Conversion
-
 extension Binding {
     /// Converts the `wrappedValue` from `BinaryInteger` to `BinaryFloatingPoint`.
     public static func convert<TInt, TFloat>(
