@@ -21,6 +21,7 @@
 // SOFTWARE.
 
 import SwiftUI
+
 #if os(iOS) || os(tvOS)
 public typealias PlatformViewController = UIViewController
 public typealias PlatformViewControllerRepresentable = UIViewControllerRepresentable
@@ -42,6 +43,7 @@ public protocol ViewControllerRepresentable: PlatformViewControllerRepresentable
 // MARK: - Platform
 
 #if os(iOS) || os(tvOS)
+
 extension ViewControllerRepresentable where UIViewControllerType == PlatformViewControllerType {
     public func makeUIViewController(context: Context) -> UIViewControllerType {
         makeViewController(context: context)
@@ -53,6 +55,7 @@ extension ViewControllerRepresentable where UIViewControllerType == PlatformView
 }
 
 #elseif os(macOS)
+
 extension ViewControllerRepresentable where NSViewControllerType == PlatformViewControllerType {
     public func makeNSViewController(context: Context) -> NSViewControllerType {
         makeViewController(context: context)
@@ -62,4 +65,5 @@ extension ViewControllerRepresentable where NSViewControllerType == PlatformView
         updateViewController(nsViewController, context: context)
     }
 }
+
 #endif

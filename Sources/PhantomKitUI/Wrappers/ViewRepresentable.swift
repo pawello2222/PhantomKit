@@ -21,6 +21,7 @@
 // SOFTWARE.
 
 import SwiftUI
+
 #if os(iOS) || os(tvOS)
 public typealias PlatformView = UIView
 public typealias PlatformViewRepresentable = UIViewRepresentable
@@ -42,6 +43,7 @@ public protocol ViewRepresentable: PlatformViewRepresentable {
 // MARK: - Platform
 
 #if os(iOS) || os(tvOS)
+
 extension ViewRepresentable where UIViewType == PlatformViewType {
     public func makeUIView(context: Context) -> UIViewType {
         makeView(context: context)
@@ -53,6 +55,7 @@ extension ViewRepresentable where UIViewType == PlatformViewType {
 }
 
 #elseif os(macOS)
+
 extension ViewRepresentable where NSViewType == PlatformViewType {
     public func makeNSView(context: Context) -> NSViewType {
         makeView(context: context)
@@ -62,4 +65,5 @@ extension ViewRepresentable where NSViewType == PlatformViewType {
         updateView(nsView, context: context)
     }
 }
+
 #endif

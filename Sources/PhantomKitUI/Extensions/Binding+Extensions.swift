@@ -22,20 +22,19 @@
 
 import SwiftUI
 
+// MARK: - Convenience
+
 extension Binding {
     /// Creates a binding with an immutable value.
-    ///
-    /// Use this method to create a binding to a value that cannot change.
-    /// This can be useful when using a ``PreviewProvider`` to see how a view
-    /// represents different values.
-    ///
-    /// - Parameter value: An immutable value.
     public static func c(_ value: Value) -> Self {
         constant(value)
     }
 }
 
+// MARK: - Conversion
+
 extension Binding {
+    /// Converts the `wrappedValue` from `BinaryInteger` to `BinaryFloatingPoint`.
     public static func convert<TInt, TFloat>(
         from binding: Binding<TInt>
     ) -> Binding<TFloat> where TInt: BinaryInteger, TFloat: BinaryFloatingPoint {
@@ -45,6 +44,7 @@ extension Binding {
         )
     }
 
+    /// Converts the `wrappedValue` from `BinaryFloatingPoint` to `BinaryInteger`.
     public static func convert<TFloat, TInt>(
         from binding: Binding<TFloat>
     ) -> Binding<TInt> where TFloat: BinaryFloatingPoint, TInt: BinaryInteger {
@@ -57,7 +57,7 @@ extension Binding {
 
 // MARK: - Operators
 
-/// Created a binding by unwrapping a given value and providing a default value.
+/// Creates a binding by unwrapping a given value and providing a default value.
 public func ?? <T>(lhs: Binding<T?>, rhs: T) -> Binding<T> {
     .init(
         get: { lhs.wrappedValue ?? rhs },

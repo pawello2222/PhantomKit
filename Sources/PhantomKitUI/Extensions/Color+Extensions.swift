@@ -22,32 +22,13 @@
 
 import SwiftUI
 
-#if os(iOS)
+#if os(iOS) || os(tvOS) || os(watchOS)
+private typealias PlatformColor = UIColor
+#elseif os(macOS)
+private typealias PlatformColor = NSColor
+#endif
 
-extension Color {
-    public init(hex: Int, opacity: Double = 1) {
-        self.init(
-            .default,
-            red: .init((hex >> 16) & 0xFF) / 255,
-            green: .init((hex >> 08) & 0xFF) / 255,
-            blue: .init((hex >> 00) & 0xFF) / 255,
-            opacity: opacity
-        )
-    }
-}
-
-extension Color {
-    public static func random(alpha: CGFloat = 1) -> Color {
-        let red = CGFloat.random(in: 0 ... 1)
-        let green = CGFloat.random(in: 0 ... 1)
-        let blue = CGFloat.random(in: 0 ... 1)
-        return .init(
-            uiColor: .init(red: red, green: green, blue: blue, alpha: alpha)
-        )
-    }
-}
-
-// MARK: - Codable
+// MARK: - Conformance
 
 extension Color: Codable {
     enum CodingKeys: String, CodingKey {
@@ -56,11 +37,10 @@ extension Color: Codable {
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let r = try container.decode(Double.self, forKey: .red)
-        let g = try container.decode(Double.self, forKey: .green)
-        let b = try container.decode(Double.self, forKey: .blue)
-
-        self.init(red: r, green: g, blue: b)
+        let red = try container.decode(Double.self, forKey: .red)
+        let green = try container.decode(Double.self, forKey: .green)
+        let blue = try container.decode(Double.self, forKey: .blue)
+        self.init(red: red, green: green, blue: blue)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -74,24 +54,40 @@ extension Color: Codable {
     }
 }
 
-extension Color {
-    fileprivate var components: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)? {
-        var r: CGFloat = 0
-        var g: CGFloat = 0
-        var b: CGFloat = 0
-        var a: CGFloat = 0
+// MARK: - Convenience
 
-        guard UIColor(self).getRed(&r, green: &g, blue: &b, alpha: &a) else {
-            return nil
-        }
-        return (r, g, b, a)
+extension Color {
+    /// Creates a constant color from a hexadecimal value.
+    public init(hex: Int, opacity: Double = 1) {
+        self.init(
+            .sRGB,
+            red: .init((hex >> 16) & 0xFF) / 255,
+            green: .init((hex >> 08) & 0xFF) / 255,
+            blue: .init((hex >> 00) & 0xFF) / 255,
+            opacity: opacity
+        )
     }
 }
 
-// MARK: - RGBColorSpace
-
-extension Color.RGBColorSpace {
-    public static var `default`: Self = .sRGB
+extension Color {
+    /// Returns a random color with the given alpha.
+    public static func random(alpha: CGFloat = 1) -> Color {
+        let red: CGFloat = .random(in: 0 ... 1)
+        let green: CGFloat = .random(in: 0 ... 1)
+        let blue: CGFloat = .random(in: 0 ... 1)
+        return .init(CGColor(red: red, green: green, blue: blue, alpha: alpha))
+    }
 }
 
-#endif
+// MARK: - Private
+
+extension Color {
+    private var components: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)? {
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        PlatformColor(self).getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        return (red, green, blue, alpha)
+    }
+}
