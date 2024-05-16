@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 import XCTest
-@testable import PhantomKit
+@testable import PhantomKitCore
 
 class NSDecimalNumberTests: XCTestCase {
     override func setUpWithError() throws {

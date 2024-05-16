@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 import XCTest
-@testable import PhantomKit
+@testable import PhantomKitCore
 
 class StringTests: XCTestCase {
     func test_isHexNumber_shouldRecognizeHexNumbers() throws {

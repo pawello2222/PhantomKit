@@ -23,12 +23,14 @@
 import Foundation
 
 extension NSDecimalNumber {
+    /// Returns the absolute value of the decimal value.
     public var absValue: NSDecimalNumber {
         abs(decimalValue) as NSDecimalNumber
     }
 }
 
 extension NSDecimalNumber {
+    /// Returns `self` rounded to the given decimal places.
     public func rounded(toPlaces decimals: Int) -> NSDecimalNumber {
         rounding(accordingToBehavior: NSDecimalNumberHandler.scaled(decimals))
     }

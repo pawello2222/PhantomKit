@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 import XCTest
-@testable import PhantomKit
+@testable import PhantomKitCore
 
 class ComparableTests: XCTestCase {
     func test_clamped_shouldClampToBounds() throws {

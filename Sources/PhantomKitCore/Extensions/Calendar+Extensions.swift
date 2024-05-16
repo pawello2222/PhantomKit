@@ -25,7 +25,7 @@ import Foundation
 
 extension Calendar {
     /// Returns `ISO` calendar with `en_US_POSIX` locale and `UTC` time zone.
-    public static let iso = Self(
+    public static let iso = Calendar(
         identifier: .gregorian
     ).applying {
         $0.timeZone = .utc

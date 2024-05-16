@@ -22,6 +22,17 @@
 
 import Foundation
 
+// MARK: - Convenience
+
+extension String {
+    /// Returns `self` as `NSString`
+    public var nsString: NSString {
+        self as NSString
+    }
+}
+
+// MARK: - Helpers
+
 extension String {
     /// A Boolean value indicating whether all characters
     /// in this string represent a hexadecimal digit.
@@ -68,18 +79,11 @@ extension String {
         nsString.pathExtension
     }
 
+    /// Returns a new string made by appending to the receiver a given string.
     public func appendingPathComponent(_ component: Any?) -> String {
         guard let component else {
             return self
         }
         return nsString.appendingPathComponent(String(describing: component))
-    }
-}
-
-// MARK: - Private
-
-extension String {
-    private var nsString: NSString {
-        self as NSString
     }
 }

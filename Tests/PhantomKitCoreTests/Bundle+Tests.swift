@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 import XCTest
-@testable import PhantomKit
+@testable import PhantomKitCore
 
 class BundleTests: XCTestCase {
     func test_bundleProperties_shouldMatchInfoDictionary() throws {

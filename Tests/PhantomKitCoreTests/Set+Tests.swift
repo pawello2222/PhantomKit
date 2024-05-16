@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 import XCTest
-@testable import PhantomKit
+@testable import PhantomKitCore
 
 class SetTests: XCTestCase {
     func test_toggleExistingElement_shouldRemoveElement() throws {

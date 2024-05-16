@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 import XCTest
-@testable import PhantomKit
+@testable import PhantomKitCore
 
 class CalendarTests: XCTestCase {
     func test_isoCalendar_shouldHaveCorrectTimeZoneAndLocale() throws {

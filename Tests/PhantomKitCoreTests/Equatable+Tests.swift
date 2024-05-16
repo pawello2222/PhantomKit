@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 import XCTest
-@testable import PhantomKit
+@testable import PhantomKitCore
 
 class EquatableTests: XCTestCase {
     func test_isContained_shouldReturnTrueIfContainedInArray() throws {

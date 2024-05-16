@@ -49,7 +49,7 @@ extension Date {
     }
 }
 
-// MARK: - Adjusting
+// MARK: - Adjustment
 
 extension Date {
     /// Returns a new `Date` representing the date calculated
@@ -66,7 +66,10 @@ extension Date {
 
     /// Returns a new `Date` representing the date calculated
     /// by adjusting to the start of a given component of a date.
-    public func startOf(_ component: Calendar.Component, in calendar: Calendar = .current) -> Date {
+    public func startOf(
+        _ component: Calendar.Component,
+        in calendar: Calendar = .current
+    ) -> Date {
         #if DEBUG
         calendar.dateInterval(of: component, for: self)!.start
         #else
@@ -76,7 +79,10 @@ extension Date {
 
     /// Returns a new `Date` representing the date calculated
     /// by adjusting to the end of a given component of a date.
-    public func endOf(_ component: Calendar.Component, in calendar: Calendar = .current) -> Date {
+    public func endOf(
+        _ component: Calendar.Component,
+        in calendar: Calendar = .current
+    ) -> Date {
         #if DEBUG
         let date = calendar.dateInterval(of: component, for: self)!.end
         #else
@@ -119,7 +125,9 @@ extension Date {
         in calendar: Calendar = .current
     ) -> Bool {
         let result = compare(to: date, granularity: granularity, in: calendar)
-        return orEqual ? (result == .orderedSame || result == .orderedAscending) : result == .orderedAscending
+        return orEqual
+            ? (result == .orderedSame || result == .orderedAscending)
+            : result == .orderedAscending
     }
 
     /// Returns `true` if the date is after the given `date`
@@ -131,7 +139,9 @@ extension Date {
         in calendar: Calendar = .current
     ) -> Bool {
         let result = compare(to: date, granularity: granularity, in: calendar)
-        return orEqual ? (result == .orderedSame || result == .orderedDescending) : result == .orderedDescending
+        return orEqual
+            ? (result == .orderedSame || result == .orderedDescending)
+            : result == .orderedDescending
     }
 }
 

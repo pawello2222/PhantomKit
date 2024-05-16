@@ -20,7 +20,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import CoreGraphics
+import Foundation
+
+// MARK: - Convenience
+
+extension CGSize {
+    /// Creates a new instance by assigning `length` to both width and height.
+    public init(length: CGFloat) {
+        self = CGSize(width: length, height: length)
+    }
+}
+
+// MARK: - Helpers
 
 extension CGSize {
     /// Returns the lesser of width and height.
@@ -31,15 +42,6 @@ extension CGSize {
     /// Returns the greater of width and height.
     public var max: CGFloat {
         Swift.max(width, height)
-    }
-}
-
-// MARK: - Convenience
-
-extension CGSize {
-    /// Creates a new instance by assigning `length` to both width and height.
-    public init(length: CGFloat) {
-        self = CGSize(width: length, height: length)
     }
 }
 
