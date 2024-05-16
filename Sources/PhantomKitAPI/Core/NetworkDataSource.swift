@@ -22,7 +22,7 @@
 
 import Foundation
 import PhantomKitCore
-import PhantomKitLogger
+import PhantomKitLog
 
 public protocol NetworkDataSource {
     var session: NetworkSession { get }

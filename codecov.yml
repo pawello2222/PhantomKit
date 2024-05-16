@@ -1,7 +1,7 @@
 coverage:
   ignore:
-    - "Sources/PhantomKitLogger"
-    - "Sources/PhantomKitNetworking"
+    - "Sources/PhantomKitAPI"
+    - "Sources/PhantomKitLog"
     - "Sources/PhantomKitUI"
     - "Tests"
   status:
