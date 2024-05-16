@@ -38,7 +38,7 @@ let package = Package(
         ),
         .target(
             name: "PhantomKitLogger",
-            dependencies: ["PhantomKitCore"]
+            dependencies: ["Appliable"]
         ),
         .target(
             name: "PhantomKitNetworking",
