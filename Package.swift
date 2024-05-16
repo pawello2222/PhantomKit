@@ -16,12 +16,12 @@ let package = Package(
             targets: ["PhantomKitCore"]
         ),
         .library(
-            name: "PhantomKitLogger",
-            targets: ["PhantomKitLogger"]
+            name: "PhantomKitLog",
+            targets: ["PhantomKitLog"]
         ),
         .library(
-            name: "PhantomKitNetworking",
-            targets: ["PhantomKitNetworking"]
+            name: "PhantomKitAPI",
+            targets: ["PhantomKitAPI"]
         ),
         .library(
             name: "PhantomKitUI",
@@ -37,12 +37,12 @@ let package = Package(
             dependencies: ["Appliable"]
         ),
         .target(
-            name: "PhantomKitLogger",
+            name: "PhantomKitLog",
             dependencies: ["Appliable"]
         ),
         .target(
-            name: "PhantomKitNetworking",
-            dependencies: ["PhantomKitCore", "PhantomKitLogger"]
+            name: "PhantomKitAPI",
+            dependencies: ["PhantomKitCore", "PhantomKitLog"]
         ),
         .target(
             name: "PhantomKitUI",
