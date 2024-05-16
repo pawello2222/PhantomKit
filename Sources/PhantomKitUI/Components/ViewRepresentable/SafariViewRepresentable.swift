@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2024-Present Paweł Wiszenko
+// Copyright (c) 2021-Present Paweł Wiszenko
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,16 +20,29 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+#if os(iOS)
+
+import Appliable
+import SafariServices
 import SwiftUI
 
-public struct IndicatorView: View {
-    public init() {}
+/// A view that encapsulates the functionality of `SFSafariViewController`.
+public struct SafariViewRepresentable: ViewControllerRepresentable {
+    private let url: URL
+    private let tintColor: Color
 
-    public var body: some View {
-        Image(systemName: "chevron.right")
-            .imageScale(.small)
-            .font(.body.weight(.medium))
-            .foregroundColor(.secondary)
-            .opacity(0.55)
+    public init(url: URL, tintColor: Color = .accentColor) {
+        self.url = url
+        self.tintColor = tintColor
     }
+
+    public func makeViewController(context: Context) -> SFSafariViewController {
+        .init(url: url).apply {
+            $0.preferredControlTintColor = .init(tintColor)
+        }
+    }
+
+    public func updateViewController(_ viewController: SFSafariViewController, context: Context) {}
 }
+
+#endif

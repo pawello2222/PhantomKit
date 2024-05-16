@@ -23,7 +23,7 @@
 import SwiftUI
 
 /// Specifies when the list should be displayed in the compact mode.
-public enum MultiColumnListInCompactMode {
+public enum MultiColumnListCompactMode {
     case horizontalSizeClass
     #if os(iOS) || os(tvOS)
     case userInterfaceIdiom
@@ -37,13 +37,13 @@ public struct MultiColumnList<
 >: View where Content: View, Left: View, Right: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
-    private let mode: MultiColumnListInCompactMode
+    private let mode: MultiColumnListCompactMode
     private let content: () -> Content
     private let left: () -> Left
     private let right: () -> Right
 
     public init(
-        mode: MultiColumnListInCompactMode = .horizontalSizeClass,
+        mode: MultiColumnListCompactMode = .horizontalSizeClass,
         @ViewBuilder content: @escaping () -> Content,
         @ViewBuilder left: @escaping () -> Left,
         @ViewBuilder right: @escaping () -> Right
@@ -117,7 +117,7 @@ extension MultiColumnList {
 
 extension MultiColumnList where Left == EmptyView {
     public init(
-        mode: MultiColumnListInCompactMode = .horizontalSizeClass,
+        mode: MultiColumnListCompactMode = .horizontalSizeClass,
         @ViewBuilder content: @escaping () -> Content,
         @ViewBuilder right: @escaping () -> Right
     ) {
@@ -132,7 +132,7 @@ extension MultiColumnList where Left == EmptyView {
 
 extension MultiColumnList where Right == EmptyView {
     public init(
-        mode: MultiColumnListInCompactMode = .horizontalSizeClass,
+        mode: MultiColumnListCompactMode = .horizontalSizeClass,
         @ViewBuilder content: @escaping () -> Content,
         @ViewBuilder left: @escaping () -> Left
     ) {
@@ -147,7 +147,7 @@ extension MultiColumnList where Right == EmptyView {
 
 extension MultiColumnList where Left == EmptyView, Right == EmptyView {
     public init(
-        mode: MultiColumnListInCompactMode = .horizontalSizeClass,
+        mode: MultiColumnListCompactMode = .horizontalSizeClass,
         @ViewBuilder content: @escaping () -> Content
     ) {
         self.mode = mode

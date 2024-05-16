@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2021-Present Paweł Wiszenko
+// Copyright (c) 2024-Present Paweł Wiszenko
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,38 +22,13 @@
 
 import SwiftUI
 
-#if os(macOS)
-/// A set of values that indicate the visual size available to the view.
-public enum UserInterfaceSizeClass {
-    case compact
-    case regular
-}
+/// A view that imitates the system checkmark.
+public struct CheckmarkView: View {
+    public init() {}
 
-// MARK: - HorizontalSizeClass
-
-extension EnvironmentValues {
-    private struct HorizontalSizeClassEnvironmentKey: EnvironmentKey {
-        static let defaultValue: UserInterfaceSizeClass = .regular
-    }
-
-    /// The horizontal size class of this environment.
-    public var horizontalSizeClass: UserInterfaceSizeClass {
-        get { self[HorizontalSizeClassEnvironmentKey.self] }
-        set { self[HorizontalSizeClassEnvironmentKey.self] = newValue }
+    public var body: some View {
+        Image(systemName: "checkmark")
+            .font(.body.weight(.semibold))
+            .tint(.accentColor)
     }
 }
-
-// MARK: - VerticalSizeClass
-
-extension EnvironmentValues {
-    private struct VerticalSizeClassEnvironmentKey: EnvironmentKey {
-        static let defaultValue: UserInterfaceSizeClass = .regular
-    }
-
-    /// The vertical size class of this environment.
-    public var verticalSizeClass: UserInterfaceSizeClass {
-        get { self[VerticalSizeClassEnvironmentKey.self] }
-        set { self[VerticalSizeClassEnvironmentKey.self] = newValue }
-    }
-}
-#endif

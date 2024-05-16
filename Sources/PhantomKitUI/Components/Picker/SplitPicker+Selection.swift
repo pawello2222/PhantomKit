@@ -53,7 +53,9 @@ extension SplitPicker.SelectionItemView {
                 singleLabelView
             }
             Spacer()
-            checkmarkView
+            if item.selection == selection {
+                CheckmarkView()
+            }
         }
         .contentShape(.rect)
     }
@@ -74,19 +76,6 @@ extension SplitPicker.SelectionItemView {
             Text(String(item.longValue))
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
-        }
-    }
-}
-
-// MARK: - Components
-
-extension SplitPicker.SelectionItemView {
-    @ViewBuilder
-    private var checkmarkView: some View {
-        if item.selection == selection {
-            Image(systemName: "checkmark")
-                .font(.body.weight(.semibold))
-                .tint(.accentColor)
         }
     }
 }

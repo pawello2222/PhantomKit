@@ -20,28 +20,23 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#if os(iOS)
-
-import SafariServices
 import SwiftUI
 
-/// A view that encapsulates the functionality of `SFSafariViewController`.
-public struct SafariViewRepresentable: ViewControllerRepresentable {
-    private let url: URL
-    private let tintColor: Color
+/// A vertical scrollable view with the content centered vertically.
+public struct VCenteredScrollView<Content>: View where Content: View {
+    private let content: () -> Content
 
-    public init(url: URL, tintColor: Color = .accentColor) {
-        self.url = url
-        self.tintColor = tintColor
+    public init(@ViewBuilder content: @escaping () -> Content) {
+        self.content = content
     }
 
-    public func makeViewController(context: Context) -> SFSafariViewController {
-        .init(url: url).apply {
-            $0.preferredControlTintColor = .init(tintColor)
+    public var body: some View {
+        GeometryReader { geometry in
+            ScrollView(.vertical) {
+                content()
+                    .frame(width: geometry.size.width)
+                    .frame(minHeight: geometry.size.height)
+            }
         }
     }
-
-    public func updateViewController(_ viewController: SFSafariViewController, context: Context) {}
 }
-
-#endif

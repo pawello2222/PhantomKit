@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2021-Present Paweł Wiszenko
+// Copyright (c) 2024-Present Paweł Wiszenko
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,21 +22,15 @@
 
 import SwiftUI
 
-/// A vertical scrollable view with the content centered vertically.
-public struct VScrollView<Content>: View where Content: View {
-    private let content: () -> Content
-
-    public init(@ViewBuilder content: @escaping () -> Content) {
-        self.content = content
-    }
+/// A view that imitates the system indicator.
+public struct IndicatorView: View {
+    public init() {}
 
     public var body: some View {
-        GeometryReader { geometry in
-            ScrollView(.vertical) {
-                content()
-                    .frame(width: geometry.size.width)
-                    .frame(minHeight: geometry.size.height)
-            }
-        }
+        Image(systemName: "chevron.right")
+            .imageScale(.small)
+            .font(.body.weight(.medium))
+            .foregroundColor(.secondary)
+            .opacity(0.55)
     }
 }
