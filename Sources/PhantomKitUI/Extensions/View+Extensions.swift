@@ -22,77 +22,12 @@
 
 import SwiftUI
 
-// MARK: - Actions
-
-extension View {
-    /// Creates a rectangular content shape and adds an action to perform
-    /// when this view recognizes a tap gesture.
-    public func onTap(
-        count: Int = 1,
-        perform action: @escaping () -> Void
-    ) -> some View {
-        contentShape(Rectangle())
-            .onTapGesture(count: count, perform: action)
-    }
-}
-
-// MARK: - AnyView
+// MARK: - Convenience
 
 extension View {
     /// Wraps this view with a type eraser.
     public func eraseToAnyView() -> AnyView {
         .init(self)
-    }
-}
-
-// MARK: - Apply
-
-extension View {
-    /// Applies the given transform to this view.
-    public func apply(@ViewBuilder transform: (Self) -> some View) -> some View {
-        transform(self)
-    }
-
-    /// Applies the given transform to this view if the given condition
-    /// is satisfied.
-    ///
-    /// - Parameters:
-    ///   - condition: The condition to evaluate.
-    ///   - transform: The transform to apply to this `View`.
-    ///
-    /// - Returns: The transformed view if the condition is satisfied,
-    ///   otherwise the unmodified original view.
-    @ViewBuilder
-    public func apply(
-        if condition: Bool,
-        @ViewBuilder transform: (Self) -> some View
-    ) -> some View {
-        if condition {
-            transform(self)
-        } else {
-            self
-        }
-    }
-
-    /// Unwraps the given optional value and if it's non-`nil` passes it
-    /// to the transform that is then applied to this view.
-    ///
-    /// - Parameters:
-    ///   - value: The value to unwrap.
-    ///   - transform: The transform to apply to this `View`.
-    ///
-    /// - Returns: The transformed view if the value is non-`nil`,
-    ///   otherwise the unmodified original view.
-    @ViewBuilder
-    public func apply<Value>(
-        unwrapping value: Value?,
-        @ViewBuilder transform: (Self, Value) -> some View
-    ) -> some View {
-        if let value {
-            transform(self, value)
-        } else {
-            self
-        }
     }
 }
 
@@ -185,7 +120,21 @@ extension View {
     }
 }
 
-// MARK: - Hidden
+// MARK: - Gestures
+
+extension View {
+    /// Creates a rectangular content shape and adds an action to perform
+    /// when this view recognizes a tap gesture.
+    public func onTap(
+        count: Int = 1,
+        perform action: @escaping () -> Void
+    ) -> some View {
+        contentShape(Rectangle())
+            .onTapGesture(count: count, perform: action)
+    }
+}
+
+// MARK: - Visibility
 
 extension View {
     /// Hide or show the view based on a boolean value.
