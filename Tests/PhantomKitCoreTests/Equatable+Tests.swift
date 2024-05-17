@@ -24,7 +24,13 @@ import XCTest
 @testable import PhantomKitCore
 
 class EquatableTests: XCTestCase {
-    func test_isContained_shouldReturnTrueIfContainedInArray() throws {
+    override func setUpWithError() throws {}
+}
+
+// MARK: - Tests: Helpers
+
+extension EquatableTests {
+    func test_isContained() throws {
         let numbers = [1, 3, 5]
 
         XCTAssertTrue(1.isContained(in: numbers))

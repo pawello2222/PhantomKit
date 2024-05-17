@@ -24,6 +24,12 @@ import XCTest
 @testable import PhantomKitCore
 
 class StringTests: XCTestCase {
+    override func setUpWithError() throws {}
+}
+
+// MARK: - Tests: Helpers
+
+extension StringTests {
     func test_isHexNumber_shouldRecognizeHexNumbers() throws {
         XCTAssertTrue("123".isHexNumber)
         XCTAssertTrue("aa32".isHexNumber)
@@ -31,7 +37,11 @@ class StringTests: XCTestCase {
         XCTAssertFalse("FFG".isHexNumber)
         XCTAssertFalse("text1".isHexNumber)
     }
+}
 
+// MARK: - Tests: NSString
+
+extension StringTests {
     func test_lastPathComponent_shouldReturnLastPathComponent() throws {
         XCTAssertEqual("/tmp/lock.tiff".lastPathComponent, "lock.tiff")
         XCTAssertEqual("/tmp/lock".lastPathComponent, "lock")

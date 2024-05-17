@@ -27,11 +27,27 @@ class NSDecimalNumberTests: XCTestCase {
     override func setUpWithError() throws {
         NSDecimalNumberHandler.default = .scaled(8)
     }
+}
 
-    override func tearDownWithError() throws {
-        NSDecimalNumberHandler.default = .scaled(16)
+// MARK: - Tests: Helpers
+
+extension NSDecimalNumberTests {
+    func test_shouldRoundZero() throws {
+        let number = NSDecimalNumber(string: "-123.456789")
+
+        XCTAssertEqual(number.rounded(toPlaces: 4), NSDecimalNumber(string: "-123.4568"))
     }
 
+    func test_shouldReturnAbsoluteValue() throws {
+        let number = NSDecimalNumber(string: "-123.456789")
+
+        XCTAssertEqual(number.absValue, NSDecimalNumber(string: "123.456789"))
+    }
+}
+
+// MARK: - Tests: Operators
+
+extension NSDecimalNumberTests {
     func test_shouldAddNumbers() throws {
         var lhs = NSDecimalNumber(string: "1.23")
         let rhs = NSDecimalNumber(string: "3.41")
@@ -105,17 +121,5 @@ class NSDecimalNumberTests: XCTestCase {
         XCTAssertFalse(b >= c)
         XCTAssertFalse(a == c)
         XCTAssertFalse(b == c)
-    }
-
-    func test_shouldRoundZero() throws {
-        let number = NSDecimalNumber(string: "-123.456789")
-
-        XCTAssertEqual(number.rounded(toPlaces: 4), NSDecimalNumber(string: "-123.4568"))
-    }
-
-    func test_shouldReturnAbsoluteValue() throws {
-        let number = NSDecimalNumber(string: "-123.456789")
-
-        XCTAssertEqual(number.absValue, NSDecimalNumber(string: "123.456789"))
     }
 }

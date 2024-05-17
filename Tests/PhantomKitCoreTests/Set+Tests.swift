@@ -24,6 +24,12 @@ import XCTest
 @testable import PhantomKitCore
 
 class SetTests: XCTestCase {
+    override func setUpWithError() throws {}
+}
+
+// MARK: - Tests: Mutation
+
+extension SetTests {
     func test_toggleExistingElement_shouldRemoveElement() throws {
         var set = Set([1, 2, 3])
 
