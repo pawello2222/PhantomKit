@@ -23,21 +23,17 @@
 import XCTest
 @testable import PhantomKitCore
 
-class ErrorTests: XCTestCase {
+class LocaleTests: XCTestCase {
     override func setUpWithError() throws {}
 }
 
 // MARK: - Tests: Helpers
 
-extension ErrorTests {
-    func test_description() throws {
-        let error = TestError.error
-        XCTAssertNotNil(error.description)
+extension LocaleTests {
+    func test_localizedCurrentLanguageName() throws {
+        XCTAssertEqual(Locale(identifier: "en_US").localizedCurrentLanguageName, "English")
+        XCTAssertEqual(Locale(identifier: "de_US").localizedCurrentLanguageName, "Deutsch")
+        XCTAssertEqual(Locale(identifier: "de_PL").localizedCurrentLanguageName, "Deutsch")
+        XCTAssertEqual(Locale(identifier: "pl_PL").localizedCurrentLanguageName, "polski")
     }
-}
-
-// MARK: - Private
-
-private enum TestError: Error {
-    case error
 }
