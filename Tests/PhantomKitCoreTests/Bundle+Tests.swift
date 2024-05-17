@@ -65,12 +65,9 @@ extension BundleTests {
     }
 
     func test_bundleVersionBuildNumber_shouldMatchInfoDictionary() throws {
-        let infoDictionaryVersionNumber = infoDictionary?["CFBundleShortVersionString"] as! String
-        let infoDictionaryBuildNumber = infoDictionary?["CFBundleVersion"] as! String
-
         XCTAssertEqual(
             bundle.versionBuildNumber,
-            "\(infoDictionaryVersionNumber) (\(infoDictionaryBuildNumber))"
+            "\(bundle.versionNumber) (\(bundle.buildNumber))"
         )
     }
 }
