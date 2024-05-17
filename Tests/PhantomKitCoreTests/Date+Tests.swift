@@ -85,7 +85,98 @@ extension DateTests {
 
 // MARK: - Tests: Comparison
 
-extension DateTests {}
+extension DateTests {
+    func test_isSame() throws {
+        let date = Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 5)
+
+        XCTAssertTrue(
+            date.isSame(
+                Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 5),
+                granularity: .minute
+            )
+        )
+        XCTAssertTrue(
+            date.isSame(
+                Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 6),
+                granularity: .minute
+            )
+        )
+        XCTAssertFalse(
+            date.isSame(
+                Date(year: 2000, month: 1, day: 2, hour: 4, minute: 4, second: 5),
+                granularity: .minute
+            )
+        )
+        XCTAssertFalse(
+            date.isSame(
+                Date(year: 2000, month: 1, day: 2, hour: 3, minute: 5, second: 5),
+                granularity: .minute
+            )
+        )
+    }
+
+    func test_isBefore() throws {
+        let date = Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 5)
+
+        XCTAssertTrue(
+            date.isBefore(
+                Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 5),
+                orEqual: true,
+                granularity: .minute
+            )
+        )
+        XCTAssertFalse(
+            date.isBefore(
+                Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 5),
+                orEqual: false,
+                granularity: .minute
+            )
+        )
+        XCTAssertFalse(
+            date.isBefore(
+                Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 6),
+                granularity: .minute
+            )
+        )
+        XCTAssertTrue(
+            date.isBefore(
+                Date(year: 2000, month: 1, day: 2, hour: 3, minute: 5, second: 5),
+                granularity: .minute
+            )
+        )
+    }
+
+    func test_isAfter() throws {
+        let date = Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 5)
+
+        XCTAssertTrue(
+            date.isAfter(
+                Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 5),
+                orEqual: true,
+                granularity: .minute
+            )
+        )
+        XCTAssertFalse(
+            date.isAfter(
+                Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 5),
+                orEqual: false,
+                granularity: .minute
+            )
+        )
+        XCTAssertFalse(
+            date.isAfter(
+                Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 4),
+                granularity: .minute
+            )
+        )
+        XCTAssertTrue(
+            date.isAfter(
+                Date(year: 2000, month: 1, day: 2, hour: 3, minute: 3, second: 5),
+                granularity: .minute
+            )
+        )
+    }
+}
 
 // MARK: - Tests: Components
 
