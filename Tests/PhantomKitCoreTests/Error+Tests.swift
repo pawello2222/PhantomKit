@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2024-Present Paweł Wiszenko
+// Copyright (c) 2021-Present Paweł Wiszenko
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,22 +20,24 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import Foundation
+import XCTest
+@testable import PhantomKitCore
 
-// MARK: - Convenience
+class ErrorTests: XCTestCase {
+    override func setUpWithError() throws {}
+}
 
-extension Error {
-    /// Returns `self` as `NSError`
-    public var nsError: NSError {
-        self as NSError
+// MARK: - Tests: Helpers
+
+extension ErrorTests {
+    func test_description() throws {
+        let error = TestError.error
+        XCTAssertNotNil(error.description)
     }
 }
 
-// MARK: - NSError
+// MARK: - Private
 
-extension Error {
-    /// The last path component of the receiver.
-    public var description: String {
-        nsError.description
-    }
+private enum TestError: Error {
+    case error
 }

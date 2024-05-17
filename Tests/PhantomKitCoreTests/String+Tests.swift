@@ -30,19 +30,25 @@ class StringTests: XCTestCase {
 // MARK: - Tests: Helpers
 
 extension StringTests {
-    func test_isHexNumber_shouldRecognizeHexNumbers() throws {
+    func test_isHexNumber() throws {
         XCTAssertTrue("123".isHexNumber)
         XCTAssertTrue("aa32".isHexNumber)
         XCTAssertTrue("AD1".isHexNumber)
         XCTAssertFalse("FFG".isHexNumber)
         XCTAssertFalse("text1".isHexNumber)
     }
+
+    func test_urlEscaped() throws {
+        XCTAssertEqual("123".urlEscaped(), "123")
+        XCTAssertEqual("!@$&*()_-+=;:'~".urlEscaped(), "!@$&*()_-+=;:'~")
+        XCTAssertEqual("\"#%<>[\\]^`{|}".urlEscaped(), "%22%23%25%3C%3E%5B%5C%5D%5E%60%7B%7C%7D")
+    }
 }
 
 // MARK: - Tests: NSString
 
 extension StringTests {
-    func test_lastPathComponent_shouldReturnLastPathComponent() throws {
+    func test_lastPathComponent() throws {
         XCTAssertEqual("/tmp/lock.tiff".lastPathComponent, "lock.tiff")
         XCTAssertEqual("/tmp/lock".lastPathComponent, "lock")
         XCTAssertEqual("/tmp/".lastPathComponent, "tmp")
@@ -50,7 +56,7 @@ extension StringTests {
         XCTAssertEqual("/".lastPathComponent, "/")
     }
 
-    func test_deletingLastPathComponent_shouldDeleteLastPathComponent() throws {
+    func test_deletingLastPathComponent() throws {
         XCTAssertEqual("/tmp/lock.tiff".deletingLastPathComponent, "/tmp")
         XCTAssertEqual("/tmp/lock/".deletingLastPathComponent, "/tmp")
         XCTAssertEqual("/tmp/".deletingLastPathComponent, "/")
@@ -59,7 +65,7 @@ extension StringTests {
         XCTAssertEqual("lock.tiff".deletingLastPathComponent, "")
     }
 
-    func test_deletingPathExtension_shouldDeletePathExtension() throws {
+    func test_deletingPathExtension() throws {
         XCTAssertEqual("/tmp/lock.tiff".deletingPathExtension, "/tmp/lock")
         XCTAssertEqual("/tmp/".deletingPathExtension, "/tmp")
         XCTAssertEqual("lock.bundle/".deletingPathExtension, "lock")
@@ -68,11 +74,21 @@ extension StringTests {
         XCTAssertEqual("/".deletingPathExtension, "/")
     }
 
-    func test_pathExtension_shouldReturnPathExtension() throws {
+    func test_pathExtension() throws {
         XCTAssertEqual("/tmp/lock.tiff".pathExtension, "tiff")
         XCTAssertEqual(".lock.tiff".pathExtension, "tiff")
         XCTAssertEqual("/tmp/lock".pathExtension, "")
         XCTAssertEqual("/tmp/".pathExtension, "")
         XCTAssertEqual("/tmp/lock..tiff".pathExtension, "tiff")
+    }
+
+    func test_appendingPathComponent() throws {
+        XCTAssertEqual("/tmp/".appendingPathComponent("lock.tiff"), "/tmp/lock.tiff")
+        XCTAssertEqual("tmp".appendingPathComponent("lock.tiff"), "tmp/lock.tiff")
+        XCTAssertEqual("lock.bundle".appendingPathComponent("lock"), "lock.bundle/lock")
+        XCTAssertEqual("tmp/".appendingPathComponent("/lock..tiff"), "tmp/lock..tiff")
+        XCTAssertEqual(".".appendingPathComponent("."), "./.")
+        XCTAssertEqual("/".appendingPathComponent("/lock"), "/lock")
+        XCTAssertEqual("/".appendingPathComponent(nil), "/")
     }
 }
