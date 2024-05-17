@@ -24,6 +24,23 @@ import XCTest
 @testable import PhantomKitCore
 
 class CGSizeTests: XCTestCase {
+    override func setUpWithError() throws {}
+}
+
+// MARK: - Tests: Convenience
+
+extension CGSizeTests {
+    func test_initWithLength() throws {
+        let size = CGSize(length: 100)
+
+        XCTAssertEqual(size.width, 100)
+        XCTAssertEqual(size.height, 100)
+    }
+}
+
+// MARK: - Tests: Helpers
+
+extension CGSizeTests {
     func test_min() throws {
         let size = CGSize(width: 100, height: 200)
 
@@ -35,14 +52,11 @@ class CGSizeTests: XCTestCase {
 
         XCTAssertEqual(size.max, 200)
     }
+}
 
-    func test_initWithLength() throws {
-        let size = CGSize(length: 100)
+// MARK: - Tests: Operators
 
-        XCTAssertEqual(size.width, 100)
-        XCTAssertEqual(size.height, 100)
-    }
-
+extension CGSizeTests {
     func test_shouldAddCGFloat() throws {
         var lhs = CGSize(width: 200, height: 100)
         let rhs = CGFloat(10)

@@ -24,37 +24,53 @@ import XCTest
 @testable import PhantomKitCore
 
 class BundleTests: XCTestCase {
-    func test_bundleProperties_shouldMatchInfoDictionary() throws {
-        let bundle = self.bundle
-        let infoDictionary = self.infoDictionary
+    var bundle: Bundle!
+    var infoDictionary: [String: Any]?
 
+    override func setUpWithError() throws {
+        bundle = .main
+        infoDictionary = bundle.infoDictionary
+    }
+}
+
+// MARK: - Tests: Helpers
+
+extension BundleTests {
+    func test_bundleExecutable_shouldMatchInfoDictionary() throws {
         XCTAssertEqual(
             bundle.executable,
             infoDictionary?["CFBundleExecutable"] as? String
         )
+    }
+
+    func test_bundleIdentifier_shouldMatchInfoDictionary() throws {
         XCTAssertEqual(
             bundle.identifier,
             infoDictionary?["CFBundleIdentifier"] as? String
         )
+    }
+
+    func test_bundleVersionNumber_shouldMatchInfoDictionary() throws {
         XCTAssertEqual(
             bundle.versionNumber,
             infoDictionary?["CFBundleShortVersionString"] as? String
         )
+    }
+
+    func test_bundleBuildNumber_shouldMatchInfoDictionary() throws {
         XCTAssertEqual(
             bundle.buildNumber,
             infoDictionary?["CFBundleVersion"] as? String
         )
     }
-}
 
-// MARK: - Private
+    func test_bundleVersionBuildNumber_shouldMatchInfoDictionary() throws {
+        let infoDictionaryVersionNumber = infoDictionary?["CFBundleShortVersionString"] as! String
+        let infoDictionaryBuildNumber = infoDictionary?["CFBundleVersion"] as! String
 
-extension BundleTests {
-    private var bundle: Bundle {
-        Bundle.main
-    }
-
-    private var infoDictionary: [String: Any]? {
-        bundle.infoDictionary
+        XCTAssertEqual(
+            bundle.versionBuildNumber,
+            "\(infoDictionaryVersionNumber) (\(infoDictionaryBuildNumber))"
+        )
     }
 }

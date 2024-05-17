@@ -24,6 +24,32 @@ import XCTest
 @testable import PhantomKitCore
 
 class ArrayTests: XCTestCase {
+    override func setUpWithError() throws {}
+}
+
+// MARK: - Tests: Conformance
+
+extension ArrayTests {
+    func test_comformRawRepresentable_shouldInitializeWithRawValue() throws {
+        XCTAssertEqual([Int](rawValue: "[1,2,3]"), [1, 2, 3])
+        XCTAssertEqual([Int](rawValue: "[]"), [Int]())
+        XCTAssertEqual([String](rawValue: "x"), nil)
+        XCTAssertEqual([Int](rawValue: ""), nil)
+        XCTAssertEqual([Int](rawValue: "[1,x]"), nil)
+        XCTAssertEqual([String](rawValue: "[1,x]"), nil)
+        XCTAssertEqual([String](rawValue: "[\"c\",\"x\"]"), ["c", "x"])
+    }
+
+    func test_comformRawRepresentable_shouldReturnRawValue() throws {
+        XCTAssertEqual([1, 2, 3].rawValue, "[1,2,3]")
+        XCTAssertEqual(["c", "x"].rawValue, "[\"c\",\"x\"]")
+        XCTAssertEqual([Int]().rawValue, "[]")
+    }
+}
+
+// MARK: - Tests: Mutation
+
+extension ArrayTests {
     func test_toggleExistingElement_shouldRemoveElement() throws {
         var array = [1, 2, 3]
 
@@ -44,7 +70,11 @@ class ArrayTests: XCTestCase {
         XCTAssertTrue(array.contains(4))
         XCTAssertFalse(array.contains(5))
     }
+}
 
+// MARK: - Tests: Subscript
+
+extension ArrayTests {
     func test_safeIndexSubscript_shouldNotThrowError() throws {
         let array = [1, 2, 3]
 

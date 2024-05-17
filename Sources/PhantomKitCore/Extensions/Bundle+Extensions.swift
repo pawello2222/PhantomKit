@@ -27,12 +27,12 @@ import Foundation
 extension Bundle {
     /// The name of the executable in this bundle (if any).
     public var executable: String {
-        info(forKey: kCFBundleExecutableKey)
+        info(forKey: "CFBundleExecutable")
     }
 
     /// The bundle identifier.
     public var identifier: String {
-        info(forKey: kCFBundleIdentifierKey)
+        info(forKey: "CFBundleIdentifier")
     }
 
     /// The version number of the bundle (e.g., `"1.0"`).
@@ -42,7 +42,7 @@ extension Bundle {
 
     /// The build number of the bundle (e.g., `"300"`).
     public var buildNumber: String {
-        info(forKey: kCFBundleVersionKey)
+        info(forKey: "CFBundleVersion")
     }
 
     /// The version and build number of the bundle (e.g., `"1.0 (300)"`).
@@ -56,9 +56,5 @@ extension Bundle {
 extension Bundle {
     private func info(forKey key: String) -> String {
         infoDictionary?[key] as? String ?? ""
-    }
-
-    private func info(forKey key: CFString) -> String {
-        info(forKey: key as String)
     }
 }

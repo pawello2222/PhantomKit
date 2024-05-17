@@ -24,6 +24,12 @@ import XCTest
 @testable import PhantomKitCore
 
 class CalendarTests: XCTestCase {
+    override func setUpWithError() throws {}
+}
+
+// MARK: - Tests: Convenience
+
+extension CalendarTests {
     func test_isoCalendar_shouldHaveCorrectTimeZoneAndLocale() throws {
         let calendar: Calendar = .iso
 
