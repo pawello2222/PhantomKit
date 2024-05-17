@@ -30,7 +30,7 @@ class SetTests: XCTestCase {
 // MARK: - Tests: Mutation
 
 extension SetTests {
-    func test_toggleExistingElement_shouldRemoveElement() throws {
+    func test_toggle_shouldRemoveExistingElement() throws {
         var set = Set([1, 2, 3])
 
         set.toggle(3)
@@ -41,7 +41,7 @@ extension SetTests {
         XCTAssertFalse(set.contains(4))
     }
 
-    func test_toggleNonExistingElement_shouldAddElement() throws {
+    func test_toggle_shouldAddNonExistingElement() throws {
         var set = Set([1, 2, 3])
 
         set.toggle(4)

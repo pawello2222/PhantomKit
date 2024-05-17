@@ -30,7 +30,7 @@ class CalendarTests: XCTestCase {
 // MARK: - Tests: Convenience
 
 extension CalendarTests {
-    func test_isoCalendar_shouldHaveCorrectTimeZoneAndLocale() throws {
+    func test_isoCalendar() throws {
         let calendar: Calendar = .iso
 
         XCTAssertEqual(calendar.timeZone, .init(identifier: "UTC")!)

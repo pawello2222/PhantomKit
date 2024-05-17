@@ -57,7 +57,7 @@ extension CGSizeTests {
 // MARK: - Tests: Operators
 
 extension CGSizeTests {
-    func test_shouldAddCGFloat() throws {
+    func test_addCGFloat() throws {
         var lhs = CGSize(width: 200, height: 100)
         let rhs = CGFloat(10)
         let result = CGSize(width: 210, height: 110)
@@ -68,7 +68,7 @@ extension CGSizeTests {
         XCTAssertEqual(lhs, result)
     }
 
-    func test_shouldAddCGSize() throws {
+    func test_addCGSize() throws {
         var lhs = CGSize(width: 200, height: 100)
         let rhs = CGSize(width: 20, height: 30)
         let result = CGSize(width: 220, height: 130)
@@ -79,7 +79,7 @@ extension CGSizeTests {
         XCTAssertEqual(lhs, result)
     }
 
-    func test_shouldSubtractCGFloat() throws {
+    func test_subtractCGFloat() throws {
         var lhs = CGSize(width: 200, height: 100)
         let rhs = CGFloat(10)
         let result = CGSize(width: 190, height: 90)
@@ -90,7 +90,7 @@ extension CGSizeTests {
         XCTAssertEqual(lhs, result)
     }
 
-    func test_shouldSubtractCGSize() throws {
+    func test_subtractCGSize() throws {
         var lhs = CGSize(width: 200, height: 100)
         let rhs = CGSize(width: 20, height: 30)
         let result = CGSize(width: 180, height: 70)
@@ -101,7 +101,7 @@ extension CGSizeTests {
         XCTAssertEqual(lhs, result)
     }
 
-    func test_shouldMultiplyByCGFloat() throws {
+    func test_multiplyByCGFloat() throws {
         var lhs = CGSize(width: 200, height: 100)
         let rhs = CGFloat(2)
         let result = CGSize(width: 400, height: 200)
@@ -112,7 +112,7 @@ extension CGSizeTests {
         XCTAssertEqual(lhs, result)
     }
 
-    func test_shouldMultiplyByCGSize() throws {
+    func test_multiplyByCGSize() throws {
         var lhs = CGSize(width: 200, height: 100)
         let rhs = CGSize(width: 2, height: 3)
         let result = CGSize(width: 400, height: 300)

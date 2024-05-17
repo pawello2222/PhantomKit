@@ -30,7 +30,7 @@ class ArrayTests: XCTestCase {
 // MARK: - Tests: Conformance
 
 extension ArrayTests {
-    func test_comformRawRepresentable_shouldInitializeWithRawValue() throws {
+    func test_initWithRawValue() throws {
         XCTAssertEqual([Int](rawValue: "[1,2,3]"), [1, 2, 3])
         XCTAssertEqual([Int](rawValue: "[]"), [Int]())
         XCTAssertEqual([String](rawValue: "x"), nil)
@@ -40,7 +40,7 @@ extension ArrayTests {
         XCTAssertEqual([String](rawValue: "[\"c\",\"x\"]"), ["c", "x"])
     }
 
-    func test_comformRawRepresentable_shouldReturnRawValue() throws {
+    func test_rawValue() throws {
         XCTAssertEqual([1, 2, 3].rawValue, "[1,2,3]")
         XCTAssertEqual(["c", "x"].rawValue, "[\"c\",\"x\"]")
         XCTAssertEqual([Int]().rawValue, "[]")
@@ -50,7 +50,7 @@ extension ArrayTests {
 // MARK: - Tests: Mutation
 
 extension ArrayTests {
-    func test_toggleExistingElement_shouldRemoveElement() throws {
+    func test_toggle_shouldRemoveExistingElement() throws {
         var array = [1, 2, 3]
 
         array.toggle(3)
@@ -60,7 +60,7 @@ extension ArrayTests {
         XCTAssertFalse(array.contains(4))
     }
 
-    func test_toggleNonExistingElement_shouldAddElement() throws {
+    func test_toggle_shouldAddNonExistingElement() throws {
         var array = [1, 2, 3]
 
         array.toggle(4)

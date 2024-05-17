@@ -30,7 +30,7 @@ class ComparableTests: XCTestCase {
 // MARK: - Tests: Clamping
 
 extension ComparableTests {
-    func test_clamped_shouldReturnClampedToBounds() throws {
+    func test_clamped() throws {
         XCTAssertEqual(1.clamped(to: 0...), 1)
         XCTAssertEqual(1.clamped(to: 1...), 1)
         XCTAssertEqual(1.clamped(to: 2...), 2)
@@ -43,7 +43,7 @@ extension ComparableTests {
         XCTAssertEqual(1.clamped(to: 1 ... 1), 1)
     }
 
-    func test_clamp_shouldClampToBoundsInPlace() throws {
+    func test_clamp() throws {
         var value = 1
         value.clamp(to: 0...)
         XCTAssertEqual(value, 1)

@@ -90,7 +90,7 @@ extension DateTests {}
 // MARK: - Tests: Components
 
 extension DateTests {
-    func test_shouldReturnComponents() throws {
+    func test_components() throws {
         let calendar: Calendar = .iso
         let date = Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 5)
 
@@ -104,7 +104,7 @@ extension DateTests {
 // MARK: - Tests: Convenience
 
 extension DateTests {
-    func test_initWithComponents_shouldCreateDate() throws {
+    func test_initWithComponents() throws {
         let date = Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 5)
 
         XCTAssertEqual(date.component(.year), 2000)

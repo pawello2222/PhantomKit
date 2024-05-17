@@ -36,35 +36,35 @@ class BundleTests: XCTestCase {
 // MARK: - Tests: Helpers
 
 extension BundleTests {
-    func test_bundleExecutable_shouldMatchInfoDictionary() throws {
+    func test_bundleExecutable() throws {
         XCTAssertEqual(
             bundle.executable,
             infoDictionary?["CFBundleExecutable"] as? String
         )
     }
 
-    func test_bundleIdentifier_shouldMatchInfoDictionary() throws {
+    func test_bundleIdentifier() throws {
         XCTAssertEqual(
             bundle.identifier,
             infoDictionary?["CFBundleIdentifier"] as? String
         )
     }
 
-    func test_bundleVersionNumber_shouldMatchInfoDictionary() throws {
+    func test_bundleVersionNumber() throws {
         XCTAssertEqual(
             bundle.versionNumber,
             infoDictionary?["CFBundleShortVersionString"] as? String
         )
     }
 
-    func test_bundleBuildNumber_shouldMatchInfoDictionary() throws {
+    func test_bundleBuildNumber() throws {
         XCTAssertEqual(
             bundle.buildNumber,
             infoDictionary?["CFBundleVersion"] as? String
         )
     }
 
-    func test_bundleVersionBuildNumber_shouldMatchInfoDictionary() throws {
+    func test_bundleVersionBuildNumber() throws {
         XCTAssertEqual(
             bundle.versionBuildNumber,
             "\(bundle.versionNumber) (\(bundle.buildNumber))"

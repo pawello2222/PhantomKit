@@ -35,5 +35,6 @@ extension LocaleTests {
         XCTAssertEqual(Locale(identifier: "de_US").localizedCurrentLanguageName, "Deutsch")
         XCTAssertEqual(Locale(identifier: "de_PL").localizedCurrentLanguageName, "Deutsch")
         XCTAssertEqual(Locale(identifier: "pl_PL").localizedCurrentLanguageName, "polski")
+        XCTAssertEqual(Locale(identifier: "XXX").localizedCurrentLanguageName, nil)
     }
 }
