@@ -22,10 +22,14 @@
 
 import Foundation
 
+// MARK: - Convenience
+
 extension Locale {
     /// Returns `en_US_POSIX` locale.
     public static let usPosix = Locale(identifier: "en_US_POSIX")
 }
+
+// MARK: - Helpers
 
 extension Locale {
     /// Returns localized name of the current language

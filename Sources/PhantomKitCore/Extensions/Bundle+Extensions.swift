@@ -22,6 +22,8 @@
 
 import Foundation
 
+// MARK: - Helpers
+
 extension Bundle {
     /// The name of the executable in this bundle (if any).
     public var executable: String {

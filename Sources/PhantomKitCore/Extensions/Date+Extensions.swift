@@ -22,33 +22,6 @@
 
 import Foundation
 
-// MARK: - Convenience
-
-extension Date {
-    /// Returns a `Date` initialized from given components of a date.
-    public init(
-        year: Int,
-        month: Int = 1,
-        day: Int = 1,
-        hour: Int? = nil,
-        minute: Int? = nil,
-        second: Int? = nil,
-        calendar: Calendar = .current
-    ) {
-        let dateComponents = DateComponents(
-            calendar: calendar,
-            timeZone: calendar.timeZone,
-            year: year,
-            month: month,
-            day: day,
-            hour: hour,
-            minute: minute,
-            second: second
-        )
-        self = dateComponents.date!
-    }
-}
-
 // MARK: - Adjustment
 
 extension Date {
@@ -162,5 +135,32 @@ extension Date {
         in calendar: Calendar = .current
     ) -> DateComponents {
         calendar.dateComponents(components, from: self)
+    }
+}
+
+// MARK: - Convenience
+
+extension Date {
+    /// Returns a `Date` initialized from given components of a date.
+    public init(
+        year: Int,
+        month: Int = 1,
+        day: Int = 1,
+        hour: Int? = nil,
+        minute: Int? = nil,
+        second: Int? = nil,
+        calendar: Calendar = .current
+    ) {
+        let dateComponents = DateComponents(
+            calendar: calendar,
+            timeZone: calendar.timeZone,
+            year: year,
+            month: month,
+            day: day,
+            hour: hour,
+            minute: minute,
+            second: second
+        )
+        self = dateComponents.date!
     }
 }

@@ -22,6 +22,8 @@
 
 import Foundation
 
+// MARK: - Convenience
+
 extension TimeInterval {
     /// The duration of `0.1` seconds.
     public static var ultraFast: Self = 0.1

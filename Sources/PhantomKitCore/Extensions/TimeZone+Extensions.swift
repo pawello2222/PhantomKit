@@ -22,6 +22,8 @@
 
 import Foundation
 
+// MARK: - Convenience
+
 extension TimeZone {
     /// Returns `UTC` time zone.
     public static let utc = TimeZone(identifier: "UTC")!

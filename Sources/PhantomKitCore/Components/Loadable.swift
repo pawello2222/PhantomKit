@@ -24,19 +24,19 @@ import Foundation
 
 public enum Loadable<Value> {
     case notRequested
-    case isLoading(previous: Value?)
+    case loading(previous: Value?)
     case loaded(value: Value)
     case failed(error: String?)
 }
 
-// MARK: - Equatable
+// MARK: - Conformance
 
 extension Loadable: Equatable where Value: Equatable {
     public static func == (lhs: Self, rhs: Self) -> Bool {
         switch (lhs, rhs) {
         case (.notRequested, .notRequested):
             true
-        case (.isLoading(let lhsPrevious), .isLoading(let rhsPrevious)):
+        case (.loading(let lhsPrevious), .loading(let rhsPrevious)):
             lhsPrevious == rhsPrevious
         case (.loaded(let lhsValue), .loaded(let rhsValue)):
             lhsValue == rhsValue
@@ -55,7 +55,7 @@ extension Loadable {
         switch self {
         case .loaded(let value):
             value
-        case .isLoading(let previous):
+        case .loading(let previous):
             previous
         default:
             nil
@@ -73,7 +73,7 @@ extension Loadable {
 
     public var isLoading: Bool {
         switch self {
-        case .isLoading:
+        case .loading:
             true
         default:
             false
@@ -90,11 +90,11 @@ extension Loadable {
     }
 }
 
-// MARK: - Actions
+// MARK: - Mutation
 
 extension Loadable {
-    public mutating func setIsLoading() {
-        self = .isLoading(previous: value)
+    public mutating func startLoading() {
+        self = .loading(previous: value)
     }
 
     public mutating func cancelLoading() {
@@ -106,18 +106,18 @@ extension Loadable {
     }
 }
 
-// MARK: - Map
+// MARK: - Transform
 
 extension Loadable {
-    public func map<T>(_ transform: (Value) -> T) -> Loadable<T> {
+    public func mapValue<T>(_ transform: (Value) -> T) -> Loadable<T> {
         switch self {
         case .notRequested:
             .notRequested
-        case .isLoading(let previous):
+        case .loading(let previous):
             if let previous {
-                .isLoading(previous: transform(previous))
+                .loading(previous: transform(previous))
             } else {
-                .isLoading(previous: nil)
+                .loading(previous: nil)
             }
         case .loaded(let value):
             .loaded(value: transform(value))

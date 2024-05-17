@@ -22,6 +22,8 @@
 
 import Foundation
 
+// MARK: - Helpers
+
 extension Equatable {
     /// A Boolean value indicating whether this element is contained
     /// in the given array.

@@ -23,6 +23,8 @@
 import Appliable
 import Foundation
 
+// MARK: - Convenience
+
 extension Calendar {
     /// Returns `ISO` calendar with `en_US_POSIX` locale and `UTC` time zone.
     public static let iso = Calendar(

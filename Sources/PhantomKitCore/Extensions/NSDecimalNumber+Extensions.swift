@@ -22,6 +22,8 @@
 
 import Foundation
 
+// MARK: - Helpers
+
 extension NSDecimalNumber {
     /// Returns the absolute value of the decimal value.
     public var absValue: NSDecimalNumber {
