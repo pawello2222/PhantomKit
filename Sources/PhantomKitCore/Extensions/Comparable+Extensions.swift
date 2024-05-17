@@ -22,6 +22,8 @@
 
 import Foundation
 
+// MARK: - Clamping
+
 extension Comparable {
     /// Returns a copy of `self` clamped to the given bounds.
     public func clamped(to bounds: ClosedRange<Self>) -> Self {

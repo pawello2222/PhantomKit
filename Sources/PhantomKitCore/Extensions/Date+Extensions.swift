@@ -43,6 +43,7 @@ extension Date {
         _ component: Calendar.Component,
         in calendar: Calendar = .current
     ) -> Date {
+        // Incompatible components: `calendar`, `timeZone`, `isLeapMonth`
         #if DEBUG
         calendar.dateInterval(of: component, for: self)!.start
         #else
@@ -56,6 +57,7 @@ extension Date {
         _ component: Calendar.Component,
         in calendar: Calendar = .current
     ) -> Date {
+        // Incompatible components: `calendar`, `timeZone`, `isLeapMonth`
         #if DEBUG
         let date = calendar.dateInterval(of: component, for: self)!.end
         #else

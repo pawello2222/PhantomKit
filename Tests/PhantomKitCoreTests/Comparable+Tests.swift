@@ -24,7 +24,13 @@ import XCTest
 @testable import PhantomKitCore
 
 class ComparableTests: XCTestCase {
-    func test_clamped_shouldClampToBounds() throws {
+    override func setUpWithError() throws {}
+}
+
+// MARK: - Tests: Clamping
+
+extension ComparableTests {
+    func test_clamped_shouldReturnClampedToBounds() throws {
         XCTAssertEqual(1.clamped(to: 0...), 1)
         XCTAssertEqual(1.clamped(to: 1...), 1)
         XCTAssertEqual(1.clamped(to: 2...), 2)
@@ -35,5 +41,15 @@ class ComparableTests: XCTestCase {
         XCTAssertEqual(1.clamped(to: 2 ... 3), 2)
         XCTAssertEqual(1.clamped(to: -1 ... 0), 0)
         XCTAssertEqual(1.clamped(to: 1 ... 1), 1)
+    }
+
+    func test_clamp_shouldClampToBoundsInPlace() throws {
+        var value = 1
+        value.clamp(to: 0...)
+        XCTAssertEqual(value, 1)
+        value.clamp(to: 2 ... 3)
+        XCTAssertEqual(value, 2)
+        value.clamp(to: ...0)
+        XCTAssertEqual(value, 0)
     }
 }
