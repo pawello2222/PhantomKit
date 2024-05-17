@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2021-Present Paweł Wiszenko
+// Copyright (c) 2024-Present Paweł Wiszenko
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,37 +21,25 @@
 // SOFTWARE.
 
 import SwiftUI
+import XCTest
+@testable import PhantomKitUI
 
-// MARK: - Operators
+class BindingTests: XCTestCase {
+    var source: Int?
 
-/// Creates a binding by unwrapping a given value and providing a default value.
-public func ?? <T>(lhs: Binding<T?>, rhs: T) -> Binding<T> {
-    .init(
-        get: { lhs.wrappedValue ?? rhs },
-        set: { lhs.wrappedValue = $0 }
-    )
+    override func setUpWithError() throws {}
 }
 
-// MARK: - Transform
+// MARK: - Tests: Operators
 
-extension Binding {
-    /// Converts the `wrappedValue` from `BinaryInteger` to `BinaryFloatingPoint`.
-    public static func convert<TInt, TFloat>(
-        from binding: Binding<TInt>
-    ) -> Binding<TFloat> where TInt: BinaryInteger, TFloat: BinaryFloatingPoint {
-        Binding<TFloat>(
-            get: { TFloat(binding.wrappedValue) },
-            set: { binding.wrappedValue = TInt($0) }
-        )
-    }
+extension BindingTests {
+    func test_unwrap() throws {
+        let binding = Binding<Int?>(get: { nil }, set: { _ in })
+        XCTAssertTrue(type(of: binding.wrappedValue) == Int?.self)
+        XCTAssertNil(binding.wrappedValue)
 
-    /// Converts the `wrappedValue` from `BinaryFloatingPoint` to `BinaryInteger`.
-    public static func convert<TFloat, TInt>(
-        from binding: Binding<TFloat>
-    ) -> Binding<TInt> where TFloat: BinaryFloatingPoint, TInt: BinaryInteger {
-        Binding<TInt>(
-            get: { TInt(binding.wrappedValue) },
-            set: { binding.wrappedValue = TFloat($0) }
-        )
+        let unwrappedBinding = binding ?? 1
+        XCTAssertTrue(type(of: unwrappedBinding.wrappedValue) == Int.self)
+        XCTAssertEqual(unwrappedBinding.wrappedValue, 1)
     }
 }

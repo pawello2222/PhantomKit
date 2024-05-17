@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2021-Present Paweł Wiszenko
+// Copyright (c) 2024-Present Paweł Wiszenko
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,37 +21,22 @@
 // SOFTWARE.
 
 import SwiftUI
+import XCTest
+@testable import PhantomKitUI
 
-// MARK: - Operators
-
-/// Creates a binding by unwrapping a given value and providing a default value.
-public func ?? <T>(lhs: Binding<T?>, rhs: T) -> Binding<T> {
-    .init(
-        get: { lhs.wrappedValue ?? rhs },
-        set: { lhs.wrappedValue = $0 }
-    )
+class ColorTests: XCTestCase {
+    override func setUpWithError() throws {}
 }
 
-// MARK: - Transform
+// MARK: - Tests: Convenience
 
-extension Binding {
-    /// Converts the `wrappedValue` from `BinaryInteger` to `BinaryFloatingPoint`.
-    public static func convert<TInt, TFloat>(
-        from binding: Binding<TInt>
-    ) -> Binding<TFloat> where TInt: BinaryInteger, TFloat: BinaryFloatingPoint {
-        Binding<TFloat>(
-            get: { TFloat(binding.wrappedValue) },
-            set: { binding.wrappedValue = TInt($0) }
-        )
-    }
-
-    /// Converts the `wrappedValue` from `BinaryFloatingPoint` to `BinaryInteger`.
-    public static func convert<TFloat, TInt>(
-        from binding: Binding<TFloat>
-    ) -> Binding<TInt> where TFloat: BinaryFloatingPoint, TInt: BinaryInteger {
-        Binding<TInt>(
-            get: { TInt(binding.wrappedValue) },
-            set: { binding.wrappedValue = TFloat($0) }
-        )
+extension ColorTests {
+    func test_initWithHex() throws {
+        let accuracy = 0.01
+        let color = Color(hex: 0xBF7F3F, opacity: 1)
+        XCTAssertEqual(color.components.red, 0.75, accuracy: accuracy)
+        XCTAssertEqual(color.components.green, 0.5, accuracy: accuracy)
+        XCTAssertEqual(color.components.blue, 0.25, accuracy: accuracy)
+        XCTAssertEqual(color.components.alpha, 1, accuracy: accuracy)
     }
 }

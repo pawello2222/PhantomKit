@@ -28,6 +28,20 @@ private typealias PlatformColor = UIColor
 private typealias PlatformColor = NSColor
 #endif
 
+// MARK: - Components
+
+extension Color {
+    // swiftlint:disable:next large_tuple
+    public var components: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        PlatformColor(self).getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        return (red, green, blue, alpha)
+    }
+}
+
 // MARK: - Conformance
 
 extension Color: Codable {
@@ -44,9 +58,6 @@ extension Color: Codable {
     }
 
     public func encode(to encoder: Encoder) throws {
-        guard let components else {
-            return
-        }
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(components.red, forKey: .red)
         try container.encode(components.green, forKey: .green)
@@ -57,7 +68,7 @@ extension Color: Codable {
 // MARK: - Convenience
 
 extension Color {
-    /// Creates a constant color from a hexadecimal value.
+    /// Creates a constant color from a hexadecimal value (`0xRRGGBB`).
     public init(hex: Int, opacity: Double = 1) {
         self.init(
             .sRGB,
@@ -76,19 +87,5 @@ extension Color {
         let green: CGFloat = .random(in: 0 ... 1)
         let blue: CGFloat = .random(in: 0 ... 1)
         return .init(CGColor(red: red, green: green, blue: blue, alpha: alpha))
-    }
-}
-
-// MARK: - Private
-
-extension Color {
-    // swiftlint:disable:next large_tuple
-    private var components: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)? {
-        var red: CGFloat = 0
-        var green: CGFloat = 0
-        var blue: CGFloat = 0
-        var alpha: CGFloat = 0
-        PlatformColor(self).getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        return (red, green, blue, alpha)
     }
 }
