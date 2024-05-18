@@ -30,7 +30,7 @@ public protocol LogCategory {
 // MARK: - DefaultLogCategory
 
 public enum DefaultLogCategory: String {
-    case network
+    case `default`
 }
 
 // MARK: - Helpers
@@ -42,7 +42,7 @@ extension DefaultLogCategory: LogCategory {
 
     public var icon: String {
         switch self {
-        case .network: "🟦"
+        case .default: "⬜"
         }
     }
 }

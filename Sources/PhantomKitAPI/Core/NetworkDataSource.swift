@@ -67,7 +67,7 @@ extension NetworkDataSource {
         let httpMethod = request.httpMethod ?? "?"
         logger.debug(
             "[\(httpMethod)] --> \(request)",
-            category: DefaultLogCategory.network
+            category: DefaultLogCategory.default
         )
     }
 
@@ -76,7 +76,7 @@ extension NetworkDataSource {
         let body = String(data: data, encoding: .utf8) ?? ""
         logger.debug(
             "[\(httpMethod)] \(response.statusCode) \(request)\n\(body)",
-            category: DefaultLogCategory.network
+            category: DefaultLogCategory.default
         )
     }
 }

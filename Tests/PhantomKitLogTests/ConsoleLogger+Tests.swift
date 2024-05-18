@@ -39,6 +39,16 @@ extension ConsoleLoggerTests {
             message: "Test message",
             category: nil
         )
+        XCTAssertEqual(result, "[INFO] Test message")
+    }
+
+    func test_buildLogString_noCategory_optionsNoLevel() throws {
+        let logger = ConsoleLogger(options: .init(level: false))
+        let result = logger.buildLogString(
+            level: .info,
+            message: "Test message",
+            category: nil
+        )
         XCTAssertEqual(result, "Test message")
     }
 
@@ -47,9 +57,9 @@ extension ConsoleLoggerTests {
         let result = logger.buildLogString(
             level: .info,
             message: "Test message",
-            category: DefaultLogCategory.network
+            category: DefaultLogCategory.default
         )
-        XCTAssertEqual(result, "🟦 [Network] Test message")
+        XCTAssertEqual(result, "[INFO] ⬜ [Default] Test message")
     }
 
     func test_buildLogString_defaultCategory_optionsDate() throws {
@@ -63,9 +73,9 @@ extension ConsoleLoggerTests {
         let result = logger.buildLogString(
             level: .info,
             message: "Test message",
-            category: DefaultLogCategory.network
+            category: DefaultLogCategory.default
         )
-        XCTAssertEqual(result, "[\(dateFormatter.string(from: date))] 🟦 [Network] Test message")
+        XCTAssertEqual(result, "[\(dateFormatter.string(from: date))] [INFO] ⬜ [Default] Test message")
     }
 
     func test_buildLogString_defaultCategory_optionsIconNone() throws {
@@ -73,9 +83,9 @@ extension ConsoleLoggerTests {
         let result = logger.buildLogString(
             level: .info,
             message: "Test message",
-            category: DefaultLogCategory.network
+            category: DefaultLogCategory.default
         )
-        XCTAssertEqual(result, "[Network] Test message")
+        XCTAssertEqual(result, "[INFO] [Default] Test message")
     }
 
     func test_buildLogString_defaultCategory_optionsIconLevel() throws {
@@ -83,8 +93,8 @@ extension ConsoleLoggerTests {
         let result = logger.buildLogString(
             level: .error,
             message: "Test message",
-            category: DefaultLogCategory.network
+            category: DefaultLogCategory.default
         )
-        XCTAssertEqual(result, "🟥 [Network] Test message")
+        XCTAssertEqual(result, "🟥 [ERROR] [Default] Test message")
     }
 }
