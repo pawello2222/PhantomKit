@@ -1,6 +1,5 @@
 coverage:
   ignore:
-    - "Sources/PhantomKitLog"
     - "Sources/PhantomKitUI"
     - "Tests"
   status:
