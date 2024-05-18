@@ -62,7 +62,7 @@ extension URLResponse {
 
 // MARK: - Shared
 
-struct CustomAPIEndpoint: APIEndpoint {
+struct TestAPIEndpoint: APIEndpoint {
     var baseURL: String
     var path: String
     var method: APIMethod
@@ -73,7 +73,15 @@ struct CustomAPIEndpoint: APIEndpoint {
     }
 }
 
-class CustomDataSource: NetworkDataSource {
+extension TestAPIEndpoint {
+    static let test = TestAPIEndpoint(
+        baseURL: "https://api.example.com",
+        path: "test",
+        method: .get
+    )
+}
+
+class TestDataSource: NetworkDataSource {
     var session: NetworkSession
     var logger: Logger?
 
@@ -82,6 +90,12 @@ class CustomDataSource: NetworkDataSource {
         self.logger = logger
     }
 }
+
+extension TestDataSource: APIDataSource {
+    typealias Endpoint = TestAPIEndpoint
+}
+
+// MARK: - Spies
 
 class NetworkSessionSpy: NetworkSession {
     var result: Result<URLResponse, Error> = .success(.any)

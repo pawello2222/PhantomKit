@@ -33,7 +33,7 @@ extension NetworkDataSourceTests {
     func test_call_returnHTTPResponseSuccessCode() async throws {
         let session = NetworkSessionSpy()
         session.result = .success(.http(code: 200))
-        let dataSource = CustomDataSource(session: session)
+        let dataSource = TestDataSource(session: session)
         let result = try? await dataSource.call(request: .test)
         XCTAssertNotNil(result)
     }
@@ -41,7 +41,7 @@ extension NetworkDataSourceTests {
     func test_call_returnHTTPResponseErrorCode() async throws {
         let session = NetworkSessionSpy()
         session.result = .success(.http(code: 500))
-        let dataSource = CustomDataSource(session: session)
+        let dataSource = TestDataSource(session: session)
         do {
             _ = try await dataSource.call(request: .test)
         } catch let error as APIError {
@@ -54,7 +54,7 @@ extension NetworkDataSourceTests {
     func test_call_returnUnexpectedResponse() async throws {
         let session = NetworkSessionSpy()
         session.result = .success(.any)
-        let dataSource = CustomDataSource(session: session)
+        let dataSource = TestDataSource(session: session)
         do {
             _ = try await dataSource.call(request: .test)
         } catch let error as APIError {
@@ -67,7 +67,7 @@ extension NetworkDataSourceTests {
     func test_call_throwConnectionError() async throws {
         let session = NetworkSessionSpy()
         session.result = .failure(URLError(.notConnectedToInternet))
-        let dataSource = CustomDataSource(session: session)
+        let dataSource = TestDataSource(session: session)
         do {
             _ = try await dataSource.call(request: .test)
         } catch let error as APIError {
@@ -80,7 +80,7 @@ extension NetworkDataSourceTests {
     func test_call_throwAnyError() async throws {
         let session = NetworkSessionSpy()
         session.result = .failure(URLError(.cancelled))
-        let dataSource = CustomDataSource(session: session)
+        let dataSource = TestDataSource(session: session)
         do {
             _ = try await dataSource.call(request: .test)
         } catch let error as URLError {

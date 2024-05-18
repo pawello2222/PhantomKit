@@ -23,38 +23,39 @@
 import XCTest
 @testable import PhantomKitAPI
 
-class APIEndpointTests: XCTestCase {
+class APIDataSourceTests: XCTestCase {
     override func setUpWithError() throws {}
 }
 
 // MARK: - Tests: Common
 
-extension APIEndpointTests {
-    func test_urlRequest() throws {
-        let endpoint: APIEndpoint = TestAPIEndpoint(
-            baseURL: "https://api.example.com",
-            path: "test",
-            method: .get,
-            headers: .test
-        )
-
-        let request = try endpoint.urlRequest()
-
-        XCTAssertEqual(request.url?.absoluteString, "https://api.example.com/test")
-        XCTAssertEqual(request.httpMethod, APIMethod.get.rawValue)
-        XCTAssertEqual(request.allHTTPHeaderFields, .test)
-        XCTAssertEqual(request.httpBody, .test)
+extension APIDataSourceTests {
+    func test_call_httpCodeInRange() async throws {
+        let session = NetworkSessionSpy()
+        session.result = .success(.http(code: 200))
+        let dataSource = TestDataSource(session: session)
+        let result = try? await dataSource.call(endpoint: .test)
+        XCTAssertNotNil(result)
     }
 
-    func test_urlRequest_invalidURL() throws {
-        let endpoint: APIEndpoint = TestAPIEndpoint(
-            baseURL: "$xyz://api.example.com",
-            path: "test",
-            method: .get
-        )
-
-        XCTAssertThrowsError(try endpoint.urlRequest()) { error in
-            XCTAssertEqual(error as? APIError, APIError.invalidURL)
+    func test_call_httpCodeOutOfRange() async throws {
+        let session = NetworkSessionSpy()
+        session.result = .success(.http(code: 400))
+        let dataSource = TestDataSource(session: session)
+        do {
+            _ = try await dataSource.call(endpoint: .test)
+        } catch let error as APIError {
+            XCTAssertEqual(error, .httpCode(400, message: nil))
+            return
         }
+        XCTFail()
+    }
+
+    func test_call_allowedAllHTTPCodes() async throws {
+        let session = NetworkSessionSpy()
+        session.result = .success(.http(code: 400))
+        let dataSource = TestDataSource(session: session)
+        let result = try? await dataSource.call(endpoint: .test, allowedHTTPCodes: .all)
+        XCTAssertNotNil(result)
     }
 }
