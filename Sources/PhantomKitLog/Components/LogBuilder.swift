@@ -42,7 +42,7 @@ extension LogBuilder {
 extension LogBuilder {
     @discardableResult
     func append(date: Date, options: Options = .none) -> Self {
-        let formattedDate = Self.dateFormatter.string(from: .now)
+        let formattedDate = Self.dateFormatter.string(from: date)
         items.append(formattedDate.with(options: options))
         return self
     }

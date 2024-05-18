@@ -53,6 +53,10 @@ let package = Package(
             dependencies: ["PhantomKitCore"]
         ),
         .testTarget(
+            name: "PhantomKitLogTests",
+            dependencies: ["PhantomKitCore", "PhantomKitLog"]
+        ),
+        .testTarget(
             name: "PhantomKitUITests",
             dependencies: ["PhantomKitUI"]
         )

@@ -26,6 +26,10 @@ public class ConsoleLogger {
     public var level: LogLevel
     public var options: Options
 
+    var currentDate: () -> Date = {
+        .now
+    }
+
     public init(level: LogLevel = .info, options: Options = .init()) {
         self.level = level
         self.options = options
@@ -66,9 +70,23 @@ extension ConsoleLogger: Logger {
         guard level >= self.level else {
             return
         }
-        let logString = LogBuilder()
+        let logString = buildLogString(
+            level: level,
+            message: message(),
+            category: category
+        )
+        print(logString)
+        #endif
+    }
+
+    func buildLogString(
+        level: LogLevel,
+        message: @autoclosure @escaping () -> String,
+        category: LogCategory?
+    ) -> String {
+        LogBuilder()
             .apply(if: options.date) {
-                $0.append(date: .now, options: .tag)
+                $0.append(date: currentDate(), options: .tag)
             }
             .apply(if: options.icon == .category) {
                 $0.append(string: category?.icon)
@@ -80,8 +98,6 @@ extension ConsoleLogger: Logger {
             .append(string: message())
             .separate(by: " ")
             .build()
-        print(logString)
-        #endif
     }
 }
 
