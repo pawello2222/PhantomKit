@@ -30,6 +30,14 @@ class StringTests: XCTestCase {
 // MARK: - Tests: Helpers
 
 extension StringTests {
+    func test_capitalizedFirst() throws {
+        XCTAssertEqual("123".capitalizedFirst, "123")
+        XCTAssertEqual("asd".capitalizedFirst, "Asd")
+        XCTAssertEqual("asD".capitalizedFirst, "AsD")
+        XCTAssertEqual("".capitalizedFirst, "")
+        XCTAssertEqual("@aa".capitalizedFirst, "@aa")
+    }
+
     func test_isHexNumber() throws {
         XCTAssertTrue("123".isHexNumber)
         XCTAssertTrue("aa32".isHexNumber)

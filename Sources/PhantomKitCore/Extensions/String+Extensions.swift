@@ -34,14 +34,17 @@ extension String {
 // MARK: - Helpers
 
 extension String {
+    /// A copy of the string with the first letter capitalized.
+    public var capitalizedFirst: String {
+        prefix(1).capitalized + dropFirst()
+    }
+
     /// A Boolean value indicating whether all characters
     /// in this string represent a hexadecimal digit.
     public var isHexNumber: Bool {
         allSatisfy(\.isHexDigit)
     }
-}
 
-extension String {
     /// Returns a new string created by replacing all characters in the string not
     /// in the specified set with percent encoded characters.
     ///
