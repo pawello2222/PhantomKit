@@ -31,13 +31,64 @@ class NetworkDataSourceTests: XCTestCase {
 // MARK: - Tests: Common
 
 extension NetworkDataSourceTests {
-    func test_call_responseCorrectCode() async throws {
+    func test_call_returnHTTPResponseSuccessCode() async throws {
         let session = NetworkSessionSpy()
-        session.data = .init()
-        session.response = .http(code: 200)
+        session.result = .success(.http(code: 200))
         let dataSource = CustomDataSource(session: session)
         let result = try? await dataSource.call(request: .test)
         XCTAssertNotNil(result)
+    }
+
+    func test_call_returnHTTPResponseErrorCode() async throws {
+        let session = NetworkSessionSpy()
+        session.result = .success(.http(code: 500))
+        let dataSource = CustomDataSource(session: session)
+        do {
+            _ = try await dataSource.call(request: .test)
+        } catch let error as APIError {
+            XCTAssertEqual(error, .httpCode(500, message: nil))
+            return
+        }
+        XCTFail()
+    }
+
+    func test_call_returnUnexpectedResponse() async throws {
+        let session = NetworkSessionSpy()
+        session.result = .success(.any)
+        let dataSource = CustomDataSource(session: session)
+        do {
+            _ = try await dataSource.call(request: .test)
+        } catch let error as APIError {
+            XCTAssertEqual(error, .unexpectedResponse(.any))
+            return
+        }
+        XCTFail()
+    }
+
+    func test_call_throwConnectionError() async throws {
+        let session = NetworkSessionSpy()
+        session.result = .failure(URLError(.notConnectedToInternet))
+        let dataSource = CustomDataSource(session: session)
+        do {
+            _ = try await dataSource.call(request: .test)
+        } catch let error as APIError {
+            XCTAssertEqual(error, .connectionError)
+            return
+        }
+        XCTFail()
+    }
+
+    func test_call_throwAnyError() async throws {
+        let session = NetworkSessionSpy()
+        session.result = .failure(URLError(.cancelled))
+        let dataSource = CustomDataSource(session: session)
+        do {
+            _ = try await dataSource.call(request: .test)
+        } catch let error as URLError {
+            XCTAssertEqual(error.code, .cancelled)
+            return
+        }
+        XCTFail()
     }
 }
 
@@ -54,20 +105,17 @@ private class CustomDataSource: NetworkDataSource {
 }
 
 private class NetworkSessionSpy: NetworkSession {
-    var data: Data!
-    var response: URLResponse!
-    var error: Error!
+    var result: Result<URLResponse, Error> = .success(.any)
 
     func data(
         for urlRequest: URLRequest,
         delegate: URLSessionTaskDelegate?
     ) async throws -> (Data, URLResponse) {
-        if let error {
-            throw error
-        }
-        return (data, response)
+        try (Data(), result.get())
     }
 }
+
+// MARK: - Convenience
 
 extension URL {
     fileprivate static let test: Self = .init(string: "https://example.com")!
