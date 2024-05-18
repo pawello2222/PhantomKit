@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 import XCTest
-@testable import PhantomKitCore
+@testable import PhantomKitAPI
 
 class LoadableTests: XCTestCase {
     override func setUpWithError() throws {}
