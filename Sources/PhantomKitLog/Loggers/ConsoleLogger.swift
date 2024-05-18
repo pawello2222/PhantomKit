@@ -36,16 +36,21 @@ public class ConsoleLogger {
 
 extension ConsoleLogger {
     public struct Options {
-        let displayDate: Bool
-        let displayIconForLevel: Bool
+        let date: Bool
+        let icon: Icon
 
-        public init(
-            displayDate: Bool = false,
-            displayIconForLevel: Bool = false
-        ) {
-            self.displayDate = displayDate
-            self.displayIconForLevel = displayIconForLevel
+        public init(date: Bool = false, icon: Icon = .category) {
+            self.date = date
+            self.icon = icon
         }
+    }
+}
+
+extension ConsoleLogger.Options {
+    public enum Icon {
+        case none
+        case category
+        case level
     }
 }
 
@@ -62,13 +67,14 @@ extension ConsoleLogger: Logger {
             return
         }
         let logString = LogBuilder()
-            .apply(if: options.displayDate) {
+            .apply(if: options.date) {
                 $0.append(date: .now, options: .tag)
             }
-            .apply(if: options.displayIconForLevel) {
-                $0.append(string: level.icon)
-            } else: {
+            .apply(if: options.icon == .category) {
                 $0.append(string: category?.icon)
+            }
+            .apply(if: options.icon == .level) {
+                $0.append(string: level.icon)
             }
             .append(string: category?.name.capitalized, options: .tag)
             .append(string: message())

@@ -48,7 +48,7 @@ extension Array: RawRepresentable where Element: Codable {
     }
 }
 
-// MARK: Mutation
+// MARK: - Mutation
 
 extension Array where Element: Equatable {
     /// Removes the element if it's present in the array

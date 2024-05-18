@@ -81,19 +81,6 @@ extension LogBuilder {
             self
         }
     }
-
-    @discardableResult
-    func apply(
-        if condition: Bool,
-        _ trueTransform: (Self) -> Self,
-        else falseTransform: (Self) -> Self
-    ) -> Self {
-        if condition {
-            trueTransform(self)
-        } else {
-            falseTransform(self)
-        }
-    }
 }
 
 // MARK: - Helpers
