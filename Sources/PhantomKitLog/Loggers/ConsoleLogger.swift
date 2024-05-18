@@ -31,9 +31,7 @@ public class ConsoleLogger {
     }
 
     var log: (String) -> Void = { message in
-        #if DEBUG
         print(message)
-        #endif
     }
 
     public init(level: LogLevel = .info, options: Options = .init()) {
@@ -81,7 +79,9 @@ extension ConsoleLogger: Logger {
             message: message(),
             category: category
         )
+        #if DEBUG
         log(logString)
+        #endif
     }
 }
 
