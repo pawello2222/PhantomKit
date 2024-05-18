@@ -29,7 +29,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/pawello2222/Appliable", from: "1.0.0")
+        .package(url: "https://github.com/pawello2222/Appliable", .upToNextMajor(from: "1.0.0"))
     ],
     targets: [
         .target(
@@ -47,6 +47,10 @@ let package = Package(
         .target(
             name: "PhantomKitUI",
             dependencies: ["PhantomKitCore"]
+        ),
+        .testTarget(
+            name: "PhantomKitAPITests",
+            dependencies: ["PhantomKitAPI"]
         ),
         .testTarget(
             name: "PhantomKitCoreTests",

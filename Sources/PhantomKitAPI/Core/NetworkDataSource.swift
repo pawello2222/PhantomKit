@@ -26,7 +26,7 @@ import PhantomKitLog
 
 public protocol NetworkDataSource {
     var session: NetworkSession { get }
-    var logger: Logger { get }
+    var logger: Logger? { get }
 }
 
 // MARK: - Common
@@ -64,6 +64,9 @@ extension NetworkDataSource {
 
 extension NetworkDataSource {
     private func log(request: URLRequest) {
+        guard let logger else {
+            return
+        }
         let httpMethod = request.httpMethod ?? "?"
         logger.debug(
             "[\(httpMethod)] --> \(request)",
@@ -72,6 +75,9 @@ extension NetworkDataSource {
     }
 
     private func log(request: URLRequest, response: HTTPURLResponse, data: Data) {
+        guard let logger else {
+            return
+        }
         let httpMethod = request.httpMethod ?? "?"
         let body = String(data: data, encoding: .utf8) ?? ""
         logger.debug(
