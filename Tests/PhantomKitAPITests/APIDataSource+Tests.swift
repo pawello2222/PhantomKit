@@ -48,7 +48,7 @@ extension APIDataSourceTests {
             XCTAssertEqual(error, .httpCode(400, message: nil))
             return
         }
-        XCTFail()
+        XCTFail("Asynchronous call should throw an error.")
     }
 
     func test_call_allowedAllHTTPCodes() async throws {

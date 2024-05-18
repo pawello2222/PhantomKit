@@ -48,7 +48,7 @@ extension NetworkDataSourceTests {
             XCTAssertEqual(error, .httpCode(500, message: nil))
             return
         }
-        XCTFail()
+        XCTFail("Asynchronous call should throw an error.")
     }
 
     func test_call_returnUnexpectedResponse() async throws {
@@ -61,7 +61,7 @@ extension NetworkDataSourceTests {
             XCTAssertEqual(error, .unexpectedResponse(.any))
             return
         }
-        XCTFail()
+        XCTFail("Asynchronous call should throw an error.")
     }
 
     func test_call_throwConnectionError() async throws {
@@ -74,7 +74,7 @@ extension NetworkDataSourceTests {
             XCTAssertEqual(error, .connectionError)
             return
         }
-        XCTFail()
+        XCTFail("Asynchronous call should throw an error.")
     }
 
     func test_call_throwAnyError() async throws {
@@ -87,7 +87,7 @@ extension NetworkDataSourceTests {
             XCTAssertEqual(error.code, .cancelled)
             return
         }
-        XCTFail()
+        XCTFail("Asynchronous call should throw an error.")
     }
 }
 

@@ -36,7 +36,7 @@ extension OSLogLoggerTests {
         var result: String?
         let logger = OSLogLogger()
         logger.level = .info
-        logger.log = { level, message, category in
+        logger.log = { _, message, _ in
             result = message
         }
         logger.log(
@@ -51,7 +51,7 @@ extension OSLogLoggerTests {
         var result: String?
         let logger = OSLogLogger()
         logger.level = .error
-        logger.log = { level, message, category in
+        logger.log = { _, message, _ in
             result = message
         }
         logger.log(
