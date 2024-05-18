@@ -42,7 +42,7 @@ extension DefaultLogCategory: LogCategory {
 
     public var icon: String {
         switch self {
-        case .default: "⬜"
+        case .default: "⚪"
         }
     }
 }

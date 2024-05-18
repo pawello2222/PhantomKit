@@ -81,8 +81,6 @@ extension LogLevel {
             .debug
         case .info:
             .info
-        case .notice:
-            .default
         case .warning, .error:
             .error
         case .critical:

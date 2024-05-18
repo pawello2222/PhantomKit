@@ -41,26 +41,21 @@ public class ConsoleLogger {
 extension ConsoleLogger {
     public struct Options {
         let date: Bool
+        let levelIcon: Bool
         let level: Bool
-        let icon: Icon
+        let categoryIcon: Bool
 
         public init(
             date: Bool = false,
+            levelIcon: Bool = false,
             level: Bool = true,
-            icon: Icon = .category
+            categoryIcon: Bool = false
         ) {
             self.date = date
+            self.levelIcon = levelIcon
             self.level = level
-            self.icon = icon
+            self.categoryIcon = categoryIcon
         }
-    }
-}
-
-extension ConsoleLogger.Options {
-    public enum Icon {
-        case none
-        case category
-        case level
     }
 }
 
@@ -94,13 +89,13 @@ extension ConsoleLogger: Logger {
             .apply(if: options.date) {
                 $0.append(date: currentDate(), options: .tag)
             }
-            .apply(if: options.icon == .level) {
+            .apply(if: options.levelIcon) {
                 $0.append(string: level.icon)
             }
             .apply(if: options.level) {
                 $0.append(string: level.rawValue.uppercased(), options: .tag)
             }
-            .apply(if: options.icon == .category) {
+            .apply(if: options.categoryIcon) {
                 $0.append(string: category?.icon)
             }
             .append(string: category?.name.capitalized, options: .tag)

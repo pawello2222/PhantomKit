@@ -59,14 +59,11 @@ extension ConsoleLoggerTests {
             message: "Test message",
             category: DefaultLogCategory.default
         )
-        XCTAssertEqual(result, "[INFO] ⬜ [Default] Test message")
+        XCTAssertEqual(result, "[INFO] [Default] Test message")
     }
 
     func test_buildLogString_defaultCategory_optionsDate() throws {
         let date = Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 5)
-        let dateFormatter = DateFormatter().apply {
-            $0.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        }
         let logger = ConsoleLogger(options: .init(date: true))
         logger.currentDate = { date }
 
@@ -75,26 +72,47 @@ extension ConsoleLoggerTests {
             message: "Test message",
             category: DefaultLogCategory.default
         )
-        XCTAssertEqual(result, "[\(dateFormatter.string(from: date))] [INFO] ⬜ [Default] Test message")
+        XCTAssertEqual(result, "[\(Self.dateFormatter.string(from: date))] [INFO] [Default] Test message")
     }
 
-    func test_buildLogString_defaultCategory_optionsIconNone() throws {
-        let logger = ConsoleLogger(options: .init(icon: .none))
+    func test_buildLogString_defaultCategory_optionsCategoryIcon() throws {
+        let logger = ConsoleLogger(options: .init(categoryIcon: true))
         let result = logger.buildLogString(
             level: .info,
             message: "Test message",
             category: DefaultLogCategory.default
         )
-        XCTAssertEqual(result, "[INFO] [Default] Test message")
+        XCTAssertEqual(result, "[INFO] ⚪ [Default] Test message")
     }
 
-    func test_buildLogString_defaultCategory_optionsIconLevel() throws {
-        let logger = ConsoleLogger(options: .init(icon: .level))
+    func test_buildLogString_defaultCategory_optionsLevelIcon() throws {
+        let logger = ConsoleLogger(options: .init(levelIcon: true))
         let result = logger.buildLogString(
-            level: .error,
+            level: .info,
             message: "Test message",
             category: DefaultLogCategory.default
         )
-        XCTAssertEqual(result, "🟥 [ERROR] [Default] Test message")
+        XCTAssertEqual(result, "🟩 [INFO] [Default] Test message")
+    }
+
+    func test_buildLogString_defaultCategory_optionsAll() throws {
+        let date = Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 5)
+        let logger = ConsoleLogger(options: .init(date: true, levelIcon: true, level: true, categoryIcon: true))
+        logger.currentDate = { date }
+
+        let result = logger.buildLogString(
+            level: .info,
+            message: "Test message",
+            category: DefaultLogCategory.default
+        )
+        XCTAssertEqual(result, "[\(Self.dateFormatter.string(from: date))] 🟩 [INFO] ⚪ [Default] Test message")
+    }
+}
+
+// MARK: - Private
+
+extension ConsoleLoggerTests {
+    private static var dateFormatter = DateFormatter().apply {
+        $0.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
     }
 }

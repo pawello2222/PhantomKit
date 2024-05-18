@@ -43,10 +43,6 @@ extension Logger {
         log(level: .info, message(), category: category)
     }
 
-    public func notice(_ message: @autoclosure @escaping () -> String, category: LogCategory? = nil) {
-        log(level: .notice, message(), category: category)
-    }
-
     public func warning(_ message: @autoclosure @escaping () -> String, category: LogCategory? = nil) {
         log(level: .warning, message(), category: category)
     }

@@ -26,7 +26,6 @@ public enum LogLevel: String, CaseIterable {
     case trace
     case debug
     case info
-    case notice
     case warning
     case error
     case critical
@@ -51,8 +50,7 @@ extension LogLevel {
         switch self {
         case .trace: "⬜"
         case .debug: "🟫"
-        case .info: "🟦"
-        case .notice: "🟩"
+        case .info: "🟩"
         case .warning: "🟨"
         case .error: "🟥"
         case .critical: "🟪"
