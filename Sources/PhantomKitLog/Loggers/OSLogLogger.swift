@@ -24,12 +24,12 @@ import Foundation
 import OSLog
 
 public class OSLogLogger {
-    private typealias InternalLogger = os.Logger
+    typealias InternalLogger = os.Logger
+
+    public var level: LogLevel
 
     private var subsystem: String
     private var loggers: [String: InternalLogger] = [:]
-
-    public var level: LogLevel
 
     lazy var log: (OSLogType, String, String) -> Void = { [weak self] level, message, category in
         self?.logger(for: category).log(level: level, "\(message, privacy: .private)")
