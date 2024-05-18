@@ -109,14 +109,13 @@ extension TestDataSource: APIDataSource {
 }
 
 class TestLogger: Logger {
-    var messages: [String] = []
-    var level: LogLevel = .debug
+    var receivedMessages: [String] = []
 
     func log(
         level: LogLevel,
         _ message: @autoclosure @escaping () -> String,
         category: LogCategory?
     ) {
-        messages.append(message())
+        receivedMessages.append(message())
     }
 }

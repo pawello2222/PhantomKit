@@ -29,7 +29,41 @@ class ConsoleLoggerTests: XCTestCase {
     override func setUpWithError() throws {}
 }
 
-// MARK: - Tests: Log
+// MARK: - Tests: Logger
+
+extension ConsoleLoggerTests {
+    func test_log_aboveLevel() throws {
+        var result: String?
+        let logger = ConsoleLogger()
+        logger.level = .info
+        logger.log = { message in
+            result = message
+        }
+        logger.log(
+            level: .info,
+            "Test message",
+            category: nil
+        )
+        XCTAssertEqual(result, "[INFO] Test message")
+    }
+
+    func test_log_belowLevel() throws {
+        var result: String?
+        let logger = ConsoleLogger()
+        logger.level = .error
+        logger.log = { message in
+            result = message
+        }
+        logger.log(
+            level: .info,
+            "Test message",
+            category: nil
+        )
+        XCTAssertNil(result)
+    }
+}
+
+// MARK: - Tests: Builder
 
 extension ConsoleLoggerTests {
     func test_buildLogString_noCategory_defaultOptions() throws {

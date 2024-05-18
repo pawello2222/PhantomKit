@@ -99,14 +99,13 @@ extension NetworkDataSourceTests {
         let session = NetworkSessionStub()
         session.result = .success((.test, .http(code: 200)))
         let dataSource = TestDataSource(session: session, logger: logger)
-        XCTAssertTrue(logger.messages.isEmpty)
+        XCTAssertTrue(logger.receivedMessages.isEmpty)
 
         let result = try? await dataSource.call(request: .test)
 
         XCTAssertNotNil(result)
-        XCTAssertEqual(logger.messages.count, 2)
         XCTAssertEqual(
-            logger.messages,
+            logger.receivedMessages,
             [
                 "[GET] --> https://example.com",
                 "[GET] 200 https://example.com\nTest"

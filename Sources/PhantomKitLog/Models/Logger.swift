@@ -23,8 +23,6 @@
 import Foundation
 
 public protocol Logger {
-    var level: LogLevel { get set }
-
     func log(level: LogLevel, _ message: @autoclosure @escaping () -> String, category: LogCategory?)
 }
 

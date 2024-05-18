@@ -30,6 +30,12 @@ public class ConsoleLogger {
         .now
     }
 
+    var log: (String) -> Void = { message in
+        #if DEBUG
+        print(message)
+        #endif
+    }
+
     public init(level: LogLevel = .info, options: Options = .init()) {
         self.level = level
         self.options = options
@@ -67,7 +73,6 @@ extension ConsoleLogger: Logger {
         _ message: @autoclosure @escaping () -> String,
         category: LogCategory?
     ) {
-        #if DEBUG
         guard level >= self.level else {
             return
         }
@@ -76,10 +81,13 @@ extension ConsoleLogger: Logger {
             message: message(),
             category: category
         )
-        print(logString)
-        #endif
+        log(logString)
     }
+}
 
+// MARK: - Builder
+
+extension ConsoleLogger {
     func buildLogString(
         level: LogLevel,
         message: @autoclosure @escaping () -> String,
