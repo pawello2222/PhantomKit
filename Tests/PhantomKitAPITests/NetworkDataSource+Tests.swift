@@ -31,7 +31,7 @@ class NetworkDataSourceTests: XCTestCase {
 
 extension NetworkDataSourceTests {
     func test_call_returnHTTPResponseSuccessCode() async throws {
-        let session = NetworkSessionSpy()
+        let session = NetworkSessionStub()
         session.result = .success((.test, .http(code: 200)))
         let dataSource = TestDataSource(session: session)
         let result = try? await dataSource.call(request: .test)
@@ -39,7 +39,7 @@ extension NetworkDataSourceTests {
     }
 
     func test_call_returnHTTPResponseErrorCode() async throws {
-        let session = NetworkSessionSpy()
+        let session = NetworkSessionStub()
         session.result = .success((.test, .http(code: 500)))
         let dataSource = TestDataSource(session: session)
         do {
@@ -52,7 +52,7 @@ extension NetworkDataSourceTests {
     }
 
     func test_call_returnUnexpectedResponse() async throws {
-        let session = NetworkSessionSpy()
+        let session = NetworkSessionStub()
         session.result = .success((.test, .any))
         let dataSource = TestDataSource(session: session)
         do {
@@ -65,7 +65,7 @@ extension NetworkDataSourceTests {
     }
 
     func test_call_throwConnectionError() async throws {
-        let session = NetworkSessionSpy()
+        let session = NetworkSessionStub()
         session.result = .failure(URLError(.notConnectedToInternet))
         let dataSource = TestDataSource(session: session)
         do {
@@ -78,7 +78,7 @@ extension NetworkDataSourceTests {
     }
 
     func test_call_throwAnyError() async throws {
-        let session = NetworkSessionSpy()
+        let session = NetworkSessionStub()
         session.result = .failure(URLError(.cancelled))
         let dataSource = TestDataSource(session: session)
         do {
@@ -96,7 +96,7 @@ extension NetworkDataSourceTests {
 extension NetworkDataSourceTests {
     func test_call_log() async throws {
         let logger = TestLogger()
-        let session = NetworkSessionSpy()
+        let session = NetworkSessionStub()
         session.result = .success((.test, .http(code: 200)))
         let dataSource = TestDataSource(session: session, logger: logger)
         XCTAssertTrue(logger.messages.isEmpty)

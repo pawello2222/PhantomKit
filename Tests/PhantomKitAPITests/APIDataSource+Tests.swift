@@ -31,7 +31,7 @@ class APIDataSourceTests: XCTestCase {
 
 extension APIDataSourceTests {
     func test_call_httpCodeInRange() async throws {
-        let session = NetworkSessionSpy()
+        let session = NetworkSessionStub()
         session.result = .success((.test, .http(code: 200)))
         let dataSource = TestDataSource(session: session)
         let result = try? await dataSource.call(endpoint: .test)
@@ -39,7 +39,7 @@ extension APIDataSourceTests {
     }
 
     func test_call_httpCodeOutOfRange() async throws {
-        let session = NetworkSessionSpy()
+        let session = NetworkSessionStub()
         session.result = .success((.test, .http(code: 400)))
         let dataSource = TestDataSource(session: session)
         do {
@@ -52,7 +52,7 @@ extension APIDataSourceTests {
     }
 
     func test_call_allowedAllHTTPCodes() async throws {
-        let session = NetworkSessionSpy()
+        let session = NetworkSessionStub()
         session.result = .success((.test, .http(code: 400)))
         let dataSource = TestDataSource(session: session)
         let result = try? await dataSource.call(endpoint: .test, allowedHTTPCodes: .all)

@@ -60,6 +60,19 @@ extension URLResponse {
     }
 }
 
+// MARK: - Mocks
+
+class NetworkSessionStub: NetworkSession {
+    var result: Result<(Data, URLResponse), Error> = .success((.test, .http(code: 200)))
+
+    func data(
+        for urlRequest: URLRequest,
+        delegate: URLSessionTaskDelegate?
+    ) async throws -> (Data, URLResponse) {
+        try result.get()
+    }
+}
+
 // MARK: - Shared
 
 struct TestAPIEndpoint: APIEndpoint {
@@ -105,18 +118,5 @@ class TestLogger: Logger {
         category: LogCategory?
     ) {
         messages.append(message())
-    }
-}
-
-// MARK: - Spies
-
-class NetworkSessionSpy: NetworkSession {
-    var result: Result<(Data, URLResponse), Error> = .success((.test, .http(code: 200)))
-
-    func data(
-        for urlRequest: URLRequest,
-        delegate: URLSessionTaskDelegate?
-    ) async throws -> (Data, URLResponse) {
-        try result.get()
     }
 }
