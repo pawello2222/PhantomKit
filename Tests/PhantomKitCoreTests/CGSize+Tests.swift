@@ -30,7 +30,7 @@ class CGSizeTests: XCTestCase {
 // MARK: - Tests: Convenience
 
 extension CGSizeTests {
-    func test_initWithLength() throws {
+    func test_init_length() throws {
         let size = CGSize(length: 100)
 
         XCTAssertEqual(size.width, 100)

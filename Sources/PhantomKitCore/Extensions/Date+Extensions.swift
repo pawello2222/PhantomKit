@@ -43,12 +43,11 @@ extension Date {
         _ component: Calendar.Component,
         in calendar: Calendar = .current
     ) -> Date {
-        // Incompatible components: `calendar`, `timeZone`, `isLeapMonth`
-        #if DEBUG
-        calendar.dateInterval(of: component, for: self)!.start
-        #else
-        calendar.dateInterval(of: component, for: self)?.start ?? self
-        #endif
+        // Invalid components: `calendar`, `timeZone`, `isLeapMonth`
+        guard let date = calendar.dateInterval(of: component, for: self) else {
+            return self
+        }
+        return date.start
     }
 
     /// Returns a new `Date` representing the date calculated
@@ -57,14 +56,11 @@ extension Date {
         _ component: Calendar.Component,
         in calendar: Calendar = .current
     ) -> Date {
-        // Incompatible components: `calendar`, `timeZone`, `isLeapMonth`
-        #if DEBUG
-        let date = calendar.dateInterval(of: component, for: self)!.end
-        #else
-        let date = calendar.dateInterval(of: component, for: self)?.end ?? self
-        #endif
-
-        return Date(timeInterval: -0.001, since: date)
+        // Invalid components: `calendar`, `timeZone`, `isLeapMonth`
+        guard let date = calendar.dateInterval(of: component, for: self) else {
+            return self
+        }
+        return date.end.advanced(by: -0.001)
     }
 }
 

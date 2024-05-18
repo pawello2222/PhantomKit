@@ -30,7 +30,7 @@ class DateTests: XCTestCase {
 // MARK: - Tests: Adjustment
 
 extension DateTests {
-    func test_adjustingComponent() throws {
+    func test_adjusting() throws {
         let date = Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 5)
 
         XCTAssertEqual(date.adjusting(\.second, by: 1).component(.second), 6)
@@ -41,18 +41,39 @@ extension DateTests {
         XCTAssertEqual(date.adjusting(\.year, by: 1).component(.year), 2001)
     }
 
-    func test_startOfComponent() throws {
+    func test_startOf() throws {
         let date = Date(year: 2000, month: 2, day: 3, hour: 4, minute: 5, second: 6)
 
-        XCTAssertEqual(date.startOf(.second), Date(year: 2000, month: 2, day: 3, hour: 4, minute: 5, second: 6))
-        XCTAssertEqual(date.startOf(.minute), Date(year: 2000, month: 2, day: 3, hour: 4, minute: 5, second: 0))
-        XCTAssertEqual(date.startOf(.hour), Date(year: 2000, month: 2, day: 3, hour: 4, minute: 0, second: 0))
-        XCTAssertEqual(date.startOf(.day), Date(year: 2000, month: 2, day: 3, hour: 0, minute: 0, second: 0))
-        XCTAssertEqual(date.startOf(.month), Date(year: 2000, month: 2, day: 1, hour: 0, minute: 0, second: 0))
-        XCTAssertEqual(date.startOf(.year), Date(year: 2000, month: 1, day: 1, hour: 0, minute: 0, second: 0))
+        XCTAssertEqual(
+            date.startOf(.second),
+            Date(year: 2000, month: 2, day: 3, hour: 4, minute: 5, second: 6)
+        )
+        XCTAssertEqual(
+            date.startOf(.minute),
+            Date(year: 2000, month: 2, day: 3, hour: 4, minute: 5, second: 0)
+        )
+        XCTAssertEqual(
+            date.startOf(.hour),
+            Date(year: 2000, month: 2, day: 3, hour: 4, minute: 0, second: 0)
+        )
+        XCTAssertEqual(
+            date.startOf(.day),
+            Date(year: 2000, month: 2, day: 3, hour: 0, minute: 0, second: 0)
+        )
+        XCTAssertEqual(
+            date.startOf(.month),
+            Date(year: 2000, month: 2, day: 1, hour: 0, minute: 0, second: 0)
+        )
+        XCTAssertEqual(
+            date.startOf(.year),
+            Date(year: 2000, month: 1, day: 1, hour: 0, minute: 0, second: 0)
+        )
+        XCTAssertEqual(date.startOf(.calendar), date)
+        XCTAssertEqual(date.startOf(.timeZone), date)
+        XCTAssertEqual(date.startOf(.isLeapMonth), date)
     }
 
-    func test_endOfComponent() throws {
+    func test_endOf() throws {
         let interval: TimeInterval = -0.001
         let date = Date(year: 2000, month: 2, day: 3, hour: 4, minute: 5, second: 6)
 
@@ -80,6 +101,9 @@ extension DateTests {
             date.endOf(.year),
             Date(timeInterval: interval, since: Date(year: 2001, month: 1, day: 1, hour: 0, minute: 0, second: 0))
         )
+        XCTAssertEqual(date.endOf(.calendar), date)
+        XCTAssertEqual(date.endOf(.timeZone), date)
+        XCTAssertEqual(date.endOf(.isLeapMonth), date)
     }
 }
 
@@ -127,6 +151,13 @@ extension DateTests {
         )
         XCTAssertFalse(
             date.isBefore(
+                Date(year: 2000, month: 1, day: 2, hour: 3, minute: 3, second: 5),
+                orEqual: true,
+                granularity: .minute
+            )
+        )
+        XCTAssertFalse(
+            date.isBefore(
                 Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 5),
                 orEqual: false,
                 granularity: .minute
@@ -152,6 +183,13 @@ extension DateTests {
         XCTAssertTrue(
             date.isAfter(
                 Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 5),
+                orEqual: true,
+                granularity: .minute
+            )
+        )
+        XCTAssertFalse(
+            date.isAfter(
+                Date(year: 2000, month: 1, day: 2, hour: 3, minute: 5, second: 5),
                 orEqual: true,
                 granularity: .minute
             )
@@ -195,7 +233,7 @@ extension DateTests {
 // MARK: - Tests: Convenience
 
 extension DateTests {
-    func test_initWithComponents() throws {
+    func test_init_components() throws {
         let date = Date(year: 2000, month: 1, day: 2, hour: 3, minute: 4, second: 5)
 
         XCTAssertEqual(date.component(.year), 2000)

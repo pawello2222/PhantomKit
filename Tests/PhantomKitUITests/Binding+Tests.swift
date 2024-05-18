@@ -25,8 +25,6 @@ import XCTest
 @testable import PhantomKitUI
 
 class BindingTests: XCTestCase {
-    var source: Int?
-
     override func setUpWithError() throws {}
 }
 

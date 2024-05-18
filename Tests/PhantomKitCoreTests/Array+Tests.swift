@@ -30,7 +30,7 @@ class ArrayTests: XCTestCase {
 // MARK: - Tests: Conformance
 
 extension ArrayTests {
-    func test_initWithRawValue() throws {
+    func test_init_rawValue() throws {
         XCTAssertEqual([Int](rawValue: "[1,2,3]"), [1, 2, 3])
         XCTAssertEqual([Int](rawValue: "[]"), [Int]())
         XCTAssertEqual([String](rawValue: "x"), nil)

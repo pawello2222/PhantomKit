@@ -31,7 +31,7 @@ class ColorTests: XCTestCase {
 // MARK: - Tests: Convenience
 
 extension ColorTests {
-    func test_initWithHex() throws {
+    func test_init_hex() throws {
         let accuracy = 0.01
         let color = Color(hex: 0xBF7F3F, opacity: 1)
         XCTAssertEqual(color.components.red, 0.75, accuracy: accuracy)
