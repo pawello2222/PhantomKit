@@ -26,11 +26,11 @@ public class ConsoleLogger {
     public var level: LogLevel
     public var options: Options
 
-    var currentDate: () -> Date = {
+    lazy var currentDate: () -> Date = {
         .now
     }
 
-    var log: (String) -> Void = { message in
+    lazy var log: (String) -> Void = { message in
         print(message)
     }
 
