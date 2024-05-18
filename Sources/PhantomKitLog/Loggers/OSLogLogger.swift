@@ -28,8 +28,8 @@ public class OSLogLogger {
 
     public var level: LogLevel
 
-    private var subsystem: String
-    private var loggers: [String: InternalLogger] = [:]
+    var subsystem: String
+    var loggers: [String: InternalLogger] = [:]
 
     lazy var log: (OSLogType, String, String) -> Void = { [weak self] level, message, category in
         self?.logger(for: category).log(level: level, "\(message, privacy: .private)")
@@ -62,8 +62,13 @@ extension OSLogLogger: Logger {
 // MARK: - Helpers
 
 extension OSLogLogger {
-    private func logger(for category: String) -> InternalLogger {
-        loggers[category, default: .init(subsystem: subsystem, category: category)]
+    func logger(for category: String) -> InternalLogger {
+        if let logger = loggers[category] {
+            return logger
+        }
+        let logger = InternalLogger(subsystem: subsystem, category: category)
+        loggers[category] = logger
+        return logger
     }
 }
 

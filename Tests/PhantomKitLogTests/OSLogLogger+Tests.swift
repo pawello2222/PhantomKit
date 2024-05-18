@@ -63,6 +63,21 @@ extension OSLogLoggerTests {
     }
 }
 
+// MARK: - Tests: Helpers
+
+extension OSLogLoggerTests {
+    func test_logger() throws {
+        let logger = OSLogLogger(subsystem: "Test")
+        XCTAssertTrue(logger.loggers.isEmpty)
+        _ = logger.logger(for: "TestCategory")
+        XCTAssertEqual(logger.loggers.count, 1)
+        _ = logger.logger(for: "TestCategory2")
+        XCTAssertEqual(logger.loggers.count, 2)
+        _ = logger.logger(for: "TestCategory2")
+        XCTAssertEqual(logger.loggers.count, 2)
+    }
+}
+
 // MARK: - Tests: OSLogType
 
 extension OSLogLoggerTests {
