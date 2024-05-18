@@ -143,6 +143,15 @@ extension ConsoleLoggerTests {
     }
 }
 
+// MARK: - Tests: Convenience
+
+extension ConsoleLoggerTests {
+    func test_init_osLog() throws {
+        let logger: Logger = .console
+        XCTAssert(logger is ConsoleLogger)
+    }
+}
+
 // MARK: - Private
 
 extension ConsoleLoggerTests {

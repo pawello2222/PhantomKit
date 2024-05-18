@@ -78,6 +78,15 @@ extension OSLogLoggerTests {
     }
 }
 
+// MARK: - Tests: Convenience
+
+extension OSLogLoggerTests {
+    func test_init_osLog() throws {
+        let logger: Logger = .osLog
+        XCTAssert(logger is OSLogLogger)
+    }
+}
+
 // MARK: - Tests: OSLogType
 
 extension OSLogLoggerTests {
