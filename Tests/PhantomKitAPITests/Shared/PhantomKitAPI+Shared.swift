@@ -95,15 +95,28 @@ extension TestDataSource: APIDataSource {
     typealias Endpoint = TestAPIEndpoint
 }
 
+class TestLogger: Logger {
+    var messages: [String] = []
+    var level: LogLevel = .debug
+
+    func log(
+        level: LogLevel,
+        _ message: @autoclosure @escaping () -> String,
+        category: LogCategory?
+    ) {
+        messages.append(message())
+    }
+}
+
 // MARK: - Spies
 
 class NetworkSessionSpy: NetworkSession {
-    var result: Result<URLResponse, Error> = .success(.any)
+    var result: Result<(Data, URLResponse), Error> = .success((.test, .http(code: 200)))
 
     func data(
         for urlRequest: URLRequest,
         delegate: URLSessionTaskDelegate?
     ) async throws -> (Data, URLResponse) {
-        try (Data(), result.get())
+        try result.get()
     }
 }

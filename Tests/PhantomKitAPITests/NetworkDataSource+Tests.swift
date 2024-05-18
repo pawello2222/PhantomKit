@@ -32,7 +32,7 @@ class NetworkDataSourceTests: XCTestCase {
 extension NetworkDataSourceTests {
     func test_call_returnHTTPResponseSuccessCode() async throws {
         let session = NetworkSessionSpy()
-        session.result = .success(.http(code: 200))
+        session.result = .success((.test, .http(code: 200)))
         let dataSource = TestDataSource(session: session)
         let result = try? await dataSource.call(request: .test)
         XCTAssertNotNil(result)
@@ -40,7 +40,7 @@ extension NetworkDataSourceTests {
 
     func test_call_returnHTTPResponseErrorCode() async throws {
         let session = NetworkSessionSpy()
-        session.result = .success(.http(code: 500))
+        session.result = .success((.test, .http(code: 500)))
         let dataSource = TestDataSource(session: session)
         do {
             _ = try await dataSource.call(request: .test)
@@ -53,7 +53,7 @@ extension NetworkDataSourceTests {
 
     func test_call_returnUnexpectedResponse() async throws {
         let session = NetworkSessionSpy()
-        session.result = .success(.any)
+        session.result = .success((.test, .any))
         let dataSource = TestDataSource(session: session)
         do {
             _ = try await dataSource.call(request: .test)
@@ -88,5 +88,29 @@ extension NetworkDataSourceTests {
             return
         }
         XCTFail()
+    }
+}
+
+// MARK: - Tests: Logger
+
+extension NetworkDataSourceTests {
+    func test_call_log() async throws {
+        let logger = TestLogger()
+        let session = NetworkSessionSpy()
+        session.result = .success((.test, .http(code: 200)))
+        let dataSource = TestDataSource(session: session, logger: logger)
+        XCTAssertTrue(logger.messages.isEmpty)
+
+        let result = try? await dataSource.call(request: .test)
+
+        XCTAssertNotNil(result)
+        XCTAssertEqual(logger.messages.count, 2)
+        XCTAssertEqual(
+            logger.messages,
+            [
+                "[GET] --> https://example.com",
+                "[GET] 200 https://example.com\nTest"
+            ]
+        )
     }
 }
