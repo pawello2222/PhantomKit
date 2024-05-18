@@ -35,14 +35,14 @@ extension APIEndpointTests {
             baseURL: "https://api.example.com",
             path: "test",
             method: .get,
-            headers: .acceptJson
+            headers: .test
         )
 
         let request = try endpoint.urlRequest()
 
         XCTAssertEqual(request.url?.absoluteString, "https://api.example.com/test")
         XCTAssertEqual(request.httpMethod, APIMethod.get.rawValue)
-        XCTAssertEqual(request.allHTTPHeaderFields, .acceptJson)
+        XCTAssertEqual(request.allHTTPHeaderFields, .test)
         XCTAssertEqual(request.httpBody, .test)
     }
 
@@ -57,27 +57,4 @@ extension APIEndpointTests {
             XCTAssertEqual(error as? APIError, APIError.invalidURL)
         }
     }
-}
-
-// MARK: - Private
-
-private struct CustomAPIEndpoint: APIEndpoint {
-    var baseURL: String
-    var path: String
-    var method: APIMethod
-    var headers: [String: String]?
-
-    func body() throws -> Data? {
-        .test
-    }
-}
-
-// MARK: - Convenience
-
-extension Data {
-    fileprivate static let test: Self = "Test".data(using: .utf8)!
-}
-
-extension [String: String]? {
-    fileprivate static let acceptJson: Self = ["Accept": "application/json"]
 }

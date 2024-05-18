@@ -20,7 +20,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import PhantomKitLog
 import XCTest
 @testable import PhantomKitAPI
 
@@ -89,56 +88,5 @@ extension NetworkDataSourceTests {
             return
         }
         XCTFail()
-    }
-}
-
-// MARK: - Private
-
-private class CustomDataSource: NetworkDataSource {
-    var session: NetworkSession
-    var logger: Logger?
-
-    init(session: NetworkSession, logger: Logger? = nil) {
-        self.session = session
-        self.logger = logger
-    }
-}
-
-private class NetworkSessionSpy: NetworkSession {
-    var result: Result<URLResponse, Error> = .success(.any)
-
-    func data(
-        for urlRequest: URLRequest,
-        delegate: URLSessionTaskDelegate?
-    ) async throws -> (Data, URLResponse) {
-        try (Data(), result.get())
-    }
-}
-
-// MARK: - Convenience
-
-extension URL {
-    fileprivate static let test: Self = .init(string: "https://example.com")!
-}
-
-extension URLRequest {
-    fileprivate static let test: Self = .init(url: .test)
-}
-
-extension URLResponse {
-    fileprivate static let any: URLResponse = .init(
-        url: .test,
-        mimeType: nil,
-        expectedContentLength: 0,
-        textEncodingName: nil
-    )
-
-    fileprivate static func http(code: Int) -> URLResponse {
-        HTTPURLResponse(
-            url: .test,
-            statusCode: code,
-            httpVersion: nil,
-            headerFields: nil
-        )!
     }
 }
