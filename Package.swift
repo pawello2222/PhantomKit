@@ -12,6 +12,10 @@ let package = Package(
     ],
     products: [
         .library(
+            name: "PhantomKit",
+            targets: ["PhantomKitAPI", "PhantomKitCore", "PhantomKitLog", "PhantomKitUI"]
+        ),
+        .library(
             name: "PhantomKitAPI",
             targets: ["PhantomKitAPI"]
         ),
