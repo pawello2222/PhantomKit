@@ -26,11 +26,11 @@ public class ConsoleLogger {
     public var level: LogLevel
     public var options: Options
 
-    lazy var currentDate: () -> Date = {
+    var currentDate: () -> Date = {
         .now
     }
 
-    lazy var log: (String) -> Void = { message in
+    var log: (String) -> Void = { message in
         print(message)
     }
 
@@ -71,6 +71,7 @@ extension ConsoleLogger: Logger {
         _ message: @autoclosure @escaping () -> String,
         category: LogCategory?
     ) {
+        #if DEBUG
         guard level >= self.level else {
             return
         }
@@ -79,7 +80,6 @@ extension ConsoleLogger: Logger {
             message: message(),
             category: category
         )
-        #if DEBUG
         log(logString)
         #endif
     }

@@ -31,8 +31,8 @@ public class OSLogLogger {
     var subsystem: String
     var loggers: [String: InternalLogger] = [:]
 
-    lazy var log: (OSLogType, String, String) -> Void = { [weak self] level, message, category in
-        self?.logger(for: category).log(level: level, "\(message, privacy: .private)")
+    var log: (InternalLogger, OSLogType, String) -> Void = { logger, level, message in
+        logger.log(level: level, "\(message, privacy: .private)")
     }
 
     public init(level: LogLevel = .info, subsystem: String? = nil) {
@@ -49,12 +49,12 @@ extension OSLogLogger: Logger {
         _ message: @autoclosure @escaping () -> String,
         category: LogCategory?
     ) {
+        #if DEBUG
         guard level >= self.level else {
             return
         }
         let category = category?.name.capitalized ?? "Default"
-        #if DEBUG
-        log(level.osLogType, message(), category)
+        log(logger(for: category), level.osLogType, message())
         #endif
     }
 }
