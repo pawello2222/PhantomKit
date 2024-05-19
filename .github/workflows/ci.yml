@@ -16,22 +16,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: SwiftLint
         uses: norio-nomura/action-swiftlint@3.2.1
 
   test:
-    runs-on: macos-13
+    runs-on: macos-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Test
       run: |
         swift test --enable-code-coverage
         xcrun llvm-cov report $BUILD_FOLDER -instr-profile $PROFDATA_FOLDER
         xcrun llvm-cov export -format="lcov" $BUILD_FOLDER -instr-profile $PROFDATA_FOLDER > $LCOV_PATH
     - name: Upload Coverage Data
-      uses: codecov/codecov-action@v3
+      uses: codecov/codecov-action@v4
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         files: ${{ env.LCOV_PATH }}

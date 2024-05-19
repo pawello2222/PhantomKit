@@ -1,32 +1,68 @@
-// swift-tools-version: 5.7
+// swift-tools-version: 5.9
 
 import PackageDescription
 
 let package = Package(
     name: "PhantomKit",
     platforms: [
-        .iOS(.v16),
-        .macOS(.v13),
-        .watchOS(.v9),
-        .tvOS(.v16)
+        .iOS(.v17),
+        .macOS(.v14),
+        .watchOS(.v10),
+        .tvOS(.v17)
     ],
     products: [
         .library(
-            name: "PhantomKit",
-            targets: ["PhantomKit"]
+            name: "PhantomKitAPI",
+            targets: ["PhantomKitAPI"]
+        ),
+        .library(
+            name: "PhantomKitCore",
+            targets: ["PhantomKitCore"]
+        ),
+        .library(
+            name: "PhantomKitLog",
+            targets: ["PhantomKitLog"]
+        ),
+        .library(
+            name: "PhantomKitUI",
+            targets: ["PhantomKitUI"]
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/pawello2222/Appliable", from: "1.0.0")
+        .package(url: "https://github.com/pawello2222/Appliable", .upToNextMajor(from: "1.0.0"))
     ],
     targets: [
         .target(
-            name: "PhantomKit",
+            name: "PhantomKitAPI",
+            dependencies: ["PhantomKitCore", "PhantomKitLog"]
+        ),
+        .target(
+            name: "PhantomKitCore",
             dependencies: ["Appliable"]
         ),
+        .target(
+            name: "PhantomKitLog",
+            dependencies: ["Appliable"]
+        ),
+        .target(
+            name: "PhantomKitUI",
+            dependencies: ["PhantomKitCore"]
+        ),
         .testTarget(
-            name: "PhantomKitTests",
-            dependencies: ["PhantomKit"]
+            name: "PhantomKitAPITests",
+            dependencies: ["PhantomKitAPI"]
+        ),
+        .testTarget(
+            name: "PhantomKitCoreTests",
+            dependencies: ["PhantomKitCore"]
+        ),
+        .testTarget(
+            name: "PhantomKitLogTests",
+            dependencies: ["PhantomKitCore", "PhantomKitLog"]
+        ),
+        .testTarget(
+            name: "PhantomKitUITests",
+            dependencies: ["PhantomKitUI"]
         )
     ]
 )
