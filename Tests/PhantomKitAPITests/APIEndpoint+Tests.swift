@@ -46,6 +46,18 @@ extension APIEndpointTests {
         XCTAssertEqual(request.httpBody, .test)
     }
 
+    func test_urlRequest_longPath() throws {
+        let endpoint: APIEndpoint = TestAPIEndpoint(
+            baseURL: "https://api.example.com",
+            path: "/test/a/s/v",
+            method: .get
+        )
+
+        let request = try endpoint.urlRequest()
+
+        XCTAssertEqual(request.url?.absoluteString, "https://api.example.com/test/a/s/v")
+    }
+
     func test_urlRequest_invalidURL() throws {
         let endpoint: APIEndpoint = TestAPIEndpoint(
             baseURL: "$xyz://api.example.com",

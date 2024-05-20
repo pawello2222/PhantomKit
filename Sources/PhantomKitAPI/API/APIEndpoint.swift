@@ -36,7 +36,7 @@ public protocol APIEndpoint {
 
 extension APIEndpoint {
     public func urlRequest() throws -> URLRequest {
-        guard let url = URL(string: baseURL)?.appending(component: path) else {
+        guard let url = URL(string: baseURL)?.appending(path: path) else {
             throw APIError.invalidURL
         }
         return try URLRequest(url: url).applying {
